@@ -1,6 +1,6 @@
 {
   "name": "@crawlora-org/sofascore",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Typed JavaScript client for the Crawlora SofaScore API",
   "homepage": "https://github.com/Crawlora-org/crawlora-sofascore#readme",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-sofascore/issues" },
