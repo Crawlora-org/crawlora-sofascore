@@ -39,7 +39,15 @@ The checked-in JavaScript example imports the generated local source at `javascr
 
 ## Contract
 
-This package release is `0.1.1`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:8dc2e500465b7b7f98054def2f9794e0e433d8bbbcba6cfb688e0b6ed0ecbfcd`. `scripts/generate.py` regenerates both language clients and the documentation from the shared source.
+This package release is `0.1.2`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:8dc2e500465b7b7f98054def2f9794e0e433d8bbbcba6cfb688e0b6ed0ecbfcd`. `scripts/generate.py` regenerates both language clients and the documentation from the shared source.
+
+## Contract updates and releases
+
+The `Sync live API contract` workflow checks the deployed public OpenAPI contract every day at **03:17 UTC**. It always reads `https://api.crawlora.net/swagger/doc.json`; its only manual option is `dry_run`, which applies the candidate in the workflow and reports the result without validating, committing, tagging, or publishing it.
+
+An unchanged contract is a no-op and does not run the client test matrix or create a release. Additions and updates are applied to a candidate, checked on Node.js 18 and 22 and Python 3.10 and 3.12, then committed to `main` only after all checks pass. Removing or deprecating an existing operation stops the run for maintainer review; packages already published remain available. The release workflow publishes an accepted version to npm and PyPI. A failed fetch, invalid contract, or failed check also stops before the commit. A later scheduled run can resume an incomplete registry publication at the same package version and immutable tag; recovery does not bypass the removed-operation review.
+
+The workflow does not accept an alternate source URL or a caller-supplied version. To preview a change, open **Actions → Sync live API contract → Run workflow** and select `dry_run`.
 
 ## License
 
