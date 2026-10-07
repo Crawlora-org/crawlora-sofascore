@@ -5,8 +5,6 @@ package sofascore
 import (
 	"context"
 	"sort"
-
-	crawlora "github.com/Crawlora-org/crawlora-go-sdk"
 )
 
 type parameterDefinition struct {
@@ -59,76 +57,76 @@ func OperationIDs() []string {
 }
 
 // Event calls the sofascore-event operation.
-func (c *Client) Event(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Event(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-event", params)
 }
 
 // EventH2h calls the sofascore-event-h2h operation.
-func (c *Client) EventH2h(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) EventH2h(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-event-h2h", params)
 }
 
 // EventIncidents calls the sofascore-event-incidents operation.
-func (c *Client) EventIncidents(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) EventIncidents(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-event-incidents", params)
 }
 
 // EventLineups calls the sofascore-event-lineups operation.
-func (c *Client) EventLineups(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) EventLineups(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-event-lineups", params)
 }
 
 // EventOdds calls the sofascore-event-odds operation.
-func (c *Client) EventOdds(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) EventOdds(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-event-odds", params)
 }
 
 // EventStatistics calls the sofascore-event-statistics operation.
-func (c *Client) EventStatistics(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) EventStatistics(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-event-statistics", params)
 }
 
 // LiveEvents calls the sofascore-live-events operation.
-func (c *Client) LiveEvents(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) LiveEvents(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-live-events", params)
 }
 
 // Player calls the sofascore-player operation.
-func (c *Client) Player(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Player(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-player", params)
 }
 
 // RoundEvents calls the sofascore-round-events operation.
-func (c *Client) RoundEvents(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) RoundEvents(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-round-events", params)
 }
 
 // Search calls the sofascore-search operation.
-func (c *Client) Search(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Search(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-search", params)
 }
 
 // Standings calls the sofascore-standings operation.
-func (c *Client) Standings(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Standings(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-standings", params)
 }
 
 // Team calls the sofascore-team operation.
-func (c *Client) Team(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) Team(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-team", params)
 }
 
 // TeamEvents calls the sofascore-team-events operation.
-func (c *Client) TeamEvents(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) TeamEvents(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-team-events", params)
 }
 
 // TeamPlayers calls the sofascore-team-players operation.
-func (c *Client) TeamPlayers(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) TeamPlayers(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-team-players", params)
 }
 
 // TournamentSeasons calls the sofascore-tournament-seasons operation.
-func (c *Client) TournamentSeasons(ctx context.Context, params crawlora.Params) (any, error) {
+func (c *Client) TournamentSeasons(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-tournament-seasons", params)
 }
