@@ -1,0 +1,2289 @@
+{
+  "basePath": "/api/v1",
+  "definitions": {
+    "app.Response": {
+      "description": "The Response struct is used for wrapping the API response with a code, message, and data.",
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "description": "Data is the response data (can be any object or null)\n@example {\"id\": 1, \"name\": \"John Doe\"}"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventDetail": {
+      "properties": {
+        "attendance": {
+          "type": "integer"
+        },
+        "away_score": {
+          "$ref": "#/definitions/sofascore.ScoreLine"
+        },
+        "away_team": {
+          "$ref": "#/definitions/sofascore.TeamRef"
+        },
+        "home_score": {
+          "$ref": "#/definitions/sofascore.ScoreLine"
+        },
+        "home_team": {
+          "$ref": "#/definitions/sofascore.TeamRef"
+        },
+        "id": {
+          "example": 14025013,
+          "type": "integer"
+        },
+        "referee": {
+          "$ref": "#/definitions/sofascore.Referee"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "start_time": {
+          "example": "2025-08-15T19:00:00Z",
+          "type": "string"
+        },
+        "start_timestamp": {
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/definitions/sofascore.EventStatus"
+        },
+        "tournament": {
+          "$ref": "#/definitions/sofascore.TournamentRef"
+        },
+        "venue": {
+          "$ref": "#/definitions/sofascore.Venue"
+        },
+        "winner_code": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventH2HResponse": {
+      "properties": {
+        "event_id": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "manager_duel": {
+          "$ref": "#/definitions/sofascore.TeamDuel"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team_duel": {
+          "$ref": "#/definitions/sofascore.TeamDuel"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventIncidentsResponse": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "event_id": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "incidents": {
+          "items": {
+            "$ref": "#/definitions/sofascore.Incident"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventLineupsResponse": {
+      "properties": {
+        "away": {
+          "$ref": "#/definitions/sofascore.TeamLineup"
+        },
+        "confirmed": {
+          "type": "boolean"
+        },
+        "event_id": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "home": {
+          "$ref": "#/definitions/sofascore.TeamLineup"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventOddsResponse": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "event_id": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "markets": {
+          "items": {
+            "$ref": "#/definitions/sofascore.OddsMarket"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventResponse": {
+      "properties": {
+        "event": {
+          "$ref": "#/definitions/sofascore.EventDetail"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventStatisticsResponse": {
+      "properties": {
+        "event_id": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "periods": {
+          "items": {
+            "$ref": "#/definitions/sofascore.StatPeriod"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventStatus": {
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "description": {
+          "example": "Ended",
+          "type": "string"
+        },
+        "type": {
+          "example": "finished",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventSummary": {
+      "properties": {
+        "away_score": {
+          "$ref": "#/definitions/sofascore.ScoreLine"
+        },
+        "away_team": {
+          "$ref": "#/definitions/sofascore.TeamRef"
+        },
+        "home_score": {
+          "$ref": "#/definitions/sofascore.ScoreLine"
+        },
+        "home_team": {
+          "$ref": "#/definitions/sofascore.TeamRef"
+        },
+        "id": {
+          "example": 14025013,
+          "type": "integer"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "start_time": {
+          "example": "2025-08-15T19:00:00Z",
+          "type": "string"
+        },
+        "start_timestamp": {
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/definitions/sofascore.EventStatus"
+        },
+        "tournament": {
+          "$ref": "#/definitions/sofascore.TournamentRef"
+        },
+        "winner_code": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.Incident": {
+      "properties": {
+        "added_time": {
+          "type": "integer"
+        },
+        "away_score": {
+          "type": "integer"
+        },
+        "card_color": {
+          "example": "yellow",
+          "type": "string"
+        },
+        "home_score": {
+          "type": "integer"
+        },
+        "is_home": {
+          "type": "boolean"
+        },
+        "player": {
+          "type": "string"
+        },
+        "player_in": {
+          "type": "string"
+        },
+        "player_out": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "text": {
+          "example": "FT",
+          "type": "string"
+        },
+        "time": {
+          "type": "integer"
+        },
+        "type": {
+          "example": "goal",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.LineupPlayer": {
+      "properties": {
+        "jersey_number": {
+          "type": "string"
+        },
+        "player": {
+          "$ref": "#/definitions/sofascore.PlayerRef"
+        },
+        "position": {
+          "type": "string"
+        },
+        "substitute": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.LiveEventsResponse": {
+      "properties": {
+        "count": {
+          "example": 10,
+          "type": "integer"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/sofascore.EventSummary"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "sport": {
+          "example": "football",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.OddsChoice": {
+      "properties": {
+        "name": {
+          "example": "1",
+          "type": "string"
+        },
+        "value": {
+          "example": "29/100",
+          "type": "string"
+        },
+        "winning": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.OddsMarket": {
+      "properties": {
+        "choices": {
+          "items": {
+            "$ref": "#/definitions/sofascore.OddsChoice"
+          },
+          "type": "array"
+        },
+        "group": {
+          "example": "1X2",
+          "type": "string"
+        },
+        "name": {
+          "example": "Full time",
+          "type": "string"
+        },
+        "period": {
+          "example": "Full-time",
+          "type": "string"
+        },
+        "suspended": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.PlayerDetail": {
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "date_of_birth": {
+          "type": "string"
+        },
+        "deceased": {
+          "type": "boolean"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "jersey_number": {
+          "type": "string"
+        },
+        "market_value": {
+          "type": "integer"
+        },
+        "market_value_currency": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        },
+        "preferred_foot": {
+          "type": "string"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "team": {
+          "$ref": "#/definitions/sofascore.TeamRef"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.PlayerRef": {
+      "properties": {
+        "country": {
+          "example": "Spain",
+          "type": "string"
+        },
+        "id": {
+          "example": 855833,
+          "type": "integer"
+        },
+        "name": {
+          "example": "Ferran Torres",
+          "type": "string"
+        },
+        "position": {
+          "example": "F",
+          "type": "string"
+        },
+        "short_name": {
+          "example": "F. Torres",
+          "type": "string"
+        },
+        "slug": {
+          "example": "ferran-torres",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.PlayerResponse": {
+      "properties": {
+        "fetched_at": {
+          "type": "string"
+        },
+        "player": {
+          "$ref": "#/definitions/sofascore.PlayerDetail"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.Referee": {
+      "properties": {
+        "country": {
+          "example": "England",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "example": "Anthony Taylor",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.RoundEventsResponse": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/sofascore.EventSummary"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "has_next_page": {
+          "type": "boolean"
+        },
+        "round": {
+          "type": "integer"
+        },
+        "season_id": {
+          "type": "integer"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "tournament_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.ScoreLine": {
+      "properties": {
+        "current": {
+          "type": "integer"
+        },
+        "period1": {
+          "type": "integer"
+        },
+        "period2": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.SearchResponse": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/sofascore.SearchResult"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.SearchResult": {
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "sport": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "integer"
+        },
+        "team_name": {
+          "type": "string"
+        },
+        "type": {
+          "example": "team",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.Season": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.SquadPlayer": {
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "date_of_birth": {
+          "type": "string"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "jersey_number": {
+          "type": "string"
+        },
+        "market_value": {
+          "type": "integer"
+        },
+        "market_value_currency": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        },
+        "preferred_foot": {
+          "type": "string"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.StandingsGroup": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/definitions/sofascore.StandingsRow"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.StandingsResponse": {
+      "properties": {
+        "fetched_at": {
+          "type": "string"
+        },
+        "groups": {
+          "items": {
+            "$ref": "#/definitions/sofascore.StandingsGroup"
+          },
+          "type": "array"
+        },
+        "season_id": {
+          "type": "integer"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "tournament_id": {
+          "type": "integer"
+        },
+        "type": {
+          "example": "total",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.StandingsRow": {
+      "properties": {
+        "draws": {
+          "type": "integer"
+        },
+        "losses": {
+          "type": "integer"
+        },
+        "matches": {
+          "type": "integer"
+        },
+        "points": {
+          "type": "integer"
+        },
+        "position": {
+          "type": "integer"
+        },
+        "promotion": {
+          "example": "Champions League",
+          "type": "string"
+        },
+        "scores_against": {
+          "type": "integer"
+        },
+        "scores_for": {
+          "type": "integer"
+        },
+        "team": {
+          "$ref": "#/definitions/sofascore.TeamRef"
+        },
+        "wins": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.StatGroup": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/sofascore.StatItem"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.StatItem": {
+      "properties": {
+        "away": {
+          "example": "39%",
+          "type": "string"
+        },
+        "home": {
+          "example": "61%",
+          "type": "string"
+        },
+        "key": {
+          "example": "ballPossession",
+          "type": "string"
+        },
+        "name": {
+          "example": "Ball possession",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.StatPeriod": {
+      "properties": {
+        "groups": {
+          "items": {
+            "$ref": "#/definitions/sofascore.StatGroup"
+          },
+          "type": "array"
+        },
+        "period": {
+          "example": "ALL",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.TeamDetail": {
+      "properties": {
+        "country": {
+          "example": "Spain",
+          "type": "string"
+        },
+        "id": {
+          "example": 2817,
+          "type": "integer"
+        },
+        "manager": {
+          "type": "string"
+        },
+        "name": {
+          "example": "FC Barcelona",
+          "type": "string"
+        },
+        "national": {
+          "type": "boolean"
+        },
+        "primary_color": {
+          "type": "string"
+        },
+        "short_name": {
+          "example": "Barcelona",
+          "type": "string"
+        },
+        "slug": {
+          "example": "barcelona",
+          "type": "string"
+        },
+        "sport": {
+          "example": "Football",
+          "type": "string"
+        },
+        "tournament_id": {
+          "type": "integer"
+        },
+        "tournament_name": {
+          "type": "string"
+        },
+        "venue": {
+          "type": "string"
+        },
+        "venue_capacity": {
+          "type": "integer"
+        },
+        "venue_city": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.TeamDuel": {
+      "properties": {
+        "away_wins": {
+          "type": "integer"
+        },
+        "draws": {
+          "type": "integer"
+        },
+        "home_wins": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.TeamEventsResponse": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "direction": {
+          "example": "next",
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/sofascore.EventSummary"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "has_next_page": {
+          "type": "boolean"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.TeamLineup": {
+      "properties": {
+        "formation": {
+          "example": "4-3-3",
+          "type": "string"
+        },
+        "players": {
+          "items": {
+            "$ref": "#/definitions/sofascore.LineupPlayer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.TeamPlayersResponse": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "players": {
+          "items": {
+            "$ref": "#/definitions/sofascore.SquadPlayer"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.TeamRef": {
+      "properties": {
+        "country": {
+          "example": "Spain",
+          "type": "string"
+        },
+        "id": {
+          "example": 2817,
+          "type": "integer"
+        },
+        "name": {
+          "example": "FC Barcelona",
+          "type": "string"
+        },
+        "national": {
+          "type": "boolean"
+        },
+        "short_name": {
+          "example": "Barcelona",
+          "type": "string"
+        },
+        "slug": {
+          "example": "barcelona",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.TeamResponse": {
+      "properties": {
+        "fetched_at": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team": {
+          "$ref": "#/definitions/sofascore.TeamDetail"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.TournamentRef": {
+      "properties": {
+        "category": {
+          "example": "England",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "example": "Premier League",
+          "type": "string"
+        },
+        "slug": {
+          "example": "premier-league",
+          "type": "string"
+        },
+        "unique_tournament_id": {
+          "example": 17,
+          "type": "integer"
+        },
+        "unique_tournament_name": {
+          "example": "Premier League",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.TournamentSeasonsResponse": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "seasons": {
+          "items": {
+            "$ref": "#/definitions/sofascore.Season"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "tournament_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.Venue": {
+      "properties": {
+        "capacity": {
+          "example": 61276,
+          "type": "integer"
+        },
+        "city": {
+          "example": "Liverpool",
+          "type": "string"
+        },
+        "country": {
+          "example": "England",
+          "type": "string"
+        },
+        "name": {
+          "example": "Anfield",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.eventH2HResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.EventH2HResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.eventIncidentsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.EventIncidentsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.eventLineupsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.EventLineupsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.eventOddsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.EventOddsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.eventResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.EventResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.eventStatisticsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.EventStatisticsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.liveEventsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.LiveEventsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.playerResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.PlayerResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.roundEventsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.RoundEventsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.searchResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.SearchResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.standingsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.StandingsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.teamEventsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.TeamEventsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.teamPlayersResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.TeamPlayersResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.teamResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.TeamResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.tournamentSeasonsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.TournamentSeasonsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "api.crawlora.net",
+  "info": {
+    "contact": {
+      "email": "support@crawlora.net",
+      "name": "API Support",
+      "url": "https://crawlora.net"
+    },
+    "description": "Crawlora is a hosted web-data and SERP API: call documented REST endpoints and get normalized JSON instead of HTML to parse — across search/SERP, maps and local, e-commerce, app stores, social, media and finance. One API key; Crawlora runs the proxy rotation, headless browsers and parsing behind the scenes. Billed pay-on-success: charged only on a successful 2xx response, 1-10 credits per call, with a free tier of 2,000 credits per month and no card. A hosted MCP server (mcp.crawlora.net/mcp) exposes the same catalog as agent tools. Search endpoints accept `q` as a universal alias for whichever search-term parameter they document (`query`, `term`, `keyword`, or Amazon's `k`), so one parameter name works across the whole catalog; an explicitly supplied documented name always wins.",
+    "license": {
+      "name": "Crawlora Terms of Service",
+      "url": "https://crawlora.net/terms"
+    },
+    "termsOfService": "https://crawlora.net/terms",
+    "title": "Crawlora API",
+    "version": "1.2",
+    "x-logo": {
+      "altText": "Crawlora",
+      "backgroundColor": "#FFFFFF",
+      "url": "https://raw.githubusercontent.com/Crawlora-org/crawlora-mcp/main/assets/logo-400x400.png"
+    }
+  },
+  "paths": {
+    "/sofascore/event": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one match's detail (teams, score, status, venue, referee) from SofaScore's credential-free public JSON.",
+        "operationId": "sofascore-event",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore event (match) id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "14025013"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.eventResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore event detail",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/event-h2h": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the historical head-to-head win/draw record between a match's two teams (and managers, when available) from SofaScore's credential-free public JSON.",
+        "operationId": "sofascore-event-h2h",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore event (match) id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "14025013"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.eventH2HResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore event head-to-head",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/event-incidents": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one match's goal, card, substitution, and period timeline from SofaScore's credential-free public JSON. An empty `incidents` list is a valid response before kickoff.",
+        "operationId": "sofascore-event-incidents",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore event (match) id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "14025013"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.eventIncidentsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore event incidents",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/event-lineups": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one match's starting XI and substitutes per side, with formation, from SofaScore's credential-free public JSON. Returns 404 when SofaScore has no lineups for the match.",
+        "operationId": "sofascore-event-lineups",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore event (match) id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "14025013"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.eventLineupsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore event lineups",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/event-odds": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one match's betting markets and choices from SofaScore's credential-free public JSON. Returns 404 when SofaScore has no odds for the match.",
+        "operationId": "sofascore-event-odds",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore event (match) id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "14025013"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.eventOddsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore event odds",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/event-statistics": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one match's statistics (possession, shots, passes, and more, grouped and split by period) from SofaScore's credential-free public JSON. Returns 404 when SofaScore has no tracked statistics for the match.",
+        "operationId": "sofascore-event-statistics",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore event (match) id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "14025013"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.eventStatisticsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore event statistics",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/live-events": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns currently live events for a sport from SofaScore's credential-free public JSON. The `sport` enum accepts `football`, `basketball`, and `tennis`. An empty `events` list is a valid response when nothing is live right now.",
+        "operationId": "sofascore-live-events",
+        "parameters": [
+          {
+            "description": "Sport key",
+            "enum": [
+              "football",
+              "basketball",
+              "tennis"
+            ],
+            "in": "query",
+            "name": "sport",
+            "required": true,
+            "type": "string",
+            "x-example": "football"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.liveEventsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore live events",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/player": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one player's bio (position, height, market value, current team) from SofaScore's credential-free public JSON.",
+        "operationId": "sofascore-player",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore player id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "855833"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.playerResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore player detail",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/round-events": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns fixtures for one round of a competition season from SofaScore's credential-free public JSON. Get `id` from search and `season` from tournament-seasons.",
+        "operationId": "sofascore-round-events",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore unique-tournament (competition) id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "17"
+          },
+          {
+            "description": "Numeric SofaScore season id",
+            "in": "query",
+            "name": "season",
+            "required": true,
+            "type": "string",
+            "x-example": "76986"
+          },
+          {
+            "description": "Round number",
+            "in": "query",
+            "name": "round",
+            "required": true,
+            "type": "integer",
+            "x-example": 1
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.roundEventsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore round fixtures",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Searches SofaScore's credential-free public JSON for teams, players, and competitions matching a free-text query. An empty `results` list is a valid response when nothing matches.",
+        "operationId": "sofascore-search",
+        "parameters": [
+          {
+            "description": "Free-text search query",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "barcelona"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.searchResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore universal search",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/standings": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a league table for a competition season from SofaScore's credential-free public JSON. The `type` enum accepts `total`, `home`, and `away`. Get `id` from search and `season` from tournament-seasons.",
+        "operationId": "sofascore-standings",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore unique-tournament (competition) id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "17"
+          },
+          {
+            "description": "Numeric SofaScore season id",
+            "in": "query",
+            "name": "season",
+            "required": true,
+            "type": "string",
+            "x-example": "76986"
+          },
+          {
+            "description": "Standings variant",
+            "enum": [
+              "total",
+              "home",
+              "away"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "type": "string",
+            "x-example": "total"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.standingsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore standings",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/team": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one team's detail (identity, manager, venue, primary competition) from SofaScore's credential-free public JSON.",
+        "operationId": "sofascore-team",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore team id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "2817"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.teamResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore team detail",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/team-events": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a page of a team's upcoming or recent fixtures from SofaScore's credential-free public JSON. The `direction` enum accepts `next` and `last`. An empty `events` list is a valid response when there is no fixture on that page.",
+        "operationId": "sofascore-team-events",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore team id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "2817"
+          },
+          {
+            "description": "Fixture direction",
+            "enum": [
+              "next",
+              "last"
+            ],
+            "in": "query",
+            "name": "direction",
+            "required": true,
+            "type": "string",
+            "x-example": "next"
+          },
+          {
+            "description": "Zero-based page number",
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "x-example": 0
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.teamEventsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore team fixtures",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/team-players": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a team's full squad from SofaScore's credential-free public JSON.",
+        "operationId": "sofascore-team-players",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore team id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "2817"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.teamPlayersResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore team players",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/tournament-seasons": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the season list for a competition from SofaScore's credential-free public JSON. Use a returned season id with the standings and round-events endpoints.",
+        "operationId": "sofascore-tournament-seasons",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore unique-tournament (competition) id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "17"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.tournamentSeasonsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore competition seasons",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "x-api-key",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "sofascore"
+    }
+  ]
+}

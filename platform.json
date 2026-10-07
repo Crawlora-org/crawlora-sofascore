@@ -1,0 +1,14 @@
+{
+  "async_class_name": "AsyncSofascoreClient",
+  "class_name": "SofascoreClient",
+  "contract_revision": "sha256:8dc2e500465b7b7f98054def2f9794e0e433d8bbbcba6cfb688e0b6ed0ecbfcd",
+  "display_name": "SofaScore",
+  "group_name": "sofascore",
+  "module_name": "crawlora_sofascore",
+  "npm_name": "@crawlora-org/sofascore",
+  "platform": "sofascore",
+  "python_name": "crawlora-sofascore",
+  "repository": "https://github.com/Crawlora-org/crawlora-sofascore",
+  "source_contract_sha256": "f8ff81231fc46cd7d6ef5f5bb99707dfa301c595ce731a533a67b49d055aa44b",
+  "version": "0.1.0"
+}
