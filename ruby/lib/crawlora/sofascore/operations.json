@@ -1,0 +1,600 @@
+{
+  "platform": "sofascore",
+  "operationCount": 15,
+  "operationIds": [
+    "sofascore-event",
+    "sofascore-event-h2h",
+    "sofascore-event-incidents",
+    "sofascore-event-lineups",
+    "sofascore-event-odds",
+    "sofascore-event-statistics",
+    "sofascore-live-events",
+    "sofascore-player",
+    "sofascore-round-events",
+    "sofascore-search",
+    "sofascore-standings",
+    "sofascore-team",
+    "sofascore-team-events",
+    "sofascore-team-players",
+    "sofascore-tournament-seasons"
+  ],
+  "methods": {
+    "event": "sofascore-event",
+    "event_h2h": "sofascore-event-h2h",
+    "event_incidents": "sofascore-event-incidents",
+    "event_lineups": "sofascore-event-lineups",
+    "event_odds": "sofascore-event-odds",
+    "event_statistics": "sofascore-event-statistics",
+    "live_events": "sofascore-live-events",
+    "player": "sofascore-player",
+    "round_events": "sofascore-round-events",
+    "search": "sofascore-search",
+    "standings": "sofascore-standings",
+    "team": "sofascore-team",
+    "team_events": "sofascore-team-events",
+    "team_players": "sofascore-team-players",
+    "tournament_seasons": "sofascore-tournament-seasons"
+  },
+  "operations": {
+    "sofascore-event": {
+      "id": "sofascore-event",
+      "method": "GET",
+      "path": "/sofascore/event",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore event (match) id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "14025013"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-event-h2h": {
+      "id": "sofascore-event-h2h",
+      "method": "GET",
+      "path": "/sofascore/event-h2h",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore event (match) id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "14025013"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-event-incidents": {
+      "id": "sofascore-event-incidents",
+      "method": "GET",
+      "path": "/sofascore/event-incidents",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore event (match) id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "14025013"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-event-lineups": {
+      "id": "sofascore-event-lineups",
+      "method": "GET",
+      "path": "/sofascore/event-lineups",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore event (match) id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "14025013"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-event-odds": {
+      "id": "sofascore-event-odds",
+      "method": "GET",
+      "path": "/sofascore/event-odds",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore event (match) id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "14025013"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-event-statistics": {
+      "id": "sofascore-event-statistics",
+      "method": "GET",
+      "path": "/sofascore/event-statistics",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore event (match) id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "14025013"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-live-events": {
+      "id": "sofascore-live-events",
+      "method": "GET",
+      "path": "/sofascore/live-events",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "sport",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "football",
+            "basketball",
+            "tennis"
+          ]
+        }
+      ],
+      "params": [
+        {
+          "description": "Sport key",
+          "enum": [
+            "football",
+            "basketball",
+            "tennis"
+          ],
+          "in": "query",
+          "name": "sport",
+          "required": true,
+          "type": "string",
+          "x-example": "football"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-player": {
+      "id": "sofascore-player",
+      "method": "GET",
+      "path": "/sofascore/player",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore player id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "855833"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-round-events": {
+      "id": "sofascore-round-events",
+      "method": "GET",
+      "path": "/sofascore/round-events",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "season",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "round",
+          "in": "query",
+          "type": "integer",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore unique-tournament (competition) id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "17"
+        },
+        {
+          "description": "Numeric SofaScore season id",
+          "in": "query",
+          "name": "season",
+          "required": true,
+          "type": "string",
+          "x-example": "76986"
+        },
+        {
+          "description": "Round number",
+          "in": "query",
+          "name": "round",
+          "required": true,
+          "type": "integer",
+          "x-example": 1
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-search": {
+      "id": "sofascore-search",
+      "method": "GET",
+      "path": "/sofascore/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Free-text search query",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "barcelona"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-standings": {
+      "id": "sofascore-standings",
+      "method": "GET",
+      "path": "/sofascore/standings",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "season",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "total",
+            "home",
+            "away"
+          ]
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore unique-tournament (competition) id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "17"
+        },
+        {
+          "description": "Numeric SofaScore season id",
+          "in": "query",
+          "name": "season",
+          "required": true,
+          "type": "string",
+          "x-example": "76986"
+        },
+        {
+          "description": "Standings variant",
+          "enum": [
+            "total",
+            "home",
+            "away"
+          ],
+          "in": "query",
+          "name": "type",
+          "required": true,
+          "type": "string",
+          "x-example": "total"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-team": {
+      "id": "sofascore-team",
+      "method": "GET",
+      "path": "/sofascore/team",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore team id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "2817"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-team-events": {
+      "id": "sofascore-team-events",
+      "method": "GET",
+      "path": "/sofascore/team-events",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "direction",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "next",
+            "last"
+          ]
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore team id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "2817"
+        },
+        {
+          "description": "Fixture direction",
+          "enum": [
+            "next",
+            "last"
+          ],
+          "in": "query",
+          "name": "direction",
+          "required": true,
+          "type": "string",
+          "x-example": "next"
+        },
+        {
+          "description": "Zero-based page number",
+          "in": "query",
+          "name": "page",
+          "type": "integer",
+          "x-example": 0
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-team-players": {
+      "id": "sofascore-team-players",
+      "method": "GET",
+      "path": "/sofascore/team-players",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore team id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "2817"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "sofascore-tournament-seasons": {
+      "id": "sofascore-tournament-seasons",
+      "method": "GET",
+      "path": "/sofascore/tournament-seasons",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Numeric SofaScore unique-tournament (competition) id",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "17"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    }
+  }
+}
