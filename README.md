@@ -6,16 +6,27 @@ The packages do not run a browser or scrape SofaScore locally. Crawlora is an in
 
 - JavaScript / TypeScript: [`@crawlora-org/sofascore`](javascript/README.md)
 - Python: [`crawlora-sofascore`](python/README.md)
+- Go: [`github.com/Crawlora-org/crawlora-sofascore`](go.mod)
+- Ruby: [`crawlora-sofascore`](ruby/README.md)
+- Java: [`net.crawlora:crawlora-sofascore:0.1.4`](java/README.md)
+- PHP: [`crawlora/sofascore`](php/README.md)
 - Full endpoint and parameter reference: [docs/usage.md](docs/usage.md)
 - Runnable samples: [examples/](examples/)
 - Source repository: [https://github.com/Crawlora-org/crawlora-sofascore](https://github.com/Crawlora-org/crawlora-sofascore)
+
+Create an account at [crawlora.net](https://crawlora.net/signup), open the [Crawlora console](https://crawlora.net/app) to get an API key, or read the [API documentation](https://crawlora.net/docs).
 
 ## Install
 
 ```sh
 npm install @crawlora-org/sofascore
 python -m pip install crawlora-sofascore
+go get github.com/Crawlora-org/crawlora-sofascore@latest
+gem install crawlora-sofascore
+composer require crawlora/sofascore
 ```
+
+For Java, add `net.crawlora:crawlora-sofascore:0.1.4` to your Maven dependencies; see [java/README.md](java/README.md).
 
 Set your Crawlora key in the environment before running a client:
 
@@ -24,6 +35,28 @@ export CRAWLORA_API_KEY="your-crawlora-api-key"
 ```
 
 Do not commit API keys. See the language-specific READMEs for sync and async use.
+
+## PHP example
+
+The Packagist package is available as `crawlora/sofascore`:
+
+```sh
+composer require crawlora/sofascore
+```
+
+```php
+<?php
+require __DIR__ . '/vendor/autoload.php';
+
+$apiKey = getenv('CRAWLORA_API_KEY');
+if (!$apiKey) throw new RuntimeException('Set CRAWLORA_API_KEY before running this example.');
+$client = new \Crawlora\Sofascore\Client(apiKey: $apiKey);
+$result = $client->request("sofascore-search", ['q' => 'Liverpool']);
+print_r($result);
+$client->close();
+```
+
+The same example and install details are in [php/README.md](php/README.md).
 
 ## Run examples from a source checkout
 
@@ -35,17 +68,17 @@ python -m pip install ./python
 python examples/python.py
 ```
 
-The checked-in JavaScript example imports the generated local source at `javascript/src/index.js`. The Python command installs this checkout's package before running its example. The import snippets in the language-specific READMEs are for separate projects using installed npm and PyPI packages; copy those snippets into your own project after installing the package.
+The checked-in JavaScript example imports the generated local source at `javascript/src/index.js`. The Python command installs this checkout's package before running its example. Every language-specific README also includes an install snippet and a client call for the corresponding registry package.
 
 ## Contract
 
-This package release is `0.1.3`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:8dc2e500465b7b7f98054def2f9794e0e433d8bbbcba6cfb688e0b6ed0ecbfcd`. `scripts/generate.py` regenerates both language clients and the documentation from the shared source.
+This package release is `0.1.4`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:8dc2e500465b7b7f98054def2f9794e0e433d8bbbcba6cfb688e0b6ed0ecbfcd`. `scripts/generate.py` regenerates all six language clients and the documentation from the shared source.
 
 ## Contract updates and releases
 
 The `Sync live API contract` workflow checks the deployed public OpenAPI contract every day at **03:17 UTC**. It always reads `https://api.crawlora.net/swagger/doc.json`; its only manual option is `dry_run`, which applies the candidate in the workflow and reports the result without validating, committing, tagging, or publishing it.
 
-An unchanged contract is a no-op and does not run the client test matrix or create a release. Additions and updates are applied to a candidate, checked on Node.js 18 and 22 and Python 3.10 and 3.12, then committed to `main` only after all checks pass. Removing or deprecating an existing operation stops the run for maintainer review; packages already published remain available. The release workflow publishes an accepted version to npm and PyPI. A failed fetch, invalid contract, or failed check also stops before the commit. A later scheduled run can resume an incomplete registry publication at the same package version and immutable tag; recovery does not bypass the removed-operation review.
+An unchanged contract is a no-op and does not run the client test matrix or create a release. Additions and updates are applied to a candidate, checked across Node.js, Python, Go, Ruby, Java, and PHP, then committed to `main` only after all checks pass. Removing or deprecating an existing operation stops the run for maintainer review; packages already published remain available. The release workflow publishes accepted versions to npm, PyPI, Go modules, RubyGems, Maven Central, and Packagist. A failed fetch, invalid contract, or failed check also stops before the commit. A later scheduled run can resume an incomplete registry publication at the same package version and immutable tag; recovery does not bypass the removed-operation review.
 
 The workflow does not accept an alternate source URL or a caller-supplied version. To preview a change, open **Actions → Sync live API contract → Run workflow** and select `dry_run`.
 
