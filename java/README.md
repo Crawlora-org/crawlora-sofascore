@@ -8,7 +8,7 @@ The official Java client for Crawlora's hosted SofaScore API. It calls Crawlora'
 <dependency>
   <groupId>net.crawlora</groupId>
   <artifactId>crawlora-sofascore</artifactId>
-  <version>0.1.4</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 
@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 try (Client client = new Client(System.getenv("CRAWLORA_API_KEY"))) {
-    Object result = client.event(Map.ofEntries(Map.entry("id", "sample")));
+    Object result = client.categories(Map.ofEntries(Map.entry("sport", "american-football")));
     System.out.println(result);
 }
 ```

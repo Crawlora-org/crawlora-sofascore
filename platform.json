@@ -1,21 +1,35 @@
 {
   "async_class_name": "AsyncSofascoreClient",
   "class_name": "SofascoreClient",
-  "contract_revision": "sha256:8dc2e500465b7b7f98054def2f9794e0e433d8bbbcba6cfb688e0b6ed0ecbfcd",
+  "contract_revision": "sha256:91686922e3c5ab6569dbe0abd882fbbbc86c4395a86f151582a2291fb11de036",
   "display_name": "SofaScore",
+  "general_sdk_version": "1.46.0-sdk.1",
+  "golang_module_name": "github.com/Crawlora-org/crawlora-sofascore",
+  "golang_version": "0.2.0",
   "group_name": "sofascore",
+  "maven_artifact_id": "crawlora-sofascore",
+  "maven_group_id": "net.crawlora",
   "module_name": "crawlora_sofascore",
   "npm_name": "@crawlora-org/sofascore",
+  "php_package_name": "crawlora/sofascore",
   "platform": "sofascore",
   "python_name": "crawlora-sofascore",
   "releases": [
     {
-      "version": "0.1.4",
-      "date": "2026-10-08",
+      "changes": [
+        "Added operations: sofascore-categories, sofascore-category-tournaments, sofascore-event-best-players, sofascore-event-comments, sofascore-event-graph, sofascore-event-player-statistics, sofascore-event-shotmap, sofascore-manager, sofascore-manager-events, sofascore-player-season-statistics, sofascore-player-statistics-seasons, sofascore-player-transfers, sofascore-ranking-types, sofascore-rankings, sofascore-scheduled-events, sofascore-scheduled-tournaments, sofascore-season-events, sofascore-sports, sofascore-team-of-the-week, sofascore-team-of-the-week-periods, sofascore-team-season-statistics, sofascore-team-statistics-seasons, sofascore-team-transfers, sofascore-tournament-info, sofascore-tournament-player-statistics, sofascore-tournament-rounds, sofascore-tournament-top-players, sofascore-tournament-top-teams.",
+        "Updated operation contracts: sofascore-live-events, sofascore-round-events."
+      ],
+      "date": "2026-10-07",
+      "version": "0.2.0"
+    },
+    {
       "changes": [
         "Add focused Go, Ruby, Java, and PHP clients with registry installation examples and Crawlora links.",
         "Synchronize and verify package releases across npm, PyPI, Go modules, RubyGems, Maven Central, GitHub Packages, and Packagist."
-      ]
+      ],
+      "date": "2026-10-08",
+      "version": "0.1.4"
     },
     {
       "changes": [
@@ -50,13 +64,7 @@
     }
   ],
   "repository": "https://github.com/Crawlora-org/crawlora-sofascore",
-  "source_contract_sha256": "f8ff81231fc46cd7d6ef5f5bb99707dfa301c595ce731a533a67b49d055aa44b",
-  "version": "0.1.4",
-  "golang_module_name": "github.com/Crawlora-org/crawlora-sofascore",
-  "golang_version": "0.1.4",
   "ruby_gem_name": "crawlora-sofascore",
-  "php_package_name": "crawlora/sofascore",
-  "maven_group_id": "net.crawlora",
-  "maven_artifact_id": "crawlora-sofascore",
-  "general_sdk_version": "1.46.0-sdk.1"
+  "source_contract_sha256": "f6e89437c3aad21325cd5fc956c336c8efbb8615a20a15be9b933c2664c2b097",
+  "version": "0.2.0"
 }

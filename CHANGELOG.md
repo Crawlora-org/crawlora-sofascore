@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.0 — 2026-10-07
+
+- Added operations: sofascore-categories, sofascore-category-tournaments, sofascore-event-best-players, sofascore-event-comments, sofascore-event-graph, sofascore-event-player-statistics, sofascore-event-shotmap, sofascore-manager, sofascore-manager-events, sofascore-player-season-statistics, sofascore-player-statistics-seasons, sofascore-player-transfers, sofascore-ranking-types, sofascore-rankings, sofascore-scheduled-events, sofascore-scheduled-tournaments, sofascore-season-events, sofascore-sports, sofascore-team-of-the-week, sofascore-team-of-the-week-periods, sofascore-team-season-statistics, sofascore-team-statistics-seasons, sofascore-team-transfers, sofascore-tournament-info, sofascore-tournament-player-statistics, sofascore-tournament-rounds, sofascore-tournament-top-players, sofascore-tournament-top-teams.
+- Updated operation contracts: sofascore-live-events, sofascore-round-events.
+
 ## 0.1.4 — 2026-10-08
 
 - Add focused Go, Ruby, Java, and PHP clients with registry installation examples and Crawlora links.

@@ -22,43 +22,99 @@ import java.util.TreeSet;
 /** Client for the SofaScore endpoints hosted by Crawlora. */
 public final class Client implements AutoCloseable {
     public static final String DEFAULT_BASE_URL = "https://api.crawlora.net/api/v1";
-    public static final int OPERATION_COUNT = 15;
+    public static final int OPERATION_COUNT = 43;
     public static final List<String> OPERATION_IDS = List.of(
+            "sofascore-categories",
+            "sofascore-category-tournaments",
             "sofascore-event",
+            "sofascore-event-best-players",
+            "sofascore-event-comments",
+            "sofascore-event-graph",
             "sofascore-event-h2h",
             "sofascore-event-incidents",
             "sofascore-event-lineups",
             "sofascore-event-odds",
+            "sofascore-event-player-statistics",
+            "sofascore-event-shotmap",
             "sofascore-event-statistics",
             "sofascore-live-events",
+            "sofascore-manager",
+            "sofascore-manager-events",
             "sofascore-player",
+            "sofascore-player-season-statistics",
+            "sofascore-player-statistics-seasons",
+            "sofascore-player-transfers",
+            "sofascore-ranking-types",
+            "sofascore-rankings",
             "sofascore-round-events",
+            "sofascore-scheduled-events",
+            "sofascore-scheduled-tournaments",
             "sofascore-search",
+            "sofascore-season-events",
+            "sofascore-sports",
             "sofascore-standings",
             "sofascore-team",
             "sofascore-team-events",
+            "sofascore-team-of-the-week",
+            "sofascore-team-of-the-week-periods",
             "sofascore-team-players",
-            "sofascore-tournament-seasons"
+            "sofascore-team-season-statistics",
+            "sofascore-team-statistics-seasons",
+            "sofascore-team-transfers",
+            "sofascore-tournament-info",
+            "sofascore-tournament-player-statistics",
+            "sofascore-tournament-rounds",
+            "sofascore-tournament-seasons",
+            "sofascore-tournament-top-players",
+            "sofascore-tournament-top-teams"
     );
 
     private static final Map<String, Operation> OPERATIONS;
     static {
         Map<String, Operation> operations = new LinkedHashMap<>();
+        operations.put("sofascore-categories", new Operation("sofascore-categories", "GET", "/sofascore/categories", Map.ofEntries(Map.entry("sport", new Param("sport", "query", true, "string", List.of("american-football", "aussie-rules", "badminton", "bandy", "baseball", "basketball", "beach-volley", "cricket", "darts", "esports", "floorball", "football", "futsal", "handball", "ice-hockey", "mma", "minifootball", "padel", "rugby", "snooker", "table-tennis", "tennis", "volleyball", "waterpolo"), "csv"))), List.of("application/json")));
+        operations.put("sofascore-category-tournaments", new Operation("sofascore-category-tournaments", "GET", "/sofascore/category-tournaments", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event", new Operation("sofascore-event", "GET", "/sofascore/event", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-event-best-players", new Operation("sofascore-event-best-players", "GET", "/sofascore/event-best-players", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-event-comments", new Operation("sofascore-event-comments", "GET", "/sofascore/event-comments", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-event-graph", new Operation("sofascore-event-graph", "GET", "/sofascore/event-graph", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-h2h", new Operation("sofascore-event-h2h", "GET", "/sofascore/event-h2h", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-incidents", new Operation("sofascore-event-incidents", "GET", "/sofascore/event-incidents", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-lineups", new Operation("sofascore-event-lineups", "GET", "/sofascore/event-lineups", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-odds", new Operation("sofascore-event-odds", "GET", "/sofascore/event-odds", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-event-player-statistics", new Operation("sofascore-event-player-statistics", "GET", "/sofascore/event-player-statistics", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("player_id", new Param("player_id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-event-shotmap", new Operation("sofascore-event-shotmap", "GET", "/sofascore/event-shotmap", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-statistics", new Operation("sofascore-event-statistics", "GET", "/sofascore/event-statistics", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
-        operations.put("sofascore-live-events", new Operation("sofascore-live-events", "GET", "/sofascore/live-events", Map.ofEntries(Map.entry("sport", new Param("sport", "query", true, "string", List.of("football", "basketball", "tennis"), "csv"))), List.of("application/json")));
+        operations.put("sofascore-live-events", new Operation("sofascore-live-events", "GET", "/sofascore/live-events", Map.ofEntries(Map.entry("sport", new Param("sport", "query", true, "string", List.of("american-football", "aussie-rules", "badminton", "bandy", "baseball", "basketball", "beach-volley", "cricket", "darts", "esports", "floorball", "football", "futsal", "handball", "ice-hockey", "mma", "minifootball", "padel", "rugby", "snooker", "table-tennis", "tennis", "volleyball", "waterpolo"), "csv"))), List.of("application/json")));
+        operations.put("sofascore-manager", new Operation("sofascore-manager", "GET", "/sofascore/manager", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-manager-events", new Operation("sofascore-manager-events", "GET", "/sofascore/manager-events", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-player", new Operation("sofascore-player", "GET", "/sofascore/player", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
-        operations.put("sofascore-round-events", new Operation("sofascore-round-events", "GET", "/sofascore/round-events", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("round", new Param("round", "query", true, "integer", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-player-season-statistics", new Operation("sofascore-player-season-statistics", "GET", "/sofascore/player-season-statistics", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("tournament_id", new Param("tournament_id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("type", new Param("type", "query", false, "string", List.of("overall", "home", "away", "regular_season", "playoffs"), "csv"))), List.of("application/json")));
+        operations.put("sofascore-player-statistics-seasons", new Operation("sofascore-player-statistics-seasons", "GET", "/sofascore/player-statistics-seasons", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-player-transfers", new Operation("sofascore-player-transfers", "GET", "/sofascore/player-transfers", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-ranking-types", new Operation("sofascore-ranking-types", "GET", "/sofascore/ranking-types", Map.of(), List.of("application/json")));
+        operations.put("sofascore-rankings", new Operation("sofascore-rankings", "GET", "/sofascore/rankings", Map.ofEntries(Map.entry("type", new Param("type", "query", true, "integer", List.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "34", "35", "36", "37", "40", "41", "42", "43", "44", "45", "46"), "csv")), Map.entry("limit", new Param("limit", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-round-events", new Operation("sofascore-round-events", "GET", "/sofascore/round-events", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("round", new Param("round", "query", true, "integer", List.of(), "csv")), Map.entry("slug", new Param("slug", "query", false, "string", List.of(), "csv")), Map.entry("prefix", new Param("prefix", "query", false, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-scheduled-events", new Operation("sofascore-scheduled-events", "GET", "/sofascore/scheduled-events", Map.ofEntries(Map.entry("category_id", new Param("category_id", "query", true, "string", List.of(), "csv")), Map.entry("date", new Param("date", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-scheduled-tournaments", new Operation("sofascore-scheduled-tournaments", "GET", "/sofascore/scheduled-tournaments", Map.ofEntries(Map.entry("sport", new Param("sport", "query", true, "string", List.of("american-football", "aussie-rules", "badminton", "bandy", "baseball", "basketball", "beach-volley", "cricket", "darts", "esports", "floorball", "football", "futsal", "handball", "ice-hockey", "mma", "minifootball", "padel", "rugby", "snooker", "table-tennis", "tennis", "volleyball", "waterpolo"), "csv")), Map.entry("date", new Param("date", "query", true, "string", List.of(), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-search", new Operation("sofascore-search", "GET", "/sofascore/search", Map.ofEntries(Map.entry("q", new Param("q", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-season-events", new Operation("sofascore-season-events", "GET", "/sofascore/season-events", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("direction", new Param("direction", "query", true, "string", List.of("next", "last"), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-sports", new Operation("sofascore-sports", "GET", "/sofascore/sports", Map.of(), List.of("application/json")));
         operations.put("sofascore-standings", new Operation("sofascore-standings", "GET", "/sofascore/standings", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("type", new Param("type", "query", true, "string", List.of("total", "home", "away"), "csv"))), List.of("application/json")));
         operations.put("sofascore-team", new Operation("sofascore-team", "GET", "/sofascore/team", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-team-events", new Operation("sofascore-team-events", "GET", "/sofascore/team-events", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("direction", new Param("direction", "query", true, "string", List.of("next", "last"), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-team-of-the-week", new Operation("sofascore-team-of-the-week", "GET", "/sofascore/team-of-the-week", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("period", new Param("period", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-team-of-the-week-periods", new Operation("sofascore-team-of-the-week-periods", "GET", "/sofascore/team-of-the-week-periods", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-team-players", new Operation("sofascore-team-players", "GET", "/sofascore/team-players", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-team-season-statistics", new Operation("sofascore-team-season-statistics", "GET", "/sofascore/team-season-statistics", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("tournament_id", new Param("tournament_id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("type", new Param("type", "query", false, "string", List.of("overall", "home", "away", "regular_season", "playoffs"), "csv"))), List.of("application/json")));
+        operations.put("sofascore-team-statistics-seasons", new Operation("sofascore-team-statistics-seasons", "GET", "/sofascore/team-statistics-seasons", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-team-transfers", new Operation("sofascore-team-transfers", "GET", "/sofascore/team-transfers", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-tournament-info", new Operation("sofascore-tournament-info", "GET", "/sofascore/tournament-info", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", false, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-tournament-player-statistics", new Operation("sofascore-tournament-player-statistics", "GET", "/sofascore/tournament-player-statistics", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("order", new Param("order", "query", false, "string", List.of("rating", "goals", "expectedGoals", "assists", "successfulDribbles", "tackles", "accuratePassesPercentage", "bigChancesMissed", "totalShots", "goalConversionPercentage", "interceptions", "clearances", "errorLeadToGoal", "outfielderBlocks", "bigChancesCreated", "accuratePasses", "keyPasses", "saves", "cleanSheet", "penaltySave", "savedShotsFromInsideTheBox", "runsOut"), "csv")), Map.entry("direction", new Param("direction", "query", false, "string", List.of("desc", "asc"), "csv")), Map.entry("accumulation", new Param("accumulation", "query", false, "string", List.of("total", "perGame", "per90"), "csv")), Map.entry("group", new Param("group", "query", false, "string", List.of("summary", "attack", "defence", "passing", "goalkeeper"), "csv")), Map.entry("limit", new Param("limit", "query", false, "integer", List.of(), "csv")), Map.entry("offset", new Param("offset", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-tournament-rounds", new Operation("sofascore-tournament-rounds", "GET", "/sofascore/tournament-rounds", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-tournament-seasons", new Operation("sofascore-tournament-seasons", "GET", "/sofascore/tournament-seasons", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-tournament-top-players", new Operation("sofascore-tournament-top-players", "GET", "/sofascore/tournament-top-players", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("type", new Param("type", "query", false, "string", List.of("overall", "regular_season", "playoffs"), "csv")), Map.entry("limit", new Param("limit", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-tournament-top-teams", new Operation("sofascore-tournament-top-teams", "GET", "/sofascore/tournament-top-teams", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("type", new Param("type", "query", false, "string", List.of("overall", "regular_season", "playoffs"), "csv")), Map.entry("limit", new Param("limit", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         OPERATIONS = Collections.unmodifiableMap(operations);
     }
 
@@ -149,21 +205,49 @@ public final class Client implements AutoCloseable {
         }
     }
 
+    public Object categories(Map<String, ?> params) { return request("sofascore-categories", params); }
+    public Object categoryTournaments(Map<String, ?> params) { return request("sofascore-category-tournaments", params); }
     public Object event(Map<String, ?> params) { return request("sofascore-event", params); }
+    public Object eventBestPlayers(Map<String, ?> params) { return request("sofascore-event-best-players", params); }
+    public Object eventComments(Map<String, ?> params) { return request("sofascore-event-comments", params); }
+    public Object eventGraph(Map<String, ?> params) { return request("sofascore-event-graph", params); }
     public Object eventH2h(Map<String, ?> params) { return request("sofascore-event-h2h", params); }
     public Object eventIncidents(Map<String, ?> params) { return request("sofascore-event-incidents", params); }
     public Object eventLineups(Map<String, ?> params) { return request("sofascore-event-lineups", params); }
     public Object eventOdds(Map<String, ?> params) { return request("sofascore-event-odds", params); }
+    public Object eventPlayerStatistics(Map<String, ?> params) { return request("sofascore-event-player-statistics", params); }
+    public Object eventShotmap(Map<String, ?> params) { return request("sofascore-event-shotmap", params); }
     public Object eventStatistics(Map<String, ?> params) { return request("sofascore-event-statistics", params); }
     public Object liveEvents(Map<String, ?> params) { return request("sofascore-live-events", params); }
+    public Object manager(Map<String, ?> params) { return request("sofascore-manager", params); }
+    public Object managerEvents(Map<String, ?> params) { return request("sofascore-manager-events", params); }
     public Object player(Map<String, ?> params) { return request("sofascore-player", params); }
+    public Object playerSeasonStatistics(Map<String, ?> params) { return request("sofascore-player-season-statistics", params); }
+    public Object playerStatisticsSeasons(Map<String, ?> params) { return request("sofascore-player-statistics-seasons", params); }
+    public Object playerTransfers(Map<String, ?> params) { return request("sofascore-player-transfers", params); }
+    public Object rankingTypes(Map<String, ?> params) { return request("sofascore-ranking-types", params); }
+    public Object rankings(Map<String, ?> params) { return request("sofascore-rankings", params); }
     public Object roundEvents(Map<String, ?> params) { return request("sofascore-round-events", params); }
+    public Object scheduledEvents(Map<String, ?> params) { return request("sofascore-scheduled-events", params); }
+    public Object scheduledTournaments(Map<String, ?> params) { return request("sofascore-scheduled-tournaments", params); }
     public Object search(Map<String, ?> params) { return request("sofascore-search", params); }
+    public Object seasonEvents(Map<String, ?> params) { return request("sofascore-season-events", params); }
+    public Object sports(Map<String, ?> params) { return request("sofascore-sports", params); }
     public Object standings(Map<String, ?> params) { return request("sofascore-standings", params); }
     public Object team(Map<String, ?> params) { return request("sofascore-team", params); }
     public Object teamEvents(Map<String, ?> params) { return request("sofascore-team-events", params); }
+    public Object teamOfTheWeek(Map<String, ?> params) { return request("sofascore-team-of-the-week", params); }
+    public Object teamOfTheWeekPeriods(Map<String, ?> params) { return request("sofascore-team-of-the-week-periods", params); }
     public Object teamPlayers(Map<String, ?> params) { return request("sofascore-team-players", params); }
+    public Object teamSeasonStatistics(Map<String, ?> params) { return request("sofascore-team-season-statistics", params); }
+    public Object teamStatisticsSeasons(Map<String, ?> params) { return request("sofascore-team-statistics-seasons", params); }
+    public Object teamTransfers(Map<String, ?> params) { return request("sofascore-team-transfers", params); }
+    public Object tournamentInfo(Map<String, ?> params) { return request("sofascore-tournament-info", params); }
+    public Object tournamentPlayerStatistics(Map<String, ?> params) { return request("sofascore-tournament-player-statistics", params); }
+    public Object tournamentRounds(Map<String, ?> params) { return request("sofascore-tournament-rounds", params); }
     public Object tournamentSeasons(Map<String, ?> params) { return request("sofascore-tournament-seasons", params); }
+    public Object tournamentTopPlayers(Map<String, ?> params) { return request("sofascore-tournament-top-players", params); }
+    public Object tournamentTopTeams(Map<String, ?> params) { return request("sofascore-tournament-top-teams", params); }
 
     private static String acceptHeader(Operation operation) {
         return operation.produces().isEmpty() ? "application/json" : String.join(", ", operation.produces());

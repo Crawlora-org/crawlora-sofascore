@@ -13,8 +13,8 @@ test("exports only this platform and exposes direct and grouped methods", async 
   const client = new SofascoreClient({ apiKey: "test-key", fetch: async () => json({ ok: true }) });
   assert.equal(operationCount, Object.keys(operations).length);
   assert.deepEqual(Object.keys(groups), ["sofascore"]);
-  assert.equal(typeof client["event"], "function");
-  assert.equal(typeof client["sofascore"]["event"], "function");
+  assert.equal(typeof client["categories"], "function");
+  assert.equal(typeof client["sofascore"]["categories"], "function");
 });
 
 test("serializes required query/path values, adds API key and platform User-Agent", async () => {
@@ -23,10 +23,10 @@ test("serializes required query/path values, adds API key and platform User-Agen
     seen = { url: String(url), headers: init.headers };
     return json({ ok: true });
   } });
-  await client.request("sofascore-event", {"id": "sample"});
-  assert.match(seen.url, /\/sofascore\/event/);
+  await client.request("sofascore-categories", {"sport": "american-football"});
+  assert.match(seen.url, /\/sofascore\/categories/);
   assert.equal(seen.headers["x-api-key"], "secret");
-  assert.equal(seen.headers["user-agent"], "crawlora-sofascore-js/0.1.4");
+  assert.equal(seen.headers["user-agent"], "crawlora-sofascore-js/0.2.0");
 });
 
 test("allows caller User-Agent override and response text mode", async () => {
@@ -35,7 +35,7 @@ test("allows caller User-Agent override and response text mode", async () => {
     seen = init.headers;
     return new Response("caption text", { headers: { "content-type": "text/plain" } });
   } });
-  const result = await client.request("sofascore-event", {"id": "sample"}, { responseType: "text" });
+  const result = await client.request("sofascore-categories", {"sport": "american-football"}, { responseType: "text" });
   assert.equal(seen["user-agent"], "custom-agent");
   assert.equal(result, "caption text");
 
@@ -43,7 +43,7 @@ test("allows caller User-Agent override and response text mode", async () => {
   const autoClient = new SofascoreClient({ fetch: async () => new Response(rawFeed, {
     headers: { "content-type": "text/plain" }
   }) });
-  assert.equal(await autoClient.request("sofascore-event", {"id": "sample"}), rawFeed);
+  assert.equal(await autoClient.request("sofascore-categories", {"sport": "american-football"}), rawFeed);
 });
 
 test("maps API errors and retries server failures", async () => {
@@ -52,13 +52,13 @@ test("maps API errors and retries server failures", async () => {
     calls++;
     return calls === 1 ? json({ msg: "try again" }, 503) : json({ ok: true });
   } });
-  assert.deepEqual(await client.request("sofascore-event", {"id": "sample"}), { ok: true });
+  assert.deepEqual(await client.request("sofascore-categories", {"sport": "american-football"}), { ok: true });
   assert.equal(calls, 2);
 
   const bad = new SofascoreClient({ fetch: async () => json({ msg: "bad input" }, 400) });
-  await assert.rejects(bad.request("sofascore-event", {"id": "sample"}), CrawloraClientError);
+  await assert.rejects(bad.request("sofascore-categories", {"sport": "american-football"}), CrawloraClientError);
   const down = new SofascoreClient({ fetch: async () => json({ msg: "down" }, 503) });
-  await assert.rejects(down.request("sofascore-event", {"id": "sample"}), CrawloraServerError);
+  await assert.rejects(down.request("sofascore-categories", {"sport": "american-football"}), CrawloraServerError);
 });
 
 test("reports timeout and caller cancellation as network errors", async () => {
@@ -66,11 +66,11 @@ test("reports timeout and caller cancellation as network errors", async () => {
     signal.addEventListener("abort", () => reject(new Error("aborted")), { once: true });
   });
   const timed = new SofascoreClient({ timeout: 5, fetch: hanging });
-  await assert.rejects(timed.request("sofascore-event", {"id": "sample"}), CrawloraNetworkError);
+  await assert.rejects(timed.request("sofascore-categories", {"sport": "american-football"}), CrawloraNetworkError);
 
   const controller = new AbortController();
   const aborted = new SofascoreClient({ fetch: hanging });
-  const pending = aborted.request("sofascore-event", {"id": "sample"}, { signal: controller.signal });
+  const pending = aborted.request("sofascore-categories", {"sport": "american-football"}, { signal: controller.signal });
   controller.abort();
   await assert.rejects(pending, CrawloraNetworkError);
 });

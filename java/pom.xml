@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.crawlora</groupId>
   <artifactId>crawlora-sofascore</artifactId>
-  <version>0.1.4</version>
+  <version>0.2.0</version>
   <packaging>jar</packaging>
   <name>Crawlora SofaScore Java Client</name>
   <description>Java client for Crawlora hosted SofaScore scraping endpoints.</description>

@@ -11,38 +11,38 @@ import crawlora_sofascore as client_package
 TYPECHECK_SOURCE = '''
 from typing_extensions import assert_type
 from crawlora_sofascore import AsyncClient, AsyncSofascoreClient, Client, SofascoreClient
-from crawlora_sofascore.platform import SofascoreTournamentSeasonsResponse
+from crawlora_sofascore.platform import SofascoreTournamentTopTeamsResponse
 
 def check_sync() -> None:
     named: SofascoreClient = Client(api_key="key")
     with Client(api_key="key") as client:
-        assert_type(client.tournament_seasons(id='test value'), SofascoreTournamentSeasonsResponse)
-        assert_type(client.tournament_seasons(_response_type='text', id='test value'), str)
-        assert_type(client.tournament_seasons(_response_type='stream', id='test value').read(), bytes)
-        assert_type(client.request('sofascore-tournament-seasons', {'id': 'test value'}), SofascoreTournamentSeasonsResponse)
-        assert_type(client.sofascore.tournament_seasons(id='test value'), SofascoreTournamentSeasonsResponse)
-        assert_type(client.sofascore.tournament_seasons(_response_type='text', id='test value'), str)
-        assert_type(client.sofascore.tournament_seasons(_response_type='stream', id='test value').read(), bytes)
+        assert_type(client.tournament_top_teams(id='test value', season='test value', type='overall'), SofascoreTournamentTopTeamsResponse)
+        assert_type(client.tournament_top_teams(_response_type='text', id='test value', season='test value', type='overall'), str)
+        assert_type(client.tournament_top_teams(_response_type='stream', id='test value', season='test value', type='overall').read(), bytes)
+        assert_type(client.request('sofascore-tournament-top-teams', {'id': 'test value', 'season': 'test value', 'type': 'overall'}), SofascoreTournamentTopTeamsResponse)
+        assert_type(client.sofascore.tournament_top_teams(id='test value', season='test value', type='overall'), SofascoreTournamentTopTeamsResponse)
+        assert_type(client.sofascore.tournament_top_teams(_response_type='text', id='test value', season='test value', type='overall'), str)
+        assert_type(client.sofascore.tournament_top_teams(_response_type='stream', id='test value', season='test value', type='overall').read(), bytes)
 
 
 
 async def check_async() -> None:
     named: AsyncSofascoreClient = AsyncClient(api_key="key")
     async with AsyncClient(api_key="key") as client:
-        assert_type(await client.tournament_seasons(id='test value'), SofascoreTournamentSeasonsResponse)
-        assert_type(await client.tournament_seasons(_response_type='text', id='test value'), str)
-        assert_type((await client.tournament_seasons(_response_type='stream', id='test value')).read(), bytes)
-        assert_type(await client.sofascore.tournament_seasons(id='test value'), SofascoreTournamentSeasonsResponse)
-        assert_type(await client.sofascore.tournament_seasons(_response_type='text', id='test value'), str)
-        assert_type((await client.sofascore.tournament_seasons(_response_type='stream', id='test value')).read(), bytes)
+        assert_type(await client.tournament_top_teams(id='test value', season='test value', type='overall'), SofascoreTournamentTopTeamsResponse)
+        assert_type(await client.tournament_top_teams(_response_type='text', id='test value', season='test value', type='overall'), str)
+        assert_type((await client.tournament_top_teams(_response_type='stream', id='test value', season='test value', type='overall')).read(), bytes)
+        assert_type(await client.sofascore.tournament_top_teams(id='test value', season='test value', type='overall'), SofascoreTournamentTopTeamsResponse)
+        assert_type(await client.sofascore.tournament_top_teams(_response_type='text', id='test value', season='test value', type='overall'), str)
+        assert_type((await client.sofascore.tournament_top_teams(_response_type='stream', id='test value', season='test value', type='overall')).read(), bytes)
 
 
 '''
 
 NEGATIVE_SOURCE = '''
 from crawlora_sofascore import Client
-Client().tournament_seasons(id=123)
-Client().tournament_seasons()
+Client().tournament_top_teams(id=123, season='test value', type='overall')
+Client().tournament_top_teams()
 '''
 
 

@@ -26,25 +26,53 @@ type operationDefinition struct {
 }
 
 var operations = map[string]operationDefinition{
-	"sofascore-event":              operationDefinition{Method: "GET", Path: "/sofascore/event", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-event-h2h":          operationDefinition{Method: "GET", Path: "/sofascore/event-h2h", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-event-incidents":    operationDefinition{Method: "GET", Path: "/sofascore/event-incidents", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-event-lineups":      operationDefinition{Method: "GET", Path: "/sofascore/event-lineups", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-event-odds":         operationDefinition{Method: "GET", Path: "/sofascore/event-odds", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-event-statistics":   operationDefinition{Method: "GET", Path: "/sofascore/event-statistics", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-live-events":        operationDefinition{Method: "GET", Path: "/sofascore/live-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "sport", In: "query", Type: "string", Required: true, Enum: []string{"football", "basketball", "tennis"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-player":             operationDefinition{Method: "GET", Path: "/sofascore/player", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-round-events":       operationDefinition{Method: "GET", Path: "/sofascore/round-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "round", In: "query", Type: "integer", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-search":             operationDefinition{Method: "GET", Path: "/sofascore/search", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "q", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-standings":          operationDefinition{Method: "GET", Path: "/sofascore/standings", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "type", In: "query", Type: "string", Required: true, Enum: []string{"total", "home", "away"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-team":               operationDefinition{Method: "GET", Path: "/sofascore/team", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-team-events":        operationDefinition{Method: "GET", Path: "/sofascore/team-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "direction", In: "query", Type: "string", Required: true, Enum: []string{"next", "last"}}, parameterDefinition{Name: "page", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-team-players":       operationDefinition{Method: "GET", Path: "/sofascore/team-players", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
-	"sofascore-tournament-seasons": operationDefinition{Method: "GET", Path: "/sofascore/tournament-seasons", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-categories":                   operationDefinition{Method: "GET", Path: "/sofascore/categories", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "sport", In: "query", Type: "string", Required: true, Enum: []string{"american-football", "aussie-rules", "badminton", "bandy", "baseball", "basketball", "beach-volley", "cricket", "darts", "esports", "floorball", "football", "futsal", "handball", "ice-hockey", "mma", "minifootball", "padel", "rugby", "snooker", "table-tennis", "tennis", "volleyball", "waterpolo"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-category-tournaments":         operationDefinition{Method: "GET", Path: "/sofascore/category-tournaments", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event":                        operationDefinition{Method: "GET", Path: "/sofascore/event", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-best-players":           operationDefinition{Method: "GET", Path: "/sofascore/event-best-players", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-comments":               operationDefinition{Method: "GET", Path: "/sofascore/event-comments", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-graph":                  operationDefinition{Method: "GET", Path: "/sofascore/event-graph", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-h2h":                    operationDefinition{Method: "GET", Path: "/sofascore/event-h2h", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-incidents":              operationDefinition{Method: "GET", Path: "/sofascore/event-incidents", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-lineups":                operationDefinition{Method: "GET", Path: "/sofascore/event-lineups", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-odds":                   operationDefinition{Method: "GET", Path: "/sofascore/event-odds", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-player-statistics":      operationDefinition{Method: "GET", Path: "/sofascore/event-player-statistics", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "player_id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-shotmap":                operationDefinition{Method: "GET", Path: "/sofascore/event-shotmap", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-event-statistics":             operationDefinition{Method: "GET", Path: "/sofascore/event-statistics", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-live-events":                  operationDefinition{Method: "GET", Path: "/sofascore/live-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "sport", In: "query", Type: "string", Required: true, Enum: []string{"american-football", "aussie-rules", "badminton", "bandy", "baseball", "basketball", "beach-volley", "cricket", "darts", "esports", "floorball", "football", "futsal", "handball", "ice-hockey", "mma", "minifootball", "padel", "rugby", "snooker", "table-tennis", "tennis", "volleyball", "waterpolo"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-manager":                      operationDefinition{Method: "GET", Path: "/sofascore/manager", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-manager-events":               operationDefinition{Method: "GET", Path: "/sofascore/manager-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "page", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-player":                       operationDefinition{Method: "GET", Path: "/sofascore/player", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-player-season-statistics":     operationDefinition{Method: "GET", Path: "/sofascore/player-season-statistics", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "tournament_id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "type", In: "query", Type: "string", Enum: []string{"overall", "home", "away", "regular_season", "playoffs"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-player-statistics-seasons":    operationDefinition{Method: "GET", Path: "/sofascore/player-statistics-seasons", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-player-transfers":             operationDefinition{Method: "GET", Path: "/sofascore/player-transfers", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-ranking-types":                operationDefinition{Method: "GET", Path: "/sofascore/ranking-types", PathParams: nil, QueryParams: nil, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-rankings":                     operationDefinition{Method: "GET", Path: "/sofascore/rankings", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "type", In: "query", Type: "integer", Required: true, Enum: []string{"1", "2", "3", "4", "5", "6", "7", "8", "9", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "34", "35", "36", "37", "40", "41", "42", "43", "44", "45", "46"}}, parameterDefinition{Name: "limit", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-round-events":                 operationDefinition{Method: "GET", Path: "/sofascore/round-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "round", In: "query", Type: "integer", Required: true}, parameterDefinition{Name: "slug", In: "query", Type: "string"}, parameterDefinition{Name: "prefix", In: "query", Type: "string"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-scheduled-events":             operationDefinition{Method: "GET", Path: "/sofascore/scheduled-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "category_id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "date", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-scheduled-tournaments":        operationDefinition{Method: "GET", Path: "/sofascore/scheduled-tournaments", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "sport", In: "query", Type: "string", Required: true, Enum: []string{"american-football", "aussie-rules", "badminton", "bandy", "baseball", "basketball", "beach-volley", "cricket", "darts", "esports", "floorball", "football", "futsal", "handball", "ice-hockey", "mma", "minifootball", "padel", "rugby", "snooker", "table-tennis", "tennis", "volleyball", "waterpolo"}}, parameterDefinition{Name: "date", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "page", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-search":                       operationDefinition{Method: "GET", Path: "/sofascore/search", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "q", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-season-events":                operationDefinition{Method: "GET", Path: "/sofascore/season-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "direction", In: "query", Type: "string", Required: true, Enum: []string{"next", "last"}}, parameterDefinition{Name: "page", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-sports":                       operationDefinition{Method: "GET", Path: "/sofascore/sports", PathParams: nil, QueryParams: nil, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-standings":                    operationDefinition{Method: "GET", Path: "/sofascore/standings", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "type", In: "query", Type: "string", Required: true, Enum: []string{"total", "home", "away"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-team":                         operationDefinition{Method: "GET", Path: "/sofascore/team", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-team-events":                  operationDefinition{Method: "GET", Path: "/sofascore/team-events", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "direction", In: "query", Type: "string", Required: true, Enum: []string{"next", "last"}}, parameterDefinition{Name: "page", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-team-of-the-week":             operationDefinition{Method: "GET", Path: "/sofascore/team-of-the-week", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "period", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-team-of-the-week-periods":     operationDefinition{Method: "GET", Path: "/sofascore/team-of-the-week-periods", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-team-players":                 operationDefinition{Method: "GET", Path: "/sofascore/team-players", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-team-season-statistics":       operationDefinition{Method: "GET", Path: "/sofascore/team-season-statistics", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "tournament_id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "type", In: "query", Type: "string", Enum: []string{"overall", "home", "away", "regular_season", "playoffs"}}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-team-statistics-seasons":      operationDefinition{Method: "GET", Path: "/sofascore/team-statistics-seasons", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-team-transfers":               operationDefinition{Method: "GET", Path: "/sofascore/team-transfers", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-tournament-info":              operationDefinition{Method: "GET", Path: "/sofascore/tournament-info", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-tournament-player-statistics": operationDefinition{Method: "GET", Path: "/sofascore/tournament-player-statistics", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "order", In: "query", Type: "string", Enum: []string{"rating", "goals", "expectedGoals", "assists", "successfulDribbles", "tackles", "accuratePassesPercentage", "bigChancesMissed", "totalShots", "goalConversionPercentage", "interceptions", "clearances", "errorLeadToGoal", "outfielderBlocks", "bigChancesCreated", "accuratePasses", "keyPasses", "saves", "cleanSheet", "penaltySave", "savedShotsFromInsideTheBox", "runsOut"}}, parameterDefinition{Name: "direction", In: "query", Type: "string", Enum: []string{"desc", "asc"}}, parameterDefinition{Name: "accumulation", In: "query", Type: "string", Enum: []string{"total", "perGame", "per90"}}, parameterDefinition{Name: "group", In: "query", Type: "string", Enum: []string{"summary", "attack", "defence", "passing", "goalkeeper"}}, parameterDefinition{Name: "limit", In: "query", Type: "integer"}, parameterDefinition{Name: "offset", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-tournament-rounds":            operationDefinition{Method: "GET", Path: "/sofascore/tournament-rounds", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-tournament-seasons":           operationDefinition{Method: "GET", Path: "/sofascore/tournament-seasons", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-tournament-top-players":       operationDefinition{Method: "GET", Path: "/sofascore/tournament-top-players", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "type", In: "query", Type: "string", Enum: []string{"overall", "regular_season", "playoffs"}}, parameterDefinition{Name: "limit", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
+	"sofascore-tournament-top-teams":         operationDefinition{Method: "GET", Path: "/sofascore/tournament-top-teams", PathParams: nil, QueryParams: []parameterDefinition{parameterDefinition{Name: "id", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "season", In: "query", Type: "string", Required: true}, parameterDefinition{Name: "type", In: "query", Type: "string", Enum: []string{"overall", "regular_season", "playoffs"}}, parameterDefinition{Name: "limit", In: "query", Type: "integer"}}, Produces: []string{"application/json"}, Security: []string{"ApiKeyAuth"}},
 }
 
 // OperationCount reports how many selected-platform operations this module exposes.
-const OperationCount = 15
+const OperationCount = 43
 
 // OperationIDs returns the selected operation IDs in stable sorted order.
 func OperationIDs() []string {
@@ -56,9 +84,34 @@ func OperationIDs() []string {
 	return ids
 }
 
+// Categories calls the sofascore-categories operation.
+func (c *Client) Categories(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-categories", params)
+}
+
+// CategoryTournaments calls the sofascore-category-tournaments operation.
+func (c *Client) CategoryTournaments(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-category-tournaments", params)
+}
+
 // Event calls the sofascore-event operation.
 func (c *Client) Event(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-event", params)
+}
+
+// EventBestPlayers calls the sofascore-event-best-players operation.
+func (c *Client) EventBestPlayers(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-event-best-players", params)
+}
+
+// EventComments calls the sofascore-event-comments operation.
+func (c *Client) EventComments(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-event-comments", params)
+}
+
+// EventGraph calls the sofascore-event-graph operation.
+func (c *Client) EventGraph(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-event-graph", params)
 }
 
 // EventH2h calls the sofascore-event-h2h operation.
@@ -81,6 +134,16 @@ func (c *Client) EventOdds(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-event-odds", params)
 }
 
+// EventPlayerStatistics calls the sofascore-event-player-statistics operation.
+func (c *Client) EventPlayerStatistics(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-event-player-statistics", params)
+}
+
+// EventShotmap calls the sofascore-event-shotmap operation.
+func (c *Client) EventShotmap(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-event-shotmap", params)
+}
+
 // EventStatistics calls the sofascore-event-statistics operation.
 func (c *Client) EventStatistics(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-event-statistics", params)
@@ -91,9 +154,44 @@ func (c *Client) LiveEvents(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-live-events", params)
 }
 
+// Manager calls the sofascore-manager operation.
+func (c *Client) Manager(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-manager", params)
+}
+
+// ManagerEvents calls the sofascore-manager-events operation.
+func (c *Client) ManagerEvents(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-manager-events", params)
+}
+
 // Player calls the sofascore-player operation.
 func (c *Client) Player(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-player", params)
+}
+
+// PlayerSeasonStatistics calls the sofascore-player-season-statistics operation.
+func (c *Client) PlayerSeasonStatistics(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-player-season-statistics", params)
+}
+
+// PlayerStatisticsSeasons calls the sofascore-player-statistics-seasons operation.
+func (c *Client) PlayerStatisticsSeasons(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-player-statistics-seasons", params)
+}
+
+// PlayerTransfers calls the sofascore-player-transfers operation.
+func (c *Client) PlayerTransfers(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-player-transfers", params)
+}
+
+// RankingTypes calls the sofascore-ranking-types operation.
+func (c *Client) RankingTypes(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-ranking-types", params)
+}
+
+// Rankings calls the sofascore-rankings operation.
+func (c *Client) Rankings(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-rankings", params)
 }
 
 // RoundEvents calls the sofascore-round-events operation.
@@ -101,9 +199,29 @@ func (c *Client) RoundEvents(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-round-events", params)
 }
 
+// ScheduledEvents calls the sofascore-scheduled-events operation.
+func (c *Client) ScheduledEvents(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-scheduled-events", params)
+}
+
+// ScheduledTournaments calls the sofascore-scheduled-tournaments operation.
+func (c *Client) ScheduledTournaments(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-scheduled-tournaments", params)
+}
+
 // Search calls the sofascore-search operation.
 func (c *Client) Search(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-search", params)
+}
+
+// SeasonEvents calls the sofascore-season-events operation.
+func (c *Client) SeasonEvents(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-season-events", params)
+}
+
+// Sports calls the sofascore-sports operation.
+func (c *Client) Sports(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-sports", params)
 }
 
 // Standings calls the sofascore-standings operation.
@@ -121,12 +239,62 @@ func (c *Client) TeamEvents(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-team-events", params)
 }
 
+// TeamOfTheWeek calls the sofascore-team-of-the-week operation.
+func (c *Client) TeamOfTheWeek(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-team-of-the-week", params)
+}
+
+// TeamOfTheWeekPeriods calls the sofascore-team-of-the-week-periods operation.
+func (c *Client) TeamOfTheWeekPeriods(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-team-of-the-week-periods", params)
+}
+
 // TeamPlayers calls the sofascore-team-players operation.
 func (c *Client) TeamPlayers(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-team-players", params)
 }
 
+// TeamSeasonStatistics calls the sofascore-team-season-statistics operation.
+func (c *Client) TeamSeasonStatistics(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-team-season-statistics", params)
+}
+
+// TeamStatisticsSeasons calls the sofascore-team-statistics-seasons operation.
+func (c *Client) TeamStatisticsSeasons(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-team-statistics-seasons", params)
+}
+
+// TeamTransfers calls the sofascore-team-transfers operation.
+func (c *Client) TeamTransfers(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-team-transfers", params)
+}
+
+// TournamentInfo calls the sofascore-tournament-info operation.
+func (c *Client) TournamentInfo(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-tournament-info", params)
+}
+
+// TournamentPlayerStatistics calls the sofascore-tournament-player-statistics operation.
+func (c *Client) TournamentPlayerStatistics(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-tournament-player-statistics", params)
+}
+
+// TournamentRounds calls the sofascore-tournament-rounds operation.
+func (c *Client) TournamentRounds(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-tournament-rounds", params)
+}
+
 // TournamentSeasons calls the sofascore-tournament-seasons operation.
 func (c *Client) TournamentSeasons(ctx context.Context, params Params) (any, error) {
 	return c.Call(ctx, "sofascore-tournament-seasons", params)
+}
+
+// TournamentTopPlayers calls the sofascore-tournament-top-players operation.
+func (c *Client) TournamentTopPlayers(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-tournament-top-players", params)
+}
+
+// TournamentTopTeams calls the sofascore-tournament-top-teams operation.
+func (c *Client) TournamentTopTeams(ctx context.Context, params Params) (any, error) {
+	return c.Call(ctx, "sofascore-tournament-top-teams", params)
 }

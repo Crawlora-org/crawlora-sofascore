@@ -8,7 +8,7 @@ The packages do not run a browser or scrape SofaScore locally. Crawlora is an in
 - Python: [`crawlora-sofascore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-sofascore`](go.mod)
 - Ruby: [`crawlora-sofascore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-sofascore:0.1.4`](java/README.md)
+- Java: [`net.crawlora:crawlora-sofascore:0.2.0`](java/README.md)
 - PHP: [`crawlora/sofascore`](php/README.md)
 - Full endpoint and parameter reference: [docs/usage.md](docs/usage.md)
 - Runnable samples: [examples/](examples/)
@@ -26,7 +26,7 @@ gem install crawlora-sofascore
 composer require crawlora/sofascore
 ```
 
-For Java, add `net.crawlora:crawlora-sofascore:0.1.4` to your Maven dependencies; see [java/README.md](java/README.md).
+For Java, add `net.crawlora:crawlora-sofascore:0.2.0` to your Maven dependencies; see [java/README.md](java/README.md).
 
 Set your Crawlora key in the environment before running a client:
 
@@ -72,7 +72,7 @@ The checked-in JavaScript example imports the generated local source at `javascr
 
 ## Contract
 
-This package release is `0.1.4`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:8dc2e500465b7b7f98054def2f9794e0e433d8bbbcba6cfb688e0b6ed0ecbfcd`. `scripts/generate.py` regenerates all six language clients and the documentation from the shared source.
+This package release is `0.2.0`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:91686922e3c5ab6569dbe0abd882fbbbc86c4395a86f151582a2291fb11de036`. `scripts/generate.py` regenerates all six language clients and the documentation from the shared source.
 
 ## Contract updates and releases
 

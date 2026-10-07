@@ -42,13 +42,13 @@ class ClientTest {
     @AfterEach void stopServer() { if (server != null) server.stop(0); }
 
     @Test void platformCatalogIsAnExactAllowlistAndExposesDirectMethod() throws Exception {
-        assertEquals(15, Client.OPERATION_IDS.size());
-        assertEquals(List.of("sofascore-event", "sofascore-event-h2h", "sofascore-event-incidents", "sofascore-event-lineups", "sofascore-event-odds", "sofascore-event-statistics", "sofascore-live-events", "sofascore-player", "sofascore-round-events", "sofascore-search", "sofascore-standings", "sofascore-team", "sofascore-team-events", "sofascore-team-players", "sofascore-tournament-seasons"), Client.OPERATION_IDS);
+        assertEquals(43, Client.OPERATION_IDS.size());
+        assertEquals(List.of("sofascore-categories", "sofascore-category-tournaments", "sofascore-event", "sofascore-event-best-players", "sofascore-event-comments", "sofascore-event-graph", "sofascore-event-h2h", "sofascore-event-incidents", "sofascore-event-lineups", "sofascore-event-odds", "sofascore-event-player-statistics", "sofascore-event-shotmap", "sofascore-event-statistics", "sofascore-live-events", "sofascore-manager", "sofascore-manager-events", "sofascore-player", "sofascore-player-season-statistics", "sofascore-player-statistics-seasons", "sofascore-player-transfers", "sofascore-ranking-types", "sofascore-rankings", "sofascore-round-events", "sofascore-scheduled-events", "sofascore-scheduled-tournaments", "sofascore-search", "sofascore-season-events", "sofascore-sports", "sofascore-standings", "sofascore-team", "sofascore-team-events", "sofascore-team-of-the-week", "sofascore-team-of-the-week-periods", "sofascore-team-players", "sofascore-team-season-statistics", "sofascore-team-statistics-seasons", "sofascore-team-transfers", "sofascore-tournament-info", "sofascore-tournament-player-statistics", "sofascore-tournament-rounds", "sofascore-tournament-seasons", "sofascore-tournament-top-players", "sofascore-tournament-top-teams"), Client.OPERATION_IDS);
         assertEquals(new java.util.TreeSet<>(Client.OPERATION_IDS), new java.util.TreeSet<>(Client.operations().keySet()));
         assertEquals(Client.OPERATION_IDS.size(), new Client("key").getOperationCount());
         try (Client client = new Client("test-key", baseUrl, Duration.ofSeconds(2))) {
             assertThrows(IllegalArgumentException.class, () -> client.request("instagram-search", Map.of()));
-            Object result = client.request("sofascore-event", Map.ofEntries(Map.entry("id", "value &/one")));
+            Object result = client.request("sofascore-category-tournaments", Map.ofEntries(Map.entry("id", "value &/one")));
             assertInstanceOf(Map.class, result);
             assertEquals("test-key", seenKey.get());
             assertTrue(seenUri.get().startsWith("/api/v1/"));
@@ -59,7 +59,7 @@ class ClientTest {
 
     @Test void directMethodUsesTheSameOperationDispatch() throws Exception {
         try (Client client = new Client("test-key", baseUrl, Duration.ofSeconds(2))) {
-            Object result = Client.class.getMethod("event", Map.class).invoke(client, Map.ofEntries(Map.entry("id", "value &/one")));
+            Object result = Client.class.getMethod("categoryTournaments", Map.class).invoke(client, Map.ofEntries(Map.entry("id", "value &/one")));
             assertInstanceOf(Map.class, result);
         }
     }
@@ -68,7 +68,7 @@ class ClientTest {
         contentType = "text/plain; charset=utf-8";
         body = "line one\nline two";
         try (Client client = new Client("test-key", baseUrl, Duration.ofSeconds(2))) {
-            assertEquals("line one\nline two", client.request("sofascore-event", Map.ofEntries(Map.entry("id", "sample"))));
+            assertEquals("line one\nline two", client.request("sofascore-categories", Map.ofEntries(Map.entry("sport", "american-football"))));
         }
     }
 
@@ -77,21 +77,21 @@ class ClientTest {
         body = "{\"code\":422,\"msg\":\"bad input\"}";
         try (Client client = new Client("test-key", baseUrl, Duration.ofSeconds(2))) {
             CrawloraException error = assertThrows(CrawloraException.class,
-                    () -> client.request("sofascore-event", Map.ofEntries(Map.entry("id", "value &/one"))));
+                    () -> client.request("sofascore-category-tournaments", Map.ofEntries(Map.entry("id", "value &/one"))));
             assertEquals(422, error.statusCode());
             assertTrue(error.getMessage().contains("bad input"));
         }
         status = 200;
         delayMillis = 250;
         try (Client client = new Client("test-key", baseUrl, Duration.ofMillis(20))) {
-            assertThrows(CrawloraException.class, () -> client.request("sofascore-event", Map.ofEntries(Map.entry("id", "value &/one"))));
+            assertThrows(CrawloraException.class, () -> client.request("sofascore-category-tournaments", Map.ofEntries(Map.entry("id", "value &/one"))));
         }
     }
 
     @Test void rejectsInvalidEnumsAndClosedClientCalls() {
-        assertThrows(IllegalArgumentException.class, () -> new Client("key", baseUrl, Duration.ofSeconds(1)).request("sofascore-live-events", Map.ofEntries(Map.entry("sport", "__invalid_java_test_enum__"))));
+        assertThrows(IllegalArgumentException.class, () -> new Client("key", baseUrl, Duration.ofSeconds(1)).request("sofascore-categories", Map.ofEntries(Map.entry("sport", "__invalid_java_test_enum__"))));
         Client client = new Client("key", baseUrl, Duration.ofSeconds(1));
         client.close();
-        assertThrows(IllegalStateException.class, () -> client.request("sofascore-event", Map.ofEntries(Map.entry("id", "value &/one"))));
+        assertThrows(IllegalStateException.class, () -> client.request("sofascore-category-tournaments", Map.ofEntries(Map.entry("id", "value &/one"))));
     }
 }
