@@ -39,7 +39,7 @@ The checked-in JavaScript example imports the generated local source at `javascr
 
 ## Contract
 
-This package release is `0.1.2`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:8dc2e500465b7b7f98054def2f9794e0e433d8bbbcba6cfb688e0b6ed0ecbfcd`. `scripts/generate.py` regenerates both language clients and the documentation from the shared source.
+This package release is `0.1.3`. The generated client methods follow the bundled `openapi/public.json` contract at revision `sha256:8dc2e500465b7b7f98054def2f9794e0e433d8bbbcba6cfb688e0b6ed0ecbfcd`. `scripts/generate.py` regenerates both language clients and the documentation from the shared source.
 
 ## Contract updates and releases
 

@@ -1,7 +1,7 @@
 # @crawlora-org/sofascore
 
 JavaScript and TypeScript client for Crawlora's hosted SofaScore API.
-It calls Crawlora's service; it does not run a browser or scrape SofaScore locally. A Crawlora account and `CRAWLORA_API_KEY` are required, and API use is billed under your Crawlora account. Crawlora is independent from and not endorsed by SofaScore or its owners.
+It calls [Crawlora](https://crawlora.net); it does not run a browser or scrape SofaScore locally. A Crawlora account and `CRAWLORA_API_KEY` are required, and API use is billed under your Crawlora account. Crawlora is independent from and not endorsed by SofaScore or its owners.
 
 ## Install
 
@@ -9,14 +9,29 @@ It calls Crawlora's service; it does not run a browser or scrape SofaScore local
 npm install @crawlora-org/sofascore
 ```
 
+## Get an API key
+
+Create an account at [crawlora.net](https://crawlora.net/signup), then open the [Crawlora console](https://crawlora.net/app) for API-key setup. Set your key in the shell before running the client:
+
+```sh
+export CRAWLORA_API_KEY="your-crawlora-api-key"
+```
+
 ## Use
 
+Save this example as `example.mjs`, then run `node example.mjs` after installing the package and setting your API key.
+
 ```js
+import process from "node:process";
 import { SofascoreClient } from "@crawlora-org/sofascore";
 
-const client = new SofascoreClient({ apiKey: process.env.CRAWLORA_API_KEY });
-const result = await client.search({ q: "Liverpool" });
-console.log(result);
+const apiKey = process.env.CRAWLORA_API_KEY;
+if (!apiKey) throw new Error("Set CRAWLORA_API_KEY before running this example.");
+const client = new SofascoreClient({ apiKey });
+const result1 = await client.search({ q: "Liverpool" });
+console.log(result1);
+const result2 = await client.liveEvents({ sport: "football" });
+console.log(result2);
 ```
 
 The client also exports `Client` as an alias for `SofascoreClient`. Operation
