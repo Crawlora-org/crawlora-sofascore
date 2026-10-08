@@ -20,7 +20,7 @@ puts result
 client.close
 ```
 
-Use an operation method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem contains {{OPERATION_COUNT}} operations.
+Use an operation-specific method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem contains {{OPERATION_COUNT}} operations.
 
 ```ruby
 client = Crawlora::{{CLASS_NAME}}::Client.new(api_key: ENV.fetch("CRAWLORA_API_KEY"), timeout: 30)
