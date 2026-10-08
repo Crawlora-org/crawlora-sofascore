@@ -28,7 +28,7 @@ try (Client client = new Client(System.getenv("CRAWLORA_API_KEY"))) {
 }
 ```
 
-Every selected operation has a direct method that accepts the parameter names from its endpoint contract. Use `client.request(operationId, params)` for generic dispatch. `Client.OPERATION_IDS`, `Client.OPERATION_COUNT`, `client.getOperationIds()`, and `client.getOperationCount()` describe this platform's operations only.
+Each supported operation has a direct method that accepts its endpoint parameters. Use `client.request(operationId, params)` for generic dispatch. `Client.OPERATION_IDS`, `Client.OPERATION_COUNT`, `client.getOperationIds()`, and `client.getOperationCount()` describe this platform's operations.
 
 For custom hosted API routing and timeouts, use `new Client(apiKey, baseUrl, Duration.ofSeconds(20))`. YouTube transcript formats that return text are returned as `String`; JSON responses are parsed into Java maps, lists, and scalar values.
 
