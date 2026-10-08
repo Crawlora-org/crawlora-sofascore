@@ -12,7 +12,7 @@ const rawText: Promise<string> = client.request("sofascore-categories", {"sport"
 void rawText;
 
 
-void client.rankingTypes();
-void client.request("sofascore-ranking-types");
+void client.oddsDropping();
+void client.request("sofascore-odds-dropping");
 // @ts-expect-error The selected operation requires its documented params.
 void client.categories();

@@ -11,38 +11,38 @@ import crawlora_sofascore as client_package
 TYPECHECK_SOURCE = '''
 from typing_extensions import assert_type
 from crawlora_sofascore import AsyncClient, AsyncSofascoreClient, Client, SofascoreClient
-from crawlora_sofascore.platform import SofascoreTournamentTopTeamsResponse
+from crawlora_sofascore.platform import SofascoreVenueEventsResponse
 
 def check_sync() -> None:
     named: SofascoreClient = Client(api_key="key")
     with Client(api_key="key") as client:
-        assert_type(client.tournament_top_teams(id='test value', season='test value', type='overall'), SofascoreTournamentTopTeamsResponse)
-        assert_type(client.tournament_top_teams(_response_type='text', id='test value', season='test value', type='overall'), str)
-        assert_type(client.tournament_top_teams(_response_type='stream', id='test value', season='test value', type='overall').read(), bytes)
-        assert_type(client.request('sofascore-tournament-top-teams', {'id': 'test value', 'season': 'test value', 'type': 'overall'}), SofascoreTournamentTopTeamsResponse)
-        assert_type(client.sofascore.tournament_top_teams(id='test value', season='test value', type='overall'), SofascoreTournamentTopTeamsResponse)
-        assert_type(client.sofascore.tournament_top_teams(_response_type='text', id='test value', season='test value', type='overall'), str)
-        assert_type(client.sofascore.tournament_top_teams(_response_type='stream', id='test value', season='test value', type='overall').read(), bytes)
+        assert_type(client.venue_events(direction='next', id='test value', sport='all'), SofascoreVenueEventsResponse)
+        assert_type(client.venue_events(_response_type='text', direction='next', id='test value', sport='all'), str)
+        assert_type(client.venue_events(_response_type='stream', direction='next', id='test value', sport='all').read(), bytes)
+        assert_type(client.request('sofascore-venue-events', {'direction': 'next', 'id': 'test value', 'sport': 'all'}), SofascoreVenueEventsResponse)
+        assert_type(client.sofascore.venue_events(direction='next', id='test value', sport='all'), SofascoreVenueEventsResponse)
+        assert_type(client.sofascore.venue_events(_response_type='text', direction='next', id='test value', sport='all'), str)
+        assert_type(client.sofascore.venue_events(_response_type='stream', direction='next', id='test value', sport='all').read(), bytes)
 
 
 
 async def check_async() -> None:
     named: AsyncSofascoreClient = AsyncClient(api_key="key")
     async with AsyncClient(api_key="key") as client:
-        assert_type(await client.tournament_top_teams(id='test value', season='test value', type='overall'), SofascoreTournamentTopTeamsResponse)
-        assert_type(await client.tournament_top_teams(_response_type='text', id='test value', season='test value', type='overall'), str)
-        assert_type((await client.tournament_top_teams(_response_type='stream', id='test value', season='test value', type='overall')).read(), bytes)
-        assert_type(await client.sofascore.tournament_top_teams(id='test value', season='test value', type='overall'), SofascoreTournamentTopTeamsResponse)
-        assert_type(await client.sofascore.tournament_top_teams(_response_type='text', id='test value', season='test value', type='overall'), str)
-        assert_type((await client.sofascore.tournament_top_teams(_response_type='stream', id='test value', season='test value', type='overall')).read(), bytes)
+        assert_type(await client.venue_events(direction='next', id='test value', sport='all'), SofascoreVenueEventsResponse)
+        assert_type(await client.venue_events(_response_type='text', direction='next', id='test value', sport='all'), str)
+        assert_type((await client.venue_events(_response_type='stream', direction='next', id='test value', sport='all')).read(), bytes)
+        assert_type(await client.sofascore.venue_events(direction='next', id='test value', sport='all'), SofascoreVenueEventsResponse)
+        assert_type(await client.sofascore.venue_events(_response_type='text', direction='next', id='test value', sport='all'), str)
+        assert_type((await client.sofascore.venue_events(_response_type='stream', direction='next', id='test value', sport='all')).read(), bytes)
 
 
 '''
 
 NEGATIVE_SOURCE = '''
 from crawlora_sofascore import Client
-Client().tournament_top_teams(id=123, season='test value', type='overall')
-Client().tournament_top_teams()
+Client().venue_events(direction='next', id=123, sport='all')
+Client().venue_events()
 '''
 
 

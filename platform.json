@@ -1,11 +1,11 @@
 {
   "async_class_name": "AsyncSofascoreClient",
   "class_name": "SofascoreClient",
-  "contract_revision": "sha256:91686922e3c5ab6569dbe0abd882fbbbc86c4395a86f151582a2291fb11de036",
+  "contract_revision": "sha256:645115670262bb86bf9c49f16ddbfdd94bbec67befb2aa8497f10f86ee2d5e46",
   "display_name": "SofaScore",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-sofascore",
-  "golang_version": "0.2.0",
+  "golang_version": "0.3.0",
   "group_name": "sofascore",
   "maven_artifact_id": "crawlora-sofascore",
   "maven_group_id": "net.crawlora",
@@ -15,6 +15,14 @@
   "platform": "sofascore",
   "python_name": "crawlora-sofascore",
   "releases": [
+    {
+      "changes": [
+        "Added operations: sofascore-draft, sofascore-draft-picks, sofascore-esports-game, sofascore-event-at-bat-pitches, sofascore-event-at-bats, sofascore-event-average-positions, sofascore-event-baseball-top-performers, sofascore-event-esports-games, sofascore-event-highlights, sofascore-event-innings, sofascore-event-managers, sofascore-event-player-heatmap, sofascore-event-point-by-point, sofascore-event-pregame-form, sofascore-event-team-heatmap, sofascore-event-team-streaks, sofascore-event-tennis-power, sofascore-event-tv-channels, sofascore-event-votes, sofascore-mma-card, sofascore-mma-schedule, sofascore-odds-dropping, sofascore-odds-winning, sofascore-player-attributes, sofascore-player-events, sofascore-player-last-year-summary, sofascore-player-national-team-statistics, sofascore-player-penalty-history, sofascore-player-ratings, sofascore-player-season-heatmap, sofascore-player-statistical-rankings, sofascore-player-tournaments, sofascore-referee, sofascore-referee-events, sofascore-referee-statistics, sofascore-search-typed, sofascore-stage, sofascore-stage-categories, sofascore-stage-driver-performance, sofascore-stage-featured, sofascore-stage-schedule, sofascore-stage-seasons, sofascore-stage-standings, sofascore-stage-substages, sofascore-team-achievements, sofascore-team-goal-distributions, sofascore-team-near-events, sofascore-team-performance, sofascore-team-player-statistics, sofascore-team-player-statistics-seasons, sofascore-team-rankings, sofascore-team-top-players, sofascore-team-tournaments, sofascore-tennis-player-grand-slam-results, sofascore-tournament-cuptree, sofascore-tournament-player-of-the-season, sofascore-tournament-statistics-info, sofascore-tournament-team-of-the-season, sofascore-tournament-teams, sofascore-tournament-venues, sofascore-tournament-winners, sofascore-tournaments-with-feature, sofascore-trending-events, sofascore-trending-players, sofascore-venue, sofascore-venue-events.",
+        "Updated operation contracts: sofascore-event-best-players, sofascore-event-graph, sofascore-event-lineups, sofascore-event-shotmap, sofascore-tournament-player-statistics."
+      ],
+      "date": "2026-10-08",
+      "version": "0.3.0"
+    },
     {
       "changes": [
         "Added operations: sofascore-categories, sofascore-category-tournaments, sofascore-event-best-players, sofascore-event-comments, sofascore-event-graph, sofascore-event-player-statistics, sofascore-event-shotmap, sofascore-manager, sofascore-manager-events, sofascore-player-season-statistics, sofascore-player-statistics-seasons, sofascore-player-transfers, sofascore-ranking-types, sofascore-rankings, sofascore-scheduled-events, sofascore-scheduled-tournaments, sofascore-season-events, sofascore-sports, sofascore-team-of-the-week, sofascore-team-of-the-week-periods, sofascore-team-season-statistics, sofascore-team-statistics-seasons, sofascore-team-transfers, sofascore-tournament-info, sofascore-tournament-player-statistics, sofascore-tournament-rounds, sofascore-tournament-top-players, sofascore-tournament-top-teams.",
@@ -65,6 +73,6 @@
   ],
   "repository": "https://github.com/Crawlora-org/crawlora-sofascore",
   "ruby_gem_name": "crawlora-sofascore",
-  "source_contract_sha256": "f6e89437c3aad21325cd5fc956c336c8efbb8615a20a15be9b933c2664c2b097",
-  "version": "0.2.0"
+  "source_contract_sha256": "3827d3a93489515b45354477d4e75fb05f173af262cf358e80878442d7d258f2",
+  "version": "0.3.0"
 }

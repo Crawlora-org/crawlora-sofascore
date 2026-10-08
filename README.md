@@ -8,7 +8,7 @@ The packages do not run a browser or scrape SofaScore locally. Crawlora is an in
 - Python: [`crawlora-sofascore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-sofascore`](go.mod)
 - Ruby: [`crawlora-sofascore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-sofascore:0.2.0`](java/README.md)
+- Java: [`net.crawlora:crawlora-sofascore:0.3.0`](java/README.md)
 - PHP: [`crawlora/sofascore`](php/README.md)
 - Full endpoint and parameter reference: [docs/usage.md](docs/usage.md)
 - Runnable samples: [examples/](examples/)
@@ -26,7 +26,7 @@ gem install crawlora-sofascore
 composer require crawlora/sofascore
 ```
 
-For Java, add `net.crawlora:crawlora-sofascore:0.2.0` to your Maven dependencies; see [java/README.md](java/README.md).
+For Java, add `net.crawlora:crawlora-sofascore:0.3.0` to your Maven dependencies; see [java/README.md](java/README.md).
 
 Set your Crawlora key in the environment before running a client:
 

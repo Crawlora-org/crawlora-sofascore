@@ -78,6 +78,122 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-draft": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-draft",
+    "method": "GET",
+    "path": "/sofascore/draft",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "nba",
+          "nfl"
+        ],
+        "in": "query",
+        "name": "league",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-draft-picks": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-draft-picks",
+    "method": "GET",
+    "path": "/sofascore/draft-picks",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "nba",
+          "nfl"
+        ],
+        "in": "query",
+        "name": "league",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "year",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "round",
+        "required": true,
+        "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-esports-game": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-esports-game",
+    "method": "GET",
+    "path": "/sofascore/esports-game",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "statistics",
+          "lineups",
+          "bans",
+          "rounds"
+        ],
+        "in": "query",
+        "name": "part",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-event": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -88,6 +204,116 @@ export const operations = {
     "id": "sofascore-event",
     "method": "GET",
     "path": "/sofascore/event",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-at-bat-pitches": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-at-bat-pitches",
+    "method": "GET",
+    "path": "/sofascore/event-at-bat-pitches",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "at_bat_id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-at-bats": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-at-bats",
+    "method": "GET",
+    "path": "/sofascore/event-at-bats",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-average-positions": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-average-positions",
+    "method": "GET",
+    "path": "/sofascore/event-average-positions",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-baseball-top-performers": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-baseball-top-performers",
+    "method": "GET",
+    "path": "/sofascore/event-baseball-top-performers",
     "pathParams": [],
     "produces": [
       "application/json"
@@ -156,6 +382,32 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-event-esports-games": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-esports-games",
+    "method": "GET",
+    "path": "/sofascore/event-esports-games",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-event-graph": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -208,6 +460,32 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-event-highlights": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-highlights",
+    "method": "GET",
+    "path": "/sofascore/event-highlights",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-event-incidents": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -218,6 +496,32 @@ export const operations = {
     "id": "sofascore-event-incidents",
     "method": "GET",
     "path": "/sofascore/event-incidents",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-innings": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-innings",
+    "method": "GET",
+    "path": "/sofascore/event-innings",
     "pathParams": [],
     "produces": [
       "application/json"
@@ -260,6 +564,32 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-event-managers": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-managers",
+    "method": "GET",
+    "path": "/sofascore/event-managers",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-event-odds": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -278,6 +608,38 @@ export const operations = {
       {
         "in": "query",
         "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-player-heatmap": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-player-heatmap",
+    "method": "GET",
+    "path": "/sofascore/event-player-heatmap",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "player_id",
         "required": true,
         "type": "string"
       }
@@ -310,6 +672,58 @@ export const operations = {
       {
         "in": "query",
         "name": "player_id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-point-by-point": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-point-by-point",
+    "method": "GET",
+    "path": "/sofascore/event-point-by-point",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-pregame-form": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-pregame-form",
+    "method": "GET",
+    "path": "/sofascore/event-pregame-form",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
         "required": true,
         "type": "string"
       }
@@ -354,6 +768,147 @@ export const operations = {
     "id": "sofascore-event-statistics",
     "method": "GET",
     "path": "/sofascore/event-statistics",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-team-heatmap": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-team-heatmap",
+    "method": "GET",
+    "path": "/sofascore/event-team-heatmap",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "team_id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-team-streaks": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-team-streaks",
+    "method": "GET",
+    "path": "/sofascore/event-team-streaks",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-tennis-power": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-tennis-power",
+    "method": "GET",
+    "path": "/sofascore/event-tennis-power",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-tv-channels": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-tv-channels",
+    "method": "GET",
+    "path": "/sofascore/event-tv-channels",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "country",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-votes": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-votes",
+    "method": "GET",
+    "path": "/sofascore/event-votes",
     "pathParams": [],
     "produces": [
       "application/json"
@@ -480,6 +1035,186 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-mma-card": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-mma-card",
+    "method": "GET",
+    "path": "/sofascore/mma-card",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "org_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "card_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "all",
+          "maincard",
+          "prelims",
+          "earlyprelims"
+        ],
+        "in": "query",
+        "name": "part",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-mma-schedule": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-mma-schedule",
+    "method": "GET",
+    "path": "/sofascore/mma-schedule",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "org_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "month",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-odds-dropping": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-odds-dropping",
+    "method": "GET",
+    "path": "/sofascore/odds-dropping",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "all",
+          "american-football",
+          "aussie-rules",
+          "badminton",
+          "bandy",
+          "baseball",
+          "basketball",
+          "beach-volley",
+          "cricket",
+          "darts",
+          "esports",
+          "floorball",
+          "football",
+          "futsal",
+          "handball",
+          "ice-hockey",
+          "mma",
+          "minifootball",
+          "padel",
+          "rugby",
+          "snooker",
+          "table-tennis",
+          "tennis",
+          "volleyball",
+          "waterpolo"
+        ],
+        "in": "query",
+        "name": "sport",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-odds-winning": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-odds-winning",
+    "method": "GET",
+    "path": "/sofascore/odds-winning",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "all",
+          "american-football",
+          "aussie-rules",
+          "badminton",
+          "bandy",
+          "baseball",
+          "basketball",
+          "beach-volley",
+          "cricket",
+          "darts",
+          "esports",
+          "floorball",
+          "football",
+          "futsal",
+          "handball",
+          "ice-hockey",
+          "mma",
+          "minifootball",
+          "padel",
+          "rugby",
+          "snooker",
+          "table-tennis",
+          "tennis",
+          "volleyball",
+          "waterpolo"
+        ],
+        "in": "query",
+        "name": "sport",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-player": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -498,6 +1233,230 @@ export const operations = {
       {
         "in": "query",
         "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-player-attributes": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-attributes",
+    "method": "GET",
+    "path": "/sofascore/player-attributes",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-player-events": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-events",
+    "method": "GET",
+    "paginatable": true,
+    "path": "/sofascore/player-events",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "page",
+        "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-player-last-year-summary": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-last-year-summary",
+    "method": "GET",
+    "path": "/sofascore/player-last-year-summary",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-player-national-team-statistics": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-national-team-statistics",
+    "method": "GET",
+    "path": "/sofascore/player-national-team-statistics",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-player-penalty-history": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-penalty-history",
+    "method": "GET",
+    "path": "/sofascore/player-penalty-history",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-player-ratings": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-ratings",
+    "method": "GET",
+    "path": "/sofascore/player-ratings",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "tournament_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "overall",
+          "home",
+          "away",
+          "regular_season",
+          "playoffs"
+        ],
+        "in": "query",
+        "name": "type",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-player-season-heatmap": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-season-heatmap",
+    "method": "GET",
+    "path": "/sofascore/player-season-heatmap",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "tournament_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
         "required": true,
         "type": "string"
       }
@@ -556,6 +1515,46 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-player-statistical-rankings": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-statistical-rankings",
+    "method": "GET",
+    "path": "/sofascore/player-statistical-rankings",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "overall"
+        ],
+        "in": "query",
+        "name": "type",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-player-statistics-seasons": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -566,6 +1565,32 @@ export const operations = {
     "id": "sofascore-player-statistics-seasons",
     "method": "GET",
     "path": "/sofascore/player-statistics-seasons",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-player-tournaments": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-tournaments",
+    "method": "GET",
+    "path": "/sofascore/player-tournaments",
     "pathParams": [],
     "produces": [
       "application/json"
@@ -686,6 +1711,90 @@ export const operations = {
         "in": "query",
         "name": "limit",
         "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-referee": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-referee",
+    "method": "GET",
+    "path": "/sofascore/referee",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-referee-events": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-referee-events",
+    "method": "GET",
+    "paginatable": true,
+    "path": "/sofascore/referee-events",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "page",
+        "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-referee-statistics": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-referee-statistics",
+    "method": "GET",
+    "path": "/sofascore/referee-statistics",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
       }
     ],
     "security": [
@@ -862,6 +1971,84 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-search-typed": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-search-typed",
+    "method": "GET",
+    "paginatable": true,
+    "path": "/sofascore/search-typed",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "events",
+          "teams",
+          "players",
+          "managers",
+          "referees",
+          "venues",
+          "unique_tournaments"
+        ],
+        "in": "query",
+        "name": "type",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "q",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "page",
+        "type": "integer"
+      },
+      {
+        "enum": [
+          "american-football",
+          "aussie-rules",
+          "badminton",
+          "bandy",
+          "baseball",
+          "basketball",
+          "beach-volley",
+          "cricket",
+          "darts",
+          "esports",
+          "floorball",
+          "football",
+          "futsal",
+          "handball",
+          "ice-hockey",
+          "mma",
+          "minifootball",
+          "padel",
+          "rugby",
+          "snooker",
+          "table-tennis",
+          "tennis",
+          "volleyball",
+          "waterpolo"
+        ],
+        "in": "query",
+        "name": "sport",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-season-events": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -925,6 +2112,242 @@ export const operations = {
       "application/json"
     ],
     "queryParams": [],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-stage": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-stage",
+    "method": "GET",
+    "path": "/sofascore/stage",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-stage-categories": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-stage-categories",
+    "method": "GET",
+    "path": "/sofascore/stage-categories",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "motorsport",
+          "cycling"
+        ],
+        "in": "query",
+        "name": "sport",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-stage-driver-performance": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-stage-driver-performance",
+    "method": "GET",
+    "path": "/sofascore/stage-driver-performance",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-stage-featured": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-stage-featured",
+    "method": "GET",
+    "path": "/sofascore/stage-featured",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "motorsport",
+          "cycling"
+        ],
+        "in": "query",
+        "name": "sport",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-stage-schedule": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-stage-schedule",
+    "method": "GET",
+    "path": "/sofascore/stage-schedule",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "motorsport",
+          "cycling"
+        ],
+        "in": "query",
+        "name": "sport",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "date",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-stage-seasons": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-stage-seasons",
+    "method": "GET",
+    "path": "/sofascore/stage-seasons",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-stage-standings": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-stage-standings",
+    "method": "GET",
+    "path": "/sofascore/stage-standings",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "competitor",
+          "team"
+        ],
+        "in": "query",
+        "name": "type",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-stage-substages": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-stage-substages",
+    "method": "GET",
+    "path": "/sofascore/stage-substages",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
     "security": [
       "ApiKeyAuth"
     ]
@@ -998,6 +2421,32 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-team-achievements": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-team-achievements",
+    "method": "GET",
+    "path": "/sofascore/team-achievements",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-team-events": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -1034,6 +2483,70 @@ export const operations = {
         "in": "query",
         "name": "page",
         "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-team-goal-distributions": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-team-goal-distributions",
+    "method": "GET",
+    "path": "/sofascore/team-goal-distributions",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "tournament_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-team-near-events": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-team-near-events",
+    "method": "GET",
+    "path": "/sofascore/team-near-events",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
       }
     ],
     "security": [
@@ -1110,6 +2623,108 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-team-performance": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-team-performance",
+    "method": "GET",
+    "path": "/sofascore/team-performance",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-team-player-statistics": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-team-player-statistics",
+    "method": "GET",
+    "path": "/sofascore/team-player-statistics",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "tournament_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "overall",
+          "home",
+          "away",
+          "regular_season",
+          "playoffs"
+        ],
+        "in": "query",
+        "name": "type",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-team-player-statistics-seasons": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-team-player-statistics-seasons",
+    "method": "GET",
+    "path": "/sofascore/team-player-statistics-seasons",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-team-players": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -1120,6 +2735,32 @@ export const operations = {
     "id": "sofascore-team-players",
     "method": "GET",
     "path": "/sofascore/team-players",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-team-rankings": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-team-rankings",
+    "method": "GET",
+    "path": "/sofascore/team-rankings",
     "pathParams": [],
     "produces": [
       "application/json"
@@ -1212,6 +2853,90 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-team-top-players": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-team-top-players",
+    "method": "GET",
+    "path": "/sofascore/team-top-players",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "tournament_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "overall",
+          "regular_season",
+          "playoffs"
+        ],
+        "in": "query",
+        "name": "type",
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-team-tournaments": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-team-tournaments",
+    "method": "GET",
+    "path": "/sofascore/team-tournaments",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "all",
+        "type": "boolean"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-team-transfers": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -1230,6 +2955,64 @@ export const operations = {
       {
         "in": "query",
         "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-tennis-player-grand-slam-results": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-tennis-player-grand-slam-results",
+    "method": "GET",
+    "path": "/sofascore/tennis-player-grand-slam-results",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-tournament-cuptree": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-tournament-cuptree",
+    "method": "GET",
+    "path": "/sofascore/tournament-cuptree",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
         "required": true,
         "type": "string"
       }
@@ -1262,6 +3045,38 @@ export const operations = {
       {
         "in": "query",
         "name": "season",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-tournament-player-of-the-season": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-tournament-player-of-the-season",
+    "method": "GET",
+    "path": "/sofascore/tournament-player-of-the-season",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
         "type": "string"
       }
     ],
@@ -1366,6 +3181,40 @@ export const operations = {
         "in": "query",
         "name": "offset",
         "type": "integer"
+      },
+      {
+        "collectionFormat": "csv",
+        "in": "query",
+        "name": "team",
+        "type": "array"
+      },
+      {
+        "collectionFormat": "csv",
+        "in": "query",
+        "name": "nationality",
+        "type": "array"
+      },
+      {
+        "collectionFormat": "csv",
+        "enum": [
+          "G",
+          "D",
+          "M",
+          "F"
+        ],
+        "in": "query",
+        "name": "position",
+        "type": "array"
+      },
+      {
+        "in": "query",
+        "name": "min_appearances",
+        "type": "integer"
+      },
+      {
+        "in": "query",
+        "name": "min_minutes",
+        "type": "integer"
       }
     ],
     "security": [
@@ -1422,6 +3271,102 @@ export const operations = {
       {
         "in": "query",
         "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-tournament-statistics-info": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-tournament-statistics-info",
+    "method": "GET",
+    "path": "/sofascore/tournament-statistics-info",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-tournament-team-of-the-season": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-tournament-team-of-the-season",
+    "method": "GET",
+    "path": "/sofascore/tournament-team-of-the-season",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-tournament-teams": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-tournament-teams",
+    "method": "GET",
+    "path": "/sofascore/tournament-teams",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
         "required": true,
         "type": "string"
       }
@@ -1523,6 +3468,298 @@ export const operations = {
     "security": [
       "ApiKeyAuth"
     ]
+  },
+  "sofascore-tournament-venues": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-tournament-venues",
+    "method": "GET",
+    "path": "/sofascore/tournament-venues",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-tournament-winners": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-tournament-winners",
+    "method": "GET",
+    "paginatable": true,
+    "path": "/sofascore/tournament-winners",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "page",
+        "type": "integer"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-tournaments-with-feature": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-tournaments-with-feature",
+    "method": "GET",
+    "path": "/sofascore/tournaments-with-feature",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "cuptree",
+          "standings",
+          "totw",
+          "power_rankings"
+        ],
+        "in": "query",
+        "name": "feature",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "american-football",
+          "aussie-rules",
+          "badminton",
+          "bandy",
+          "baseball",
+          "basketball",
+          "beach-volley",
+          "cricket",
+          "darts",
+          "esports",
+          "floorball",
+          "football",
+          "futsal",
+          "handball",
+          "ice-hockey",
+          "minifootball",
+          "rugby",
+          "snooker",
+          "table-tennis",
+          "tennis",
+          "volleyball",
+          "waterpolo"
+        ],
+        "in": "query",
+        "name": "sport",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-trending-events": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-trending-events",
+    "method": "GET",
+    "path": "/sofascore/trending-events",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "country",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-trending-players": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-trending-players",
+    "method": "GET",
+    "path": "/sofascore/trending-players",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "enum": [
+          "football",
+          "basketball"
+        ],
+        "in": "query",
+        "name": "sport",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-venue": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-venue",
+    "method": "GET",
+    "path": "/sofascore/venue",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-venue-events": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-venue-events",
+    "method": "GET",
+    "paginatable": true,
+    "path": "/sofascore/venue-events",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "next",
+          "last"
+        ],
+        "in": "query",
+        "name": "direction",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "all",
+          "american-football",
+          "aussie-rules",
+          "badminton",
+          "bandy",
+          "baseball",
+          "basketball",
+          "beach-volley",
+          "cricket",
+          "darts",
+          "esports",
+          "floorball",
+          "football",
+          "futsal",
+          "handball",
+          "ice-hockey",
+          "mma",
+          "minifootball",
+          "padel",
+          "rugby",
+          "snooker",
+          "table-tennis",
+          "tennis",
+          "volleyball",
+          "waterpolo"
+        ],
+        "in": "query",
+        "name": "sport",
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "page",
+        "type": "integer"
+      },
+      {
+        "in": "query",
+        "name": "tournament",
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "season",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
   }
 };
 
@@ -1530,94 +3767,226 @@ export const groups = {
   "sofascore": {
     "categories": "sofascore-categories",
     "categoryTournaments": "sofascore-category-tournaments",
+    "draft": "sofascore-draft",
+    "draftPicks": "sofascore-draft-picks",
+    "esportsGame": "sofascore-esports-game",
     "event": "sofascore-event",
+    "eventAtBatPitches": "sofascore-event-at-bat-pitches",
+    "eventAtBats": "sofascore-event-at-bats",
+    "eventAveragePositions": "sofascore-event-average-positions",
+    "eventBaseballTopPerformers": "sofascore-event-baseball-top-performers",
     "eventBestPlayers": "sofascore-event-best-players",
     "eventComments": "sofascore-event-comments",
+    "eventEsportsGames": "sofascore-event-esports-games",
     "eventGraph": "sofascore-event-graph",
     "eventH2h": "sofascore-event-h2h",
+    "eventHighlights": "sofascore-event-highlights",
     "eventIncidents": "sofascore-event-incidents",
+    "eventInnings": "sofascore-event-innings",
     "eventLineups": "sofascore-event-lineups",
+    "eventManagers": "sofascore-event-managers",
     "eventOdds": "sofascore-event-odds",
+    "eventPlayerHeatmap": "sofascore-event-player-heatmap",
     "eventPlayerStatistics": "sofascore-event-player-statistics",
+    "eventPointByPoint": "sofascore-event-point-by-point",
+    "eventPregameForm": "sofascore-event-pregame-form",
     "eventShotmap": "sofascore-event-shotmap",
     "eventStatistics": "sofascore-event-statistics",
+    "eventTeamHeatmap": "sofascore-event-team-heatmap",
+    "eventTeamStreaks": "sofascore-event-team-streaks",
+    "eventTennisPower": "sofascore-event-tennis-power",
+    "eventTvChannels": "sofascore-event-tv-channels",
+    "eventVotes": "sofascore-event-votes",
     "liveEvents": "sofascore-live-events",
     "manager": "sofascore-manager",
     "managerEvents": "sofascore-manager-events",
+    "mmaCard": "sofascore-mma-card",
+    "mmaSchedule": "sofascore-mma-schedule",
+    "oddsDropping": "sofascore-odds-dropping",
+    "oddsWinning": "sofascore-odds-winning",
     "player": "sofascore-player",
+    "playerAttributes": "sofascore-player-attributes",
+    "playerEvents": "sofascore-player-events",
+    "playerLastYearSummary": "sofascore-player-last-year-summary",
+    "playerNationalTeamStatistics": "sofascore-player-national-team-statistics",
+    "playerPenaltyHistory": "sofascore-player-penalty-history",
+    "playerRatings": "sofascore-player-ratings",
+    "playerSeasonHeatmap": "sofascore-player-season-heatmap",
     "playerSeasonStatistics": "sofascore-player-season-statistics",
+    "playerStatisticalRankings": "sofascore-player-statistical-rankings",
     "playerStatisticsSeasons": "sofascore-player-statistics-seasons",
+    "playerTournaments": "sofascore-player-tournaments",
     "playerTransfers": "sofascore-player-transfers",
     "rankingTypes": "sofascore-ranking-types",
     "rankings": "sofascore-rankings",
+    "referee": "sofascore-referee",
+    "refereeEvents": "sofascore-referee-events",
+    "refereeStatistics": "sofascore-referee-statistics",
     "roundEvents": "sofascore-round-events",
     "scheduledEvents": "sofascore-scheduled-events",
     "scheduledTournaments": "sofascore-scheduled-tournaments",
     "search": "sofascore-search",
+    "searchTyped": "sofascore-search-typed",
     "seasonEvents": "sofascore-season-events",
     "sports": "sofascore-sports",
+    "stage": "sofascore-stage",
+    "stageCategories": "sofascore-stage-categories",
+    "stageDriverPerformance": "sofascore-stage-driver-performance",
+    "stageFeatured": "sofascore-stage-featured",
+    "stageSchedule": "sofascore-stage-schedule",
+    "stageSeasons": "sofascore-stage-seasons",
+    "stageStandings": "sofascore-stage-standings",
+    "stageSubstages": "sofascore-stage-substages",
     "standings": "sofascore-standings",
     "team": "sofascore-team",
+    "teamAchievements": "sofascore-team-achievements",
     "teamEvents": "sofascore-team-events",
+    "teamGoalDistributions": "sofascore-team-goal-distributions",
+    "teamNearEvents": "sofascore-team-near-events",
     "teamOfTheWeek": "sofascore-team-of-the-week",
     "teamOfTheWeekPeriods": "sofascore-team-of-the-week-periods",
+    "teamPerformance": "sofascore-team-performance",
+    "teamPlayerStatistics": "sofascore-team-player-statistics",
+    "teamPlayerStatisticsSeasons": "sofascore-team-player-statistics-seasons",
     "teamPlayers": "sofascore-team-players",
+    "teamRankings": "sofascore-team-rankings",
     "teamSeasonStatistics": "sofascore-team-season-statistics",
     "teamStatisticsSeasons": "sofascore-team-statistics-seasons",
+    "teamTopPlayers": "sofascore-team-top-players",
+    "teamTournaments": "sofascore-team-tournaments",
     "teamTransfers": "sofascore-team-transfers",
+    "tennisPlayerGrandSlamResults": "sofascore-tennis-player-grand-slam-results",
+    "tournamentCuptree": "sofascore-tournament-cuptree",
     "tournamentInfo": "sofascore-tournament-info",
+    "tournamentPlayerOfTheSeason": "sofascore-tournament-player-of-the-season",
     "tournamentPlayerStatistics": "sofascore-tournament-player-statistics",
     "tournamentRounds": "sofascore-tournament-rounds",
     "tournamentSeasons": "sofascore-tournament-seasons",
+    "tournamentStatisticsInfo": "sofascore-tournament-statistics-info",
+    "tournamentTeamOfTheSeason": "sofascore-tournament-team-of-the-season",
+    "tournamentTeams": "sofascore-tournament-teams",
     "tournamentTopPlayers": "sofascore-tournament-top-players",
-    "tournamentTopTeams": "sofascore-tournament-top-teams"
+    "tournamentTopTeams": "sofascore-tournament-top-teams",
+    "tournamentVenues": "sofascore-tournament-venues",
+    "tournamentWinners": "sofascore-tournament-winners",
+    "tournamentsWithFeature": "sofascore-tournaments-with-feature",
+    "trendingEvents": "sofascore-trending-events",
+    "trendingPlayers": "sofascore-trending-players",
+    "venue": "sofascore-venue",
+    "venueEvents": "sofascore-venue-events"
   }
 };
 
-export const operationCount = 43;
+export const operationCount = 109;
 
 export const OperationIds = Object.freeze({
   "SofascoreCategories": "sofascore-categories",
   "SofascoreCategoryTournaments": "sofascore-category-tournaments",
+  "SofascoreDraft": "sofascore-draft",
+  "SofascoreDraftPicks": "sofascore-draft-picks",
+  "SofascoreEsportsGame": "sofascore-esports-game",
   "SofascoreEvent": "sofascore-event",
+  "SofascoreEventAtBatPitches": "sofascore-event-at-bat-pitches",
+  "SofascoreEventAtBats": "sofascore-event-at-bats",
+  "SofascoreEventAveragePositions": "sofascore-event-average-positions",
+  "SofascoreEventBaseballTopPerformers": "sofascore-event-baseball-top-performers",
   "SofascoreEventBestPlayers": "sofascore-event-best-players",
   "SofascoreEventComments": "sofascore-event-comments",
+  "SofascoreEventEsportsGames": "sofascore-event-esports-games",
   "SofascoreEventGraph": "sofascore-event-graph",
   "SofascoreEventH2h": "sofascore-event-h2h",
+  "SofascoreEventHighlights": "sofascore-event-highlights",
   "SofascoreEventIncidents": "sofascore-event-incidents",
+  "SofascoreEventInnings": "sofascore-event-innings",
   "SofascoreEventLineups": "sofascore-event-lineups",
+  "SofascoreEventManagers": "sofascore-event-managers",
   "SofascoreEventOdds": "sofascore-event-odds",
+  "SofascoreEventPlayerHeatmap": "sofascore-event-player-heatmap",
   "SofascoreEventPlayerStatistics": "sofascore-event-player-statistics",
+  "SofascoreEventPointByPoint": "sofascore-event-point-by-point",
+  "SofascoreEventPregameForm": "sofascore-event-pregame-form",
   "SofascoreEventShotmap": "sofascore-event-shotmap",
   "SofascoreEventStatistics": "sofascore-event-statistics",
+  "SofascoreEventTeamHeatmap": "sofascore-event-team-heatmap",
+  "SofascoreEventTeamStreaks": "sofascore-event-team-streaks",
+  "SofascoreEventTennisPower": "sofascore-event-tennis-power",
+  "SofascoreEventTvChannels": "sofascore-event-tv-channels",
+  "SofascoreEventVotes": "sofascore-event-votes",
   "SofascoreLiveEvents": "sofascore-live-events",
   "SofascoreManager": "sofascore-manager",
   "SofascoreManagerEvents": "sofascore-manager-events",
+  "SofascoreMmaCard": "sofascore-mma-card",
+  "SofascoreMmaSchedule": "sofascore-mma-schedule",
+  "SofascoreOddsDropping": "sofascore-odds-dropping",
+  "SofascoreOddsWinning": "sofascore-odds-winning",
   "SofascorePlayer": "sofascore-player",
+  "SofascorePlayerAttributes": "sofascore-player-attributes",
+  "SofascorePlayerEvents": "sofascore-player-events",
+  "SofascorePlayerLastYearSummary": "sofascore-player-last-year-summary",
+  "SofascorePlayerNationalTeamStatistics": "sofascore-player-national-team-statistics",
+  "SofascorePlayerPenaltyHistory": "sofascore-player-penalty-history",
+  "SofascorePlayerRatings": "sofascore-player-ratings",
+  "SofascorePlayerSeasonHeatmap": "sofascore-player-season-heatmap",
   "SofascorePlayerSeasonStatistics": "sofascore-player-season-statistics",
+  "SofascorePlayerStatisticalRankings": "sofascore-player-statistical-rankings",
   "SofascorePlayerStatisticsSeasons": "sofascore-player-statistics-seasons",
+  "SofascorePlayerTournaments": "sofascore-player-tournaments",
   "SofascorePlayerTransfers": "sofascore-player-transfers",
   "SofascoreRankingTypes": "sofascore-ranking-types",
   "SofascoreRankings": "sofascore-rankings",
+  "SofascoreReferee": "sofascore-referee",
+  "SofascoreRefereeEvents": "sofascore-referee-events",
+  "SofascoreRefereeStatistics": "sofascore-referee-statistics",
   "SofascoreRoundEvents": "sofascore-round-events",
   "SofascoreScheduledEvents": "sofascore-scheduled-events",
   "SofascoreScheduledTournaments": "sofascore-scheduled-tournaments",
   "SofascoreSearch": "sofascore-search",
+  "SofascoreSearchTyped": "sofascore-search-typed",
   "SofascoreSeasonEvents": "sofascore-season-events",
   "SofascoreSports": "sofascore-sports",
+  "SofascoreStage": "sofascore-stage",
+  "SofascoreStageCategories": "sofascore-stage-categories",
+  "SofascoreStageDriverPerformance": "sofascore-stage-driver-performance",
+  "SofascoreStageFeatured": "sofascore-stage-featured",
+  "SofascoreStageSchedule": "sofascore-stage-schedule",
+  "SofascoreStageSeasons": "sofascore-stage-seasons",
+  "SofascoreStageStandings": "sofascore-stage-standings",
+  "SofascoreStageSubstages": "sofascore-stage-substages",
   "SofascoreStandings": "sofascore-standings",
   "SofascoreTeam": "sofascore-team",
+  "SofascoreTeamAchievements": "sofascore-team-achievements",
   "SofascoreTeamEvents": "sofascore-team-events",
+  "SofascoreTeamGoalDistributions": "sofascore-team-goal-distributions",
+  "SofascoreTeamNearEvents": "sofascore-team-near-events",
   "SofascoreTeamOfTheWeek": "sofascore-team-of-the-week",
   "SofascoreTeamOfTheWeekPeriods": "sofascore-team-of-the-week-periods",
+  "SofascoreTeamPerformance": "sofascore-team-performance",
+  "SofascoreTeamPlayerStatistics": "sofascore-team-player-statistics",
+  "SofascoreTeamPlayerStatisticsSeasons": "sofascore-team-player-statistics-seasons",
   "SofascoreTeamPlayers": "sofascore-team-players",
+  "SofascoreTeamRankings": "sofascore-team-rankings",
   "SofascoreTeamSeasonStatistics": "sofascore-team-season-statistics",
   "SofascoreTeamStatisticsSeasons": "sofascore-team-statistics-seasons",
+  "SofascoreTeamTopPlayers": "sofascore-team-top-players",
+  "SofascoreTeamTournaments": "sofascore-team-tournaments",
   "SofascoreTeamTransfers": "sofascore-team-transfers",
+  "SofascoreTennisPlayerGrandSlamResults": "sofascore-tennis-player-grand-slam-results",
+  "SofascoreTournamentCuptree": "sofascore-tournament-cuptree",
   "SofascoreTournamentInfo": "sofascore-tournament-info",
+  "SofascoreTournamentPlayerOfTheSeason": "sofascore-tournament-player-of-the-season",
   "SofascoreTournamentPlayerStatistics": "sofascore-tournament-player-statistics",
   "SofascoreTournamentRounds": "sofascore-tournament-rounds",
   "SofascoreTournamentSeasons": "sofascore-tournament-seasons",
+  "SofascoreTournamentStatisticsInfo": "sofascore-tournament-statistics-info",
+  "SofascoreTournamentTeamOfTheSeason": "sofascore-tournament-team-of-the-season",
+  "SofascoreTournamentTeams": "sofascore-tournament-teams",
   "SofascoreTournamentTopPlayers": "sofascore-tournament-top-players",
-  "SofascoreTournamentTopTeams": "sofascore-tournament-top-teams"
+  "SofascoreTournamentTopTeams": "sofascore-tournament-top-teams",
+  "SofascoreTournamentVenues": "sofascore-tournament-venues",
+  "SofascoreTournamentWinners": "sofascore-tournament-winners",
+  "SofascoreTournamentsWithFeature": "sofascore-tournaments-with-feature",
+  "SofascoreTrendingEvents": "sofascore-trending-events",
+  "SofascoreTrendingPlayers": "sofascore-trending-players",
+  "SofascoreVenue": "sofascore-venue",
+  "SofascoreVenueEvents": "sofascore-venue-events"
 });

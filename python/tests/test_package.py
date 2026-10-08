@@ -6,11 +6,11 @@ import crawlora_sofascore as client_package
 from crawlora_sofascore.client import _Response
 
 
-TEST_OPERATION_ID = 'sofascore-tournament-top-teams'
-TEST_METHOD_NAME = 'tournament_top_teams'
+TEST_OPERATION_ID = 'sofascore-venue-events'
+TEST_METHOD_NAME = 'venue_events'
 TEST_GROUP_NAME = 'sofascore'
-TEST_PARAMS = {'id': 'test value', 'season': 'test value', 'type': 'overall'}
-TEST_URL = 'https://api.example.test/sofascore/tournament-top-teams?id=test+value&season=test+value&type=overall'
+TEST_PARAMS = {'direction': 'next', 'id': 'test value', 'sport': 'all'}
+TEST_URL = 'https://api.example.test/sofascore/venue-events?id=test+value&direction=next&sport=all'
 TEST_HAS_API_KEY = True
 
 
@@ -28,7 +28,7 @@ class MockTransport:
 class PackageTests(unittest.TestCase):
     def test_platform_metadata_and_aliases(self):
         self.assertEqual(client_package.PLATFORM, "sofascore")
-        self.assertEqual(client_package.__version__, "0.2.0")
+        self.assertEqual(client_package.__version__, "0.3.0")
         self.assertIs(client_package.Client, client_package.SofascoreClient)
         self.assertIs(client_package.AsyncClient, client_package.AsyncSofascoreClient)
         self.assertEqual(client_package.OPERATION_COUNT, len(client_package.OPERATION_IDS))

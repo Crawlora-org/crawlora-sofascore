@@ -9,6 +9,238 @@ export interface ModelAppResponse {
   "msg"?: unknown;
 }
 
+export interface ModelSofascoreVenueEventsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreVenueEventsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreVenueEventsResponse {
+  "count"?: number;
+  "direction"?: string;
+  "events"?: Array<ModelSofascoreEventSummary>;
+  "fetched_at"?: string;
+  "has_next_page"?: boolean;
+  "page"?: number;
+  "season_id"?: number;
+  "source_url"?: string;
+  "sport"?: string;
+  "tournament_id"?: number;
+  "venue_id"?: number;
+}
+
+export interface ModelSofascoreEventSummary {
+  "away_score"?: ModelSofascoreScoreLine;
+  "away_team"?: ModelSofascoreTeamRef;
+  "home_score"?: ModelSofascoreScoreLine;
+  "home_team"?: ModelSofascoreTeamRef;
+  "id"?: number;
+  "slug"?: string;
+  "start_time"?: string;
+  "start_timestamp"?: number;
+  "status"?: ModelSofascoreEventStatus;
+  "tournament"?: ModelSofascoreTournamentRef;
+  "winner_code"?: number;
+}
+
+export interface ModelSofascoreTournamentRef {
+  "category"?: string;
+  "id"?: number;
+  "name"?: string;
+  "slug"?: string;
+  "unique_tournament_id"?: number;
+  "unique_tournament_name"?: string;
+}
+
+export interface ModelSofascoreEventStatus {
+  "code"?: number;
+  "description"?: string;
+  "type"?: string;
+}
+
+export interface ModelSofascoreTeamRef {
+  "country"?: string;
+  "id"?: number;
+  "name"?: string;
+  "national"?: boolean;
+  "short_name"?: string;
+  "slug"?: string;
+}
+
+export interface ModelSofascoreScoreLine {
+  "current"?: number;
+  "period1"?: number;
+  "period2"?: number;
+}
+
+export interface ModelSofascoreVenueResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreVenueResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreVenueResponse {
+  "fetched_at"?: string;
+  "main_teams"?: Array<ModelSofascoreTeamRef>;
+  "source_url"?: string;
+  "sports"?: Array<ModelSofascoreVenueSportStatistics>;
+  "totals"?: ModelSofascoreVenueTotals;
+  "venue"?: ModelSofascoreVenueRecord;
+}
+
+export interface ModelSofascoreVenueRecord {
+  "capacity"?: number;
+  "city"?: string;
+  "country"?: string;
+  "hidden"?: boolean;
+  "id"?: number;
+  "latitude"?: number;
+  "longitude"?: number;
+  "name"?: string;
+  "slug"?: string;
+  "state"?: string;
+}
+
+export interface ModelSofascoreVenueTotals {
+  "avg_corner_kicks_per_game"?: number;
+  "avg_red_cards_per_game"?: number;
+  "away_team_goals_scored"?: number;
+  "away_team_wins_percentage"?: number;
+  "draws_percentage"?: number;
+  "home_team_goals_scored"?: number;
+  "home_team_wins_percentage"?: number;
+  "total_matches"?: number;
+}
+
+export interface ModelSofascoreVenueSportStatistics {
+  "draw_percentage"?: number;
+  "goals_scored"?: number;
+  "home_win_percentage"?: number;
+  "sport"?: string;
+  "total_matches"?: number;
+}
+
+export interface ModelSofascoreTrendingPlayersResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTrendingPlayersResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTrendingPlayersResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "players"?: Array<ModelSofascoreTrendingPlayer>;
+  "source_url"?: string;
+  "sport"?: string;
+}
+
+export interface ModelSofascoreTrendingPlayer {
+  "event"?: ModelSofascoreEventSummary;
+  "player"?: ModelSofascorePlayerBrief;
+  "statistics"?: Record<string, number>;
+  "team"?: ModelSofascoreTeamRef;
+}
+
+export interface ModelSofascorePlayerBrief {
+  "id"?: number;
+  "jersey_number"?: string;
+  "name"?: string;
+  "position"?: string;
+  "short_name"?: string;
+  "slug"?: string;
+}
+
+export interface ModelSofascoreTrendingEventsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTrendingEventsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTrendingEventsResponse {
+  "count"?: number;
+  "country"?: string;
+  "events"?: Array<ModelSofascoreTrendingEvent>;
+  "fetched_at"?: string;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreTrendingEvent {
+  "away_score"?: ModelSofascoreScoreLine;
+  "away_team"?: ModelSofascoreTeamRef;
+  "home_score"?: ModelSofascoreScoreLine;
+  "home_team"?: ModelSofascoreTeamRef;
+  "id"?: number;
+  "slug"?: string;
+  "sport"?: string;
+  "start_time"?: string;
+  "start_timestamp"?: number;
+  "status"?: ModelSofascoreEventStatus;
+  "tournament"?: ModelSofascoreTournamentRef;
+  "winner_code"?: number;
+}
+
+export interface ModelSofascoreTournamentsWithFeatureResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTournamentsWithFeatureResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTournamentsWithFeatureResponse {
+  "count"?: number;
+  "feature"?: string;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "sport"?: string;
+  "tournaments"?: Array<ModelSofascoreFeatureTournament>;
+}
+
+export interface ModelSofascoreFeatureTournament {
+  "category_id"?: number;
+  "category_name"?: string;
+  "id"?: number;
+  "name"?: string;
+  "slug"?: string;
+  "sport"?: string;
+  "user_count"?: number;
+}
+
+export interface ModelSofascoreTournamentWinnersResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTournamentWinnersResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTournamentWinnersResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "has_next_page"?: boolean;
+  "page"?: number;
+  "source_url"?: string;
+  "tournament_id"?: number;
+  "winners"?: Array<ModelSofascoreTournamentWinner>;
+}
+
+export interface ModelSofascoreTournamentWinner {
+  "season_id"?: number;
+  "winner"?: ModelSofascoreTeamRef;
+  "year"?: number;
+}
+
+export interface ModelSofascoreTournamentVenuesResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTournamentVenuesResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTournamentVenuesResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "season_id"?: number;
+  "source_url"?: string;
+  "tournament_id"?: number;
+  "venues"?: Array<ModelSofascoreVenueRecord>;
+}
+
 export interface ModelSofascoreTournamentTopTeamsResponseDoc {
   "code"?: number;
   "data"?: ModelSofascoreTournamentTopTeamsResponse;
@@ -38,15 +270,6 @@ export interface ModelSofascoreTopTeamEntry {
   "rank"?: number;
   "team"?: ModelSofascoreTeamRef;
   "value"?: number;
-}
-
-export interface ModelSofascoreTeamRef {
-  "country"?: string;
-  "id"?: number;
-  "name"?: string;
-  "national"?: boolean;
-  "short_name"?: string;
-  "slug"?: string;
 }
 
 export interface ModelSofascoreTournamentTopPlayersResponseDoc {
@@ -89,6 +312,86 @@ export interface ModelSofascorePlayerRef {
   "position"?: string;
   "short_name"?: string;
   "slug"?: string;
+}
+
+export interface ModelSofascoreTournamentTeamsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTournamentTeamsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTournamentTeamsResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "season_id"?: number;
+  "source_url"?: string;
+  "teams"?: Array<ModelSofascoreSeasonTeam>;
+  "tournament_id"?: number;
+}
+
+export interface ModelSofascoreSeasonTeam {
+  "country"?: string;
+  "country_code"?: string;
+  "gender"?: string;
+  "id"?: number;
+  "name"?: string;
+  "name_code"?: string;
+  "national"?: boolean;
+  "ranking"?: number;
+  "short_name"?: string;
+  "slug"?: string;
+  "sport"?: string;
+  "type"?: number;
+  "user_count"?: number;
+}
+
+export interface ModelSofascoreTournamentTeamOfTheSeasonResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTournamentTeamOfTheSeasonResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTournamentTeamOfTheSeasonResponse {
+  "count"?: number;
+  "created_at"?: string;
+  "fetched_at"?: string;
+  "formation"?: string;
+  "players"?: Array<ModelSofascoreTeamOfTheWeekPlayer>;
+  "season_id"?: number;
+  "source_url"?: string;
+  "tournament_id"?: number;
+}
+
+export interface ModelSofascoreTeamOfTheWeekPlayer {
+  "event"?: ModelSofascoreEventSummary;
+  "jersey_number"?: string;
+  "order"?: number;
+  "player"?: ModelSofascorePlayerRef;
+  "rating"?: number;
+  "team"?: ModelSofascoreTeamRef;
+}
+
+export interface ModelSofascoreTournamentStatisticsInfoResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTournamentStatisticsInfoResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTournamentStatisticsInfoResponse {
+  "detailed_groups"?: Record<string, Array<string>>;
+  "fetched_at"?: string;
+  "groups"?: Record<string, Array<string>>;
+  "nationalities"?: Array<ModelSofascoreNamedCode>;
+  "positions"?: Array<ModelSofascoreNamedCode>;
+  "season_id"?: number;
+  "source_url"?: string;
+  "teams"?: Array<ModelSofascoreTeamRef>;
+  "tournament_id"?: number;
+}
+
+export interface ModelSofascoreNamedCode {
+  "code"?: string;
+  "name"?: string;
 }
 
 export interface ModelSofascoreTournamentSeasonsResponseDoc {
@@ -145,6 +448,7 @@ export interface ModelSofascoreTournamentPlayerStatisticsResponse {
   "count"?: number;
   "direction"?: string;
   "fetched_at"?: string;
+  "filters"?: ModelSofascorePlayerStatisticsFilters;
   "group"?: string;
   "has_next_page"?: boolean;
   "limit"?: number;
@@ -163,6 +467,33 @@ export interface ModelSofascorePlayerStatisticsRow {
   "rank"?: number;
   "statistics"?: Record<string, number>;
   "team"?: ModelSofascoreTeamRef;
+}
+
+export interface ModelSofascorePlayerStatisticsFilters {
+  "min_appearances"?: number;
+  "min_minutes"?: number;
+  "nationalities"?: Array<string>;
+  "positions"?: Array<string>;
+  "team_ids"?: Array<number>;
+}
+
+export interface ModelSofascoreTournamentPlayerOfTheSeasonResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTournamentPlayerOfTheSeasonResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTournamentPlayerOfTheSeasonResponse {
+  "appearances"?: number;
+  "fetched_at"?: string;
+  "jersey_number"?: string;
+  "player"?: ModelSofascorePlayerRef;
+  "rating"?: number;
+  "season_id"?: number;
+  "source_url"?: string;
+  "statistics_type"?: string;
+  "team"?: ModelSofascoreTeamRef;
+  "tournament_id"?: number;
 }
 
 export interface ModelSofascoreTournamentInfoResponseDoc {
@@ -225,6 +556,99 @@ export interface ModelSofascoreSeasonInfo {
   "yellow_cards"?: number;
 }
 
+export interface ModelSofascoreTournamentCupTreeResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTournamentCupTreeResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTournamentCupTreeResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "season_id"?: number;
+  "source_url"?: string;
+  "tournament_id"?: number;
+  "trees"?: Array<ModelSofascoreCupTree>;
+}
+
+export interface ModelSofascoreCupTree {
+  "current_round"?: number;
+  "final_match"?: ModelSofascoreCupTreeBlock;
+  "id"?: number;
+  "name"?: string;
+  "rounds"?: Array<ModelSofascoreCupTreeRound>;
+  "third_place_match"?: ModelSofascoreCupTreeBlock;
+  "tournament_name"?: string;
+}
+
+export interface ModelSofascoreCupTreeBlock {
+  "away_score"?: string;
+  "block_id"?: number;
+  "event_ids"?: Array<number>;
+  "finished"?: boolean;
+  "home_score"?: string;
+  "id"?: number;
+  "in_progress"?: boolean;
+  "matches"?: number;
+  "order"?: number;
+  "participants"?: Array<ModelSofascoreCupTreeParticipant>;
+  "result"?: string;
+  "series_start_time"?: string;
+  "series_start_timestamp"?: number;
+  "venue"?: ModelSofascoreVenue;
+}
+
+export interface ModelSofascoreVenue {
+  "capacity"?: number;
+  "city"?: string;
+  "country"?: string;
+  "name"?: string;
+}
+
+export interface ModelSofascoreCupTreeParticipant {
+  "order"?: number;
+  "seed"?: string;
+  "source_block_id"?: number;
+  "team"?: ModelSofascoreTeamRef;
+  "winner"?: boolean;
+}
+
+export interface ModelSofascoreCupTreeRound {
+  "blocks"?: Array<ModelSofascoreCupTreeBlock>;
+  "description"?: string;
+  "id"?: number;
+  "order"?: number;
+  "round_type"?: number;
+}
+
+export interface ModelSofascoreTennisGrandSlamResultsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTennisGrandSlamResultsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTennisGrandSlamResultsResponse {
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "team_id"?: number;
+  "tournaments"?: Array<ModelSofascoreGrandSlamTournament>;
+}
+
+export interface ModelSofascoreGrandSlamTournament {
+  "name"?: string;
+  "tournament_id"?: number;
+  "years"?: Array<ModelSofascoreGrandSlamYear>;
+}
+
+export interface ModelSofascoreGrandSlamYear {
+  "is_live"?: boolean;
+  "is_upcoming"?: boolean;
+  "round"?: string;
+  "season_id"?: number;
+  "winner"?: boolean;
+  "year"?: number;
+}
+
 export interface ModelSofascoreTeamTransfersResponseDoc {
   "code"?: number;
   "data"?: ModelSofascoreTeamTransfersResponse;
@@ -254,13 +678,46 @@ export interface ModelSofascoreTransfer {
   "type_code"?: number;
 }
 
-export interface ModelSofascorePlayerBrief {
+export interface ModelSofascoreTeamTournamentsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTeamTournamentsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTeamTournamentsResponse {
+  "all"?: boolean;
+  "count"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "team_id"?: number;
+  "tournaments"?: Array<ModelSofascoreUniqueTournamentBrief>;
+}
+
+export interface ModelSofascoreUniqueTournamentBrief {
+  "category"?: string;
+  "gender"?: string;
   "id"?: number;
-  "jersey_number"?: string;
   "name"?: string;
-  "position"?: string;
-  "short_name"?: string;
   "slug"?: string;
+  "sport"?: string;
+}
+
+export interface ModelSofascoreTeamTopPlayersResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTeamTopPlayersResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTeamTopPlayersResponse {
+  "categories"?: Array<ModelSofascoreTopPlayerCategory>;
+  "category_count"?: number;
+  "fetched_at"?: string;
+  "season_id"?: number;
+  "source_url"?: string;
+  "sport"?: string;
+  "team_id"?: number;
+  "tournament_id"?: number;
+  "type"?: string;
 }
 
 export interface ModelSofascoreTeamStatisticsSeasonsResponseDoc {
@@ -308,6 +765,47 @@ export interface ModelSofascoreTeamSeasonStatisticsResponse {
   "type"?: string;
 }
 
+export interface ModelSofascoreTeamRankingsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTeamRankingsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTeamRankingsResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "rankings"?: Array<ModelSofascoreTeamRanking>;
+  "source_url"?: string;
+  "team_id"?: number;
+}
+
+export interface ModelSofascoreTeamRanking {
+  "category"?: string;
+  "gender"?: string;
+  "last_updated"?: string;
+  "last_updated_timestamp"?: number;
+  "name"?: string;
+  "rows"?: Array<ModelSofascoreTeamRankingRow>;
+  "slug"?: string;
+  "sport"?: string;
+  "type_id"?: number;
+}
+
+export interface ModelSofascoreTeamRankingRow {
+  "best_position"?: number;
+  "max_points"?: number;
+  "next_win_points"?: number;
+  "points"?: number;
+  "position"?: number;
+  "previous_points"?: number;
+  "previous_position"?: number;
+  "team"?: ModelSofascoreTeamRef;
+  "tournaments_played"?: number;
+  "updated_at"?: string;
+  "updated_timestamp"?: number;
+  "year"?: number;
+}
+
 export interface ModelSofascoreTeamPlayersResponseDoc {
   "code"?: number;
   "data"?: ModelSofascoreTeamPlayersResponse;
@@ -335,6 +833,62 @@ export interface ModelSofascoreSquadPlayer {
   "preferred_foot"?: string;
   "short_name"?: string;
   "slug"?: string;
+}
+
+export interface ModelSofascoreTeamPlayerStatisticsSeasonsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTeamPlayerStatisticsSeasonsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTeamPlayerStatisticsSeasonsResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "team_id"?: number;
+  "tournaments"?: Array<ModelSofascoreStatisticsTournament>;
+}
+
+export interface ModelSofascoreTeamPlayerStatisticsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTeamPlayerStatisticsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTeamPlayerStatisticsResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "players"?: Array<ModelSofascoreTeamPlayerStatistics>;
+  "season"?: number;
+  "source_url"?: string;
+  "team_id"?: number;
+  "tournament_id"?: number;
+  "type"?: string;
+}
+
+export interface ModelSofascoreTeamPlayerStatistics {
+  "played_enough"?: boolean;
+  "player"?: ModelSofascorePlayerBrief;
+  "statistics"?: Record<string, number>;
+}
+
+export interface ModelSofascoreTeamPerformanceResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTeamPerformanceResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTeamPerformanceResponse {
+  "count"?: number;
+  "events"?: Array<ModelSofascoreTeamPerformanceEvent>;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "team_id"?: number;
+}
+
+export interface ModelSofascoreTeamPerformanceEvent {
+  "event"?: ModelSofascoreEventSummary;
+  "points"?: number;
 }
 
 export interface ModelSofascoreTeamOfTheWeekPeriodsResponseDoc {
@@ -381,48 +935,48 @@ export interface ModelSofascoreTeamOfTheWeekResponse {
   "tournament_id"?: number;
 }
 
-export interface ModelSofascoreTeamOfTheWeekPlayer {
-  "event"?: ModelSofascoreEventSummary;
-  "jersey_number"?: string;
-  "order"?: number;
-  "player"?: ModelSofascorePlayerRef;
-  "rating"?: number;
-  "team"?: ModelSofascoreTeamRef;
-}
-
-export interface ModelSofascoreEventSummary {
-  "away_score"?: ModelSofascoreScoreLine;
-  "away_team"?: ModelSofascoreTeamRef;
-  "home_score"?: ModelSofascoreScoreLine;
-  "home_team"?: ModelSofascoreTeamRef;
-  "id"?: number;
-  "slug"?: string;
-  "start_time"?: string;
-  "start_timestamp"?: number;
-  "status"?: ModelSofascoreEventStatus;
-  "tournament"?: ModelSofascoreTournamentRef;
-  "winner_code"?: number;
-}
-
-export interface ModelSofascoreTournamentRef {
-  "category"?: string;
-  "id"?: number;
-  "name"?: string;
-  "slug"?: string;
-  "unique_tournament_id"?: number;
-  "unique_tournament_name"?: string;
-}
-
-export interface ModelSofascoreEventStatus {
+export interface ModelSofascoreTeamNearEventsResponseDoc {
   "code"?: number;
-  "description"?: string;
+  "data"?: ModelSofascoreTeamNearEventsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTeamNearEventsResponse {
+  "fetched_at"?: string;
+  "next_event"?: ModelSofascoreEventSummary;
+  "previous_event"?: ModelSofascoreEventSummary;
+  "source_url"?: string;
+  "team_id"?: number;
+}
+
+export interface ModelSofascoreTeamGoalDistributionsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTeamGoalDistributionsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTeamGoalDistributionsResponse {
+  "distributions"?: Array<ModelSofascoreGoalDistribution>;
+  "fetched_at"?: string;
+  "season_id"?: number;
+  "source_url"?: string;
+  "team_id"?: number;
+  "tournament_id"?: number;
+}
+
+export interface ModelSofascoreGoalDistribution {
+  "conceded_goals"?: number;
+  "matches"?: number;
+  "periods"?: Array<ModelSofascoreGoalPeriod>;
+  "scored_goals"?: number;
   "type"?: string;
 }
 
-export interface ModelSofascoreScoreLine {
-  "current"?: number;
-  "period1"?: number;
-  "period2"?: number;
+export interface ModelSofascoreGoalPeriod {
+  "conceded_goals"?: number;
+  "end_minute"?: number;
+  "scored_goals"?: number;
+  "start_minute"?: number;
 }
 
 export interface ModelSofascoreTeamEventsResponseDoc {
@@ -440,6 +994,32 @@ export interface ModelSofascoreTeamEventsResponse {
   "page"?: number;
   "source_url"?: string;
   "team_id"?: number;
+}
+
+export interface ModelSofascoreTeamAchievementsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreTeamAchievementsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreTeamAchievementsResponse {
+  "achievements"?: Array<ModelSofascoreTeamAchievement>;
+  "count"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "team_id"?: number;
+  "total_trophies"?: number;
+}
+
+export interface ModelSofascoreTeamAchievement {
+  "competition"?: ModelSofascoreUniqueTournamentBrief;
+  "seasons"?: Array<ModelSofascoreAchievementSeason>;
+  "trophies_won"?: number;
+}
+
+export interface ModelSofascoreAchievementSeason {
+  "season_id"?: number;
+  "year"?: string;
 }
 
 export interface ModelSofascoreTeamResponseDoc {
@@ -504,6 +1084,316 @@ export interface ModelSofascoreStandingsRow {
   "wins"?: number;
 }
 
+export interface ModelSofascoreStageSubstagesResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreStageSubstagesResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreStageSubstagesResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "stage_id"?: number;
+  "stages"?: Array<ModelSofascoreStage>;
+}
+
+export interface ModelSofascoreStage {
+  "competition"?: ModelSofascoreStageCompetition;
+  "country"?: string;
+  "country_code"?: string;
+  "end_timestamp"?: number;
+  "id"?: number;
+  "info"?: ModelSofascoreStageInfo;
+  "name"?: string;
+  "on_date"?: boolean;
+  "parent"?: ModelSofascoreStageRef;
+  "parts"?: Array<ModelSofascoreStageSession>;
+  "season_name"?: string;
+  "sequence"?: number;
+  "session"?: ModelSofascoreStageSession;
+  "session_start_timestamps"?: Array<number>;
+  "slug"?: string;
+  "start_time"?: string;
+  "start_timestamp"?: number;
+  "status"?: ModelSofascoreStageStatus;
+  "type"?: ModelSofascoreStageType;
+  "winner"?: ModelSofascoreStageEntity;
+  "year"?: string;
+}
+
+export interface ModelSofascoreStageEntity {
+  "code"?: string;
+  "country"?: string;
+  "country_code"?: string;
+  "id"?: number;
+  "kind"?: string;
+  "name"?: string;
+  "short_name"?: string;
+  "slug"?: string;
+  "team"?: ModelSofascoreStageTeamRef;
+}
+
+export interface ModelSofascoreStageTeamRef {
+  "chassis"?: string;
+  "code"?: string;
+  "country"?: string;
+  "engine"?: string;
+  "id"?: number;
+  "name"?: string;
+  "short_name"?: string;
+}
+
+export interface ModelSofascoreStageType {
+  "id"?: number;
+  "name"?: string;
+}
+
+export interface ModelSofascoreStageStatus {
+  "description"?: string;
+  "type"?: string;
+}
+
+export interface ModelSofascoreStageSession {
+  "id"?: number;
+  "name"?: string;
+  "sequence"?: number;
+  "slug"?: string;
+  "start_timestamp"?: number;
+  "status"?: ModelSofascoreStageStatus;
+  "type"?: ModelSofascoreStageType;
+}
+
+export interface ModelSofascoreStageRef {
+  "id"?: number;
+  "name"?: string;
+  "slug"?: string;
+  "start_timestamp"?: number;
+}
+
+export interface ModelSofascoreStageInfo {
+  "actual_distance"?: number;
+  "air_temperature"?: number;
+  "arrival_city"?: string;
+  "average_speed"?: number;
+  "caution_laps"?: number;
+  "cautions"?: number;
+  "circuit"?: string;
+  "circuit_city"?: string;
+  "circuit_country"?: string;
+  "circuit_length_m"?: number;
+  "departure_city"?: string;
+  "discipline"?: string;
+  "distance"?: number;
+  "elapsed_time"?: string;
+  "humidity"?: number;
+  "lap_record"?: string;
+  "laps"?: number;
+  "laps_completed"?: number;
+  "lead_changes"?: number;
+  "race_distance_m"?: number;
+  "race_segments"?: number;
+  "race_type"?: string;
+  "round"?: number;
+  "safety_car"?: boolean;
+  "special_stages"?: number;
+  "stage_day"?: string;
+  "summary"?: string;
+  "track_condition"?: string;
+  "track_temperature"?: number;
+  "weather"?: string;
+}
+
+export interface ModelSofascoreStageCompetition {
+  "category_id"?: number;
+  "category_name"?: string;
+  "id"?: number;
+  "name"?: string;
+  "slug"?: string;
+  "sport"?: string;
+}
+
+export interface ModelSofascoreStageStandingsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreStageStandingsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreStageStandingsResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "stage_id"?: number;
+  "standings"?: Array<ModelSofascoreStageStanding>;
+  "type"?: string;
+}
+
+export interface ModelSofascoreStageStanding {
+  "bonus_points"?: number;
+  "comment"?: string;
+  "competitor"?: ModelSofascoreStageEntity;
+  "did_not_finish"?: number;
+  "distance"?: number;
+  "fastest_lap_time"?: string;
+  "fastest_laps"?: number;
+  "gap"?: string;
+  "grid_position"?: number;
+  "interval"?: string;
+  "jersey"?: string;
+  "laps"?: number;
+  "laps_behind"?: number;
+  "laps_led"?: number;
+  "personal_fastest_lap"?: number;
+  "personal_fastest_lap_time"?: string;
+  "pit_stops"?: number;
+  "podiums"?: number;
+  "points"?: number;
+  "pole_positions"?: number;
+  "position"?: number;
+  "races_started"?: number;
+  "races_with_points"?: number;
+  "rank"?: number;
+  "start_number"?: number;
+  "status"?: string;
+  "sub_status"?: string;
+  "time"?: string;
+  "top10"?: number;
+  "top5"?: number;
+  "total_time"?: string;
+  "tyre_state"?: string;
+  "tyre_stints"?: Array<ModelSofascoreStageTyreStint>;
+  "tyre_type"?: string;
+  "updated_timestamp"?: number;
+  "victories"?: number;
+}
+
+export interface ModelSofascoreStageTyreStint {
+  "laps"?: number;
+  "type"?: string;
+}
+
+export interface ModelSofascoreStageSeasonsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreStageSeasonsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreStageSeasonsResponse {
+  "competition"?: ModelSofascoreStageCompetition;
+  "count"?: number;
+  "fetched_at"?: string;
+  "seasons"?: Array<ModelSofascoreStageSeason>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreStageSeason {
+  "end_timestamp"?: number;
+  "id"?: number;
+  "name"?: string;
+  "slug"?: string;
+  "start_timestamp"?: number;
+  "year"?: string;
+}
+
+export interface ModelSofascoreStageScheduleResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreStageScheduleResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreStageScheduleResponse {
+  "count"?: number;
+  "date"?: string;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "sport"?: string;
+  "stages"?: Array<ModelSofascoreStage>;
+}
+
+export interface ModelSofascoreStageFeaturedResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreStageFeaturedResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreStageFeaturedResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "sport"?: string;
+  "stages"?: Array<ModelSofascoreStage>;
+}
+
+export interface ModelSofascoreStageDriverPerformanceResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreStageDriverPerformanceResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreStageDriverPerformanceResponse {
+  "competitors"?: Array<ModelSofascoreStagePerformance>;
+  "count"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "stage"?: ModelSofascoreStage;
+  "stage_id"?: number;
+}
+
+export interface ModelSofascoreStagePerformance {
+  "competitor"?: ModelSofascoreStageEntity;
+  "laps"?: Array<ModelSofascoreStageLap>;
+  "stage_positions"?: Array<ModelSofascoreStageSpecialStagePosition>;
+  "start_number"?: number;
+}
+
+export interface ModelSofascoreStageSpecialStagePosition {
+  "position"?: number;
+  "stage"?: number;
+}
+
+export interface ModelSofascoreStageLap {
+  "lap"?: number;
+  "pit_stop"?: boolean;
+  "position"?: number;
+  "retired"?: boolean;
+  "tyre_type"?: string;
+}
+
+export interface ModelSofascoreStageCategoriesResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreStageCategoriesResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreStageCategoriesResponse {
+  "categories"?: Array<ModelSofascoreStageCategory>;
+  "count"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "sport"?: string;
+}
+
+export interface ModelSofascoreStageCategory {
+  "competitions"?: Array<ModelSofascoreStageCompetition>;
+  "flag"?: string;
+  "id"?: number;
+  "name"?: string;
+  "priority"?: number;
+  "slug"?: string;
+}
+
+export interface ModelSofascoreStageDetailResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreStageDetailResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreStageDetailResponse {
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "stage"?: ModelSofascoreStage;
+}
+
 export interface ModelSofascoreSportsResponseDoc {
   "code"?: number;
   "data"?: ModelSofascoreSportsResponse;
@@ -557,6 +1447,48 @@ export interface ModelSofascoreSeasonEvent {
   "status"?: ModelSofascoreEventStatus;
   "tournament"?: ModelSofascoreTournamentRef;
   "winner_code"?: number;
+}
+
+export interface ModelSofascoreSearchTypedResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreSearchTypedResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreSearchTypedResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "page"?: number;
+  "query"?: string;
+  "results"?: Array<ModelSofascoreTypedSearchResult>;
+  "source_url"?: string;
+  "sport"?: string;
+  "type"?: string;
+}
+
+export interface ModelSofascoreTypedSearchResult {
+  "capacity"?: number;
+  "category_id"?: number;
+  "category_name"?: string;
+  "city"?: string;
+  "country"?: string;
+  "deceased"?: boolean;
+  "event"?: ModelSofascoreEventSummary;
+  "gender"?: string;
+  "id"?: number;
+  "jersey_number"?: string;
+  "name"?: string;
+  "name_code"?: string;
+  "national"?: boolean;
+  "position"?: string;
+  "retired"?: boolean;
+  "score"?: number;
+  "short_name"?: string;
+  "slug"?: string;
+  "sport"?: string;
+  "team"?: ModelSofascoreTeamRef;
+  "type"?: string;
+  "user_count"?: number;
 }
 
 export interface ModelSofascoreSearchResponseDoc {
@@ -644,6 +1576,71 @@ export interface ModelSofascoreRoundEventsResponse {
   "slug"?: string;
   "source_url"?: string;
   "tournament_id"?: number;
+}
+
+export interface ModelSofascoreRefereeStatisticsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreRefereeStatisticsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreRefereeStatisticsResponse {
+  "competitions"?: Array<ModelSofascoreRefereeCompetitionStatistics>;
+  "count"?: number;
+  "fetched_at"?: string;
+  "referee_id"?: number;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreRefereeCompetitionStatistics {
+  "appearances"?: number;
+  "competition"?: ModelSofascoreUniqueTournamentBrief;
+  "penalties"?: number;
+  "red_cards"?: number;
+  "yellow_cards"?: number;
+  "yellow_red_cards"?: number;
+}
+
+export interface ModelSofascoreRefereeEventsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreRefereeEventsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreRefereeEventsResponse {
+  "count"?: number;
+  "events"?: Array<ModelSofascoreEventSummary>;
+  "fetched_at"?: string;
+  "has_next_page"?: boolean;
+  "page"?: number;
+  "referee_id"?: number;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreRefereeResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreRefereeResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreRefereeResponse {
+  "fetched_at"?: string;
+  "referee"?: ModelSofascoreRefereeDetail;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreRefereeDetail {
+  "country"?: string;
+  "date_of_birth"?: string;
+  "first_league_debut"?: string;
+  "games"?: number;
+  "id"?: number;
+  "name"?: string;
+  "red_cards"?: number;
+  "slug"?: string;
+  "sport"?: string;
+  "yellow_cards"?: number;
+  "yellow_red_cards"?: number;
 }
 
 export interface ModelSofascoreRankingsResponseDoc {
@@ -736,6 +1733,20 @@ export interface ModelSofascorePlayerTransfersResponse {
   "transfers"?: Array<ModelSofascoreTransfer>;
 }
 
+export interface ModelSofascorePlayerTournamentsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerTournamentsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerTournamentsResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "player_id"?: number;
+  "source_url"?: string;
+  "tournaments"?: Array<ModelSofascoreUniqueTournamentBrief>;
+}
+
 export interface ModelSofascorePlayerStatisticsSeasonsResponseDoc {
   "code"?: number;
   "data"?: ModelSofascorePlayerStatisticsSeasonsResponse;
@@ -748,6 +1759,30 @@ export interface ModelSofascorePlayerStatisticsSeasonsResponse {
   "player_id"?: number;
   "source_url"?: string;
   "tournaments"?: Array<ModelSofascoreStatisticsTournament>;
+}
+
+export interface ModelSofascorePlayerStatisticalRankingsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerStatisticalRankingsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerStatisticalRankingsResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "player_id"?: number;
+  "rankings"?: Array<ModelSofascorePlayerStatisticRank>;
+  "season"?: ModelSofascoreSeason;
+  "source_url"?: string;
+  "type"?: string;
+}
+
+export interface ModelSofascorePlayerStatisticRank {
+  "count"?: number;
+  "order"?: number;
+  "rank"?: number;
+  "statistic"?: string;
+  "value"?: number;
 }
 
 export interface ModelSofascorePlayerSeasonStatisticsResponseDoc {
@@ -766,6 +1801,189 @@ export interface ModelSofascorePlayerSeasonStatisticsResponse {
   "team"?: ModelSofascoreTeamRef;
   "tournament_id"?: number;
   "type"?: string;
+}
+
+export interface ModelSofascorePlayerSeasonHeatmapResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerSeasonHeatmapResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerSeasonHeatmapResponse {
+  "count"?: number;
+  "events"?: Array<ModelSofascoreEventSummary>;
+  "fetched_at"?: string;
+  "matches"?: number;
+  "player_id"?: number;
+  "points"?: Array<ModelSofascoreSeasonHeatmapPoint>;
+  "season"?: number;
+  "source_url"?: string;
+  "tournament_id"?: number;
+}
+
+export interface ModelSofascoreSeasonHeatmapPoint {
+  "count"?: number;
+  "x"?: number;
+  "y"?: number;
+}
+
+export interface ModelSofascorePlayerRatingsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerRatingsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerRatingsResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "player_id"?: number;
+  "ratings"?: Array<ModelSofascorePlayerMatchRating>;
+  "season"?: number;
+  "source_url"?: string;
+  "tournament_id"?: number;
+  "type"?: string;
+}
+
+export interface ModelSofascorePlayerMatchRating {
+  "event"?: ModelSofascoreEventSummary;
+  "event_id"?: number;
+  "is_home"?: boolean;
+  "opponent"?: ModelSofascoreTeamRef;
+  "rating"?: number;
+  "start_time"?: string;
+  "start_timestamp"?: number;
+}
+
+export interface ModelSofascorePlayerPenaltyHistoryResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerPenaltyHistoryResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerPenaltyHistoryResponse {
+  "attempts"?: number;
+  "count"?: number;
+  "fetched_at"?: string;
+  "penalties"?: Array<ModelSofascorePlayerPenalty>;
+  "player_id"?: number;
+  "scored"?: number;
+  "source_url"?: string;
+}
+
+export interface ModelSofascorePlayerPenalty {
+  "event"?: ModelSofascoreEventSummary;
+  "id"?: number;
+  "outcome"?: string;
+  "x"?: number;
+  "xg"?: number;
+  "y"?: number;
+  "zone"?: string;
+}
+
+export interface ModelSofascorePlayerNationalTeamStatisticsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerNationalTeamStatisticsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerNationalTeamStatisticsResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "player_id"?: number;
+  "source_url"?: string;
+  "teams"?: Array<ModelSofascorePlayerNationalTeamRecord>;
+}
+
+export interface ModelSofascorePlayerNationalTeamRecord {
+  "appearances"?: number;
+  "debut_date"?: string;
+  "debut_timestamp"?: number;
+  "goals"?: number;
+  "team"?: ModelSofascoreTeamRef;
+}
+
+export interface ModelSofascorePlayerLastYearSummaryResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerLastYearSummaryResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerLastYearSummaryResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "player_id"?: number;
+  "source_url"?: string;
+  "summary"?: Array<ModelSofascorePlayerFormEntry>;
+  "tournaments"?: Array<ModelSofascoreUniqueTournamentBrief>;
+}
+
+export interface ModelSofascorePlayerFormEntry {
+  "date"?: string;
+  "rating"?: number;
+  "timestamp"?: number;
+  "tournament_id"?: number;
+  "type"?: string;
+  "value"?: string;
+}
+
+export interface ModelSofascorePlayerEventsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerEventsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerEventsResponse {
+  "count"?: number;
+  "events"?: Array<ModelSofascorePlayerEventRow>;
+  "fetched_at"?: string;
+  "has_next_page"?: boolean;
+  "page"?: number;
+  "player_id"?: number;
+  "source_url"?: string;
+}
+
+export interface ModelSofascorePlayerEventRow {
+  "event"?: ModelSofascoreEventSummary;
+  "incident_counts"?: Record<string, number>;
+  "on_bench"?: boolean;
+  "played_for_team_id"?: number;
+  "statistics"?: Record<string, number>;
+}
+
+export interface ModelSofascorePlayerAttributesResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerAttributesResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerAttributesResponse {
+  "characteristics"?: ModelSofascorePlayerCharacteristics;
+  "characteristics_url"?: string;
+  "fetched_at"?: string;
+  "overviews"?: Array<ModelSofascorePlayerAttributeOverview>;
+  "player_id"?: number;
+  "position_averages"?: Array<ModelSofascorePlayerAttributeOverview>;
+  "source_url"?: string;
+  "sport"?: string;
+}
+
+export interface ModelSofascorePlayerAttributeOverview {
+  "attributes"?: Record<string, number>;
+  "position"?: string;
+  "year_shift"?: number;
+}
+
+export interface ModelSofascorePlayerCharacteristics {
+  "positions"?: Array<string>;
+  "strengths"?: Array<ModelSofascorePlayerCharacteristic>;
+  "weaknesses"?: Array<ModelSofascorePlayerCharacteristic>;
+}
+
+export interface ModelSofascorePlayerCharacteristic {
+  "code"?: number;
+  "key"?: string;
+  "name"?: string;
+  "rank"?: number;
 }
 
 export interface ModelSofascorePlayerResponseDoc {
@@ -795,6 +2013,152 @@ export interface ModelSofascorePlayerDetail {
   "short_name"?: string;
   "slug"?: string;
   "team"?: ModelSofascoreTeamRef;
+}
+
+export interface ModelSofascoreOddsWinningResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreOddsWinningResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreOddsWinningResponse {
+  "count"?: number;
+  "events"?: Array<ModelSofascoreOddsWinningEvent>;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "sport"?: string;
+}
+
+export interface ModelSofascoreOddsWinningEvent {
+  "actual"?: number;
+  "away_score"?: ModelSofascoreScoreLine;
+  "away_team"?: ModelSofascoreTeamRef;
+  "expected"?: number;
+  "home_score"?: ModelSofascoreScoreLine;
+  "home_team"?: ModelSofascoreTeamRef;
+  "id"?: number;
+  "market"?: ModelSofascoreMoverOddsMarket;
+  "slug"?: string;
+  "sport"?: string;
+  "start_time"?: string;
+  "start_timestamp"?: number;
+  "status"?: ModelSofascoreEventStatus;
+  "tournament"?: ModelSofascoreTournamentRef;
+  "winner_code"?: number;
+  "winning_odds"?: string;
+}
+
+export interface ModelSofascoreMoverOddsMarket {
+  "choices"?: Array<ModelSofascoreMoverOddsChoice>;
+  "group"?: string;
+  "is_live"?: boolean;
+  "name"?: string;
+  "period"?: string;
+  "suspended"?: boolean;
+}
+
+export interface ModelSofascoreMoverOddsChoice {
+  "change"?: number;
+  "initial_value"?: string;
+  "name"?: string;
+  "value"?: string;
+}
+
+export interface ModelSofascoreOddsDroppingResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreOddsDroppingResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreOddsDroppingResponse {
+  "count"?: number;
+  "events"?: Array<ModelSofascoreOddsDroppingEvent>;
+  "fetched_at"?: string;
+  "source_url"?: string;
+  "sport"?: string;
+}
+
+export interface ModelSofascoreOddsDroppingEvent {
+  "away_score"?: ModelSofascoreScoreLine;
+  "away_team"?: ModelSofascoreTeamRef;
+  "choice_name"?: string;
+  "home_score"?: ModelSofascoreScoreLine;
+  "home_team"?: ModelSofascoreTeamRef;
+  "id"?: number;
+  "market"?: ModelSofascoreMoverOddsMarket;
+  "percentage"?: number;
+  "slug"?: string;
+  "sport"?: string;
+  "start_time"?: string;
+  "start_timestamp"?: number;
+  "status"?: ModelSofascoreEventStatus;
+  "tournament"?: ModelSofascoreTournamentRef;
+  "winner_code"?: number;
+}
+
+export interface ModelSofascoreMmaScheduleResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreMmascheduleResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreMmascheduleResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "main_events"?: Array<ModelSofascoreMmafight>;
+  "month"?: string;
+  "org_id"?: number;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreMmafight {
+  "away_fighter"?: ModelSofascoreMmafighter;
+  "card_id"?: number;
+  "card_name"?: string;
+  "fight_type"?: string;
+  "final_round"?: number;
+  "gender"?: string;
+  "home_fighter"?: ModelSofascoreMmafighter;
+  "id"?: number;
+  "order"?: number;
+  "scheduled_rounds"?: number;
+  "slug"?: string;
+  "start_time"?: string;
+  "start_timestamp"?: number;
+  "status"?: ModelSofascoreEventStatus;
+  "time_played_seconds"?: number;
+  "weight_class"?: string;
+  "win_type"?: string;
+  "winner_code"?: number;
+}
+
+export interface ModelSofascoreMmafighter {
+  "country"?: string;
+  "draws"?: number;
+  "id"?: number;
+  "losses"?: number;
+  "name"?: string;
+  "nickname"?: string;
+  "ranking"?: number;
+  "slug"?: string;
+  "wins"?: number;
+}
+
+export interface ModelSofascoreMmaCardResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreMmacardResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreMmacardResponse {
+  "card_id"?: number;
+  "card_name"?: string;
+  "count"?: number;
+  "fetched_at"?: string;
+  "fights"?: Array<ModelSofascoreMmafight>;
+  "org_id"?: number;
+  "part"?: string;
+  "source_url"?: string;
 }
 
 export interface ModelSofascoreManagerEventsResponseDoc {
@@ -866,6 +2230,132 @@ export interface ModelSofascoreLiveEventsResponse {
   "sport"?: string;
 }
 
+export interface ModelSofascoreEventVotesResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventVotesResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventVotesResponse {
+  "both_teams_to_score"?: ModelSofascoreVoteBothTeamsToScore;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "first_to_score"?: ModelSofascoreVoteFirstToScore;
+  "match_result"?: ModelSofascoreVoteMatchResult;
+  "source_url"?: string;
+  "who_should_have_won"?: ModelSofascoreVoteWhoShouldHaveWon;
+}
+
+export interface ModelSofascoreVoteWhoShouldHaveWon {
+  "away"?: number;
+  "home"?: number;
+}
+
+export interface ModelSofascoreVoteMatchResult {
+  "away"?: number;
+  "draw"?: number;
+  "home"?: number;
+  "total"?: number;
+}
+
+export interface ModelSofascoreVoteFirstToScore {
+  "away"?: number;
+  "home"?: number;
+  "no_goal"?: number;
+}
+
+export interface ModelSofascoreVoteBothTeamsToScore {
+  "no"?: number;
+  "yes"?: number;
+}
+
+export interface ModelSofascoreEventTvchannelsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventTvchannelsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventTvchannelsResponse {
+  "available_countries"?: Array<ModelSofascoreTvcountryChannels>;
+  "channels"?: Array<ModelSofascoreTvchannel>;
+  "country"?: string;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreTvchannel {
+  "id"?: number;
+  "name"?: string;
+}
+
+export interface ModelSofascoreTvcountryChannels {
+  "channel_ids"?: Array<number>;
+  "country"?: string;
+}
+
+export interface ModelSofascoreEventTennisPowerResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventTennisPowerResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventTennisPowerResponse {
+  "count"?: number;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "games"?: Array<ModelSofascoreTennisPowerGame>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreTennisPowerGame {
+  "break_occurred"?: boolean;
+  "game"?: number;
+  "set"?: number;
+  "value"?: number;
+}
+
+export interface ModelSofascoreEventTeamStreaksResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventTeamStreaksResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventTeamStreaksResponse {
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "general"?: Array<ModelSofascoreTeamStreak>;
+  "head2head"?: Array<ModelSofascoreTeamStreak>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreTeamStreak {
+  "continued"?: boolean;
+  "name"?: string;
+  "team"?: string;
+  "value"?: string;
+}
+
+export interface ModelSofascoreEventTeamHeatmapResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventTeamHeatmapResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventTeamHeatmapResponse {
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "goalkeeper_points"?: Array<ModelSofascoreHeatmapPoint>;
+  "player_points"?: Array<ModelSofascoreHeatmapPoint>;
+  "source_url"?: string;
+  "team_id"?: number;
+}
+
+export interface ModelSofascoreHeatmapPoint {
+  "x"?: number;
+  "y"?: number;
+}
+
 export interface ModelSofascoreEventStatisticsResponseDoc {
   "code"?: number;
   "data"?: ModelSofascoreEventStatisticsResponse;
@@ -914,6 +2404,7 @@ export interface ModelSofascoreShot {
   "added_time"?: number;
   "block_coordinates"?: ModelSofascoreCoordinates;
   "body_part"?: string;
+  "coordinates"?: ModelSofascoreCoordinates;
   "goal_mouth_coordinates"?: ModelSofascoreCoordinates;
   "goal_mouth_location"?: string;
   "goal_type"?: string;
@@ -921,10 +2412,16 @@ export interface ModelSofascoreShot {
   "id"?: number;
   "is_home"?: boolean;
   "minute"?: number;
+  "outcome"?: string;
+  "period"?: string;
+  "period_time_seconds"?: number;
   "player"?: ModelSofascorePlayerBrief;
   "player_coordinates"?: ModelSofascoreCoordinates;
+  "reversed_period_time_seconds"?: number;
   "shot_type"?: string;
   "situation"?: string;
+  "strength"?: string;
+  "team"?: ModelSofascoreTeamRef;
   "time_seconds"?: number;
   "xg"?: number;
   "xgot"?: number;
@@ -934,6 +2431,73 @@ export interface ModelSofascoreCoordinates {
   "x"?: number;
   "y"?: number;
   "z"?: number;
+}
+
+export interface ModelSofascoreEventPregameFormResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventPregameFormResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventPregameFormResponse {
+  "away"?: ModelSofascorePregameFormSide;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "home"?: ModelSofascorePregameFormSide;
+  "label"?: string;
+  "source_url"?: string;
+}
+
+export interface ModelSofascorePregameFormSide {
+  "avg_rating"?: number;
+  "form"?: Array<string>;
+  "position"?: number;
+  "value"?: string;
+}
+
+export interface ModelSofascoreEventPointByPointResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventPointByPointResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventPointByPointResponse {
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "set_count"?: number;
+  "sets"?: Array<ModelSofascorePointByPointSet>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascorePointByPointSet {
+  "games"?: Array<ModelSofascorePointByPointGame>;
+  "points"?: Array<ModelSofascorePointByPointPoint>;
+  "score"?: ModelSofascorePointByPointScore;
+  "set"?: number;
+}
+
+export interface ModelSofascorePointByPointScore {
+  "away_score"?: number;
+  "home_score"?: number;
+  "server"?: string;
+  "winner"?: string;
+}
+
+export interface ModelSofascorePointByPointPoint {
+  "away_marker"?: string;
+  "away_point"?: string;
+  "away_point_type"?: number;
+  "description"?: string;
+  "description_code"?: number;
+  "home_marker"?: string;
+  "home_point"?: string;
+  "home_point_type"?: number;
+}
+
+export interface ModelSofascorePointByPointGame {
+  "game"?: number;
+  "points"?: Array<ModelSofascorePointByPointPoint>;
+  "score"?: ModelSofascorePointByPointScore;
 }
 
 export interface ModelSofascoreEventPlayerStatisticsResponseDoc {
@@ -951,6 +2515,21 @@ export interface ModelSofascoreEventPlayerStatisticsResponse {
   "source_url"?: string;
   "statistics"?: Record<string, number>;
   "team"?: ModelSofascoreTeamRef;
+}
+
+export interface ModelSofascoreEventPlayerHeatmapResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventPlayerHeatmapResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventPlayerHeatmapResponse {
+  "count"?: number;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "player_id"?: number;
+  "points"?: Array<ModelSofascoreHeatmapPoint>;
+  "source_url"?: string;
 }
 
 export interface ModelSofascoreEventOddsResponseDoc {
@@ -981,6 +2560,27 @@ export interface ModelSofascoreOddsChoice {
   "winning"?: boolean;
 }
 
+export interface ModelSofascoreEventManagersResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventManagersResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventManagersResponse {
+  "away"?: ModelSofascoreManagerBrief;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "home"?: ModelSofascoreManagerBrief;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreManagerBrief {
+  "id"?: number;
+  "name"?: string;
+  "short_name"?: string;
+  "slug"?: string;
+}
+
 export interface ModelSofascoreEventLineupsResponseDoc {
   "code"?: number;
   "data"?: ModelSofascoreEventLineupsResponse;
@@ -1006,6 +2606,85 @@ export interface ModelSofascoreLineupPlayer {
   "player"?: ModelSofascorePlayerRef;
   "position"?: string;
   "substitute"?: boolean;
+}
+
+export interface ModelSofascoreEventInningsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventInningsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventInningsResponse {
+  "count"?: number;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "innings"?: Array<ModelSofascoreCricketInnings>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreCricketInnings {
+  "batting"?: Array<ModelSofascoreCricketBattingLine>;
+  "batting_team"?: ModelSofascoreTeamRef;
+  "bowling"?: Array<ModelSofascoreCricketBowlingLine>;
+  "bowling_team"?: ModelSofascoreTeamRef;
+  "extras"?: ModelSofascoreCricketExtras;
+  "fall_of_wickets"?: Array<ModelSofascoreCricketFallOfWicket>;
+  "id"?: number;
+  "number"?: number;
+  "overs"?: number;
+  "partnerships"?: Array<ModelSofascoreCricketPartnership>;
+  "runs"?: number;
+  "wickets"?: number;
+}
+
+export interface ModelSofascoreCricketPartnership {
+  "balls"?: number;
+  "number"?: number;
+  "player1"?: ModelSofascorePlayerBrief;
+  "player2"?: ModelSofascorePlayerBrief;
+  "runs"?: number;
+}
+
+export interface ModelSofascoreCricketFallOfWicket {
+  "over"?: number;
+  "player"?: ModelSofascorePlayerBrief;
+  "score"?: number;
+  "wicket"?: number;
+}
+
+export interface ModelSofascoreCricketExtras {
+  "byes"?: number;
+  "leg_byes"?: number;
+  "no_balls"?: number;
+  "penalty"?: number;
+  "total"?: number;
+  "wides"?: number;
+}
+
+export interface ModelSofascoreCricketBowlingLine {
+  "maidens"?: number;
+  "no_balls"?: number;
+  "overs"?: number;
+  "player"?: ModelSofascorePlayerBrief;
+  "runs"?: number;
+  "scorecard_name"?: string;
+  "wickets"?: number;
+  "wides"?: number;
+}
+
+export interface ModelSofascoreCricketBattingLine {
+  "balls"?: number;
+  "bowler"?: ModelSofascorePlayerBrief;
+  "dismissal"?: string;
+  "dismissal_code"?: number;
+  "fall_of_wicket_over"?: number;
+  "fall_of_wicket_score"?: number;
+  "fielder"?: ModelSofascorePlayerBrief;
+  "fours"?: number;
+  "player"?: ModelSofascorePlayerBrief;
+  "runs"?: number;
+  "scorecard_name"?: string;
+  "sixes"?: number;
 }
 
 export interface ModelSofascoreEventIncidentsResponseDoc {
@@ -1035,6 +2714,34 @@ export interface ModelSofascoreIncident {
   "text"?: string;
   "time"?: number;
   "type"?: string;
+}
+
+export interface ModelSofascoreEventHighlightsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventHighlightsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventHighlightsResponse {
+  "count"?: number;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "highlights"?: Array<ModelSofascoreEventHighlight>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreEventHighlight {
+  "created_at"?: string;
+  "created_timestamp"?: number;
+  "for_countries"?: Array<string>;
+  "id"?: number;
+  "key_highlight"?: boolean;
+  "livestream"?: boolean;
+  "media_type_code"?: number;
+  "subtitle"?: string;
+  "thumbnail_url"?: string;
+  "title"?: string;
+  "url"?: string;
 }
 
 export interface ModelSofascoreEventH2HresponseDoc {
@@ -1078,6 +2785,46 @@ export interface ModelSofascoreEventGraphResponse {
 export interface ModelSofascoreGraphPoint {
   "minute"?: number;
   "value"?: number;
+}
+
+export interface ModelSofascoreEventEsportsGamesResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventEsportsGamesResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventEsportsGamesResponse {
+  "count"?: number;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "games"?: Array<ModelSofascoreEsportsGame>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreEsportsGame {
+  "away_score"?: ModelSofascoreEsportsGameScore;
+  "has_complete_statistics"?: boolean;
+  "home_score"?: ModelSofascoreEsportsGameScore;
+  "home_team_starting_side_code"?: number;
+  "id"?: number;
+  "length_seconds"?: number;
+  "map"?: ModelSofascoreEsportsGameMap;
+  "start_time"?: string;
+  "start_timestamp"?: number;
+  "status"?: ModelSofascoreEventStatus;
+  "winner_code"?: number;
+}
+
+export interface ModelSofascoreEsportsGameMap {
+  "id"?: number;
+  "name"?: string;
+}
+
+export interface ModelSofascoreEsportsGameScore {
+  "display"?: number;
+  "overtime"?: number;
+  "period1"?: number;
+  "period2"?: number;
 }
 
 export interface ModelSofascoreEventCommentsResponseDoc {
@@ -1133,6 +2880,171 @@ export interface ModelSofascoreBestPlayer {
   "player"?: ModelSofascorePlayerBrief;
   "team"?: ModelSofascoreTeamRef;
   "value"?: number;
+  "value_text"?: string;
+}
+
+export interface ModelSofascoreEventBaseballTopPerformersResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventBaseballTopPerformersResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventBaseballTopPerformersResponse {
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "performers"?: Array<ModelSofascoreBaseballPerformer>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreBaseballPerformer {
+  "player"?: ModelSofascorePlayerBrief;
+  "rating"?: number;
+  "role"?: string;
+  "statistics"?: Record<string, number>;
+  "team"?: ModelSofascoreTeamRef;
+}
+
+export interface ModelSofascoreEventAveragePositionsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventAveragePositionsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventAveragePositionsResponse {
+  "away"?: Array<ModelSofascoreAveragePosition>;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "home"?: Array<ModelSofascoreAveragePosition>;
+  "source_url"?: string;
+  "substitutions"?: Array<ModelSofascoreAveragePositionSubstitution>;
+}
+
+export interface ModelSofascoreAveragePositionSubstitution {
+  "is_home"?: boolean;
+  "minute"?: number;
+  "player_in"?: ModelSofascorePlayerBrief;
+  "player_out"?: ModelSofascorePlayerBrief;
+}
+
+export interface ModelSofascoreAveragePosition {
+  "average_x"?: number;
+  "average_y"?: number;
+  "player"?: ModelSofascorePlayerBrief;
+  "points_count"?: number;
+}
+
+export interface ModelSofascoreEventAtBatsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventAtBatsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventAtBatsResponse {
+  "at_bats"?: Array<ModelSofascoreBaseballAtBat>;
+  "count"?: number;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreBaseballAtBat {
+  "away_win_probability"?: number;
+  "away_win_probability_start"?: number;
+  "end_time"?: string;
+  "end_timestamp"?: number;
+  "hitter"?: ModelSofascorePlayerBrief;
+  "hitter_team"?: ModelSofascoreTeamRef;
+  "home_win_probability"?: number;
+  "home_win_probability_start"?: number;
+  "id"?: number;
+  "inning"?: number;
+  "inning_half"?: string;
+  "pitcher"?: ModelSofascorePlayerBrief;
+  "pitcher_team"?: ModelSofascoreTeamRef;
+}
+
+export interface ModelSofascoreEventAtBatPitchesResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEventAtBatPitchesResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEventAtBatPitchesResponse {
+  "at_bat_id"?: number;
+  "count"?: number;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "hitter"?: ModelSofascorePlayerBrief;
+  "pitcher"?: ModelSofascorePlayerBrief;
+  "pitches"?: Array<ModelSofascoreBaseballPitch>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreBaseballPitch {
+  "at_bat_over"?: boolean;
+  "away_team_runs"?: number;
+  "balls"?: number;
+  "bunt"?: boolean;
+  "double_play"?: boolean;
+  "end_time"?: string;
+  "fielders"?: Array<ModelSofascoreBaseballFielder>;
+  "hit"?: boolean;
+  "hit_hardness"?: string;
+  "hit_location"?: string;
+  "hit_trajectory"?: string;
+  "hit_type"?: string;
+  "hit_x"?: number;
+  "hit_y"?: number;
+  "hitter_hand"?: string;
+  "home_team_runs"?: number;
+  "id"?: number;
+  "inning"?: number;
+  "inning_half"?: string;
+  "mlb_x"?: number;
+  "mlb_y"?: number;
+  "mlb_zone"?: number;
+  "outcome"?: string;
+  "outs"?: number;
+  "passed_ball"?: boolean;
+  "pitch_code"?: string;
+  "pitch_count"?: number;
+  "pitch_description"?: string;
+  "pitch_speed"?: number;
+  "pitch_type"?: string;
+  "pitch_x"?: number;
+  "pitch_y"?: number;
+  "pitch_zone"?: number;
+  "pitcher_hand"?: string;
+  "runners"?: Array<ModelSofascoreBaseballRunner>;
+  "sequence"?: number;
+  "start_time"?: string;
+  "status"?: string;
+  "strike_zone_bottom"?: number;
+  "strike_zone_top"?: number;
+  "strikes"?: number;
+  "triple_play"?: boolean;
+  "type"?: string;
+  "wild_pitch"?: boolean;
+}
+
+export interface ModelSofascoreBaseballRunner {
+  "description"?: string;
+  "ending_base"?: number;
+  "jersey_number"?: string;
+  "out"?: boolean;
+  "outcome_code"?: string;
+  "player_id"?: number;
+  "player_name"?: string;
+  "starting_base"?: number;
+}
+
+export interface ModelSofascoreBaseballFielder {
+  "first_name"?: string;
+  "jersey_number"?: string;
+  "last_name"?: string;
+  "player_id"?: number;
+  "sequence"?: number;
+  "type"?: string;
 }
 
 export interface ModelSofascoreEventResponseDoc {
@@ -1164,17 +3076,141 @@ export interface ModelSofascoreEventDetail {
   "winner_code"?: number;
 }
 
-export interface ModelSofascoreVenue {
-  "capacity"?: number;
-  "city"?: string;
-  "country"?: string;
-  "name"?: string;
-}
-
 export interface ModelSofascoreReferee {
   "country"?: string;
   "id"?: number;
   "name"?: string;
+}
+
+export interface ModelSofascoreEsportsGameResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreEsportsGameResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreEsportsGameResponse {
+  "bans"?: ModelSofascoreEsportsGameBans;
+  "fetched_at"?: string;
+  "game_id"?: number;
+  "lineups"?: ModelSofascoreEsportsGameLineups;
+  "part"?: string;
+  "rounds"?: ModelSofascoreEsportsGameRounds;
+  "source_url"?: string;
+  "statistics"?: ModelSofascoreEsportsGameStatistics;
+}
+
+export interface ModelSofascoreEsportsGameStatistics {
+  "away"?: ModelSofascoreEsportsTeamStatistics;
+  "home"?: ModelSofascoreEsportsTeamStatistics;
+}
+
+export interface ModelSofascoreEsportsTeamStatistics {
+  "flags"?: Record<string, boolean>;
+  "statistics"?: Record<string, number>;
+}
+
+export interface ModelSofascoreEsportsGameRounds {
+  "normaltime"?: Array<ModelSofascoreEsportsRound>;
+  "overtime"?: Array<ModelSofascoreEsportsRound>;
+  "overtime_chunk_size"?: number;
+  "rounds_in_a_half"?: number;
+}
+
+export interface ModelSofascoreEsportsRound {
+  "home_team_side"?: string;
+  "home_team_side_code"?: number;
+  "outcome"?: string;
+  "outcome_code"?: number;
+  "winner_code"?: number;
+}
+
+export interface ModelSofascoreEsportsGameLineups {
+  "away_players"?: Array<ModelSofascoreEsportsPlayerLine>;
+  "home_players"?: Array<ModelSofascoreEsportsPlayerLine>;
+}
+
+export interface ModelSofascoreEsportsPlayerLine {
+  "character"?: ModelSofascoreEsportsCharacter;
+  "flags"?: Record<string, boolean>;
+  "player"?: ModelSofascorePlayerBrief;
+  "role"?: string;
+  "statistics"?: Record<string, number>;
+}
+
+export interface ModelSofascoreEsportsCharacter {
+  "id"?: number;
+  "name"?: string;
+  "slug"?: string;
+}
+
+export interface ModelSofascoreEsportsGameBans {
+  "away"?: Array<ModelSofascoreEsportsCharacter>;
+  "home"?: Array<ModelSofascoreEsportsCharacter>;
+}
+
+export interface ModelSofascoreDraftPicksResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreDraftPicksResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreDraftPicksResponse {
+  "count"?: number;
+  "fetched_at"?: string;
+  "league"?: string;
+  "picks"?: Array<ModelSofascoreDraftPick>;
+  "round"?: number;
+  "source_url"?: string;
+  "teams_without_round_pick"?: Array<ModelSofascoreTeamRef>;
+  "year"?: number;
+}
+
+export interface ModelSofascoreDraftPick {
+  "overall_pick"?: number;
+  "pick_in_round"?: number;
+  "prospect"?: ModelSofascoreDraftProspect;
+  "round"?: number;
+  "team"?: ModelSofascoreTeamRef;
+}
+
+export interface ModelSofascoreDraftProspect {
+  "first_name"?: string;
+  "is_top_prospect"?: boolean;
+  "last_name"?: string;
+  "name"?: string;
+  "player"?: ModelSofascorePlayerBrief;
+  "position"?: string;
+  "school"?: ModelSofascoreTeamRef;
+  "school_name"?: string;
+}
+
+export interface ModelSofascoreDraftResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascoreDraftResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascoreDraftResponse {
+  "draft"?: ModelSofascoreDraftInfo;
+  "fetched_at"?: string;
+  "has_lottery_draw"?: boolean;
+  "league"?: string;
+  "lottery_year"?: number;
+  "previous_draft"?: ModelSofascoreDraftInfo;
+  "prospects_year"?: number;
+  "season"?: number;
+  "source_url"?: string;
+}
+
+export interface ModelSofascoreDraftInfo {
+  "end_time"?: string;
+  "end_timestamp"?: number;
+  "is_lottery_complete"?: boolean;
+  "rounds"?: Array<number>;
+  "start_time"?: string;
+  "start_timestamp"?: number;
+  "status"?: string;
+  "year"?: number;
 }
 
 export interface ModelSofascoreCategoryTournamentsResponseDoc {
@@ -1233,8 +3269,48 @@ export interface SofascoreCategoryTournamentsParams {
   "id": string;
 }
 
+export type SofascoreDraftResponse = CrawloraResponse<ModelSofascoreDraftResponseDoc>;
+export interface SofascoreDraftParams {
+  "league": "nba" | "nfl";
+  "season": string;
+}
+
+export type SofascoreDraftPicksResponse = CrawloraResponse<ModelSofascoreDraftPicksResponseDoc>;
+export interface SofascoreDraftPicksParams {
+  "league": "nba" | "nfl";
+  "year": string;
+  "round": number;
+}
+
+export type SofascoreEsportsGameResponse = CrawloraResponse<ModelSofascoreEsportsGameResponseDoc>;
+export interface SofascoreEsportsGameParams {
+  "id": string;
+  "part": "statistics" | "lineups" | "bans" | "rounds";
+}
+
 export type SofascoreEventResponse = CrawloraResponse<ModelSofascoreEventResponseDoc>;
 export interface SofascoreEventParams {
+  "id": string;
+}
+
+export type SofascoreEventAtBatPitchesResponse = CrawloraResponse<ModelSofascoreEventAtBatPitchesResponseDoc>;
+export interface SofascoreEventAtBatPitchesParams {
+  "id": string;
+  "at_bat_id": string;
+}
+
+export type SofascoreEventAtBatsResponse = CrawloraResponse<ModelSofascoreEventAtBatsResponseDoc>;
+export interface SofascoreEventAtBatsParams {
+  "id": string;
+}
+
+export type SofascoreEventAveragePositionsResponse = CrawloraResponse<ModelSofascoreEventAveragePositionsResponseDoc>;
+export interface SofascoreEventAveragePositionsParams {
+  "id": string;
+}
+
+export type SofascoreEventBaseballTopPerformersResponse = CrawloraResponse<ModelSofascoreEventBaseballTopPerformersResponseDoc>;
+export interface SofascoreEventBaseballTopPerformersParams {
   "id": string;
 }
 
@@ -1248,6 +3324,11 @@ export interface SofascoreEventCommentsParams {
   "id": string;
 }
 
+export type SofascoreEventEsportsGamesResponse = CrawloraResponse<ModelSofascoreEventEsportsGamesResponseDoc>;
+export interface SofascoreEventEsportsGamesParams {
+  "id": string;
+}
+
 export type SofascoreEventGraphResponse = CrawloraResponse<ModelSofascoreEventGraphResponseDoc>;
 export interface SofascoreEventGraphParams {
   "id": string;
@@ -1258,8 +3339,18 @@ export interface SofascoreEventH2hParams {
   "id": string;
 }
 
+export type SofascoreEventHighlightsResponse = CrawloraResponse<ModelSofascoreEventHighlightsResponseDoc>;
+export interface SofascoreEventHighlightsParams {
+  "id": string;
+}
+
 export type SofascoreEventIncidentsResponse = CrawloraResponse<ModelSofascoreEventIncidentsResponseDoc>;
 export interface SofascoreEventIncidentsParams {
+  "id": string;
+}
+
+export type SofascoreEventInningsResponse = CrawloraResponse<ModelSofascoreEventInningsResponseDoc>;
+export interface SofascoreEventInningsParams {
   "id": string;
 }
 
@@ -1268,15 +3359,36 @@ export interface SofascoreEventLineupsParams {
   "id": string;
 }
 
+export type SofascoreEventManagersResponse = CrawloraResponse<ModelSofascoreEventManagersResponseDoc>;
+export interface SofascoreEventManagersParams {
+  "id": string;
+}
+
 export type SofascoreEventOddsResponse = CrawloraResponse<ModelSofascoreEventOddsResponseDoc>;
 export interface SofascoreEventOddsParams {
   "id": string;
+}
+
+export type SofascoreEventPlayerHeatmapResponse = CrawloraResponse<ModelSofascoreEventPlayerHeatmapResponseDoc>;
+export interface SofascoreEventPlayerHeatmapParams {
+  "id": string;
+  "player_id": string;
 }
 
 export type SofascoreEventPlayerStatisticsResponse = CrawloraResponse<ModelSofascoreEventPlayerStatisticsResponseDoc>;
 export interface SofascoreEventPlayerStatisticsParams {
   "id": string;
   "player_id": string;
+}
+
+export type SofascoreEventPointByPointResponse = CrawloraResponse<ModelSofascoreEventPointByPointResponseDoc>;
+export interface SofascoreEventPointByPointParams {
+  "id": string;
+}
+
+export type SofascoreEventPregameFormResponse = CrawloraResponse<ModelSofascoreEventPregameFormResponseDoc>;
+export interface SofascoreEventPregameFormParams {
+  "id": string;
 }
 
 export type SofascoreEventShotmapResponse = CrawloraResponse<ModelSofascoreEventShotmapResponseDoc>;
@@ -1286,6 +3398,33 @@ export interface SofascoreEventShotmapParams {
 
 export type SofascoreEventStatisticsResponse = CrawloraResponse<ModelSofascoreEventStatisticsResponseDoc>;
 export interface SofascoreEventStatisticsParams {
+  "id": string;
+}
+
+export type SofascoreEventTeamHeatmapResponse = CrawloraResponse<ModelSofascoreEventTeamHeatmapResponseDoc>;
+export interface SofascoreEventTeamHeatmapParams {
+  "id": string;
+  "team_id": string;
+}
+
+export type SofascoreEventTeamStreaksResponse = CrawloraResponse<ModelSofascoreEventTeamStreaksResponseDoc>;
+export interface SofascoreEventTeamStreaksParams {
+  "id": string;
+}
+
+export type SofascoreEventTennisPowerResponse = CrawloraResponse<ModelSofascoreEventTennisPowerResponseDoc>;
+export interface SofascoreEventTennisPowerParams {
+  "id": string;
+}
+
+export type SofascoreEventTvChannelsResponse = CrawloraResponse<ModelSofascoreEventTvchannelsResponseDoc>;
+export interface SofascoreEventTvChannelsParams {
+  "id": string;
+  "country"?: string;
+}
+
+export type SofascoreEventVotesResponse = CrawloraResponse<ModelSofascoreEventVotesResponseDoc>;
+export interface SofascoreEventVotesParams {
   "id": string;
 }
 
@@ -1305,9 +3444,73 @@ export interface SofascoreManagerEventsParams {
   "page"?: number;
 }
 
+export type SofascoreMmaCardResponse = CrawloraResponse<ModelSofascoreMmaCardResponseDoc>;
+export interface SofascoreMmaCardParams {
+  "org_id": string;
+  "card_id": string;
+  "part": "all" | "maincard" | "prelims" | "earlyprelims";
+}
+
+export type SofascoreMmaScheduleResponse = CrawloraResponse<ModelSofascoreMmaScheduleResponseDoc>;
+export interface SofascoreMmaScheduleParams {
+  "org_id": string;
+  "month": string;
+}
+
+export type SofascoreOddsDroppingResponse = CrawloraResponse<ModelSofascoreOddsDroppingResponseDoc>;
+export interface SofascoreOddsDroppingParams {
+  "sport"?: "all" | "american-football" | "aussie-rules" | "badminton" | "bandy" | "baseball" | "basketball" | "beach-volley" | "cricket" | "darts" | "esports" | "floorball" | "football" | "futsal" | "handball" | "ice-hockey" | "mma" | "minifootball" | "padel" | "rugby" | "snooker" | "table-tennis" | "tennis" | "volleyball" | "waterpolo";
+}
+
+export type SofascoreOddsWinningResponse = CrawloraResponse<ModelSofascoreOddsWinningResponseDoc>;
+export interface SofascoreOddsWinningParams {
+  "sport"?: "all" | "american-football" | "aussie-rules" | "badminton" | "bandy" | "baseball" | "basketball" | "beach-volley" | "cricket" | "darts" | "esports" | "floorball" | "football" | "futsal" | "handball" | "ice-hockey" | "mma" | "minifootball" | "padel" | "rugby" | "snooker" | "table-tennis" | "tennis" | "volleyball" | "waterpolo";
+}
+
 export type SofascorePlayerResponse = CrawloraResponse<ModelSofascorePlayerResponseDoc>;
 export interface SofascorePlayerParams {
   "id": string;
+}
+
+export type SofascorePlayerAttributesResponse = CrawloraResponse<ModelSofascorePlayerAttributesResponseDoc>;
+export interface SofascorePlayerAttributesParams {
+  "id": string;
+}
+
+export type SofascorePlayerEventsResponse = CrawloraResponse<ModelSofascorePlayerEventsResponseDoc>;
+export interface SofascorePlayerEventsParams {
+  "id": string;
+  "page"?: number;
+}
+
+export type SofascorePlayerLastYearSummaryResponse = CrawloraResponse<ModelSofascorePlayerLastYearSummaryResponseDoc>;
+export interface SofascorePlayerLastYearSummaryParams {
+  "id": string;
+}
+
+export type SofascorePlayerNationalTeamStatisticsResponse = CrawloraResponse<ModelSofascorePlayerNationalTeamStatisticsResponseDoc>;
+export interface SofascorePlayerNationalTeamStatisticsParams {
+  "id": string;
+}
+
+export type SofascorePlayerPenaltyHistoryResponse = CrawloraResponse<ModelSofascorePlayerPenaltyHistoryResponseDoc>;
+export interface SofascorePlayerPenaltyHistoryParams {
+  "id": string;
+}
+
+export type SofascorePlayerRatingsResponse = CrawloraResponse<ModelSofascorePlayerRatingsResponseDoc>;
+export interface SofascorePlayerRatingsParams {
+  "id": string;
+  "tournament_id": string;
+  "season": string;
+  "type"?: "overall" | "home" | "away" | "regular_season" | "playoffs";
+}
+
+export type SofascorePlayerSeasonHeatmapResponse = CrawloraResponse<ModelSofascorePlayerSeasonHeatmapResponseDoc>;
+export interface SofascorePlayerSeasonHeatmapParams {
+  "id": string;
+  "tournament_id": string;
+  "season": string;
 }
 
 export type SofascorePlayerSeasonStatisticsResponse = CrawloraResponse<ModelSofascorePlayerSeasonStatisticsResponseDoc>;
@@ -1318,8 +3521,20 @@ export interface SofascorePlayerSeasonStatisticsParams {
   "type"?: "overall" | "home" | "away" | "regular_season" | "playoffs";
 }
 
+export type SofascorePlayerStatisticalRankingsResponse = CrawloraResponse<ModelSofascorePlayerStatisticalRankingsResponseDoc>;
+export interface SofascorePlayerStatisticalRankingsParams {
+  "id": string;
+  "season": string;
+  "type"?: "overall";
+}
+
 export type SofascorePlayerStatisticsSeasonsResponse = CrawloraResponse<ModelSofascorePlayerStatisticsSeasonsResponseDoc>;
 export interface SofascorePlayerStatisticsSeasonsParams {
+  "id": string;
+}
+
+export type SofascorePlayerTournamentsResponse = CrawloraResponse<ModelSofascorePlayerTournamentsResponseDoc>;
+export interface SofascorePlayerTournamentsParams {
   "id": string;
 }
 
@@ -1336,6 +3551,22 @@ export type SofascoreRankingsResponse = CrawloraResponse<ModelSofascoreRankingsR
 export interface SofascoreRankingsParams {
   "type": "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "34" | "35" | "36" | "37" | "40" | "41" | "42" | "43" | "44" | "45" | "46";
   "limit"?: number;
+}
+
+export type SofascoreRefereeResponse = CrawloraResponse<ModelSofascoreRefereeResponseDoc>;
+export interface SofascoreRefereeParams {
+  "id": string;
+}
+
+export type SofascoreRefereeEventsResponse = CrawloraResponse<ModelSofascoreRefereeEventsResponseDoc>;
+export interface SofascoreRefereeEventsParams {
+  "id": string;
+  "page"?: number;
+}
+
+export type SofascoreRefereeStatisticsResponse = CrawloraResponse<ModelSofascoreRefereeStatisticsResponseDoc>;
+export interface SofascoreRefereeStatisticsParams {
+  "id": string;
 }
 
 export type SofascoreRoundEventsResponse = CrawloraResponse<ModelSofascoreRoundEventsResponseDoc>;
@@ -1365,6 +3596,14 @@ export interface SofascoreSearchParams {
   "q": string;
 }
 
+export type SofascoreSearchTypedResponse = CrawloraResponse<ModelSofascoreSearchTypedResponseDoc>;
+export interface SofascoreSearchTypedParams {
+  "type": "events" | "teams" | "players" | "managers" | "referees" | "venues" | "unique_tournaments";
+  "q": string;
+  "page"?: number;
+  "sport"?: "american-football" | "aussie-rules" | "badminton" | "bandy" | "baseball" | "basketball" | "beach-volley" | "cricket" | "darts" | "esports" | "floorball" | "football" | "futsal" | "handball" | "ice-hockey" | "mma" | "minifootball" | "padel" | "rugby" | "snooker" | "table-tennis" | "tennis" | "volleyball" | "waterpolo";
+}
+
 export type SofascoreSeasonEventsResponse = CrawloraResponse<ModelSofascoreSeasonEventsResponseDoc>;
 export interface SofascoreSeasonEventsParams {
   "id": string;
@@ -1375,6 +3614,48 @@ export interface SofascoreSeasonEventsParams {
 
 export type SofascoreSportsResponse = CrawloraResponse<ModelSofascoreSportsResponseDoc>;
 export interface SofascoreSportsParams {
+}
+
+export type SofascoreStageResponse = CrawloraResponse<ModelSofascoreStageDetailResponseDoc>;
+export interface SofascoreStageParams {
+  "id": string;
+}
+
+export type SofascoreStageCategoriesResponse = CrawloraResponse<ModelSofascoreStageCategoriesResponseDoc>;
+export interface SofascoreStageCategoriesParams {
+  "sport": "motorsport" | "cycling";
+}
+
+export type SofascoreStageDriverPerformanceResponse = CrawloraResponse<ModelSofascoreStageDriverPerformanceResponseDoc>;
+export interface SofascoreStageDriverPerformanceParams {
+  "id": string;
+}
+
+export type SofascoreStageFeaturedResponse = CrawloraResponse<ModelSofascoreStageFeaturedResponseDoc>;
+export interface SofascoreStageFeaturedParams {
+  "sport": "motorsport" | "cycling";
+}
+
+export type SofascoreStageScheduleResponse = CrawloraResponse<ModelSofascoreStageScheduleResponseDoc>;
+export interface SofascoreStageScheduleParams {
+  "sport": "motorsport" | "cycling";
+  "date": string;
+}
+
+export type SofascoreStageSeasonsResponse = CrawloraResponse<ModelSofascoreStageSeasonsResponseDoc>;
+export interface SofascoreStageSeasonsParams {
+  "id": string;
+}
+
+export type SofascoreStageStandingsResponse = CrawloraResponse<ModelSofascoreStageStandingsResponseDoc>;
+export interface SofascoreStageStandingsParams {
+  "id": string;
+  "type": "competitor" | "team";
+}
+
+export type SofascoreStageSubstagesResponse = CrawloraResponse<ModelSofascoreStageSubstagesResponseDoc>;
+export interface SofascoreStageSubstagesParams {
+  "id": string;
 }
 
 export type SofascoreStandingsResponse = CrawloraResponse<ModelSofascoreStandingsResponseDoc>;
@@ -1389,11 +3670,28 @@ export interface SofascoreTeamParams {
   "id": string;
 }
 
+export type SofascoreTeamAchievementsResponse = CrawloraResponse<ModelSofascoreTeamAchievementsResponseDoc>;
+export interface SofascoreTeamAchievementsParams {
+  "id": string;
+}
+
 export type SofascoreTeamEventsResponse = CrawloraResponse<ModelSofascoreTeamEventsResponseDoc>;
 export interface SofascoreTeamEventsParams {
   "id": string;
   "direction": "next" | "last";
   "page"?: number;
+}
+
+export type SofascoreTeamGoalDistributionsResponse = CrawloraResponse<ModelSofascoreTeamGoalDistributionsResponseDoc>;
+export interface SofascoreTeamGoalDistributionsParams {
+  "id": string;
+  "tournament_id": string;
+  "season": string;
+}
+
+export type SofascoreTeamNearEventsResponse = CrawloraResponse<ModelSofascoreTeamNearEventsResponseDoc>;
+export interface SofascoreTeamNearEventsParams {
+  "id": string;
 }
 
 export type SofascoreTeamOfTheWeekResponse = CrawloraResponse<ModelSofascoreTeamOfTheWeekResponseDoc>;
@@ -1409,8 +3707,31 @@ export interface SofascoreTeamOfTheWeekPeriodsParams {
   "season": string;
 }
 
+export type SofascoreTeamPerformanceResponse = CrawloraResponse<ModelSofascoreTeamPerformanceResponseDoc>;
+export interface SofascoreTeamPerformanceParams {
+  "id": string;
+}
+
+export type SofascoreTeamPlayerStatisticsResponse = CrawloraResponse<ModelSofascoreTeamPlayerStatisticsResponseDoc>;
+export interface SofascoreTeamPlayerStatisticsParams {
+  "id": string;
+  "tournament_id": string;
+  "season": string;
+  "type"?: "overall" | "home" | "away" | "regular_season" | "playoffs";
+}
+
+export type SofascoreTeamPlayerStatisticsSeasonsResponse = CrawloraResponse<ModelSofascoreTeamPlayerStatisticsSeasonsResponseDoc>;
+export interface SofascoreTeamPlayerStatisticsSeasonsParams {
+  "id": string;
+}
+
 export type SofascoreTeamPlayersResponse = CrawloraResponse<ModelSofascoreTeamPlayersResponseDoc>;
 export interface SofascoreTeamPlayersParams {
+  "id": string;
+}
+
+export type SofascoreTeamRankingsResponse = CrawloraResponse<ModelSofascoreTeamRankingsResponseDoc>;
+export interface SofascoreTeamRankingsParams {
   "id": string;
 }
 
@@ -1427,15 +3748,47 @@ export interface SofascoreTeamStatisticsSeasonsParams {
   "id": string;
 }
 
+export type SofascoreTeamTopPlayersResponse = CrawloraResponse<ModelSofascoreTeamTopPlayersResponseDoc>;
+export interface SofascoreTeamTopPlayersParams {
+  "id": string;
+  "tournament_id": string;
+  "season": string;
+  "type"?: "overall" | "regular_season" | "playoffs";
+  "limit"?: number;
+}
+
+export type SofascoreTeamTournamentsResponse = CrawloraResponse<ModelSofascoreTeamTournamentsResponseDoc>;
+export interface SofascoreTeamTournamentsParams {
+  "id": string;
+  "all"?: boolean;
+}
+
 export type SofascoreTeamTransfersResponse = CrawloraResponse<ModelSofascoreTeamTransfersResponseDoc>;
 export interface SofascoreTeamTransfersParams {
   "id": string;
+}
+
+export type SofascoreTennisPlayerGrandSlamResultsResponse = CrawloraResponse<ModelSofascoreTennisGrandSlamResultsResponseDoc>;
+export interface SofascoreTennisPlayerGrandSlamResultsParams {
+  "id": string;
+}
+
+export type SofascoreTournamentCuptreeResponse = CrawloraResponse<ModelSofascoreTournamentCupTreeResponseDoc>;
+export interface SofascoreTournamentCuptreeParams {
+  "id": string;
+  "season": string;
 }
 
 export type SofascoreTournamentInfoResponse = CrawloraResponse<ModelSofascoreTournamentInfoResponseDoc>;
 export interface SofascoreTournamentInfoParams {
   "id": string;
   "season"?: string;
+}
+
+export type SofascoreTournamentPlayerOfTheSeasonResponse = CrawloraResponse<ModelSofascoreTournamentPlayerOfTheSeasonResponseDoc>;
+export interface SofascoreTournamentPlayerOfTheSeasonParams {
+  "id": string;
+  "season": string;
 }
 
 export type SofascoreTournamentPlayerStatisticsResponse = CrawloraResponse<ModelSofascoreTournamentPlayerStatisticsResponseDoc>;
@@ -1448,6 +3801,11 @@ export interface SofascoreTournamentPlayerStatisticsParams {
   "group"?: "summary" | "attack" | "defence" | "passing" | "goalkeeper";
   "limit"?: number;
   "offset"?: number;
+  "team"?: Array<string>;
+  "nationality"?: Array<string>;
+  "position"?: Array<"G" | "D" | "M" | "F">;
+  "min_appearances"?: number;
+  "min_minutes"?: number;
 }
 
 export type SofascoreTournamentRoundsResponse = CrawloraResponse<ModelSofascoreTournamentRoundsResponseDoc>;
@@ -1459,6 +3817,24 @@ export interface SofascoreTournamentRoundsParams {
 export type SofascoreTournamentSeasonsResponse = CrawloraResponse<ModelSofascoreTournamentSeasonsResponseDoc>;
 export interface SofascoreTournamentSeasonsParams {
   "id": string;
+}
+
+export type SofascoreTournamentStatisticsInfoResponse = CrawloraResponse<ModelSofascoreTournamentStatisticsInfoResponseDoc>;
+export interface SofascoreTournamentStatisticsInfoParams {
+  "id": string;
+  "season": string;
+}
+
+export type SofascoreTournamentTeamOfTheSeasonResponse = CrawloraResponse<ModelSofascoreTournamentTeamOfTheSeasonResponseDoc>;
+export interface SofascoreTournamentTeamOfTheSeasonParams {
+  "id": string;
+  "season": string;
+}
+
+export type SofascoreTournamentTeamsResponse = CrawloraResponse<ModelSofascoreTournamentTeamsResponseDoc>;
+export interface SofascoreTournamentTeamsParams {
+  "id": string;
+  "season": string;
 }
 
 export type SofascoreTournamentTopPlayersResponse = CrawloraResponse<ModelSofascoreTournamentTopPlayersResponseDoc>;
@@ -1477,50 +3853,159 @@ export interface SofascoreTournamentTopTeamsParams {
   "limit"?: number;
 }
 
+export type SofascoreTournamentVenuesResponse = CrawloraResponse<ModelSofascoreTournamentVenuesResponseDoc>;
+export interface SofascoreTournamentVenuesParams {
+  "id": string;
+  "season": string;
+}
+
+export type SofascoreTournamentWinnersResponse = CrawloraResponse<ModelSofascoreTournamentWinnersResponseDoc>;
+export interface SofascoreTournamentWinnersParams {
+  "id": string;
+  "page"?: number;
+}
+
+export type SofascoreTournamentsWithFeatureResponse = CrawloraResponse<ModelSofascoreTournamentsWithFeatureResponseDoc>;
+export interface SofascoreTournamentsWithFeatureParams {
+  "feature": "cuptree" | "standings" | "totw" | "power_rankings";
+  "sport": "american-football" | "aussie-rules" | "badminton" | "bandy" | "baseball" | "basketball" | "beach-volley" | "cricket" | "darts" | "esports" | "floorball" | "football" | "futsal" | "handball" | "ice-hockey" | "minifootball" | "rugby" | "snooker" | "table-tennis" | "tennis" | "volleyball" | "waterpolo";
+}
+
+export type SofascoreTrendingEventsResponse = CrawloraResponse<ModelSofascoreTrendingEventsResponseDoc>;
+export interface SofascoreTrendingEventsParams {
+  "country": string;
+}
+
+export type SofascoreTrendingPlayersResponse = CrawloraResponse<ModelSofascoreTrendingPlayersResponseDoc>;
+export interface SofascoreTrendingPlayersParams {
+  "sport": "football" | "basketball";
+}
+
+export type SofascoreVenueResponse = CrawloraResponse<ModelSofascoreVenueResponseDoc>;
+export interface SofascoreVenueParams {
+  "id": string;
+}
+
+export type SofascoreVenueEventsResponse = CrawloraResponse<ModelSofascoreVenueEventsResponseDoc>;
+export interface SofascoreVenueEventsParams {
+  "id": string;
+  "direction": "next" | "last";
+  "sport"?: "all" | "american-football" | "aussie-rules" | "badminton" | "bandy" | "baseball" | "basketball" | "beach-volley" | "cricket" | "darts" | "esports" | "floorball" | "football" | "futsal" | "handball" | "ice-hockey" | "mma" | "minifootball" | "padel" | "rugby" | "snooker" | "table-tennis" | "tennis" | "volleyball" | "waterpolo";
+  "page"?: number;
+  "tournament"?: string;
+  "season"?: string;
+}
+
 export interface SofascoreService {
   categories<T = SofascoreCategoriesResponse>(params: SofascoreCategoriesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   categoryTournaments<T = SofascoreCategoryTournamentsResponse>(params: SofascoreCategoryTournamentsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  draft<T = SofascoreDraftResponse>(params: SofascoreDraftParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  draftPicks<T = SofascoreDraftPicksResponse>(params: SofascoreDraftPicksParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  esportsGame<T = SofascoreEsportsGameResponse>(params: SofascoreEsportsGameParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   event<T = SofascoreEventResponse>(params: SofascoreEventParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventAtBatPitches<T = SofascoreEventAtBatPitchesResponse>(params: SofascoreEventAtBatPitchesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventAtBats<T = SofascoreEventAtBatsResponse>(params: SofascoreEventAtBatsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventAveragePositions<T = SofascoreEventAveragePositionsResponse>(params: SofascoreEventAveragePositionsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventBaseballTopPerformers<T = SofascoreEventBaseballTopPerformersResponse>(params: SofascoreEventBaseballTopPerformersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventBestPlayers<T = SofascoreEventBestPlayersResponse>(params: SofascoreEventBestPlayersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventComments<T = SofascoreEventCommentsResponse>(params: SofascoreEventCommentsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventEsportsGames<T = SofascoreEventEsportsGamesResponse>(params: SofascoreEventEsportsGamesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventGraph<T = SofascoreEventGraphResponse>(params: SofascoreEventGraphParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventH2h<T = SofascoreEventH2hResponse>(params: SofascoreEventH2hParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventHighlights<T = SofascoreEventHighlightsResponse>(params: SofascoreEventHighlightsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventIncidents<T = SofascoreEventIncidentsResponse>(params: SofascoreEventIncidentsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventInnings<T = SofascoreEventInningsResponse>(params: SofascoreEventInningsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventLineups<T = SofascoreEventLineupsResponse>(params: SofascoreEventLineupsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventManagers<T = SofascoreEventManagersResponse>(params: SofascoreEventManagersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventOdds<T = SofascoreEventOddsResponse>(params: SofascoreEventOddsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventPlayerHeatmap<T = SofascoreEventPlayerHeatmapResponse>(params: SofascoreEventPlayerHeatmapParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventPlayerStatistics<T = SofascoreEventPlayerStatisticsResponse>(params: SofascoreEventPlayerStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventPointByPoint<T = SofascoreEventPointByPointResponse>(params: SofascoreEventPointByPointParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventPregameForm<T = SofascoreEventPregameFormResponse>(params: SofascoreEventPregameFormParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventShotmap<T = SofascoreEventShotmapResponse>(params: SofascoreEventShotmapParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventStatistics<T = SofascoreEventStatisticsResponse>(params: SofascoreEventStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventTeamHeatmap<T = SofascoreEventTeamHeatmapResponse>(params: SofascoreEventTeamHeatmapParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventTeamStreaks<T = SofascoreEventTeamStreaksResponse>(params: SofascoreEventTeamStreaksParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventTennisPower<T = SofascoreEventTennisPowerResponse>(params: SofascoreEventTennisPowerParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventTvChannels<T = SofascoreEventTvChannelsResponse>(params: SofascoreEventTvChannelsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventVotes<T = SofascoreEventVotesResponse>(params: SofascoreEventVotesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   liveEvents<T = SofascoreLiveEventsResponse>(params: SofascoreLiveEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   manager<T = SofascoreManagerResponse>(params: SofascoreManagerParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   managerEvents<T = SofascoreManagerEventsResponse>(params: SofascoreManagerEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  mmaCard<T = SofascoreMmaCardResponse>(params: SofascoreMmaCardParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  mmaSchedule<T = SofascoreMmaScheduleResponse>(params: SofascoreMmaScheduleParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  oddsDropping<T = SofascoreOddsDroppingResponse>(params?: SofascoreOddsDroppingParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  oddsWinning<T = SofascoreOddsWinningResponse>(params?: SofascoreOddsWinningParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   player<T = SofascorePlayerResponse>(params: SofascorePlayerParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerAttributes<T = SofascorePlayerAttributesResponse>(params: SofascorePlayerAttributesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerEvents<T = SofascorePlayerEventsResponse>(params: SofascorePlayerEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerLastYearSummary<T = SofascorePlayerLastYearSummaryResponse>(params: SofascorePlayerLastYearSummaryParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerNationalTeamStatistics<T = SofascorePlayerNationalTeamStatisticsResponse>(params: SofascorePlayerNationalTeamStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerPenaltyHistory<T = SofascorePlayerPenaltyHistoryResponse>(params: SofascorePlayerPenaltyHistoryParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerRatings<T = SofascorePlayerRatingsResponse>(params: SofascorePlayerRatingsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerSeasonHeatmap<T = SofascorePlayerSeasonHeatmapResponse>(params: SofascorePlayerSeasonHeatmapParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   playerSeasonStatistics<T = SofascorePlayerSeasonStatisticsResponse>(params: SofascorePlayerSeasonStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerStatisticalRankings<T = SofascorePlayerStatisticalRankingsResponse>(params: SofascorePlayerStatisticalRankingsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   playerStatisticsSeasons<T = SofascorePlayerStatisticsSeasonsResponse>(params: SofascorePlayerStatisticsSeasonsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerTournaments<T = SofascorePlayerTournamentsResponse>(params: SofascorePlayerTournamentsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   playerTransfers<T = SofascorePlayerTransfersResponse>(params: SofascorePlayerTransfersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   rankingTypes<T = SofascoreRankingTypesResponse>(params?: SofascoreRankingTypesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   rankings<T = SofascoreRankingsResponse>(params: SofascoreRankingsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  referee<T = SofascoreRefereeResponse>(params: SofascoreRefereeParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  refereeEvents<T = SofascoreRefereeEventsResponse>(params: SofascoreRefereeEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  refereeStatistics<T = SofascoreRefereeStatisticsResponse>(params: SofascoreRefereeStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   roundEvents<T = SofascoreRoundEventsResponse>(params: SofascoreRoundEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   scheduledEvents<T = SofascoreScheduledEventsResponse>(params: SofascoreScheduledEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   scheduledTournaments<T = SofascoreScheduledTournamentsResponse>(params: SofascoreScheduledTournamentsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   search<T = SofascoreSearchResponse>(params: SofascoreSearchParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  searchTyped<T = SofascoreSearchTypedResponse>(params: SofascoreSearchTypedParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   seasonEvents<T = SofascoreSeasonEventsResponse>(params: SofascoreSeasonEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   sports<T = SofascoreSportsResponse>(params?: SofascoreSportsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  stage<T = SofascoreStageResponse>(params: SofascoreStageParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  stageCategories<T = SofascoreStageCategoriesResponse>(params: SofascoreStageCategoriesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  stageDriverPerformance<T = SofascoreStageDriverPerformanceResponse>(params: SofascoreStageDriverPerformanceParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  stageFeatured<T = SofascoreStageFeaturedResponse>(params: SofascoreStageFeaturedParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  stageSchedule<T = SofascoreStageScheduleResponse>(params: SofascoreStageScheduleParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  stageSeasons<T = SofascoreStageSeasonsResponse>(params: SofascoreStageSeasonsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  stageStandings<T = SofascoreStageStandingsResponse>(params: SofascoreStageStandingsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  stageSubstages<T = SofascoreStageSubstagesResponse>(params: SofascoreStageSubstagesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   standings<T = SofascoreStandingsResponse>(params: SofascoreStandingsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   team<T = SofascoreTeamResponse>(params: SofascoreTeamParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  teamAchievements<T = SofascoreTeamAchievementsResponse>(params: SofascoreTeamAchievementsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   teamEvents<T = SofascoreTeamEventsResponse>(params: SofascoreTeamEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  teamGoalDistributions<T = SofascoreTeamGoalDistributionsResponse>(params: SofascoreTeamGoalDistributionsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  teamNearEvents<T = SofascoreTeamNearEventsResponse>(params: SofascoreTeamNearEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   teamOfTheWeek<T = SofascoreTeamOfTheWeekResponse>(params: SofascoreTeamOfTheWeekParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   teamOfTheWeekPeriods<T = SofascoreTeamOfTheWeekPeriodsResponse>(params: SofascoreTeamOfTheWeekPeriodsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  teamPerformance<T = SofascoreTeamPerformanceResponse>(params: SofascoreTeamPerformanceParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  teamPlayerStatistics<T = SofascoreTeamPlayerStatisticsResponse>(params: SofascoreTeamPlayerStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  teamPlayerStatisticsSeasons<T = SofascoreTeamPlayerStatisticsSeasonsResponse>(params: SofascoreTeamPlayerStatisticsSeasonsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   teamPlayers<T = SofascoreTeamPlayersResponse>(params: SofascoreTeamPlayersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  teamRankings<T = SofascoreTeamRankingsResponse>(params: SofascoreTeamRankingsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   teamSeasonStatistics<T = SofascoreTeamSeasonStatisticsResponse>(params: SofascoreTeamSeasonStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   teamStatisticsSeasons<T = SofascoreTeamStatisticsSeasonsResponse>(params: SofascoreTeamStatisticsSeasonsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  teamTopPlayers<T = SofascoreTeamTopPlayersResponse>(params: SofascoreTeamTopPlayersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  teamTournaments<T = SofascoreTeamTournamentsResponse>(params: SofascoreTeamTournamentsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   teamTransfers<T = SofascoreTeamTransfersResponse>(params: SofascoreTeamTransfersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tennisPlayerGrandSlamResults<T = SofascoreTennisPlayerGrandSlamResultsResponse>(params: SofascoreTennisPlayerGrandSlamResultsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tournamentCuptree<T = SofascoreTournamentCuptreeResponse>(params: SofascoreTournamentCuptreeParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentInfo<T = SofascoreTournamentInfoResponse>(params: SofascoreTournamentInfoParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tournamentPlayerOfTheSeason<T = SofascoreTournamentPlayerOfTheSeasonResponse>(params: SofascoreTournamentPlayerOfTheSeasonParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentPlayerStatistics<T = SofascoreTournamentPlayerStatisticsResponse>(params: SofascoreTournamentPlayerStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentRounds<T = SofascoreTournamentRoundsResponse>(params: SofascoreTournamentRoundsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentSeasons<T = SofascoreTournamentSeasonsResponse>(params: SofascoreTournamentSeasonsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tournamentStatisticsInfo<T = SofascoreTournamentStatisticsInfoResponse>(params: SofascoreTournamentStatisticsInfoParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tournamentTeamOfTheSeason<T = SofascoreTournamentTeamOfTheSeasonResponse>(params: SofascoreTournamentTeamOfTheSeasonParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tournamentTeams<T = SofascoreTournamentTeamsResponse>(params: SofascoreTournamentTeamsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentTopPlayers<T = SofascoreTournamentTopPlayersResponse>(params: SofascoreTournamentTopPlayersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   tournamentTopTeams<T = SofascoreTournamentTopTeamsResponse>(params: SofascoreTournamentTopTeamsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tournamentVenues<T = SofascoreTournamentVenuesResponse>(params: SofascoreTournamentVenuesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tournamentWinners<T = SofascoreTournamentWinnersResponse>(params: SofascoreTournamentWinnersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  tournamentsWithFeature<T = SofascoreTournamentsWithFeatureResponse>(params: SofascoreTournamentsWithFeatureParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  trendingEvents<T = SofascoreTrendingEventsResponse>(params: SofascoreTrendingEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  trendingPlayers<T = SofascoreTrendingPlayersResponse>(params: SofascoreTrendingPlayersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  venue<T = SofascoreVenueResponse>(params: SofascoreVenueParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  venueEvents<T = SofascoreVenueEventsResponse>(params: SofascoreVenueEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
 }
 
 export interface CrawloraGeneratedGroups {
@@ -1530,139 +4015,337 @@ export interface CrawloraGeneratedGroups {
 export interface OperationParamsMap {
   "sofascore-categories": SofascoreCategoriesParams;
   "sofascore-category-tournaments": SofascoreCategoryTournamentsParams;
+  "sofascore-draft": SofascoreDraftParams;
+  "sofascore-draft-picks": SofascoreDraftPicksParams;
+  "sofascore-esports-game": SofascoreEsportsGameParams;
   "sofascore-event": SofascoreEventParams;
+  "sofascore-event-at-bat-pitches": SofascoreEventAtBatPitchesParams;
+  "sofascore-event-at-bats": SofascoreEventAtBatsParams;
+  "sofascore-event-average-positions": SofascoreEventAveragePositionsParams;
+  "sofascore-event-baseball-top-performers": SofascoreEventBaseballTopPerformersParams;
   "sofascore-event-best-players": SofascoreEventBestPlayersParams;
   "sofascore-event-comments": SofascoreEventCommentsParams;
+  "sofascore-event-esports-games": SofascoreEventEsportsGamesParams;
   "sofascore-event-graph": SofascoreEventGraphParams;
   "sofascore-event-h2h": SofascoreEventH2hParams;
+  "sofascore-event-highlights": SofascoreEventHighlightsParams;
   "sofascore-event-incidents": SofascoreEventIncidentsParams;
+  "sofascore-event-innings": SofascoreEventInningsParams;
   "sofascore-event-lineups": SofascoreEventLineupsParams;
+  "sofascore-event-managers": SofascoreEventManagersParams;
   "sofascore-event-odds": SofascoreEventOddsParams;
+  "sofascore-event-player-heatmap": SofascoreEventPlayerHeatmapParams;
   "sofascore-event-player-statistics": SofascoreEventPlayerStatisticsParams;
+  "sofascore-event-point-by-point": SofascoreEventPointByPointParams;
+  "sofascore-event-pregame-form": SofascoreEventPregameFormParams;
   "sofascore-event-shotmap": SofascoreEventShotmapParams;
   "sofascore-event-statistics": SofascoreEventStatisticsParams;
+  "sofascore-event-team-heatmap": SofascoreEventTeamHeatmapParams;
+  "sofascore-event-team-streaks": SofascoreEventTeamStreaksParams;
+  "sofascore-event-tennis-power": SofascoreEventTennisPowerParams;
+  "sofascore-event-tv-channels": SofascoreEventTvChannelsParams;
+  "sofascore-event-votes": SofascoreEventVotesParams;
   "sofascore-live-events": SofascoreLiveEventsParams;
   "sofascore-manager": SofascoreManagerParams;
   "sofascore-manager-events": SofascoreManagerEventsParams;
+  "sofascore-mma-card": SofascoreMmaCardParams;
+  "sofascore-mma-schedule": SofascoreMmaScheduleParams;
+  "sofascore-odds-dropping": SofascoreOddsDroppingParams;
+  "sofascore-odds-winning": SofascoreOddsWinningParams;
   "sofascore-player": SofascorePlayerParams;
+  "sofascore-player-attributes": SofascorePlayerAttributesParams;
+  "sofascore-player-events": SofascorePlayerEventsParams;
+  "sofascore-player-last-year-summary": SofascorePlayerLastYearSummaryParams;
+  "sofascore-player-national-team-statistics": SofascorePlayerNationalTeamStatisticsParams;
+  "sofascore-player-penalty-history": SofascorePlayerPenaltyHistoryParams;
+  "sofascore-player-ratings": SofascorePlayerRatingsParams;
+  "sofascore-player-season-heatmap": SofascorePlayerSeasonHeatmapParams;
   "sofascore-player-season-statistics": SofascorePlayerSeasonStatisticsParams;
+  "sofascore-player-statistical-rankings": SofascorePlayerStatisticalRankingsParams;
   "sofascore-player-statistics-seasons": SofascorePlayerStatisticsSeasonsParams;
+  "sofascore-player-tournaments": SofascorePlayerTournamentsParams;
   "sofascore-player-transfers": SofascorePlayerTransfersParams;
   "sofascore-ranking-types": SofascoreRankingTypesParams;
   "sofascore-rankings": SofascoreRankingsParams;
+  "sofascore-referee": SofascoreRefereeParams;
+  "sofascore-referee-events": SofascoreRefereeEventsParams;
+  "sofascore-referee-statistics": SofascoreRefereeStatisticsParams;
   "sofascore-round-events": SofascoreRoundEventsParams;
   "sofascore-scheduled-events": SofascoreScheduledEventsParams;
   "sofascore-scheduled-tournaments": SofascoreScheduledTournamentsParams;
   "sofascore-search": SofascoreSearchParams;
+  "sofascore-search-typed": SofascoreSearchTypedParams;
   "sofascore-season-events": SofascoreSeasonEventsParams;
   "sofascore-sports": SofascoreSportsParams;
+  "sofascore-stage": SofascoreStageParams;
+  "sofascore-stage-categories": SofascoreStageCategoriesParams;
+  "sofascore-stage-driver-performance": SofascoreStageDriverPerformanceParams;
+  "sofascore-stage-featured": SofascoreStageFeaturedParams;
+  "sofascore-stage-schedule": SofascoreStageScheduleParams;
+  "sofascore-stage-seasons": SofascoreStageSeasonsParams;
+  "sofascore-stage-standings": SofascoreStageStandingsParams;
+  "sofascore-stage-substages": SofascoreStageSubstagesParams;
   "sofascore-standings": SofascoreStandingsParams;
   "sofascore-team": SofascoreTeamParams;
+  "sofascore-team-achievements": SofascoreTeamAchievementsParams;
   "sofascore-team-events": SofascoreTeamEventsParams;
+  "sofascore-team-goal-distributions": SofascoreTeamGoalDistributionsParams;
+  "sofascore-team-near-events": SofascoreTeamNearEventsParams;
   "sofascore-team-of-the-week": SofascoreTeamOfTheWeekParams;
   "sofascore-team-of-the-week-periods": SofascoreTeamOfTheWeekPeriodsParams;
+  "sofascore-team-performance": SofascoreTeamPerformanceParams;
+  "sofascore-team-player-statistics": SofascoreTeamPlayerStatisticsParams;
+  "sofascore-team-player-statistics-seasons": SofascoreTeamPlayerStatisticsSeasonsParams;
   "sofascore-team-players": SofascoreTeamPlayersParams;
+  "sofascore-team-rankings": SofascoreTeamRankingsParams;
   "sofascore-team-season-statistics": SofascoreTeamSeasonStatisticsParams;
   "sofascore-team-statistics-seasons": SofascoreTeamStatisticsSeasonsParams;
+  "sofascore-team-top-players": SofascoreTeamTopPlayersParams;
+  "sofascore-team-tournaments": SofascoreTeamTournamentsParams;
   "sofascore-team-transfers": SofascoreTeamTransfersParams;
+  "sofascore-tennis-player-grand-slam-results": SofascoreTennisPlayerGrandSlamResultsParams;
+  "sofascore-tournament-cuptree": SofascoreTournamentCuptreeParams;
   "sofascore-tournament-info": SofascoreTournamentInfoParams;
+  "sofascore-tournament-player-of-the-season": SofascoreTournamentPlayerOfTheSeasonParams;
   "sofascore-tournament-player-statistics": SofascoreTournamentPlayerStatisticsParams;
   "sofascore-tournament-rounds": SofascoreTournamentRoundsParams;
   "sofascore-tournament-seasons": SofascoreTournamentSeasonsParams;
+  "sofascore-tournament-statistics-info": SofascoreTournamentStatisticsInfoParams;
+  "sofascore-tournament-team-of-the-season": SofascoreTournamentTeamOfTheSeasonParams;
+  "sofascore-tournament-teams": SofascoreTournamentTeamsParams;
   "sofascore-tournament-top-players": SofascoreTournamentTopPlayersParams;
   "sofascore-tournament-top-teams": SofascoreTournamentTopTeamsParams;
+  "sofascore-tournament-venues": SofascoreTournamentVenuesParams;
+  "sofascore-tournament-winners": SofascoreTournamentWinnersParams;
+  "sofascore-tournaments-with-feature": SofascoreTournamentsWithFeatureParams;
+  "sofascore-trending-events": SofascoreTrendingEventsParams;
+  "sofascore-trending-players": SofascoreTrendingPlayersParams;
+  "sofascore-venue": SofascoreVenueParams;
+  "sofascore-venue-events": SofascoreVenueEventsParams;
 }
 
 export interface OperationResponseMap {
   "sofascore-categories": SofascoreCategoriesResponse;
   "sofascore-category-tournaments": SofascoreCategoryTournamentsResponse;
+  "sofascore-draft": SofascoreDraftResponse;
+  "sofascore-draft-picks": SofascoreDraftPicksResponse;
+  "sofascore-esports-game": SofascoreEsportsGameResponse;
   "sofascore-event": SofascoreEventResponse;
+  "sofascore-event-at-bat-pitches": SofascoreEventAtBatPitchesResponse;
+  "sofascore-event-at-bats": SofascoreEventAtBatsResponse;
+  "sofascore-event-average-positions": SofascoreEventAveragePositionsResponse;
+  "sofascore-event-baseball-top-performers": SofascoreEventBaseballTopPerformersResponse;
   "sofascore-event-best-players": SofascoreEventBestPlayersResponse;
   "sofascore-event-comments": SofascoreEventCommentsResponse;
+  "sofascore-event-esports-games": SofascoreEventEsportsGamesResponse;
   "sofascore-event-graph": SofascoreEventGraphResponse;
   "sofascore-event-h2h": SofascoreEventH2hResponse;
+  "sofascore-event-highlights": SofascoreEventHighlightsResponse;
   "sofascore-event-incidents": SofascoreEventIncidentsResponse;
+  "sofascore-event-innings": SofascoreEventInningsResponse;
   "sofascore-event-lineups": SofascoreEventLineupsResponse;
+  "sofascore-event-managers": SofascoreEventManagersResponse;
   "sofascore-event-odds": SofascoreEventOddsResponse;
+  "sofascore-event-player-heatmap": SofascoreEventPlayerHeatmapResponse;
   "sofascore-event-player-statistics": SofascoreEventPlayerStatisticsResponse;
+  "sofascore-event-point-by-point": SofascoreEventPointByPointResponse;
+  "sofascore-event-pregame-form": SofascoreEventPregameFormResponse;
   "sofascore-event-shotmap": SofascoreEventShotmapResponse;
   "sofascore-event-statistics": SofascoreEventStatisticsResponse;
+  "sofascore-event-team-heatmap": SofascoreEventTeamHeatmapResponse;
+  "sofascore-event-team-streaks": SofascoreEventTeamStreaksResponse;
+  "sofascore-event-tennis-power": SofascoreEventTennisPowerResponse;
+  "sofascore-event-tv-channels": SofascoreEventTvChannelsResponse;
+  "sofascore-event-votes": SofascoreEventVotesResponse;
   "sofascore-live-events": SofascoreLiveEventsResponse;
   "sofascore-manager": SofascoreManagerResponse;
   "sofascore-manager-events": SofascoreManagerEventsResponse;
+  "sofascore-mma-card": SofascoreMmaCardResponse;
+  "sofascore-mma-schedule": SofascoreMmaScheduleResponse;
+  "sofascore-odds-dropping": SofascoreOddsDroppingResponse;
+  "sofascore-odds-winning": SofascoreOddsWinningResponse;
   "sofascore-player": SofascorePlayerResponse;
+  "sofascore-player-attributes": SofascorePlayerAttributesResponse;
+  "sofascore-player-events": SofascorePlayerEventsResponse;
+  "sofascore-player-last-year-summary": SofascorePlayerLastYearSummaryResponse;
+  "sofascore-player-national-team-statistics": SofascorePlayerNationalTeamStatisticsResponse;
+  "sofascore-player-penalty-history": SofascorePlayerPenaltyHistoryResponse;
+  "sofascore-player-ratings": SofascorePlayerRatingsResponse;
+  "sofascore-player-season-heatmap": SofascorePlayerSeasonHeatmapResponse;
   "sofascore-player-season-statistics": SofascorePlayerSeasonStatisticsResponse;
+  "sofascore-player-statistical-rankings": SofascorePlayerStatisticalRankingsResponse;
   "sofascore-player-statistics-seasons": SofascorePlayerStatisticsSeasonsResponse;
+  "sofascore-player-tournaments": SofascorePlayerTournamentsResponse;
   "sofascore-player-transfers": SofascorePlayerTransfersResponse;
   "sofascore-ranking-types": SofascoreRankingTypesResponse;
   "sofascore-rankings": SofascoreRankingsResponse;
+  "sofascore-referee": SofascoreRefereeResponse;
+  "sofascore-referee-events": SofascoreRefereeEventsResponse;
+  "sofascore-referee-statistics": SofascoreRefereeStatisticsResponse;
   "sofascore-round-events": SofascoreRoundEventsResponse;
   "sofascore-scheduled-events": SofascoreScheduledEventsResponse;
   "sofascore-scheduled-tournaments": SofascoreScheduledTournamentsResponse;
   "sofascore-search": SofascoreSearchResponse;
+  "sofascore-search-typed": SofascoreSearchTypedResponse;
   "sofascore-season-events": SofascoreSeasonEventsResponse;
   "sofascore-sports": SofascoreSportsResponse;
+  "sofascore-stage": SofascoreStageResponse;
+  "sofascore-stage-categories": SofascoreStageCategoriesResponse;
+  "sofascore-stage-driver-performance": SofascoreStageDriverPerformanceResponse;
+  "sofascore-stage-featured": SofascoreStageFeaturedResponse;
+  "sofascore-stage-schedule": SofascoreStageScheduleResponse;
+  "sofascore-stage-seasons": SofascoreStageSeasonsResponse;
+  "sofascore-stage-standings": SofascoreStageStandingsResponse;
+  "sofascore-stage-substages": SofascoreStageSubstagesResponse;
   "sofascore-standings": SofascoreStandingsResponse;
   "sofascore-team": SofascoreTeamResponse;
+  "sofascore-team-achievements": SofascoreTeamAchievementsResponse;
   "sofascore-team-events": SofascoreTeamEventsResponse;
+  "sofascore-team-goal-distributions": SofascoreTeamGoalDistributionsResponse;
+  "sofascore-team-near-events": SofascoreTeamNearEventsResponse;
   "sofascore-team-of-the-week": SofascoreTeamOfTheWeekResponse;
   "sofascore-team-of-the-week-periods": SofascoreTeamOfTheWeekPeriodsResponse;
+  "sofascore-team-performance": SofascoreTeamPerformanceResponse;
+  "sofascore-team-player-statistics": SofascoreTeamPlayerStatisticsResponse;
+  "sofascore-team-player-statistics-seasons": SofascoreTeamPlayerStatisticsSeasonsResponse;
   "sofascore-team-players": SofascoreTeamPlayersResponse;
+  "sofascore-team-rankings": SofascoreTeamRankingsResponse;
   "sofascore-team-season-statistics": SofascoreTeamSeasonStatisticsResponse;
   "sofascore-team-statistics-seasons": SofascoreTeamStatisticsSeasonsResponse;
+  "sofascore-team-top-players": SofascoreTeamTopPlayersResponse;
+  "sofascore-team-tournaments": SofascoreTeamTournamentsResponse;
   "sofascore-team-transfers": SofascoreTeamTransfersResponse;
+  "sofascore-tennis-player-grand-slam-results": SofascoreTennisPlayerGrandSlamResultsResponse;
+  "sofascore-tournament-cuptree": SofascoreTournamentCuptreeResponse;
   "sofascore-tournament-info": SofascoreTournamentInfoResponse;
+  "sofascore-tournament-player-of-the-season": SofascoreTournamentPlayerOfTheSeasonResponse;
   "sofascore-tournament-player-statistics": SofascoreTournamentPlayerStatisticsResponse;
   "sofascore-tournament-rounds": SofascoreTournamentRoundsResponse;
   "sofascore-tournament-seasons": SofascoreTournamentSeasonsResponse;
+  "sofascore-tournament-statistics-info": SofascoreTournamentStatisticsInfoResponse;
+  "sofascore-tournament-team-of-the-season": SofascoreTournamentTeamOfTheSeasonResponse;
+  "sofascore-tournament-teams": SofascoreTournamentTeamsResponse;
   "sofascore-tournament-top-players": SofascoreTournamentTopPlayersResponse;
   "sofascore-tournament-top-teams": SofascoreTournamentTopTeamsResponse;
+  "sofascore-tournament-venues": SofascoreTournamentVenuesResponse;
+  "sofascore-tournament-winners": SofascoreTournamentWinnersResponse;
+  "sofascore-tournaments-with-feature": SofascoreTournamentsWithFeatureResponse;
+  "sofascore-trending-events": SofascoreTrendingEventsResponse;
+  "sofascore-trending-players": SofascoreTrendingPlayersResponse;
+  "sofascore-venue": SofascoreVenueResponse;
+  "sofascore-venue-events": SofascoreVenueEventsResponse;
 }
 
 export interface OperationRequiredParamsMap {
   "sofascore-categories": true;
   "sofascore-category-tournaments": true;
+  "sofascore-draft": true;
+  "sofascore-draft-picks": true;
+  "sofascore-esports-game": true;
   "sofascore-event": true;
+  "sofascore-event-at-bat-pitches": true;
+  "sofascore-event-at-bats": true;
+  "sofascore-event-average-positions": true;
+  "sofascore-event-baseball-top-performers": true;
   "sofascore-event-best-players": true;
   "sofascore-event-comments": true;
+  "sofascore-event-esports-games": true;
   "sofascore-event-graph": true;
   "sofascore-event-h2h": true;
+  "sofascore-event-highlights": true;
   "sofascore-event-incidents": true;
+  "sofascore-event-innings": true;
   "sofascore-event-lineups": true;
+  "sofascore-event-managers": true;
   "sofascore-event-odds": true;
+  "sofascore-event-player-heatmap": true;
   "sofascore-event-player-statistics": true;
+  "sofascore-event-point-by-point": true;
+  "sofascore-event-pregame-form": true;
   "sofascore-event-shotmap": true;
   "sofascore-event-statistics": true;
+  "sofascore-event-team-heatmap": true;
+  "sofascore-event-team-streaks": true;
+  "sofascore-event-tennis-power": true;
+  "sofascore-event-tv-channels": true;
+  "sofascore-event-votes": true;
   "sofascore-live-events": true;
   "sofascore-manager": true;
   "sofascore-manager-events": true;
+  "sofascore-mma-card": true;
+  "sofascore-mma-schedule": true;
+  "sofascore-odds-dropping": false;
+  "sofascore-odds-winning": false;
   "sofascore-player": true;
+  "sofascore-player-attributes": true;
+  "sofascore-player-events": true;
+  "sofascore-player-last-year-summary": true;
+  "sofascore-player-national-team-statistics": true;
+  "sofascore-player-penalty-history": true;
+  "sofascore-player-ratings": true;
+  "sofascore-player-season-heatmap": true;
   "sofascore-player-season-statistics": true;
+  "sofascore-player-statistical-rankings": true;
   "sofascore-player-statistics-seasons": true;
+  "sofascore-player-tournaments": true;
   "sofascore-player-transfers": true;
   "sofascore-ranking-types": false;
   "sofascore-rankings": true;
+  "sofascore-referee": true;
+  "sofascore-referee-events": true;
+  "sofascore-referee-statistics": true;
   "sofascore-round-events": true;
   "sofascore-scheduled-events": true;
   "sofascore-scheduled-tournaments": true;
   "sofascore-search": true;
+  "sofascore-search-typed": true;
   "sofascore-season-events": true;
   "sofascore-sports": false;
+  "sofascore-stage": true;
+  "sofascore-stage-categories": true;
+  "sofascore-stage-driver-performance": true;
+  "sofascore-stage-featured": true;
+  "sofascore-stage-schedule": true;
+  "sofascore-stage-seasons": true;
+  "sofascore-stage-standings": true;
+  "sofascore-stage-substages": true;
   "sofascore-standings": true;
   "sofascore-team": true;
+  "sofascore-team-achievements": true;
   "sofascore-team-events": true;
+  "sofascore-team-goal-distributions": true;
+  "sofascore-team-near-events": true;
   "sofascore-team-of-the-week": true;
   "sofascore-team-of-the-week-periods": true;
+  "sofascore-team-performance": true;
+  "sofascore-team-player-statistics": true;
+  "sofascore-team-player-statistics-seasons": true;
   "sofascore-team-players": true;
+  "sofascore-team-rankings": true;
   "sofascore-team-season-statistics": true;
   "sofascore-team-statistics-seasons": true;
+  "sofascore-team-top-players": true;
+  "sofascore-team-tournaments": true;
   "sofascore-team-transfers": true;
+  "sofascore-tennis-player-grand-slam-results": true;
+  "sofascore-tournament-cuptree": true;
   "sofascore-tournament-info": true;
+  "sofascore-tournament-player-of-the-season": true;
   "sofascore-tournament-player-statistics": true;
   "sofascore-tournament-rounds": true;
   "sofascore-tournament-seasons": true;
+  "sofascore-tournament-statistics-info": true;
+  "sofascore-tournament-team-of-the-season": true;
+  "sofascore-tournament-teams": true;
   "sofascore-tournament-top-players": true;
   "sofascore-tournament-top-teams": true;
+  "sofascore-tournament-venues": true;
+  "sofascore-tournament-winners": true;
+  "sofascore-tournaments-with-feature": true;
+  "sofascore-trending-events": true;
+  "sofascore-trending-players": true;
+  "sofascore-venue": true;
+  "sofascore-venue-events": true;
 }
 
 export type OperationId = keyof OperationParamsMap;
@@ -1675,90 +4358,222 @@ export type OperationRequestArgs<I extends OperationId> =
 export type OperationIdLiteral =
   | "sofascore-categories"
   | "sofascore-category-tournaments"
+  | "sofascore-draft"
+  | "sofascore-draft-picks"
+  | "sofascore-esports-game"
   | "sofascore-event"
+  | "sofascore-event-at-bat-pitches"
+  | "sofascore-event-at-bats"
+  | "sofascore-event-average-positions"
+  | "sofascore-event-baseball-top-performers"
   | "sofascore-event-best-players"
   | "sofascore-event-comments"
+  | "sofascore-event-esports-games"
   | "sofascore-event-graph"
   | "sofascore-event-h2h"
+  | "sofascore-event-highlights"
   | "sofascore-event-incidents"
+  | "sofascore-event-innings"
   | "sofascore-event-lineups"
+  | "sofascore-event-managers"
   | "sofascore-event-odds"
+  | "sofascore-event-player-heatmap"
   | "sofascore-event-player-statistics"
+  | "sofascore-event-point-by-point"
+  | "sofascore-event-pregame-form"
   | "sofascore-event-shotmap"
   | "sofascore-event-statistics"
+  | "sofascore-event-team-heatmap"
+  | "sofascore-event-team-streaks"
+  | "sofascore-event-tennis-power"
+  | "sofascore-event-tv-channels"
+  | "sofascore-event-votes"
   | "sofascore-live-events"
   | "sofascore-manager"
   | "sofascore-manager-events"
+  | "sofascore-mma-card"
+  | "sofascore-mma-schedule"
+  | "sofascore-odds-dropping"
+  | "sofascore-odds-winning"
   | "sofascore-player"
+  | "sofascore-player-attributes"
+  | "sofascore-player-events"
+  | "sofascore-player-last-year-summary"
+  | "sofascore-player-national-team-statistics"
+  | "sofascore-player-penalty-history"
+  | "sofascore-player-ratings"
+  | "sofascore-player-season-heatmap"
   | "sofascore-player-season-statistics"
+  | "sofascore-player-statistical-rankings"
   | "sofascore-player-statistics-seasons"
+  | "sofascore-player-tournaments"
   | "sofascore-player-transfers"
   | "sofascore-ranking-types"
   | "sofascore-rankings"
+  | "sofascore-referee"
+  | "sofascore-referee-events"
+  | "sofascore-referee-statistics"
   | "sofascore-round-events"
   | "sofascore-scheduled-events"
   | "sofascore-scheduled-tournaments"
   | "sofascore-search"
+  | "sofascore-search-typed"
   | "sofascore-season-events"
   | "sofascore-sports"
+  | "sofascore-stage"
+  | "sofascore-stage-categories"
+  | "sofascore-stage-driver-performance"
+  | "sofascore-stage-featured"
+  | "sofascore-stage-schedule"
+  | "sofascore-stage-seasons"
+  | "sofascore-stage-standings"
+  | "sofascore-stage-substages"
   | "sofascore-standings"
   | "sofascore-team"
+  | "sofascore-team-achievements"
   | "sofascore-team-events"
+  | "sofascore-team-goal-distributions"
+  | "sofascore-team-near-events"
   | "sofascore-team-of-the-week"
   | "sofascore-team-of-the-week-periods"
+  | "sofascore-team-performance"
+  | "sofascore-team-player-statistics"
+  | "sofascore-team-player-statistics-seasons"
   | "sofascore-team-players"
+  | "sofascore-team-rankings"
   | "sofascore-team-season-statistics"
   | "sofascore-team-statistics-seasons"
+  | "sofascore-team-top-players"
+  | "sofascore-team-tournaments"
   | "sofascore-team-transfers"
+  | "sofascore-tennis-player-grand-slam-results"
+  | "sofascore-tournament-cuptree"
   | "sofascore-tournament-info"
+  | "sofascore-tournament-player-of-the-season"
   | "sofascore-tournament-player-statistics"
   | "sofascore-tournament-rounds"
   | "sofascore-tournament-seasons"
+  | "sofascore-tournament-statistics-info"
+  | "sofascore-tournament-team-of-the-season"
+  | "sofascore-tournament-teams"
   | "sofascore-tournament-top-players"
-  | "sofascore-tournament-top-teams";
+  | "sofascore-tournament-top-teams"
+  | "sofascore-tournament-venues"
+  | "sofascore-tournament-winners"
+  | "sofascore-tournaments-with-feature"
+  | "sofascore-trending-events"
+  | "sofascore-trending-players"
+  | "sofascore-venue"
+  | "sofascore-venue-events";
 
 export declare const OperationIds: Readonly<{
   SofascoreCategories: "sofascore-categories";
   SofascoreCategoryTournaments: "sofascore-category-tournaments";
+  SofascoreDraft: "sofascore-draft";
+  SofascoreDraftPicks: "sofascore-draft-picks";
+  SofascoreEsportsGame: "sofascore-esports-game";
   SofascoreEvent: "sofascore-event";
+  SofascoreEventAtBatPitches: "sofascore-event-at-bat-pitches";
+  SofascoreEventAtBats: "sofascore-event-at-bats";
+  SofascoreEventAveragePositions: "sofascore-event-average-positions";
+  SofascoreEventBaseballTopPerformers: "sofascore-event-baseball-top-performers";
   SofascoreEventBestPlayers: "sofascore-event-best-players";
   SofascoreEventComments: "sofascore-event-comments";
+  SofascoreEventEsportsGames: "sofascore-event-esports-games";
   SofascoreEventGraph: "sofascore-event-graph";
   SofascoreEventH2h: "sofascore-event-h2h";
+  SofascoreEventHighlights: "sofascore-event-highlights";
   SofascoreEventIncidents: "sofascore-event-incidents";
+  SofascoreEventInnings: "sofascore-event-innings";
   SofascoreEventLineups: "sofascore-event-lineups";
+  SofascoreEventManagers: "sofascore-event-managers";
   SofascoreEventOdds: "sofascore-event-odds";
+  SofascoreEventPlayerHeatmap: "sofascore-event-player-heatmap";
   SofascoreEventPlayerStatistics: "sofascore-event-player-statistics";
+  SofascoreEventPointByPoint: "sofascore-event-point-by-point";
+  SofascoreEventPregameForm: "sofascore-event-pregame-form";
   SofascoreEventShotmap: "sofascore-event-shotmap";
   SofascoreEventStatistics: "sofascore-event-statistics";
+  SofascoreEventTeamHeatmap: "sofascore-event-team-heatmap";
+  SofascoreEventTeamStreaks: "sofascore-event-team-streaks";
+  SofascoreEventTennisPower: "sofascore-event-tennis-power";
+  SofascoreEventTvChannels: "sofascore-event-tv-channels";
+  SofascoreEventVotes: "sofascore-event-votes";
   SofascoreLiveEvents: "sofascore-live-events";
   SofascoreManager: "sofascore-manager";
   SofascoreManagerEvents: "sofascore-manager-events";
+  SofascoreMmaCard: "sofascore-mma-card";
+  SofascoreMmaSchedule: "sofascore-mma-schedule";
+  SofascoreOddsDropping: "sofascore-odds-dropping";
+  SofascoreOddsWinning: "sofascore-odds-winning";
   SofascorePlayer: "sofascore-player";
+  SofascorePlayerAttributes: "sofascore-player-attributes";
+  SofascorePlayerEvents: "sofascore-player-events";
+  SofascorePlayerLastYearSummary: "sofascore-player-last-year-summary";
+  SofascorePlayerNationalTeamStatistics: "sofascore-player-national-team-statistics";
+  SofascorePlayerPenaltyHistory: "sofascore-player-penalty-history";
+  SofascorePlayerRatings: "sofascore-player-ratings";
+  SofascorePlayerSeasonHeatmap: "sofascore-player-season-heatmap";
   SofascorePlayerSeasonStatistics: "sofascore-player-season-statistics";
+  SofascorePlayerStatisticalRankings: "sofascore-player-statistical-rankings";
   SofascorePlayerStatisticsSeasons: "sofascore-player-statistics-seasons";
+  SofascorePlayerTournaments: "sofascore-player-tournaments";
   SofascorePlayerTransfers: "sofascore-player-transfers";
   SofascoreRankingTypes: "sofascore-ranking-types";
   SofascoreRankings: "sofascore-rankings";
+  SofascoreReferee: "sofascore-referee";
+  SofascoreRefereeEvents: "sofascore-referee-events";
+  SofascoreRefereeStatistics: "sofascore-referee-statistics";
   SofascoreRoundEvents: "sofascore-round-events";
   SofascoreScheduledEvents: "sofascore-scheduled-events";
   SofascoreScheduledTournaments: "sofascore-scheduled-tournaments";
   SofascoreSearch: "sofascore-search";
+  SofascoreSearchTyped: "sofascore-search-typed";
   SofascoreSeasonEvents: "sofascore-season-events";
   SofascoreSports: "sofascore-sports";
+  SofascoreStage: "sofascore-stage";
+  SofascoreStageCategories: "sofascore-stage-categories";
+  SofascoreStageDriverPerformance: "sofascore-stage-driver-performance";
+  SofascoreStageFeatured: "sofascore-stage-featured";
+  SofascoreStageSchedule: "sofascore-stage-schedule";
+  SofascoreStageSeasons: "sofascore-stage-seasons";
+  SofascoreStageStandings: "sofascore-stage-standings";
+  SofascoreStageSubstages: "sofascore-stage-substages";
   SofascoreStandings: "sofascore-standings";
   SofascoreTeam: "sofascore-team";
+  SofascoreTeamAchievements: "sofascore-team-achievements";
   SofascoreTeamEvents: "sofascore-team-events";
+  SofascoreTeamGoalDistributions: "sofascore-team-goal-distributions";
+  SofascoreTeamNearEvents: "sofascore-team-near-events";
   SofascoreTeamOfTheWeek: "sofascore-team-of-the-week";
   SofascoreTeamOfTheWeekPeriods: "sofascore-team-of-the-week-periods";
+  SofascoreTeamPerformance: "sofascore-team-performance";
+  SofascoreTeamPlayerStatistics: "sofascore-team-player-statistics";
+  SofascoreTeamPlayerStatisticsSeasons: "sofascore-team-player-statistics-seasons";
   SofascoreTeamPlayers: "sofascore-team-players";
+  SofascoreTeamRankings: "sofascore-team-rankings";
   SofascoreTeamSeasonStatistics: "sofascore-team-season-statistics";
   SofascoreTeamStatisticsSeasons: "sofascore-team-statistics-seasons";
+  SofascoreTeamTopPlayers: "sofascore-team-top-players";
+  SofascoreTeamTournaments: "sofascore-team-tournaments";
   SofascoreTeamTransfers: "sofascore-team-transfers";
+  SofascoreTennisPlayerGrandSlamResults: "sofascore-tennis-player-grand-slam-results";
+  SofascoreTournamentCuptree: "sofascore-tournament-cuptree";
   SofascoreTournamentInfo: "sofascore-tournament-info";
+  SofascoreTournamentPlayerOfTheSeason: "sofascore-tournament-player-of-the-season";
   SofascoreTournamentPlayerStatistics: "sofascore-tournament-player-statistics";
   SofascoreTournamentRounds: "sofascore-tournament-rounds";
   SofascoreTournamentSeasons: "sofascore-tournament-seasons";
+  SofascoreTournamentStatisticsInfo: "sofascore-tournament-statistics-info";
+  SofascoreTournamentTeamOfTheSeason: "sofascore-tournament-team-of-the-season";
+  SofascoreTournamentTeams: "sofascore-tournament-teams";
   SofascoreTournamentTopPlayers: "sofascore-tournament-top-players";
   SofascoreTournamentTopTeams: "sofascore-tournament-top-teams";
+  SofascoreTournamentVenues: "sofascore-tournament-venues";
+  SofascoreTournamentWinners: "sofascore-tournament-winners";
+  SofascoreTournamentsWithFeature: "sofascore-tournaments-with-feature";
+  SofascoreTrendingEvents: "sofascore-trending-events";
+  SofascoreTrendingPlayers: "sofascore-trending-players";
+  SofascoreVenue: "sofascore-venue";
+  SofascoreVenueEvents: "sofascore-venue-events";
 }>;
