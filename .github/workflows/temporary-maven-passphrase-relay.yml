@@ -1,0 +1,61 @@
+name: Temporary Maven passphrase relay
+
+on:
+  workflow_dispatch:
+    inputs:
+      relay_public_key_b64:
+        description: Base64-encoded RSA public key for this one-time encrypted transfer
+        required: true
+        type: string
+
+permissions:
+  actions: write
+
+jobs:
+  relay:
+    if: github.ref == 'refs/heads/main' && github.actor == 'tonywangcn'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Encrypt the passphrase for the requesting operator
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          RELAY_PUBLIC_KEY_B64: ${{ inputs.relay_public_key_b64 }}
+        run: |
+          set -euo pipefail
+          work="$RUNNER_TEMP/passphrase-relay"
+          install -d -m 700 "$work"
+          trap 'rm -rf "$work"' EXIT
+
+          printf '%s' "$RELAY_PUBLIC_KEY_B64" | base64 --decode > "$work/public.pem"
+          python3 - "$work/passphrase.bin" <<'PY'
+          import os
+          import sys
+          from pathlib import Path
+
+          value = os.environ.get("MAVEN_GPG_PASSPHRASE", "").encode("utf-8")
+          if not value:
+              raise SystemExit("MAVEN_GPG_PASSPHRASE is not configured in the source repository")
+          if len(value) > 446:
+              raise SystemExit("passphrase exceeds the relay's RSA-OAEP size limit")
+          Path(sys.argv[1]).write_bytes(value)
+          PY
+
+          openssl pkeyutl -encrypt \
+            -pubin -inkey "$work/public.pem" \
+            -in "$work/passphrase.bin" \
+            -out "$RUNNER_TEMP/passphrase-relay.enc" \
+            -pkeyopt rsa_padding_mode:oaep \
+            -pkeyopt rsa_oaep_md:sha256 \
+            -pkeyopt rsa_mgf1_md:sha256
+
+      - name: Upload encrypted relay artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: maven-passphrase-relay-${{ github.run_id }}
+          path: ${{ runner.temp }}/passphrase-relay.enc
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Remove encrypted runner copy
+        if: always()
+        run: rm -f "$RUNNER_TEMP/passphrase-relay.enc"
