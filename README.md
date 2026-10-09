@@ -1,62 +1,23 @@
 # SofaScore clients for Crawlora
 
-Official Crawlora client packages for the hosted SofaScore API. These packages send requests to Crawlora's API and require a Crawlora account and `CRAWLORA_API_KEY`; service usage follows your Crawlora account billing plan.
+Official Crawlora client packages for the hosted SofaScore API. These clients call Crawlora's hosted API; they do not scrape SofaScore locally. Requests use your Crawlora account and `CRAWLORA_API_KEY`; service usage follows your account billing plan. Crawlora is independent from and not affiliated with or endorsed by SofaScore or its owners.
 
-The packages do not run a browser or scrape SofaScore locally. Crawlora is an independent service and is not affiliated with or endorsed by SofaScore or its owners.
+## Language packages
 
 - JavaScript / TypeScript: [`@crawlora-org/sofascore`](javascript/README.md)
 - Python: [`crawlora-sofascore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-sofascore`](go.mod)
 - Ruby: [`crawlora-sofascore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-sofascore:0.3.3`](java/README.md)
+- Java: [`net.crawlora:crawlora-sofascore:0.3.4`](java/README.md)
 - PHP: [`crawlora/sofascore`](php/README.md)
-- Full endpoint and parameter reference: [docs/usage.md](docs/usage.md)
-- Runnable samples: [examples/](examples/)
-- Source repository: [https://github.com/Crawlora-org/crawlora-sofascore](https://github.com/Crawlora-org/crawlora-sofascore)
 
-Create an account at [crawlora.net](https://crawlora.net/signup?utm_source=github&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-repository-signup), open the [Crawlora console](https://crawlora.net/app?utm_source=github&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-repository-console) to get an API key, or read the [API documentation](https://crawlora.net/docs?utm_source=github&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-repository-api-docs).
+For installation and runnable examples, use the README for your language. See the [API endpoint and parameter reference](docs/usage.md) for shared operation details.
 
-## Install
+Create an account at [crawlora.net](https://crawlora.net/signup?utm_source=github&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-repository-signup), open the [Crawlora console](https://crawlora.net/app?utm_source=github&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-repository-console) to get an API key, or read the [API documentation](https://crawlora.net/docs?utm_source=github&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-repository-api-docs). Keep `CRAWLORA_API_KEY` out of source control.
 
-```sh
-npm install @crawlora-org/sofascore
-python -m pip install crawlora-sofascore
-go get github.com/Crawlora-org/crawlora-sofascore@latest
-gem install crawlora-sofascore
-composer require crawlora/sofascore
-```
+## API coverage
 
-For Java, add `net.crawlora:crawlora-sofascore:0.3.3` to your Maven dependencies; see [java/README.md](java/README.md).
-
-Set your Crawlora key in the environment before running a client:
-
-```sh
-export CRAWLORA_API_KEY="your-crawlora-api-key"
-```
-
-Do not commit API keys. See the language-specific READMEs for sync and async use.
-
-## PHP example
-
-The Packagist package is available as `crawlora/sofascore`:
-
-```sh
-composer require crawlora/sofascore
-```
-
-```php
-<?php
-require __DIR__ . '/vendor/autoload.php';
-
-$apiKey = getenv('CRAWLORA_API_KEY');
-if (!$apiKey) throw new RuntimeException('Set CRAWLORA_API_KEY before running this example.');
-$client = new \Crawlora\Sofascore\Client(apiKey: $apiKey);
-$result = $client->request("sofascore-search", ['q' => 'Liverpool']);
-print_r($result);
-$client->close();
-```
-
-The same example and install details are in [php/README.md](php/README.md).
+The six clients provide access to 109 public API operations. See the [API reference](docs/usage.md) for supported operations, parameters, and response details.
 
 ## License
 
