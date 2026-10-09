@@ -6,7 +6,7 @@ from .operations import OPERATION_COUNT, OPERATION_IDS, PLATFORM
 
 Client = SofascoreClient
 AsyncClient = AsyncSofascoreClient
-__version__ = '0.3.2'
+__version__ = '0.3.3'
 DISPLAY_NAME = 'SofaScore'
 PLATFORM = 'sofascore'
 CONTRACT_REVISION = 'sha256:645115670262bb86bf9c49f16ddbfdd94bbec67befb2aa8497f10f86ee2d5e46'
