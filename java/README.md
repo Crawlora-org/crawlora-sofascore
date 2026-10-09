@@ -8,7 +8,7 @@ The official Java client for Crawlora's hosted SofaScore API. It calls Crawlora'
 <dependency>
   <groupId>net.crawlora</groupId>
   <artifactId>crawlora-sofascore</artifactId>
-  <version>0.3.2</version>
+  <version>0.3.3</version>
 </dependency>
 ```
 

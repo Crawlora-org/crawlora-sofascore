@@ -7,7 +7,7 @@ from .async_client import AsyncCrawloraClient
 class SofascoreClient(CrawloraClient):
     """Synchronous SofaScore API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-sofascore-python/0.3.2')
+        kwargs.setdefault('user_agent', 'crawlora-sofascore-python/0.3.3')
         super().__init__(*args, **kwargs)
 
     def categories(self, **params: Any) -> Any:
@@ -667,7 +667,7 @@ class SofascoreClient(CrawloraClient):
 class AsyncSofascoreClient(AsyncCrawloraClient):
     """Asynchronous SofaScore API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-sofascore-python/0.3.2')
+        kwargs.setdefault('user_agent', 'crawlora-sofascore-python/0.3.3')
         super().__init__(*args, **kwargs)
 
     async def categories(self, **params: Any) -> Any:
