@@ -19,7 +19,6 @@ Create an account at [crawlora.net](https://crawlora.net/signup?utm_source=maven
 ```java
 import net.crawlora.sofascore.Client;
 import java.time.Duration;
-import java.util.List;
 import java.util.Map;
 
 try (Client client = new Client(System.getenv("CRAWLORA_API_KEY"))) {
@@ -28,9 +27,9 @@ try (Client client = new Client(System.getenv("CRAWLORA_API_KEY"))) {
 }
 ```
 
-Each supported operation has a direct method that accepts its endpoint parameters. Use `client.request(operationId, params)` for generic dispatch. `Client.OPERATION_IDS`, `Client.OPERATION_COUNT`, `client.getOperationIds()`, and `client.getOperationCount()` describe this platform's operations.
+Each operation has a direct method that accepts the parameters documented for that endpoint. Use `client.request(operationId, params)` for generic dispatch. `Client.OPERATION_IDS`, `Client.OPERATION_COUNT`, `client.getOperationIds()`, and `client.getOperationCount()` describe this platform's operations only.
 
-For custom hosted API routing and timeouts, use `new Client(apiKey, baseUrl, Duration.ofSeconds(20))`. YouTube transcript formats that return text are returned as `String`; JSON responses are parsed into Java maps, lists, and scalar values.
+For custom hosted API routing and timeouts, use `new Client(apiKey, baseUrl, Duration.ofSeconds(20))`. Text responses are returned as `String`; JSON responses are parsed into Java maps, lists, and scalar values.
 
 ## Links
 

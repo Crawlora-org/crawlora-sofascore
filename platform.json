@@ -105,5 +105,5 @@
   "ruby_gem_name": "crawlora-sofascore",
   "source_contract_sha256": "3827d3a93489515b45354477d4e75fb05f173af262cf358e80878442d7d258f2",
   "version": "0.3.4",
-  "php_repository": "https://github.com/Crawlora-org/crawlora-sofascore-php"
+  "php_repository": "https://github.com/Crawlora-org/crawlora-sofascore"
 }

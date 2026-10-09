@@ -20,7 +20,7 @@ puts result
 client.close
 ```
 
-Use an operation-specific method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem contains {{OPERATION_COUNT}} operations.
+Use an operation-specific method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem includes {{OPERATION_COUNT}} API operations.
 
 ```ruby
 client = Crawlora::{{CLASS_NAME}}::Client.new(api_key: ENV.fetch("CRAWLORA_API_KEY"), timeout: 30)
@@ -28,6 +28,6 @@ client = Crawlora::{{CLASS_NAME}}::Client.new(api_key: ENV.fetch("CRAWLORA_API_K
 client.close
 ```
 
-Client options include `api_key`, `base_url`, and `timeout`. Ruby stdlib provides the HTTP and JSON transport.
+Client options include `api_key`, `base_url`, and `timeout`. Ruby stdlib provides the HTTP and JSON support.
 
-See [Crawlora](https://crawlora.net/?utm_source=rubygems&utm_medium=referral&utm_campaign=platform-clients&utm_content={{PLATFORM}}-ruby-homepage), the [API documentation](https://crawlora.net/docs?utm_source=rubygems&utm_medium=referral&utm_campaign=platform-clients&utm_content={{PLATFORM}}-ruby-api-docs), and [the package repository]({{REPOSITORY}}) for account setup and the operation reference.
+See [Crawlora](https://crawlora.net/?utm_source=rubygems&utm_medium=referral&utm_campaign=platform-clients&utm_content={{PLATFORM}}-ruby-homepage), the [API documentation](https://crawlora.net/docs?utm_source=rubygems&utm_medium=referral&utm_campaign=platform-clients&utm_content={{PLATFORM}}-ruby-api-docs), and [the package repository]({{REPOSITORY}}) for account setup, the API operation reference, and release history.
