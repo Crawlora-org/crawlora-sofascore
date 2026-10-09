@@ -26,7 +26,7 @@ test("serializes required query/path values, adds API key and platform User-Agen
   await client.request("sofascore-categories", {"sport": "american-football"});
   assert.match(seen.url, /\/sofascore\/categories/);
   assert.equal(seen.headers["x-api-key"], "secret");
-  assert.equal(seen.headers["user-agent"], "crawlora-sofascore-js/0.3.3");
+  assert.equal(seen.headers["user-agent"], "crawlora-sofascore-js/0.3.4");
 });
 
 test("allows caller User-Agent override and response text mode", async () => {
