@@ -9,7 +9,7 @@ import {
 
 export class SofascoreClient extends CrawloraClient {
   constructor(options = {}) {
-    super({ ...options, userAgent: options.userAgent ?? "crawlora-sofascore-js/0.3.1" });
+    super({ ...options, userAgent: options.userAgent ?? "crawlora-sofascore-js/0.3.2" });
     this["categories"] = (...args) => this.request("sofascore-categories", ...args);
     this["categoryTournaments"] = (...args) => this.request("sofascore-category-tournaments", ...args);
     this["draft"] = (...args) => this.request("sofascore-draft", ...args);
@@ -131,5 +131,5 @@ export {
   CrawloraServerError
 };
 export { groups, operations, operationCount, OperationIds } from "./operations.js";
-export const VERSION = "0.3.1";
+export const VERSION = "0.3.2";
 export default SofascoreClient;
