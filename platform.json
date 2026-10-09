@@ -5,7 +5,7 @@
   "display_name": "SofaScore",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-sofascore",
-  "golang_version": "0.3.0",
+  "golang_version": "0.3.1",
   "group_name": "sofascore",
   "maven_artifact_id": "crawlora-sofascore",
   "maven_group_id": "net.crawlora",
@@ -15,6 +15,13 @@
   "platform": "sofascore",
   "python_name": "crawlora-sofascore",
   "releases": [
+    {
+      "changes": [
+        "Add registry-specific UTM-tagged Crawlora homepage and API documentation links to package metadata."
+      ],
+      "date": "2026-10-09",
+      "version": "0.3.1"
+    },
     {
       "changes": [
         "Added operations: sofascore-draft, sofascore-draft-picks, sofascore-esports-game, sofascore-event-at-bat-pitches, sofascore-event-at-bats, sofascore-event-average-positions, sofascore-event-baseball-top-performers, sofascore-event-esports-games, sofascore-event-highlights, sofascore-event-innings, sofascore-event-managers, sofascore-event-player-heatmap, sofascore-event-point-by-point, sofascore-event-pregame-form, sofascore-event-team-heatmap, sofascore-event-team-streaks, sofascore-event-tennis-power, sofascore-event-tv-channels, sofascore-event-votes, sofascore-mma-card, sofascore-mma-schedule, sofascore-odds-dropping, sofascore-odds-winning, sofascore-player-attributes, sofascore-player-events, sofascore-player-last-year-summary, sofascore-player-national-team-statistics, sofascore-player-penalty-history, sofascore-player-ratings, sofascore-player-season-heatmap, sofascore-player-statistical-rankings, sofascore-player-tournaments, sofascore-referee, sofascore-referee-events, sofascore-referee-statistics, sofascore-search-typed, sofascore-stage, sofascore-stage-categories, sofascore-stage-driver-performance, sofascore-stage-featured, sofascore-stage-schedule, sofascore-stage-seasons, sofascore-stage-standings, sofascore-stage-substages, sofascore-team-achievements, sofascore-team-goal-distributions, sofascore-team-near-events, sofascore-team-performance, sofascore-team-player-statistics, sofascore-team-player-statistics-seasons, sofascore-team-rankings, sofascore-team-top-players, sofascore-team-tournaments, sofascore-tennis-player-grand-slam-results, sofascore-tournament-cuptree, sofascore-tournament-player-of-the-season, sofascore-tournament-statistics-info, sofascore-tournament-team-of-the-season, sofascore-tournament-teams, sofascore-tournament-venues, sofascore-tournament-winners, sofascore-tournaments-with-feature, sofascore-trending-events, sofascore-trending-players, sofascore-venue, sofascore-venue-events.",
@@ -74,5 +81,5 @@
   "repository": "https://github.com/Crawlora-org/crawlora-sofascore",
   "ruby_gem_name": "crawlora-sofascore",
   "source_contract_sha256": "3827d3a93489515b45354477d4e75fb05f173af262cf358e80878442d7d258f2",
-  "version": "0.3.0"
+  "version": "0.3.1"
 }
