@@ -3,8 +3,8 @@ require_relative "lib/crawlora/sofascore/version"
 Gem::Specification.new do |spec|
   spec.name = "crawlora-sofascore"
   spec.version = Crawlora::Sofascore::VERSION
-  spec.summary = "SofaScore client for the Crawlora hosted API"
-  spec.description = "Credential-free SofaScore API access through Crawlora's hosted service."
+  spec.summary = "SofaScore API client for Crawlora (109 endpoints)"
+  spec.description = "Ruby client for Crawlora's hosted SofaScore API. Covers live events, match details, lineups, statistics, tournaments, and player/team data across 109 endpoints."
   spec.authors = ["Crawlora"]
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6"

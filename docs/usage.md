@@ -1,8 +1,8 @@
-# SofaScore client usage
+# SofaScore API endpoint reference and client usage
 
-The `@crawlora-org/sofascore` and `crawlora-sofascore` packages call Crawlora's hosted API. Set `CRAWLORA_API_KEY` to a key for your Crawlora account before making requests. Service usage is billed under that account. These clients do not run a browser or scrape SofaScore locally; Crawlora is independent from and not endorsed by SofaScore or its owners.
+This reference lists all 109 public SofaScore API endpoints exposed by the `@crawlora-org/sofascore` and `crawlora-sofascore` packages, covering live events, match details, lineups, statistics, tournaments, and player/team data. The clients call Crawlora's hosted API. Set `CRAWLORA_API_KEY` to a key for your Crawlora account before making requests. Service usage is billed under that account. These clients do not run a browser or scrape SofaScore locally; Crawlora is independent from and not endorsed by SofaScore or its owners.
 
-The package tracks the public API contract revision `sha256:645115670262bb86bf9c49f16ddbfdd94bbec67befb2aa8497f10f86ee2d5e46` bundled with release `0.3.4`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
+The package tracks the public API contract revision `sha256:645115670262bb86bf9c49f16ddbfdd94bbec67befb2aa8497f10f86ee2d5e46` bundled with release `0.3.5`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
 
 Both packages expose all 109 operations in the bundled API contract. JavaScript uses camelCase methods and Python uses snake_case methods. Methods also remain available through the `sofascore` group and the generated `Client` alias.
 
