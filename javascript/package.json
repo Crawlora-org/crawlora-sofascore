@@ -1,10 +1,10 @@
 {
   "name": "@crawlora-org/sofascore",
-  "version": "0.3.4",
-  "description": "Typed JavaScript client for the Crawlora SofaScore API",
+  "version": "0.3.5",
+  "description": "Crawlora SofaScore API client with 109 endpoints for live events, match details, lineups, statistics, tournaments, and player/team data",
   "homepage": "https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-javascript-homepage",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-sofascore/issues" },
-  "keywords": ["crawlora", "api-client", "web-scraping", "sofascore", "typescript"],
+  "keywords": ["crawlora", "api-client", "sdk", "web-scraping", "scraping-api", "sofascore", "sofascore-api", "sofascore-scraper", "sofascore-data", "sofascore-live-events", "sofascore-match-details", "sofascore-lineups", "sofascore-statistics", "sofascore-tournaments", "sofascore-player-team-data"],
   "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",

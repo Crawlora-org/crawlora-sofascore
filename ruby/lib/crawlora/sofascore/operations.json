@@ -263,6 +263,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Sport key",
@@ -319,6 +321,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore category id from the categories endpoint",
@@ -359,6 +363,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "League whose draft to return",
@@ -417,6 +423,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "League whose draft to return",
@@ -481,6 +489,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore esports game id from sofascore-event-esports-games",
@@ -525,6 +535,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -561,6 +573,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore baseball event (match) id",
@@ -599,6 +613,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore baseball event (match) id",
@@ -629,6 +645,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -659,6 +677,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore baseball event (match) id",
@@ -689,6 +709,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -719,6 +741,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -749,6 +773,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore esports event (match) id",
@@ -779,6 +805,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -809,6 +837,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -839,6 +869,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -869,6 +901,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -899,6 +933,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore cricket event (match) id",
@@ -929,6 +965,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -959,6 +997,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -989,6 +1029,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1025,6 +1067,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1069,6 +1113,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1107,6 +1153,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1137,6 +1185,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1167,6 +1217,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1197,6 +1249,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1233,6 +1287,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1271,6 +1327,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1301,6 +1359,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore tennis event (match) id",
@@ -1336,6 +1396,8 @@
           "type": "string"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1373,6 +1435,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore event (match) id",
@@ -1429,6 +1493,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Sport key",
@@ -1485,6 +1551,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore manager id",
@@ -1520,6 +1588,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore manager id",
@@ -1575,6 +1645,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore MMA organisation id",
@@ -1633,6 +1705,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore MMA organisation id",
@@ -1697,6 +1771,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Sport key, or all for every sport. Defaults to all",
@@ -1779,6 +1855,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Sport key, or all for every sport. Defaults to all",
@@ -1835,6 +1913,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -1865,6 +1945,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -1900,6 +1982,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -1938,6 +2022,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -1968,6 +2054,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -1998,6 +2086,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -2052,6 +2142,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -2124,6 +2216,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -2194,6 +2288,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -2268,6 +2364,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -2316,6 +2414,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -2346,6 +2446,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -2376,6 +2478,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore player id",
@@ -2399,6 +2503,8 @@
       "path": "/sofascore/ranking-types",
       "pathParams": [],
       "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [],
       "produces": [
         "application/json"
@@ -2459,6 +2565,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Ranking id from sofascore-ranking-types",
@@ -2532,6 +2640,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore referee id",
@@ -2567,6 +2677,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore referee id",
@@ -2605,6 +2717,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore referee id",
@@ -2657,6 +2771,8 @@
           "type": "string"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -2723,6 +2839,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore category id from the categories endpoint",
@@ -2798,6 +2916,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Sport key",
@@ -2871,6 +2991,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Free-text search query",
@@ -2952,6 +3074,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Entity type to search",
@@ -3061,6 +3185,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -3112,6 +3238,8 @@
       "path": "/sofascore/sports",
       "pathParams": [],
       "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [],
       "produces": [
         "application/json"
@@ -3133,6 +3261,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore stage id from stage-schedule, stage-seasons or stage-substages",
@@ -3167,6 +3297,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Stage sport key",
@@ -3201,6 +3333,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore stage id of a finished race, sprint or rally",
@@ -3235,6 +3369,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Stage sport key",
@@ -3279,6 +3415,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Stage sport key",
@@ -3321,6 +3459,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore competition id from stage-categories",
@@ -3361,6 +3501,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore stage id of a season, event, session or cycling stage",
@@ -3403,6 +3545,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore stage id of a season or an event",
@@ -3450,6 +3594,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -3501,6 +3647,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -3531,6 +3679,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -3576,6 +3726,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -3637,6 +3789,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -3683,6 +3837,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -3725,6 +3881,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -3777,6 +3935,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -3815,6 +3975,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -3869,6 +4031,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -3929,6 +4093,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -3959,6 +4125,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -3989,6 +4157,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id (a tennis player id for tennis)",
@@ -4043,6 +4213,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -4103,6 +4275,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -4160,6 +4334,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -4232,6 +4408,8 @@
           "type": "boolean"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -4269,6 +4447,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id",
@@ -4299,6 +4479,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore team id of a tennis player",
@@ -4335,6 +4517,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id of a cup or playoff competition",
@@ -4378,6 +4562,8 @@
           "type": "string"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -4421,6 +4607,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -4569,6 +4757,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id of a football competition",
@@ -4755,6 +4945,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -4793,6 +4985,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -4829,6 +5023,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id of a football competition",
@@ -4873,6 +5069,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -4917,6 +5115,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -4976,6 +5176,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -5056,6 +5258,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -5121,6 +5325,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -5164,6 +5370,8 @@
           "type": "integer"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore unique-tournament (competition) id",
@@ -5238,6 +5446,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Competition feature",
@@ -5306,6 +5516,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Two-letter ISO 3166-1 alpha-2 country code",
@@ -5340,6 +5552,8 @@
           ]
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Sport key",
@@ -5374,6 +5588,8 @@
           "required": true
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore venue id",
@@ -5461,6 +5677,8 @@
           "type": "string"
         }
       ],
+      "bodyParam": null,
+      "bodyRequired": false,
       "params": [
         {
           "description": "Numeric SofaScore venue id",

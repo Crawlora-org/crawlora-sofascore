@@ -1,6 +1,23 @@
 {
   "name": "crawlora/sofascore",
-  "description": "SofaScore client for the Crawlora hosted API",
+  "description": "Crawlora SofaScore API client with 109 endpoints for live events, match details, lineups, statistics, tournaments, and player/team data",
+  "keywords": [
+    "crawlora",
+    "api-client",
+    "sdk",
+    "web-scraping",
+    "scraping-api",
+    "sofascore",
+    "sofascore-api",
+    "sofascore-scraper",
+    "sofascore-data",
+    "sofascore-live-events",
+    "sofascore-match-details",
+    "sofascore-lineups",
+    "sofascore-statistics",
+    "sofascore-tournaments",
+    "sofascore-player-team-data"
+  ],
   "type": "library",
   "license": "MIT",
   "require": {
