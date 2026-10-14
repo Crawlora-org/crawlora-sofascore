@@ -1622,47 +1622,93 @@
     "sofascore.EventDetail": {
       "properties": {
         "attendance": {
+          "description": "Reported attendance.",
           "type": "integer"
         },
         "away_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Away side's score, when available."
         },
         "away_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Away side."
         },
         "home_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Home side's score, when available."
         },
         "home_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Home side."
         },
         "id": {
+          "description": "SofaScore event id. Use it with the event endpoints.",
           "example": 14025013,
           "type": "integer"
         },
         "referee": {
-          "$ref": "#/definitions/sofascore.Referee"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.Referee"
+            }
+          ],
+          "description": "Match referee. Omitted when SofaScore has none for it."
         },
         "slug": {
+          "description": "URL slug of the match on SofaScore.",
           "type": "string"
         },
         "start_time": {
+          "description": "Start time in UTC (RFC 3339).",
           "example": "2025-08-15T19:00:00Z",
           "type": "string"
         },
         "start_timestamp": {
+          "description": "Start time as a Unix timestamp in seconds.",
           "type": "integer"
         },
         "status": {
-          "$ref": "#/definitions/sofascore.EventStatus"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.EventStatus"
+            }
+          ],
+          "description": "Current status of the match."
         },
         "tournament": {
-          "$ref": "#/definitions/sofascore.TournamentRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TournamentRef"
+            }
+          ],
+          "description": "Tournament and parent competition the match belongs to."
         },
         "venue": {
-          "$ref": "#/definitions/sofascore.Venue"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.Venue"
+            }
+          ],
+          "description": "Venue of the match. Omitted when SofaScore has none for it."
         },
         "winner_code": {
+          "description": "Result code: 1 when the home side won, 2 when the away side won, 3 for a draw. Omitted until the match is decided.",
           "type": "integer"
         }
       },
@@ -1734,19 +1780,32 @@
     "sofascore.EventH2HResponse": {
       "properties": {
         "event_id": {
+          "description": "SofaScore event id the record belongs to.",
           "type": "integer"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "manager_duel": {
-          "$ref": "#/definitions/sofascore.TeamDuel"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamDuel"
+            }
+          ],
+          "description": "Record between the two managers. Omitted when SofaScore has no history for them."
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         },
         "team_duel": {
-          "$ref": "#/definitions/sofascore.TeamDuel"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamDuel"
+            }
+          ],
+          "description": "All-time record between the two teams."
         }
       },
       "type": "object"
@@ -1829,21 +1888,26 @@
     "sofascore.EventIncidentsResponse": {
       "properties": {
         "count": {
+          "description": "Number of incidents returned.",
           "type": "integer"
         },
         "event_id": {
+          "description": "SofaScore event (match) id that was requested.",
           "type": "integer"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "incidents": {
+          "description": "Match timeline of goals, cards, substitutions and period markers.",
           "items": {
             "$ref": "#/definitions/sofascore.Incident"
           },
           "type": "array"
         },
         "source_url": {
+          "description": "URL the data was read from.",
           "type": "string"
         }
       },
@@ -1876,21 +1940,35 @@
     "sofascore.EventLineupsResponse": {
       "properties": {
         "away": {
-          "$ref": "#/definitions/sofascore.TeamLineup"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamLineup"
+            }
+          ],
+          "description": "Away side's lineup."
         },
         "confirmed": {
+          "description": "True for the official confirmed lineups, false while they are still predicted.",
           "type": "boolean"
         },
         "event_id": {
+          "description": "SofaScore event id the lineups belong to.",
           "type": "integer"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "home": {
-          "$ref": "#/definitions/sofascore.TeamLineup"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamLineup"
+            }
+          ],
+          "description": "Home side's lineup."
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         }
       },
@@ -1920,21 +1998,26 @@
     "sofascore.EventOddsResponse": {
       "properties": {
         "count": {
+          "description": "Number of markets returned.",
           "type": "integer"
         },
         "event_id": {
+          "description": "SofaScore event id the odds belong to.",
           "type": "integer"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "markets": {
+          "description": "Betting markets for the match.",
           "items": {
             "$ref": "#/definitions/sofascore.OddsMarket"
           },
           "type": "array"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         }
       },
@@ -2057,12 +2140,19 @@
     "sofascore.EventResponse": {
       "properties": {
         "event": {
-          "$ref": "#/definitions/sofascore.EventDetail"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.EventDetail"
+            }
+          ],
+          "description": "The match."
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         }
       },
@@ -2095,18 +2185,22 @@
     "sofascore.EventStatisticsResponse": {
       "properties": {
         "event_id": {
+          "description": "SofaScore event id the statistics belong to.",
           "type": "integer"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "periods": {
+          "description": "Statistics for the whole match and for each period.",
           "items": {
             "$ref": "#/definitions/sofascore.StatPeriod"
           },
           "type": "array"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         }
       },
@@ -2115,13 +2209,16 @@
     "sofascore.EventStatus": {
       "properties": {
         "code": {
+          "description": "SofaScore's numeric status code, for example 0 for not started and 100 for ended.",
           "type": "integer"
         },
         "description": {
+          "description": "Status as displayed, for example \"Ended\".",
           "example": "Ended",
           "type": "string"
         },
         "type": {
+          "description": "Status group, for example `notstarted`, `inprogress` or `finished`.",
           "example": "finished",
           "type": "string"
         }
@@ -2131,38 +2228,73 @@
     "sofascore.EventSummary": {
       "properties": {
         "away_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Away side's score, when available."
         },
         "away_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Away side."
         },
         "home_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Home side's score, when available."
         },
         "home_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Home side."
         },
         "id": {
+          "description": "SofaScore event id. Use it with the event endpoints.",
           "example": 14025013,
           "type": "integer"
         },
         "slug": {
+          "description": "URL slug of the match on SofaScore.",
           "type": "string"
         },
         "start_time": {
+          "description": "Start time in UTC (RFC 3339).",
           "example": "2025-08-15T19:00:00Z",
           "type": "string"
         },
         "start_timestamp": {
+          "description": "Start time as a Unix timestamp in seconds.",
           "type": "integer"
         },
         "status": {
-          "$ref": "#/definitions/sofascore.EventStatus"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.EventStatus"
+            }
+          ],
+          "description": "Current status of the match."
         },
         "tournament": {
-          "$ref": "#/definitions/sofascore.TournamentRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TournamentRef"
+            }
+          ],
+          "description": "Tournament and parent competition the match belongs to."
         },
         "winner_code": {
+          "description": "Result code: 1 when the home side won, 2 when the away side won, 3 for a draw. Omitted until the match is decided.",
           "type": "integer"
         }
       },
@@ -2462,41 +2594,53 @@
     "sofascore.Incident": {
       "properties": {
         "added_time": {
+          "description": "Minutes of added time at the point of the incident.",
           "type": "integer"
         },
         "away_score": {
+          "description": "Away team's score after the incident.",
           "type": "integer"
         },
         "card_color": {
+          "description": "Color of the card, such as `yellow` or `red`. Set for card incidents.",
           "example": "yellow",
           "type": "string"
         },
         "home_score": {
+          "description": "Home team's score after the incident.",
           "type": "integer"
         },
         "is_home": {
+          "description": "Whether the incident belongs to the home team.",
           "type": "boolean"
         },
         "player": {
+          "description": "Name of the player involved in the incident.",
           "type": "string"
         },
         "player_in": {
+          "description": "Name of the player coming on in a substitution.",
           "type": "string"
         },
         "player_out": {
+          "description": "Name of the player going off in a substitution.",
           "type": "string"
         },
         "reason": {
+          "description": "Reason SofaScore gives for the incident.",
           "type": "string"
         },
         "text": {
+          "description": "Short label for the incident, such as `FT` for full time.",
           "example": "FT",
           "type": "string"
         },
         "time": {
+          "description": "Match minute at which the incident happened.",
           "type": "integer"
         },
         "type": {
+          "description": "Incident type, such as `period`, `goal`, `card` or `substitution`.",
           "example": "goal",
           "type": "string"
         }
@@ -2506,15 +2650,23 @@
     "sofascore.LineupPlayer": {
       "properties": {
         "jersey_number": {
+          "description": "Shirt number worn in this match.",
           "type": "string"
         },
         "player": {
-          "$ref": "#/definitions/sofascore.PlayerRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.PlayerRef"
+            }
+          ],
+          "description": "The player."
         },
         "position": {
+          "description": "Position in this match, for example G, D, M or F.",
           "type": "string"
         },
         "substitute": {
+          "description": "True for a player on the bench.",
           "type": "boolean"
         }
       },
@@ -2523,22 +2675,27 @@
     "sofascore.LiveEventsResponse": {
       "properties": {
         "count": {
+          "description": "Number of events returned.",
           "example": 10,
           "type": "integer"
         },
         "events": {
+          "description": "Matches currently in progress.",
           "items": {
             "$ref": "#/definitions/sofascore.EventSummary"
           },
           "type": "array"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         },
         "sport": {
+          "description": "Sport the events belong to.",
           "example": "football",
           "type": "string"
         }
@@ -2956,14 +3113,17 @@
     "sofascore.OddsChoice": {
       "properties": {
         "name": {
+          "description": "Outcome label, for example 1, X or 2.",
           "example": "1",
           "type": "string"
         },
         "value": {
+          "description": "Fractional odds, for example 29/100.",
           "example": "29/100",
           "type": "string"
         },
         "winning": {
+          "description": "True when this outcome won.",
           "type": "boolean"
         }
       },
@@ -2972,22 +3132,43 @@
     "sofascore.OddsDroppingEvent": {
       "properties": {
         "away_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Away side's score, when available."
         },
         "away_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Away side."
         },
         "choice_name": {
           "example": "2",
           "type": "string"
         },
         "home_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Home side's score, when available."
         },
         "home_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Home side."
         },
         "id": {
+          "description": "SofaScore event id. Use it with the event endpoints.",
           "example": 14025013,
           "type": "integer"
         },
@@ -2999,6 +3180,7 @@
           "type": "number"
         },
         "slug": {
+          "description": "URL slug of the match on SofaScore.",
           "type": "string"
         },
         "sport": {
@@ -3006,19 +3188,32 @@
           "type": "string"
         },
         "start_time": {
+          "description": "Start time in UTC (RFC 3339).",
           "example": "2025-08-15T19:00:00Z",
           "type": "string"
         },
         "start_timestamp": {
+          "description": "Start time as a Unix timestamp in seconds.",
           "type": "integer"
         },
         "status": {
-          "$ref": "#/definitions/sofascore.EventStatus"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.EventStatus"
+            }
+          ],
+          "description": "Current status of the match."
         },
         "tournament": {
-          "$ref": "#/definitions/sofascore.TournamentRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TournamentRef"
+            }
+          ],
+          "description": "Tournament and parent competition the match belongs to."
         },
         "winner_code": {
+          "description": "Result code: 1 when the home side won, 2 when the away side won, 3 for a draw. Omitted until the match is decided.",
           "type": "integer"
         }
       },
@@ -3051,24 +3246,29 @@
     "sofascore.OddsMarket": {
       "properties": {
         "choices": {
+          "description": "Outcomes that can be selected in this market.",
           "items": {
             "$ref": "#/definitions/sofascore.OddsChoice"
           },
           "type": "array"
         },
         "group": {
+          "description": "Market group, for example 1X2.",
           "example": "1X2",
           "type": "string"
         },
         "name": {
+          "description": "Market name, for example \"Full time\".",
           "example": "Full time",
           "type": "string"
         },
         "period": {
+          "description": "Part of the match the market covers, for example \"Full-time\".",
           "example": "Full-time",
           "type": "string"
         },
         "suspended": {
+          "description": "True while the market is suspended.",
           "type": "boolean"
         }
       },
@@ -3081,22 +3281,43 @@
           "type": "number"
         },
         "away_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Away side's score, when available."
         },
         "away_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Away side."
         },
         "expected": {
           "example": 51,
           "type": "number"
         },
         "home_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Home side's score, when available."
         },
         "home_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Home side."
         },
         "id": {
+          "description": "SofaScore event id. Use it with the event endpoints.",
           "example": 14025013,
           "type": "integer"
         },
@@ -3104,6 +3325,7 @@
           "$ref": "#/definitions/sofascore.MoverOddsMarket"
         },
         "slug": {
+          "description": "URL slug of the match on SofaScore.",
           "type": "string"
         },
         "sport": {
@@ -3111,19 +3333,32 @@
           "type": "string"
         },
         "start_time": {
+          "description": "Start time in UTC (RFC 3339).",
           "example": "2025-08-15T19:00:00Z",
           "type": "string"
         },
         "start_timestamp": {
+          "description": "Start time as a Unix timestamp in seconds.",
           "type": "integer"
         },
         "status": {
-          "$ref": "#/definitions/sofascore.EventStatus"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.EventStatus"
+            }
+          ],
+          "description": "Current status of the match."
         },
         "tournament": {
-          "$ref": "#/definitions/sofascore.TournamentRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TournamentRef"
+            }
+          ],
+          "description": "Tournament and parent competition the match belongs to."
         },
         "winner_code": {
+          "description": "Result code: 1 when the home side won, 2 when the away side won, 3 for a draw. Omitted until the match is decided.",
           "type": "integer"
         },
         "winning_odds": {
@@ -3294,46 +3529,64 @@
     "sofascore.PlayerDetail": {
       "properties": {
         "country": {
+          "description": "Player's country.",
           "type": "string"
         },
         "date_of_birth": {
+          "description": "Date of birth (RFC 3339).",
           "type": "string"
         },
         "deceased": {
+          "description": "True when the player has died.",
           "type": "boolean"
         },
         "height": {
+          "description": "Height in centimetres.",
           "type": "integer"
         },
         "id": {
+          "description": "SofaScore player id. Use it with the player endpoints.",
           "type": "integer"
         },
         "jersey_number": {
+          "description": "Shirt number.",
           "type": "string"
         },
         "market_value": {
+          "description": "SofaScore's estimated market value, in units of `market_value_currency`. Omitted when unavailable.",
           "type": "integer"
         },
         "market_value_currency": {
+          "description": "Currency of `market_value`, for example EUR.",
           "type": "string"
         },
         "name": {
+          "description": "Player's full name.",
           "type": "string"
         },
         "position": {
+          "description": "Position code, for example G, D, M or F.",
           "type": "string"
         },
         "preferred_foot": {
+          "description": "Preferred foot, for example \"Right\".",
           "type": "string"
         },
         "short_name": {
+          "description": "Shortened name, for example \"E. Haaland\".",
           "type": "string"
         },
         "slug": {
+          "description": "URL slug of the player on SofaScore.",
           "type": "string"
         },
         "team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "The player's current team."
         }
       },
       "type": "object"
@@ -3640,26 +3893,32 @@
     "sofascore.PlayerRef": {
       "properties": {
         "country": {
+          "description": "Player's country.",
           "example": "Spain",
           "type": "string"
         },
         "id": {
+          "description": "SofaScore player id. Use it with the player endpoints.",
           "example": 855833,
           "type": "integer"
         },
         "name": {
+          "description": "Player's full name.",
           "example": "Ferran Torres",
           "type": "string"
         },
         "position": {
+          "description": "Position code, for example G, D, M or F.",
           "example": "F",
           "type": "string"
         },
         "short_name": {
+          "description": "Shortened name, for example \"F. Torres\".",
           "example": "F. Torres",
           "type": "string"
         },
         "slug": {
+          "description": "URL slug of the player on SofaScore.",
           "example": "ferran-torres",
           "type": "string"
         }
@@ -3669,12 +3928,19 @@
     "sofascore.PlayerResponse": {
       "properties": {
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "player": {
-          "$ref": "#/definitions/sofascore.PlayerDetail"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.PlayerDetail"
+            }
+          ],
+          "description": "The player's profile."
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         }
       },
@@ -4271,13 +4537,16 @@
     "sofascore.Referee": {
       "properties": {
         "country": {
+          "description": "Referee's country.",
           "example": "England",
           "type": "string"
         },
         "id": {
+          "description": "SofaScore referee id.",
           "type": "integer"
         },
         "name": {
+          "description": "Referee's name.",
           "example": "Anthony Taylor",
           "type": "string"
         }
@@ -4434,38 +4703,48 @@
     "sofascore.RoundEventsResponse": {
       "properties": {
         "count": {
+          "description": "Number of events returned.",
           "type": "integer"
         },
         "events": {
+          "description": "Fixtures in the round.",
           "items": {
             "$ref": "#/definitions/sofascore.EventSummary"
           },
           "type": "array"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "has_next_page": {
+          "description": "True when more fixtures are available on a further page.",
           "type": "boolean"
         },
         "prefix": {
+          "description": "Round prefix, set for stages such as Qualification.",
           "example": "Qualification",
           "type": "string"
         },
         "round": {
+          "description": "Round number.",
           "type": "integer"
         },
         "season_id": {
+          "description": "SofaScore season id.",
           "type": "integer"
         },
         "slug": {
+          "description": "Round slug, set for named rounds such as `round-of-16`.",
           "example": "round-of-16",
           "type": "string"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         },
         "tournament_id": {
+          "description": "Id of the competition (the unique tournament id).",
           "type": "integer"
         }
       },
@@ -4593,12 +4872,15 @@
     "sofascore.ScoreLine": {
       "properties": {
         "current": {
+          "description": "Current score, which is the final score once the match is over.",
           "type": "integer"
         },
         "period1": {
+          "description": "Score in the first period.",
           "type": "integer"
         },
         "period2": {
+          "description": "Score in the second period.",
           "type": "integer"
         }
       },
@@ -4607,21 +4889,26 @@
     "sofascore.SearchResponse": {
       "properties": {
         "count": {
+          "description": "Number of results returned.",
           "type": "integer"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "query": {
+          "description": "Search query that was run.",
           "type": "string"
         },
         "results": {
+          "description": "Matching teams, players and other entities. Empty when nothing matches.",
           "items": {
             "$ref": "#/definitions/sofascore.SearchResult"
           },
           "type": "array"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         }
       },
@@ -4630,27 +4917,35 @@
     "sofascore.SearchResult": {
       "properties": {
         "country": {
+          "description": "Country of the result.",
           "type": "string"
         },
         "id": {
+          "description": "SofaScore id of the result. Which endpoints accept it depends on `type`.",
           "type": "integer"
         },
         "name": {
+          "description": "Name of the result.",
           "type": "string"
         },
         "slug": {
+          "description": "URL slug of the result on SofaScore.",
           "type": "string"
         },
         "sport": {
+          "description": "Sport the result belongs to.",
           "type": "string"
         },
         "team_id": {
+          "description": "For a player, the SofaScore id of their team.",
           "type": "integer"
         },
         "team_name": {
+          "description": "For a player, the name of their team.",
           "type": "string"
         },
         "type": {
+          "description": "Kind of result, for example `team` or `player`.",
           "example": "team",
           "type": "string"
         }
@@ -4693,12 +4988,15 @@
     "sofascore.Season": {
       "properties": {
         "id": {
+          "description": "SofaScore season id. Pass it to the standings and round endpoints.",
           "type": "integer"
         },
         "name": {
+          "description": "Season name.",
           "type": "string"
         },
         "year": {
+          "description": "Season label, for example 26/27.",
           "type": "string"
         }
       },
@@ -4707,18 +5005,39 @@
     "sofascore.SeasonEvent": {
       "properties": {
         "away_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Away side's score, when available."
         },
         "away_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Away side."
         },
         "home_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Home side's score, when available."
         },
         "home_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Home side."
         },
         "id": {
+          "description": "SofaScore event id. Use it with the event endpoints.",
           "example": 14025013,
           "type": "integer"
         },
@@ -4730,22 +5049,36 @@
           "type": "string"
         },
         "slug": {
+          "description": "URL slug of the match on SofaScore.",
           "type": "string"
         },
         "start_time": {
+          "description": "Start time in UTC (RFC 3339).",
           "example": "2025-08-15T19:00:00Z",
           "type": "string"
         },
         "start_timestamp": {
+          "description": "Start time as a Unix timestamp in seconds.",
           "type": "integer"
         },
         "status": {
-          "$ref": "#/definitions/sofascore.EventStatus"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.EventStatus"
+            }
+          ],
+          "description": "Current status of the match."
         },
         "tournament": {
-          "$ref": "#/definitions/sofascore.TournamentRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TournamentRef"
+            }
+          ],
+          "description": "Tournament and parent competition the match belongs to."
         },
         "winner_code": {
+          "description": "Result code: 1 when the home side won, 2 when the away side won, 3 for a draw. Omitted until the match is decided.",
           "type": "integer"
         }
       },
@@ -5060,39 +5393,51 @@
     "sofascore.SquadPlayer": {
       "properties": {
         "country": {
+          "description": "Player's country.",
           "type": "string"
         },
         "date_of_birth": {
+          "description": "Date of birth (RFC 3339).",
           "type": "string"
         },
         "height": {
+          "description": "Height in centimetres.",
           "type": "integer"
         },
         "id": {
+          "description": "SofaScore player id. Use it with the player endpoints.",
           "type": "integer"
         },
         "jersey_number": {
+          "description": "Shirt number.",
           "type": "string"
         },
         "market_value": {
+          "description": "SofaScore's estimated market value, in units of `market_value_currency`. Omitted when unavailable.",
           "type": "integer"
         },
         "market_value_currency": {
+          "description": "Currency of `market_value`, for example EUR.",
           "type": "string"
         },
         "name": {
+          "description": "Player's full name.",
           "type": "string"
         },
         "position": {
+          "description": "Position code, for example G, D, M or F.",
           "type": "string"
         },
         "preferred_foot": {
+          "description": "Preferred foot, for example \"Right\".",
           "type": "string"
         },
         "short_name": {
+          "description": "Shortened name, for example \"E. Haaland\".",
           "type": "string"
         },
         "slug": {
+          "description": "URL slug of the player on SofaScore.",
           "type": "string"
         }
       },
@@ -6021,9 +6366,11 @@
     "sofascore.StandingsGroup": {
       "properties": {
         "name": {
+          "description": "Table name, set when the competition publishes more than one table, such as group-stage groups.",
           "type": "string"
         },
         "rows": {
+          "description": "Table rows in position order.",
           "items": {
             "$ref": "#/definitions/sofascore.StandingsRow"
           },
@@ -6035,24 +6382,30 @@
     "sofascore.StandingsResponse": {
       "properties": {
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "groups": {
+          "description": "One entry per table the competition publishes.",
           "items": {
             "$ref": "#/definitions/sofascore.StandingsGroup"
           },
           "type": "array"
         },
         "season_id": {
+          "description": "SofaScore season id.",
           "type": "integer"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         },
         "tournament_id": {
+          "description": "Id of the competition (the unique tournament id).",
           "type": "integer"
         },
         "type": {
+          "description": "Which table was requested: `total`, `home` or `away`.",
           "example": "total",
           "type": "string"
         }
@@ -6062,34 +6415,48 @@
     "sofascore.StandingsRow": {
       "properties": {
         "draws": {
+          "description": "Matches drawn.",
           "type": "integer"
         },
         "losses": {
+          "description": "Matches lost.",
           "type": "integer"
         },
         "matches": {
+          "description": "Matches played.",
           "type": "integer"
         },
         "points": {
+          "description": "Points in the table.",
           "type": "integer"
         },
         "position": {
+          "description": "Position in the table.",
           "type": "integer"
         },
         "promotion": {
+          "description": "What the position currently leads to, for example \"Champions League\". Omitted when the position carries nothing.",
           "example": "Champions League",
           "type": "string"
         },
         "scores_against": {
+          "description": "Goals or points conceded.",
           "type": "integer"
         },
         "scores_for": {
+          "description": "Goals or points scored.",
           "type": "integer"
         },
         "team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "The team."
         },
         "wins": {
+          "description": "Matches won.",
           "type": "integer"
         }
       },
@@ -6098,12 +6465,14 @@
     "sofascore.StatGroup": {
       "properties": {
         "items": {
+          "description": "Statistics in the group.",
           "items": {
             "$ref": "#/definitions/sofascore.StatItem"
           },
           "type": "array"
         },
         "name": {
+          "description": "Group name, for example \"Match overview\" or \"Shots\".",
           "type": "string"
         }
       },
@@ -6112,18 +6481,22 @@
     "sofascore.StatItem": {
       "properties": {
         "away": {
+          "description": "Away side's value as displayed, for example 39%.",
           "example": "39%",
           "type": "string"
         },
         "home": {
+          "description": "Home side's value as displayed, for example 61%.",
           "example": "61%",
           "type": "string"
         },
         "key": {
+          "description": "Stable key for the statistic, for example `ballPossession`.",
           "example": "ballPossession",
           "type": "string"
         },
         "name": {
+          "description": "Statistic name, for example \"Ball possession\".",
           "example": "Ball possession",
           "type": "string"
         }
@@ -6133,12 +6506,14 @@
     "sofascore.StatPeriod": {
       "properties": {
         "groups": {
+          "description": "Statistic groups for the period.",
           "items": {
             "$ref": "#/definitions/sofascore.StatGroup"
           },
           "type": "array"
         },
         "period": {
+          "description": "Period the statistics cover: `ALL`, `1ST` or `2ND`.",
           "example": "ALL",
           "type": "string"
         }
@@ -6280,10 +6655,12 @@
     "sofascore.TeamDetail": {
       "properties": {
         "country": {
+          "description": "Country the team belongs to.",
           "example": "Spain",
           "type": "string"
         },
         "id": {
+          "description": "SofaScore team id. Use it with the team endpoints.",
           "example": 2817,
           "type": "integer"
         },
@@ -6291,20 +6668,24 @@
           "type": "string"
         },
         "name": {
+          "description": "Full team name.",
           "example": "FC Barcelona",
           "type": "string"
         },
         "national": {
+          "description": "True for a national team.",
           "type": "boolean"
         },
         "primary_color": {
           "type": "string"
         },
         "short_name": {
+          "description": "Shortened team name.",
           "example": "Barcelona",
           "type": "string"
         },
         "slug": {
+          "description": "URL slug of the team on SofaScore.",
           "example": "barcelona",
           "type": "string"
         },
@@ -6333,12 +6714,15 @@
     "sofascore.TeamDuel": {
       "properties": {
         "away_wins": {
+          "description": "Past meetings won by the away side of this match.",
           "type": "integer"
         },
         "draws": {
+          "description": "Past meetings that ended in a draw.",
           "type": "integer"
         },
         "home_wins": {
+          "description": "Past meetings won by the home side of this match.",
           "type": "integer"
         }
       },
@@ -6347,31 +6731,39 @@
     "sofascore.TeamEventsResponse": {
       "properties": {
         "count": {
+          "description": "Number of events on this page.",
           "type": "integer"
         },
         "direction": {
+          "description": "Which fixtures were requested: `next` for upcoming, `last` for past.",
           "example": "next",
           "type": "string"
         },
         "events": {
+          "description": "Fixtures on this page. Empty when there are none.",
           "items": {
             "$ref": "#/definitions/sofascore.EventSummary"
           },
           "type": "array"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "has_next_page": {
+          "description": "True when page + 1 has more fixtures in the same direction.",
           "type": "boolean"
         },
         "page": {
+          "description": "Zero-based page number returned.",
           "type": "integer"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         },
         "team_id": {
+          "description": "SofaScore team id the fixtures belong to.",
           "type": "integer"
         }
       },
@@ -6409,10 +6801,12 @@
     "sofascore.TeamLineup": {
       "properties": {
         "formation": {
+          "description": "Formation, for example 4-3-3.",
           "example": "4-3-3",
           "type": "string"
         },
         "players": {
+          "description": "Starting players and substitutes.",
           "items": {
             "$ref": "#/definitions/sofascore.LineupPlayer"
           },
@@ -6679,21 +7073,26 @@
     "sofascore.TeamPlayersResponse": {
       "properties": {
         "count": {
+          "description": "Number of players returned.",
           "type": "integer"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "players": {
+          "description": "The team's squad.",
           "items": {
             "$ref": "#/definitions/sofascore.SquadPlayer"
           },
           "type": "array"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         },
         "team_id": {
+          "description": "SofaScore team id the squad belongs to.",
           "type": "integer"
         }
       },
@@ -6811,25 +7210,31 @@
     "sofascore.TeamRef": {
       "properties": {
         "country": {
+          "description": "Country the team belongs to.",
           "example": "Spain",
           "type": "string"
         },
         "id": {
+          "description": "SofaScore team id. Use it with the team endpoints.",
           "example": 2817,
           "type": "integer"
         },
         "name": {
+          "description": "Full team name.",
           "example": "FC Barcelona",
           "type": "string"
         },
         "national": {
+          "description": "True for a national team.",
           "type": "boolean"
         },
         "short_name": {
+          "description": "Shortened team name.",
           "example": "Barcelona",
           "type": "string"
         },
         "slug": {
+          "description": "URL slug of the team on SofaScore.",
           "example": "barcelona",
           "type": "string"
         }
@@ -7408,25 +7813,31 @@
     "sofascore.TournamentRef": {
       "properties": {
         "category": {
+          "description": "Category the tournament sits under, usually a country or region.",
           "example": "England",
           "type": "string"
         },
         "id": {
+          "description": "SofaScore id of the tournament the match is filed under. The seasons, standings and round endpoints take `unique_tournament_id` instead.",
           "type": "integer"
         },
         "name": {
+          "description": "Tournament name.",
           "example": "Premier League",
           "type": "string"
         },
         "slug": {
+          "description": "URL slug of the tournament on SofaScore.",
           "example": "premier-league",
           "type": "string"
         },
         "unique_tournament_id": {
+          "description": "Id of the parent competition. This is the tournament id the tournament-seasons, standings and round-events endpoints take.",
           "example": 17,
           "type": "integer"
         },
         "unique_tournament_name": {
+          "description": "Name of the parent competition.",
           "example": "Premier League",
           "type": "string"
         }
@@ -7465,21 +7876,26 @@
     "sofascore.TournamentSeasonsResponse": {
       "properties": {
         "count": {
+          "description": "Number of seasons returned.",
           "type": "integer"
         },
         "fetched_at": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "seasons": {
+          "description": "Seasons SofaScore has for the competition.",
           "items": {
             "$ref": "#/definitions/sofascore.Season"
           },
           "type": "array"
         },
         "source_url": {
+          "description": "SofaScore URL the data was read from.",
           "type": "string"
         },
         "tournament_id": {
+          "description": "Id of the competition (the unique tournament id).",
           "type": "integer"
         }
       },
@@ -7823,22 +8239,44 @@
     "sofascore.TrendingEvent": {
       "properties": {
         "away_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Away side's score, when available."
         },
         "away_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Away side."
         },
         "home_score": {
-          "$ref": "#/definitions/sofascore.ScoreLine"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.ScoreLine"
+            }
+          ],
+          "description": "Home side's score, when available."
         },
         "home_team": {
-          "$ref": "#/definitions/sofascore.TeamRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TeamRef"
+            }
+          ],
+          "description": "Home side."
         },
         "id": {
+          "description": "SofaScore event id. Use it with the event endpoints.",
           "example": 14025013,
           "type": "integer"
         },
         "slug": {
+          "description": "URL slug of the match on SofaScore.",
           "type": "string"
         },
         "sport": {
@@ -7846,19 +8284,32 @@
           "type": "string"
         },
         "start_time": {
+          "description": "Start time in UTC (RFC 3339).",
           "example": "2025-08-15T19:00:00Z",
           "type": "string"
         },
         "start_timestamp": {
+          "description": "Start time as a Unix timestamp in seconds.",
           "type": "integer"
         },
         "status": {
-          "$ref": "#/definitions/sofascore.EventStatus"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.EventStatus"
+            }
+          ],
+          "description": "Current status of the match."
         },
         "tournament": {
-          "$ref": "#/definitions/sofascore.TournamentRef"
+          "allOf": [
+            {
+              "$ref": "#/definitions/sofascore.TournamentRef"
+            }
+          ],
+          "description": "Tournament and parent competition the match belongs to."
         },
         "winner_code": {
+          "description": "Result code: 1 when the home side won, 2 when the away side won, 3 for a draw. Omitted until the match is decided.",
           "type": "integer"
         }
       },
@@ -8060,18 +8511,22 @@
     "sofascore.Venue": {
       "properties": {
         "capacity": {
+          "description": "Venue capacity.",
           "example": 61276,
           "type": "integer"
         },
         "city": {
+          "description": "City the venue is in.",
           "example": "Liverpool",
           "type": "string"
         },
         "country": {
+          "description": "Country the venue is in.",
           "example": "England",
           "type": "string"
         },
         "name": {
+          "description": "Venue name.",
           "example": "Anfield",
           "type": "string"
         }
@@ -10399,7 +10854,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one resource of one esports game from SofaScore's credential-free public JSON, chosen with `part`: `statistics` (team totals such as kills, towers and barracks for Dota 2, gold and drakes for League of Legends), `lineups` (every player with hero or champion and per-player statistics such as net worth, gold or ADR), `bans` (banned heroes or champions per side) and `rounds` (Counter-Strike round history with outcome, winner and side per round, including overtime). Only the requested block is returned. Get the game id from sofascore-event-esports-games. Statistics and bans exist for Dota 2 and League of Legends only (404 for Counter-Strike), rounds fill for Counter-Strike only (an empty list otherwise) and lineups work for all three. Returns 404 when SofaScore has no such data for the game.",
+        "description": "Returns one resource of one esports game from SofaScore, chosen with `part`: `statistics` (team totals such as kills, towers and barracks for Dota 2, gold and drakes for League of Legends), `lineups` (every player with hero or champion and per-player statistics such as net worth, gold or ADR), `bans` (banned heroes or champions per side) and `rounds` (Counter-Strike round history with outcome, winner and side per round, including overtime). Only the requested block is returned. Get the game id from sofascore-event-esports-games. Statistics and bans exist for Dota 2 and League of Legends only (404 for Counter-Strike), rounds fill for Counter-Strike only (an empty list otherwise) and lineups work for all three. Returns 404 when SofaScore has no such data for the game.",
         "operationId": "sofascore-esports-game",
         "parameters": [
           {
@@ -10476,7 +10931,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one match's detail (teams, score, status, venue, referee) from SofaScore's credential-free public JSON.",
+        "description": "Returns one SofaScore match by event id: home and away teams and scores, status, start time, tournament, attendance and winner code, plus venue and referee when SofaScore has them. An unknown or malformed id surfaces as an upstream error.",
         "operationId": "sofascore-event",
         "parameters": [
           {
@@ -10539,7 +10994,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns every pitch of one baseball at-bat from SofaScore's credential-free public JSON, in pitch order: the ball-strike-out count, outcome code, pitch type and name, speed in kilometres per hour, zone, plate location, strike-zone bounds, batter and pitcher hand, the score, and for balls put in play the hit type, trajectory, hardness and location plus runner movements and fielder credits. Get the at-bat id (`at_bat_id`) from sofascore-event-at-bats for the same event. Returns 404 when SofaScore has no pitches for that at-bat, which includes an at-bat id that does not belong to the event.",
+        "description": "Returns every pitch of one baseball at-bat from SofaScore, in pitch order: the ball-strike-out count, outcome code, pitch type and name, speed in kilometres per hour, zone, plate location, strike-zone bounds, batter and pitcher hand, the score, and for balls put in play the hit type, trajectory, hardness and location plus runner movements and fielder credits. Get the at-bat id (`at_bat_id`) from sofascore-event-at-bats for the same event. Returns 404 when SofaScore has no pitches for that at-bat, which includes an at-bat id that does not belong to the event.",
         "operationId": "sofascore-event-at-bat-pitches",
         "parameters": [
           {
@@ -10610,7 +11065,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a baseball match's at-bat timeline from SofaScore's credential-free public JSON, in play order: for each plate appearance the inning and half (`top` or `bottom`), pitcher, hitter, their teams, when it ended and the home and away win probabilities before and after it. Use an at-bat `id` with sofascore-event-at-bat-pitches to read its pitches. Returns 404 when SofaScore has no at-bat data for the match, which includes matches that have not started and sports other than baseball.",
+        "description": "Returns a baseball match's at-bat timeline from SofaScore, in play order: for each plate appearance the inning and half (`top` or `bottom`), pitcher, hitter, their teams, when it ended and the home and away win probabilities before and after it. Use an at-bat `id` with sofascore-event-at-bat-pitches to read its pitches. Returns 404 when SofaScore has no at-bat data for the match, which includes matches that have not started and sports other than baseball.",
         "operationId": "sofascore-event-at-bats",
         "parameters": [
           {
@@ -10736,7 +11191,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a baseball match's top performers from SofaScore's credential-free public JSON: each pitcher or batter (`role`) with a rating, their team and a snake_case map of the statistics that earned the mention (for example pitching strike outs, batting home runs and runs batted in). Returns 404 when SofaScore has no top performers for the match, which includes matches that have not started and sports other than baseball.",
+        "description": "Returns a baseball match's top performers from SofaScore: each pitcher or batter (`role`) with a rating, their team and a snake_case map of the statistics that earned the mention (for example pitching strike outs, batting home runs and runs batted in). Returns 404 when SofaScore has no top performers for the match, which includes matches that have not started and sports other than baseball.",
         "operationId": "sofascore-event-baseball-top-performers",
         "parameters": [
           {
@@ -10799,7 +11254,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a match's best-rated players per side, the overall top-rated list, and the player of the match (each with team and value) from SofaScore's credential-free public JSON. Covers football (value is the match rating, label `rating`) and ice hockey (label `pts`, value the points scored; a goalkeeper with no points has no numeric `value` and carries the upstream dash in `value_text`). The basketball, baseball and tennis matches checked returned no summary. Returns 404 when SofaScore has no best-players summary for the match, which includes matches that have not started, sports without one and fixtures without rated players.",
+        "description": "Returns a match's best-rated players per side, the overall top-rated list, and the player of the match (each with team and value) from SofaScore. Covers football (value is the match rating, label `rating`) and ice hockey (label `pts`, value the points scored; a goalkeeper with no points has no numeric `value` and carries SofaScore's dash in `value_text`). The basketball, baseball and tennis matches checked returned no summary. Returns 404 when SofaScore has no best-players summary for the match, which includes matches that have not started, sports without one and fixtures without rated players.",
         "operationId": "sofascore-event-best-players",
         "parameters": [
           {
@@ -10862,7 +11317,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a match's text commentary (minute, type, text, and the players involved, plus the running score on scoring lines) from SofaScore's credential-free public JSON, newest first. Works for football and basketball matches that have commentary. An empty `comments` list is a valid response (a live match with no lines yet). Returns 404 when SofaScore has no commentary for the match, which includes matches that have not started.",
+        "description": "Returns a match's text commentary (minute, type, text, and the players involved, plus the running score on scoring lines) from SofaScore, newest first. Works for football and basketball matches that have commentary. An empty `comments` list is a valid response (a live match with no lines yet). Returns 404 when SofaScore has no commentary for the match, which includes matches that have not started.",
         "operationId": "sofascore-event-comments",
         "parameters": [
           {
@@ -10925,7 +11380,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns the games (maps) of an esports match from SofaScore's credential-free public JSON: each game's id, status, start time, length in seconds, winner, score per side (kills for Dota 2 and League of Legends, rounds with half and overtime split for Counter-Strike), the map for Counter-Strike, and whether complete statistics exist. Use a game `id` with sofascore-esports-game to read its statistics, lineups, bans or rounds. Returns 404 when SofaScore has no games for the event, which includes sports other than esports.",
+        "description": "Returns the games (maps) of an esports match from SofaScore: each game's id, status, start time, length in seconds, winner, score per side (kills for Dota 2 and League of Legends, rounds with half and overtime split for Counter-Strike), the map for Counter-Strike, and whether complete statistics exist. Use a game `id` with sofascore-esports-game to read its statistics, lineups, bans or rounds. Returns 404 when SofaScore has no games for the event, which includes sports other than esports.",
         "operationId": "sofascore-event-esports-games",
         "parameters": [
           {
@@ -10988,7 +11443,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a match's momentum graph as minute and value points (positive values favour the home side) plus period length information, from SofaScore's credential-free public JSON. Covers football, ice hockey and basketball. An empty `points` list is a valid response (a live match that has just started). Returns 404 when SofaScore has no momentum graph for the match, which includes matches that have not started and sports without one such as tennis and baseball.",
+        "description": "Returns a match's momentum graph as minute and value points (positive values favour the home side) plus period length information, from SofaScore. Covers football, ice hockey and basketball. An empty `points` list is a valid response (a live match that has just started). Returns 404 when SofaScore has no momentum graph for the match, which includes matches that have not started and sports without one such as tennis and baseball.",
         "operationId": "sofascore-event-graph",
         "parameters": [
           {
@@ -11051,7 +11506,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns the historical head-to-head win/draw record between a match's two teams (and managers, when available) from SofaScore's credential-free public JSON.",
+        "description": "Returns the historical head-to-head win/draw record between a match's two teams (and managers, when available) from SofaScore.",
         "operationId": "sofascore-event-h2h",
         "parameters": [
           {
@@ -11177,7 +11632,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one match's goal, card, substitution, and period timeline from SofaScore's credential-free public JSON. An empty `incidents` list is a valid response before kickoff.",
+        "description": "Returns one match's goal, card, substitution, and period timeline from SofaScore. An empty `incidents` list is a valid response before kickoff.",
         "operationId": "sofascore-event-incidents",
         "parameters": [
           {
@@ -11240,7 +11695,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a cricket match's innings scorecards from SofaScore's credential-free public JSON. Each innings has the batting and bowling teams, runs, wickets, overs in cricket notation (18.4 is 18 overs and 4 balls), extras (wides, no balls, byes, leg byes, penalty), every batter's line (runs, balls, fours, sixes, dismissal with the bowler and fielder, fall-of-wicket score and over), every bowler's figures (overs, maidens, runs, wickets, wides, no balls), the partnerships and a derived fall-of-wickets list. Works for T20, one-day and Test matches (a Test lists up to four innings). Returns 404 when SofaScore has no innings data for the match, which includes matches that have not started and sports other than cricket.",
+        "description": "Returns a cricket match's innings scorecards from SofaScore. Each innings has the batting and bowling teams, runs, wickets, overs in cricket notation (18.4 is 18 overs and 4 balls), extras (wides, no balls, byes, leg byes, penalty), every batter's line (runs, balls, fours, sixes, dismissal with the bowler and fielder, fall-of-wicket score and over), every bowler's figures (overs, maidens, runs, wickets, wides, no balls), the partnerships and a derived fall-of-wickets list. Works for T20, one-day and Test matches (a Test lists up to four innings). Returns 404 when SofaScore has no innings data for the match, which includes matches that have not started and sports other than cricket.",
         "operationId": "sofascore-event-innings",
         "parameters": [
           {
@@ -11303,7 +11758,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one match's starting XI and substitutes per side, with formation, from SofaScore's credential-free public JSON. Returns 404 when SofaScore has no lineups for the match. A missing-lineup result may be reused for up to two minutes before checking again.",
+        "description": "Returns one match's starting XI and substitutes per side, with formation. Returns 404 when SofaScore has no lineups for the match. A missing-lineup result may be reused for up to two minutes before checking again.",
         "operationId": "sofascore-event-lineups",
         "parameters": [
           {
@@ -11429,7 +11884,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one match's betting markets and choices from SofaScore's credential-free public JSON. Returns 404 when SofaScore has no odds for the match.",
+        "description": "Returns one match's betting markets and choices. Returns 404 when SofaScore has no odds for the match.",
         "operationId": "sofascore-event-odds",
         "parameters": [
           {
@@ -11563,7 +12018,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one player's statistics inside one football match (minutes, rating, passes, duels, shots, expected goals, and more) as a snake_case metric map from SofaScore's credential-free public JSON. The set of metrics depends on the player's position, so absent metrics are omitted rather than zero. Get `player_id` from event-lineups. Returns 404 when SofaScore has no statistics for that player in that match.",
+        "description": "Returns one player's statistics inside one football match (minutes, rating, passes, duels, shots, expected goals, and more) as a snake_case metric map. The set of metrics depends on the player's position, so absent metrics are omitted rather than zero. Get `player_id` from event-lineups. Returns 404 when SofaScore has no statistics for that player in that match.",
         "operationId": "sofascore-event-player-statistics",
         "parameters": [
           {
@@ -11634,7 +12089,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a racket-sport match's point-by-point timeline from SofaScore's credential-free public JSON, with sets and games in play order. Tennis sets list games and each game lists every point with the running score (`0`, `15`, `30`, `40`, `A`, or a plain count in a tie-break), the server, the game winner, a `description` of `ace` or `double_fault` where SofaScore flags it, and break point (`break_point`) or set or match point (`set_or_match_point`) markers per player. Table tennis and badminton sets list their points directly. The ace flag is a lower bound of the match's real ace count. Darts matches are not covered. Returns 404 when SofaScore has no point-by-point data for the match, which includes matches that have not started and sports without it.",
+        "description": "Returns a racket-sport match's point-by-point timeline, with sets and games in play order. Tennis sets list games and each game lists every point with the running score (`0`, `15`, `30`, `40`, `A`, or a plain count in a tie-break), the server, the game winner, a `description` of `ace` or `double_fault` where SofaScore flags it, and break point (`break_point`) or set or match point (`set_or_match_point`) markers per player. Table tennis and badminton sets list their points directly. The ace flag is a lower bound of the match's real ace count. Darts matches are not covered. Returns 404 when SofaScore has no point-by-point data for the match, which includes matches that have not started and sports without it.",
         "operationId": "sofascore-event-point-by-point",
         "parameters": [
           {
@@ -11760,7 +12215,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns every shot in a football or ice hockey match from SofaScore's credential-free public JSON. Football shots carry the shooter, side, outcome (`shot_type`), situation, body part, expected goals (xG and xGOT), minute, and pitch and goal-mouth coordinates. Ice hockey shots carry the shooter, team, side, shot technique (`shot_type`, for example `wrist`), `outcome` (`made`, `saved`, `missed` or `blocked`), `strength` (`even`, `powerplay` or `shorthanded`), period and period clock, rink `coordinates` and, for most shots, `xg`. An empty `shots` list is a valid response (a live match with no shots yet). Returns 404 when SofaScore has no shot map for the match, which includes matches that have not started, basketball and other sports without one, and fixtures without expected-goals coverage.",
+        "description": "Returns every shot in a football or ice hockey match. Football shots carry the shooter, side, outcome (`shot_type`), situation, body part, expected goals (xG and xGOT), minute, and pitch and goal-mouth coordinates. Ice hockey shots carry the shooter, team, side, shot technique (`shot_type`, for example `wrist`), `outcome` (`made`, `saved`, `missed` or `blocked`), `strength` (`even`, `powerplay` or `shorthanded`), period and period clock, rink `coordinates` and, for most shots, `xg`. An empty `shots` list is a valid response (a live match with no shots yet). Returns 404 when SofaScore has no shot map for the match, which includes matches that have not started, basketball and other sports without one, and fixtures without expected-goals coverage.",
         "operationId": "sofascore-event-shotmap",
         "parameters": [
           {
@@ -11823,7 +12278,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one match's statistics (possession, shots, passes, and more, grouped and split by period) from SofaScore's credential-free public JSON. Returns 404 when SofaScore has no tracked statistics for the match.",
+        "description": "Returns one match's statistics (possession, shots, passes, and more, grouped and split by period). Returns 404 when SofaScore has no tracked statistics for the match.",
         "operationId": "sofascore-event-statistics",
         "parameters": [
           {
@@ -11957,7 +12412,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a match's team streaks and trends from SofaScore's credential-free public JSON: `general` statements about each side's recent matches (for example `Wins` 6 or `No goals conceded` 4) and `head2head` statements about their meetings. Each item names the streak, a `value` that is either a run length (`6`) or a ratio (`5/5`), the `team` it refers to (`home`, `away` or `both`) and, where SofaScore reports it, whether the streak `continued` into this match. Returns 404 when SofaScore lists no streaks for the match, which includes tennis matches.",
+        "description": "Returns a match's team streaks and trends: `general` statements about each side's recent matches (for example `Wins` 6 or `No goals conceded` 4) and `head2head` statements about their meetings. Each item names the streak, a `value` that is either a run length (`6`) or a ratio (`5/5`), the `team` it refers to (`home`, `away` or `both`) and, where SofaScore reports it, whether the streak `continued` into this match. Returns 404 when SofaScore lists no streaks for the match, which includes tennis matches.",
         "operationId": "sofascore-event-team-streaks",
         "parameters": [
           {
@@ -12020,7 +12475,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a tennis match's per-game momentum series from SofaScore's credential-free public JSON: for each game of each set a `value` (positive favours the home player or team, negative the away side) and whether a break of serve `break_occurred`. An empty `games` list is a valid response (a live match with no completed game yet). Returns 404 when SofaScore has no tennis power data for the match, which includes matches that have not started and sports other than tennis.",
+        "description": "Returns a tennis match's per-game momentum series: for each game of each set a `value` (positive favours the home player or team, negative the away side) and whether a break of serve `break_occurred`. An empty `games` list is a valid response (a live match with no completed game yet). Returns 404 when SofaScore has no tennis power data for the match, which includes matches that have not started and sports other than tennis.",
         "operationId": "sofascore-event-tennis-power",
         "parameters": [
           {
@@ -12153,7 +12608,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a match's community vote tallies from SofaScore's credential-free public JSON: the match result vote (`match_result` with `home`, `away`, `total` and `draw`, where `draw` is absent for two-way sports such as basketball and tennis), both teams to score, which team scores first and who should have won (when SofaScore has opened that vote). A block that holds no votes is omitted. Returns 404 when SofaScore has no votes for the match.",
+        "description": "Returns a match's community vote tallies: the match result vote (`match_result` with `home`, `away`, `total` and `draw`, where `draw` is absent for two-way sports such as basketball and tennis), both teams to score, which team scores first and who should have won (when SofaScore has opened that vote). A block that holds no votes is omitted. Returns 404 when SofaScore has no votes for the match.",
         "operationId": "sofascore-event-votes",
         "parameters": [
           {
@@ -12216,7 +12671,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns currently live events for a sport from SofaScore's credential-free public JSON. The `sport` enum accepts `american-football`, `aussie-rules`, `badminton`, `bandy`, `baseball`, `basketball`, `beach-volley`, `cricket`, `darts`, `esports`, `floorball`, `football`, `futsal`, `handball`, `ice-hockey`, `mma`, `minifootball`, `padel`, `rugby`, `snooker`, `table-tennis`, `tennis`, `volleyball`, and `waterpolo`; the sports endpoint lists them. An empty `events` list is a valid response when nothing is live right now.",
+        "description": "Returns currently live events for a sport. The `sport` enum accepts `american-football`, `aussie-rules`, `badminton`, `bandy`, `baseball`, `basketball`, `beach-volley`, `cricket`, `darts`, `esports`, `floorball`, `football`, `futsal`, `handball`, `ice-hockey`, `mma`, `minifootball`, `padel`, `rugby`, `snooker`, `table-tennis`, `tennis`, `volleyball`, and `waterpolo`; the sports endpoint lists them. An empty `events` list is a valid response when nothing is live right now.",
         "operationId": "sofascore-live-events",
         "parameters": [
           {
@@ -12299,7 +12754,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a manager's (coach's) profile (nationality, birth date, preferred formation, current team and teams, and the career win/draw/loss and goals record) from SofaScore's credential-free public JSON. Get a manager id from sofascore-search results of type `manager`.",
+        "description": "Returns a manager's (coach's) profile (nationality, birth date, preferred formation, current team and teams, and the career win/draw/loss and goals record). Get a manager id from sofascore-search results of type `manager`.",
         "operationId": "sofascore-manager",
         "parameters": [
           {
@@ -12362,7 +12817,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a page of the matches a manager (coach) has recently taken charge of, newest first, across all clubs they managed, from SofaScore's credential-free public JSON. Only past matches are available; SofaScore publishes no upcoming list for managers. Returns 404 for a page past the end of the manager's history.",
+        "description": "Returns a page of the matches a manager (coach) has recently taken charge of, newest first, across all clubs they managed. Only past matches are available; SofaScore publishes no upcoming list for managers. Returns 404 for a page past the end of the manager's history.",
         "operationId": "sofascore-manager-events",
         "parameters": [
           {
@@ -12432,7 +12887,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns the bouts of one MMA fight card from SofaScore's credential-free public JSON, main event first, narrowed with `part` to `all` bouts, the `maincard`, the `prelims` or the `earlyprelims`. Each bout has the fighters (country, nickname, ranking where 0 is the champion, record), weight class, scheduled rounds, status, and for finished bouts the winner, win type, final round and fight time. Get `org_id` and `card_id` from sofascore-mma-schedule. Returns 404 when the card is unknown or has no bouts in that segment (for example a card without early prelims).",
+        "description": "Returns the bouts of one MMA fight card, main event first, narrowed with `part` to `all` bouts, the `maincard`, the `prelims` or the `earlyprelims`. Each bout has the fighters (country, nickname, ranking where 0 is the champion, record), weight class, scheduled rounds, status, and for finished bouts the winner, win type, final round and fight time. Get `org_id` and `card_id` from sofascore-mma-schedule. Returns 404 when the card is unknown or has no bouts in that segment (for example a card without early prelims).",
         "operationId": "sofascore-mma-card",
         "parameters": [
           {
@@ -12517,7 +12972,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns the main event of every fight card an MMA organisation holds in one calendar month from SofaScore's credential-free public JSON, with the card id and name, fighters (country, nickname, ranking where 0 is the champion, record), weight class, scheduled rounds, status, and for finished fights the winner, win type and final round. Find organisation ids (UFC 19906, PFL 19910, ONE 20269, Rizin 19905, Fight Nation Championship 20463, KSW 19946, OKTAGON 20258, Absolute Championship Akhmat 20254, Cage Warriors 19909, Dana White's Contender Series 20264, Brave CF 20267, Jungle Fight 20253) with sofascore-categories (sport `mma`) and sofascore-category-tournaments (category 1708). Use the `card_id` with sofascore-mma-card to read every bout. Returns 404 when the organisation has no card in that month or the id is not an MMA organisation.",
+        "description": "Returns the main event of every fight card an MMA organisation holds in one calendar month, with the card id and name, fighters (country, nickname, ranking where 0 is the champion, record), weight class, scheduled rounds, status, and for finished fights the winner, win type and final round. Find organisation ids (UFC 19906, PFL 19910, ONE 20269, Rizin 19905, Fight Nation Championship 20463, KSW 19946, OKTAGON 20258, Absolute Championship Akhmat 20254, Cage Warriors 19909, Dana White's Contender Series 20264, Brave CF 20267, Jungle Fight 20253) with sofascore-categories (sport `mma`) and sofascore-category-tournaments (category 1708). Use the `card_id` with sofascore-mma-card to read every bout. Returns 404 when the organisation has no card in that month or the id is not an MMA organisation.",
         "operationId": "sofascore-mma-schedule",
         "parameters": [
           {
@@ -12766,7 +13221,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one player's bio (position, height, market value, current team) from SofaScore's credential-free public JSON.",
+        "description": "Returns one SofaScore player by numeric `id`: name, short name, position, jersey number, date of birth, height, preferred foot, country, market value and currency, and the current team. `deceased` is `true` for historical players. An unknown or malformed id returns an upstream error.",
         "operationId": "sofascore-player",
         "parameters": [
           {
@@ -13324,7 +13779,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a player's statistics for one competition season (appearances, rating, goals, assists, passing, duels, and more) as a snake_case metric map, plus the team and a rating breakdown when available, from SofaScore's credential-free public JSON. The `type` enum accepts `overall`, `home`, `away`, `regular_season`, and `playoffs` and defaults to `overall`; only the types listed for that season by player-statistics-seasons exist (football players have `overall`, `home`, `away`; basketball, ice hockey and baseball players have `regular_season` and `playoffs`). Returns 404 when SofaScore has no statistics of that type for the combination.",
+        "description": "Returns a player's statistics for one competition season (appearances, rating, goals, assists, passing, duels, and more) as a snake_case metric map, plus the team and a rating breakdown when available. The `type` enum accepts `overall`, `home`, `away`, `regular_season`, and `playoffs` and defaults to `overall`; only the types listed for that season by player-statistics-seasons exist (football players have `overall`, `home`, `away`; basketball, ice hockey and baseball players have `regular_season` and `playoffs`). Returns 404 when SofaScore has no statistics of that type for the combination.",
         "operationId": "sofascore-player-season-statistics",
         "parameters": [
           {
@@ -13498,7 +13953,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Lists the competitions and seasons a player has statistics for, with the statistics `types` available for each season, from SofaScore's credential-free public JSON. Use a returned competition id (`unique_tournament_id`), season `id` and one of its `types` with player-season-statistics. The `types` values are `overall`, `home`, `away`, `regular_season`, and `playoffs`. Returns 404 for players with no tracked statistics (for example tennis players).",
+        "description": "Lists the competitions and seasons a player has statistics for, with the statistics `types` available for each season. Use a returned competition id (`unique_tournament_id`), season `id` and one of its `types` with player-season-statistics. The `types` values are `overall`, `home`, `away`, `regular_season`, and `playoffs`. Returns 404 for players with no tracked statistics (for example tennis players).",
         "operationId": "sofascore-player-statistics-seasons",
         "parameters": [
           {
@@ -13624,7 +14079,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a player's transfer history (clubs moved from and to, date, fee, and SofaScore's numeric transfer type code), newest first, from SofaScore's credential-free public JSON. An empty `transfers` list is a valid response for a player who has never moved clubs. Returns 404 when SofaScore has no transfer record for the player (seen for ice hockey and baseball players). The `type_code` values are SofaScore's own opaque codes and are not translated.",
+        "description": "Returns a player's transfer history (clubs moved from and to, date, fee, and SofaScore's numeric transfer type code), newest first. An empty `transfers` list is a valid response for a player who has never moved clubs. Returns 404 when SofaScore has no transfer record for the player (seen for ice hockey and baseball players). The `type_code` values are SofaScore's own opaque codes and are not translated.",
         "operationId": "sofascore-player-transfers",
         "parameters": [
           {
@@ -14025,7 +14480,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns fixtures for one round of a competition season from SofaScore's credential-free public JSON. Get `id` from search or category-tournaments, `season` from tournament-seasons, and the round values from tournament-rounds. Round numbers are not unique in cups, and knockout or named rounds return 404 unless the round's `slug` is passed (plus its `prefix` when tournament-rounds lists one): the UEFA Champions League has a qualifying and a league-phase round 1, and a playoff round 636 both with the `Qualification` prefix and without. Plain numbered league rounds need only `round`. `slug` is lowercase letters, digits, and hyphens (up to 64 characters); `prefix` is letters, digits, spaces, and hyphens (up to 64 characters) and is only valid together with `slug`.",
+        "description": "Returns fixtures for one round of a competition season. Get `id` from search or category-tournaments, `season` from tournament-seasons, and the round values from tournament-rounds. Round numbers are not unique in cups, and knockout or named rounds return 404 unless the round's `slug` is passed (plus its `prefix` when tournament-rounds lists one): the UEFA Champions League has a qualifying and a league-phase round 1, and a playoff round 636 both with the `Qualification` prefix and without. Plain numbered league rounds need only `round`. `slug` is lowercase letters, digits, and hyphens (up to 64 characters); `prefix` is letters, digits, spaces, and hyphens (up to 64 characters) and is only valid together with `slug`.",
         "operationId": "sofascore-round-events",
         "parameters": [
           {
@@ -14289,7 +14744,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Searches SofaScore's credential-free public JSON for teams, players, and competitions matching a free-text query. An empty `results` list is a valid response when nothing matches.",
+        "description": "Searches SofaScore for teams, players, and competitions matching a free-text query. An empty `results` list is a valid response when nothing matches.",
         "operationId": "sofascore-search",
         "parameters": [
           {
@@ -14346,7 +14801,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Searches SofaScore for one entity type and returns up to 20 ranked results per page, each normalized for its type: `events` (matches), `teams`, `players` (with team and position), `managers`, `referees`, `venues` (with city and capacity) and `unique_tournaments` (competitions with category). Page with the zero-based `page`; an empty page means there are no further results. The optional `sport` filter (any key listed by sofascore/sports, such as `football`, `basketball`, `tennis` or `mma`) narrows `teams`, `players`, `managers` and `unique_tournaments`, and is rejected for `events`, `referees` and `venues`, which ignore it. Use the returned ids with the matching endpoints (team, player, manager, venue, tournament-seasons, event).",
+        "description": "Searches SofaScore for one entity type and returns up to 20 ranked results per page: `events` (matches), `teams`, `players` (with team and position), `managers`, `referees`, `venues` (with city and capacity) and `unique_tournaments` (competitions with category). Page with the zero-based `page`; an empty page means there are no further results. The optional `sport` filter (any key listed by sofascore/sports, such as `football`, `basketball`, `tennis` or `mma`) narrows `teams`, `players`, `managers` and `unique_tournaments`, and is rejected for `events`, `referees` and `venues`, which ignore it. Use the returned ids with the matching endpoints (team, player, manager, venue, tournament-seasons, event).",
         "operationId": "sofascore-search-typed",
         "parameters": [
           {
@@ -15111,7 +15566,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a league table for a competition season from SofaScore's credential-free public JSON. The `type` enum accepts `total`, `home`, and `away`. Get `id` from search and `season` from tournament-seasons.",
+        "description": "Returns a league table for a competition season. The `type` enum accepts `total`, `home`, and `away`. Get `id` from search and `season` from tournament-seasons.",
         "operationId": "sofascore-standings",
         "parameters": [
           {
@@ -15195,7 +15650,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns one team's detail (identity, manager, venue, primary competition) from SofaScore's credential-free public JSON.",
+        "description": "Returns one SofaScore team by numeric `id`: name, short name, country, sport, manager, venue with its city and capacity, primary colour, and national-team flag. `tournament_id` and `tournament_name` give the team's primary competition, such as its domestic league. An unknown id returns an upstream error.",
         "operationId": "sofascore-team",
         "parameters": [
           {
@@ -15321,7 +15776,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a page of a team's upcoming or recent fixtures from SofaScore's credential-free public JSON. The `direction` enum accepts `next` and `last`. An empty `events` list is a valid response when there is no fixture on that page.",
+        "description": "Returns a page of a team's upcoming or recent fixtures. The `direction` enum accepts `next` and `last`. An empty `events` list is a valid response when there is no fixture on that page.",
         "operationId": "sofascore-team-events",
         "parameters": [
           {
@@ -15914,7 +16369,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a team's full squad from SofaScore's credential-free public JSON.",
+        "description": "Returns a team's full squad from SofaScore by team id: each player's name, position, jersey number, date of birth, height, country and preferred foot, plus SofaScore's market value estimate and its currency when available.",
         "operationId": "sofascore-team-players",
         "parameters": [
           {
@@ -16040,7 +16495,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a team's statistics for one competition season (goals, shots, passing, duels, discipline, and the matching conceded-side metrics) as a snake_case metric map from SofaScore's credential-free public JSON. The `type` enum accepts `overall`, `home`, `away`, `regular_season`, and `playoffs` and defaults to `overall`; only the types listed for that season by team-statistics-seasons exist (football teams have `overall` only; basketball, ice hockey and baseball teams have `regular_season` and `playoffs`). Returns 404 when SofaScore has no statistics of that type for the combination.",
+        "description": "Returns a team's statistics for one competition season (goals, shots, passing, duels, discipline, and the matching conceded-side metrics) as a snake_case metric map. The `type` enum accepts `overall`, `home`, `away`, `regular_season`, and `playoffs` and defaults to `overall`; only the types listed for that season by team-statistics-seasons exist (football teams have `overall` only; basketball, ice hockey and baseball teams have `regular_season` and `playoffs`). Returns 404 when SofaScore has no statistics of that type for the combination.",
         "operationId": "sofascore-team-season-statistics",
         "parameters": [
           {
@@ -16133,7 +16588,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Lists the competitions and seasons a team has statistics for, with the statistics `types` available for each season, from SofaScore's credential-free public JSON. Use a returned competition id (`unique_tournament_id`), season `id` and one of its `types` with team-season-statistics. The `types` values are `overall`, `home`, `away`, `regular_season`, and `playoffs`. Returns 404 for teams with no tracked statistics.",
+        "description": "Lists the competitions and seasons a team has statistics for, with the statistics `types` available for each season. Use a returned competition id (`unique_tournament_id`), season `id` and one of its `types` with team-season-statistics. The `types` values are `overall`, `home`, `away`, `regular_season`, and `playoffs`. Returns 404 for teams with no tracked statistics.",
         "operationId": "sofascore-team-statistics-seasons",
         "parameters": [
           {
@@ -16366,7 +16821,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a team's recent incoming (`transfers_in`) and outgoing (`transfers_out`) transfers with player, clubs, date, fee, and SofaScore's numeric transfer type code from SofaScore's credential-free public JSON. Empty lists are valid for a quiet transfer window. Returns 404 when SofaScore has no transfer record for the team (seen for ice hockey and baseball teams). The `type_code` values are SofaScore's own opaque codes and are not translated.",
+        "description": "Returns a team's recent incoming (`transfers_in`) and outgoing (`transfers_out`) transfers with player, clubs, date, fee, and SofaScore's numeric transfer type code. Empty lists are valid for a quiet transfer window. Returns 404 when SofaScore has no transfer record for the team (seen for ice hockey and baseball teams). The `type_code` values are SofaScore's own opaque codes and are not translated.",
         "operationId": "sofascore-team-transfers",
         "parameters": [
           {
@@ -16988,7 +17443,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns the season list for a competition from SofaScore's credential-free public JSON. Use a returned season id with the standings and round-events endpoints.",
+        "description": "Returns the season list for a competition. Use a returned season id with the standings and round-events endpoints.",
         "operationId": "sofascore-tournament-seasons",
         "parameters": [
           {

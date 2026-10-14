@@ -1,43 +1,51 @@
 {
   "async_class_name": "AsyncSofascoreClient",
   "class_name": "SofascoreClient",
-  "contract_revision": "sha256:645115670262bb86bf9c49f16ddbfdd94bbec67befb2aa8497f10f86ee2d5e46",
+  "contract_revision": "sha256:44b9998fd17df2fdc0c63369c092da2aa7b9a992b5647e0af2a1c31017a7ac92",
   "display_name": "SofaScore",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-sofascore",
-  "golang_version": "0.3.5",
+  "golang_version": "0.4.0",
   "group_name": "sofascore",
-  "maven_artifact_id": "crawlora-sofascore",
   "java_description": "Java client for Crawlora's hosted SofaScore API, with direct methods for live events, match details, lineups, statistics, tournaments, and player/team data. Requires a Crawlora API key.",
+  "maven_artifact_id": "crawlora-sofascore",
   "maven_group_id": "net.crawlora",
   "module_name": "crawlora_sofascore",
   "npm_name": "@crawlora-org/sofascore",
   "php_package_name": "crawlora/sofascore",
+  "php_repository": "https://github.com/Crawlora-org/crawlora-sofascore",
   "platform": "sofascore",
   "python_name": "crawlora-sofascore",
   "releases": [
     {
-      "version": "0.3.5",
-      "date": "2026-10-12",
+      "changes": [
+        "Updated operation contracts: sofascore-draft-picks, sofascore-esports-game, sofascore-event, sofascore-event-at-bat-pitches, sofascore-event-at-bats, sofascore-event-baseball-top-performers, sofascore-event-best-players, sofascore-event-comments, sofascore-event-esports-games, sofascore-event-graph, sofascore-event-h2h, sofascore-event-incidents, sofascore-event-innings, sofascore-event-lineups, sofascore-event-odds, sofascore-event-player-statistics, sofascore-event-point-by-point, sofascore-event-shotmap, sofascore-event-statistics, sofascore-event-team-streaks, sofascore-event-tennis-power, sofascore-event-votes, sofascore-live-events, sofascore-manager, sofascore-manager-events, sofascore-mma-card, sofascore-mma-schedule, sofascore-odds-dropping, sofascore-odds-winning, sofascore-player, sofascore-player-events, sofascore-player-national-team-statistics, sofascore-player-penalty-history, sofascore-player-ratings, sofascore-player-season-heatmap, sofascore-player-season-statistics, sofascore-player-statistical-rankings, sofascore-player-statistics-seasons, sofascore-player-transfers, sofascore-referee-events, sofascore-round-events, sofascore-scheduled-events, sofascore-search, sofascore-search-typed, sofascore-season-events, sofascore-standings, sofascore-team, sofascore-team-events, sofascore-team-near-events, sofascore-team-of-the-week, sofascore-team-performance, sofascore-team-players, sofascore-team-rankings, sofascore-team-season-statistics, sofascore-team-statistics-seasons, sofascore-team-top-players, sofascore-team-transfers, sofascore-tournament-cuptree, sofascore-tournament-info, sofascore-tournament-player-of-the-season, sofascore-tournament-player-statistics, sofascore-tournament-seasons, sofascore-tournament-statistics-info, sofascore-tournament-team-of-the-season, sofascore-tournament-top-players, sofascore-tournament-top-teams, sofascore-tournament-winners, sofascore-trending-events, sofascore-trending-players, sofascore-venue, sofascore-venue-events."
+      ],
+      "date": "2026-10-14",
+      "version": "0.4.0"
+    },
+    {
       "changes": [
         "List every supported endpoint in the repository and package READMEs.",
         "Add platform-specific search keywords to the npm, PyPI, and Composer package metadata."
-      ]
+      ],
+      "date": "2026-10-12",
+      "version": "0.3.5"
     },
     {
-      "version": "0.3.4",
-      "date": "2026-10-09",
       "changes": [
         "Keep the platform README as a language-package index without cross-language installation commands or code examples; pkg.go.dev now shows only its Go example."
-      ]
+      ],
+      "date": "2026-10-09",
+      "version": "0.3.4"
     },
     {
-      "version": "0.3.3",
-      "date": "2026-10-09",
       "changes": [
         "Publish the PHP Composer package from a PHP-only source repository so Packagist displays only PHP installation and usage.",
         "Link RubyGems and Maven Central directly to their Ruby and Java guides, and add a tested Go package documentation example."
-      ]
+      ],
+      "date": "2026-10-09",
+      "version": "0.3.3"
     },
     {
       "changes": [
@@ -111,7 +119,6 @@
   ],
   "repository": "https://github.com/Crawlora-org/crawlora-sofascore",
   "ruby_gem_name": "crawlora-sofascore",
-  "source_contract_sha256": "3827d3a93489515b45354477d4e75fb05f173af262cf358e80878442d7d258f2",
-  "version": "0.3.5",
-  "php_repository": "https://github.com/Crawlora-org/crawlora-sofascore"
+  "source_contract_sha256": "58a42b604ca03b9d6cf27355e0e56f34719985b905a61df2f9f2a8c55f651f74",
+  "version": "0.4.0"
 }

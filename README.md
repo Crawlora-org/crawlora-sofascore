@@ -8,7 +8,7 @@ Official Crawlora client packages for the hosted SofaScore API. Access 109 API e
 - Python: [`crawlora-sofascore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-sofascore`](go.mod)
 - Ruby: [`crawlora-sofascore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-sofascore:0.3.5`](java/README.md)
+- Java: [`net.crawlora:crawlora-sofascore:0.4.0`](java/README.md)
 - PHP: [`crawlora/sofascore`](php/README.md)
 
 For installation and runnable examples, use the README for your language. See the [API endpoint and parameter reference](docs/usage.md) for shared operation details.

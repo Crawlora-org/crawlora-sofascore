@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crawlora-sofascore"
-version = "0.3.5"
+version = "0.4.0"
 description = "Crawlora SofaScore API client with 109 endpoints for live events, match details, lineups, statistics, tournaments, and player/team data"
 readme = "README.md"
 keywords = ["crawlora", "api-client", "sdk", "web-scraping", "scraping-api", "sofascore", "sofascore-api", "sofascore-scraper", "sofascore-data", "sofascore-live-events", "sofascore-match-details", "sofascore-lineups", "sofascore-statistics", "sofascore-tournaments", "sofascore-player-team-data"]

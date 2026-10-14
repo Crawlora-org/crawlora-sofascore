@@ -1,6 +1,6 @@
 {
   "name": "@crawlora-org/sofascore",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "description": "Crawlora SofaScore API client with 109 endpoints for live events, match details, lineups, statistics, tournaments, and player/team data",
   "homepage": "https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-javascript-homepage",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-sofascore/issues" },
