@@ -1,6 +1,6 @@
 # SofaScore clients for Crawlora
 
-Official Crawlora client packages for the hosted SofaScore API. Access 109 API endpoints covering live events, match details, lineups, statistics, tournaments, and player/team data from JavaScript/TypeScript, Python, Go, Ruby, Java, and PHP. These clients call Crawlora's hosted API; they do not scrape SofaScore locally. Requests use your Crawlora account and `CRAWLORA_API_KEY`; service usage follows your account billing plan. Crawlora is independent from and not affiliated with or endorsed by SofaScore or its owners.
+Official Crawlora client packages for the hosted SofaScore API. Access 109 API endpoints covering live events, match details, lineups, statistics, tournaments, and player/team data from JavaScript/TypeScript, Python, Go, Ruby, Java, PHP, and Rust. These clients call Crawlora's hosted API; they do not scrape SofaScore locally. Requests use your Crawlora account and `CRAWLORA_API_KEY`; service usage follows your account billing plan. Crawlora is independent from and not affiliated with or endorsed by SofaScore or its owners.
 
 ## Language packages
 
@@ -10,6 +10,7 @@ Official Crawlora client packages for the hosted SofaScore API. Access 109 API e
 - Ruby: [`crawlora-sofascore`](ruby/README.md)
 - Java: [`net.crawlora:crawlora-sofascore:0.4.0`](java/README.md)
 - PHP: [`crawlora/sofascore`](php/README.md)
+- Rust: [`crawlora-sofascore`](rust/README.md)
 
 For installation and runnable examples, use the README for your language. See the [API endpoint and parameter reference](docs/usage.md) for shared operation details.
 
@@ -17,7 +18,7 @@ Create an account at [crawlora.net](https://crawlora.net/signup?utm_source=githu
 
 ## API coverage and supported endpoints
 
-The six language clients provide access to all 109 selected public SofaScore API operations. Search or browse by endpoint path and operation ID below; the [complete API reference](docs/usage.md) adds parameters, enums, and response details.
+The seven language clients provide access to all 109 selected public SofaScore API operations. Search or browse by endpoint path and operation ID below; the [complete API reference](docs/usage.md) adds parameters, enums, and response details.
 
 | Method | Endpoint | API operation | Description |
 | --- | --- | --- | --- |
