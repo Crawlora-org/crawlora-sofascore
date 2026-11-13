@@ -9,7 +9,7 @@ import {
 
 export class SofascoreClient extends CrawloraClient {
   constructor(options = {}) {
-    super({ ...options, userAgent: options.userAgent ?? "crawlora-sofascore-js/0.4.0" });
+    super({ ...options, userAgent: options.userAgent ?? "crawlora-sofascore-js/0.5.0" });
     this["categories"] = (...args) => this.request("sofascore-categories", ...args);
     this["categoryTournaments"] = (...args) => this.request("sofascore-category-tournaments", ...args);
     this["draft"] = (...args) => this.request("sofascore-draft", ...args);
@@ -31,6 +31,7 @@ export class SofascoreClient extends CrawloraClient {
     this["eventLineups"] = (...args) => this.request("sofascore-event-lineups", ...args);
     this["eventManagers"] = (...args) => this.request("sofascore-event-managers", ...args);
     this["eventOdds"] = (...args) => this.request("sofascore-event-odds", ...args);
+    this["eventPlayerActions"] = (...args) => this.request("sofascore-event-player-actions", ...args);
     this["eventPlayerHeatmap"] = (...args) => this.request("sofascore-event-player-heatmap", ...args);
     this["eventPlayerStatistics"] = (...args) => this.request("sofascore-event-player-statistics", ...args);
     this["eventPointByPoint"] = (...args) => this.request("sofascore-event-point-by-point", ...args);
@@ -38,6 +39,7 @@ export class SofascoreClient extends CrawloraClient {
     this["eventShotmap"] = (...args) => this.request("sofascore-event-shotmap", ...args);
     this["eventStatistics"] = (...args) => this.request("sofascore-event-statistics", ...args);
     this["eventTeamHeatmap"] = (...args) => this.request("sofascore-event-team-heatmap", ...args);
+    this["eventTeamShotmap"] = (...args) => this.request("sofascore-event-team-shotmap", ...args);
     this["eventTeamStreaks"] = (...args) => this.request("sofascore-event-team-streaks", ...args);
     this["eventTennisPower"] = (...args) => this.request("sofascore-event-tennis-power", ...args);
     this["eventTvChannels"] = (...args) => this.request("sofascore-event-tv-channels", ...args);
@@ -59,7 +61,9 @@ export class SofascoreClient extends CrawloraClient {
     this["playerSeasonHeatmap"] = (...args) => this.request("sofascore-player-season-heatmap", ...args);
     this["playerSeasonStatistics"] = (...args) => this.request("sofascore-player-season-statistics", ...args);
     this["playerStatisticalRankings"] = (...args) => this.request("sofascore-player-statistical-rankings", ...args);
+    this["playerStatistics"] = (...args) => this.request("sofascore-player-statistics", ...args);
     this["playerStatisticsSeasons"] = (...args) => this.request("sofascore-player-statistics-seasons", ...args);
+    this["playerTournamentEvents"] = (...args) => this.request("sofascore-player-tournament-events", ...args);
     this["playerTournaments"] = (...args) => this.request("sofascore-player-tournaments", ...args);
     this["playerTransfers"] = (...args) => this.request("sofascore-player-transfers", ...args);
     this["rankingTypes"] = (...args) => this.request("sofascore-ranking-types", ...args);
@@ -131,5 +135,5 @@ export {
   CrawloraServerError
 };
 export { groups, operations, operationCount, OperationIds } from "./operations.js";
-export const VERSION = "0.4.0";
+export const VERSION = "0.5.0";
 export default SofascoreClient;

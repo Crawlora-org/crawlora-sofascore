@@ -1896,6 +1896,40 @@ pub struct ModelSofascoreEventOddsResponse {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascoreEventPlayerActionsResponse {
+    #[serde(
+        rename = "ball_carries",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub ball_carries: Option<Vec<ModelSofascorePlayerAction>>,
+    #[serde(rename = "defensive", default, skip_serializing_if = "Option::is_none")]
+    pub defensive: Option<Vec<ModelSofascorePlayerAction>>,
+    #[serde(rename = "dribbles", default, skip_serializing_if = "Option::is_none")]
+    pub dribbles: Option<Vec<ModelSofascorePlayerAction>>,
+    #[serde(rename = "event_id", default, skip_serializing_if = "Option::is_none")]
+    pub event_id: Option<i64>,
+    #[serde(
+        rename = "fetched_at",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "passes", default, skip_serializing_if = "Option::is_none")]
+    pub passes: Option<Vec<ModelSofascorePlayerAction>>,
+    #[serde(rename = "player_id", default, skip_serializing_if = "Option::is_none")]
+    pub player_id: Option<i64>,
+    #[serde(
+        rename = "source_url",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelSofascoreEventPlayerHeatmapResponse {
     #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
     pub count: Option<i64>,
@@ -2191,6 +2225,32 @@ pub struct ModelSofascoreEventTeamHeatmapResponse {
         skip_serializing_if = "Option::is_none"
     )]
     pub player_points: Option<Vec<ModelSofascoreHeatmapPoint>>,
+    #[serde(
+        rename = "source_url",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub source_url: Option<String>,
+    #[serde(rename = "team_id", default, skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascoreEventTeamShotmapResponse {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "event_id", default, skip_serializing_if = "Option::is_none")]
+    pub event_id: Option<i64>,
+    #[serde(
+        rename = "fetched_at",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "locations", default, skip_serializing_if = "Option::is_none")]
+    pub locations: Option<Vec<ModelSofascoreShotLocation>>,
     #[serde(
         rename = "source_url",
         default,
@@ -3126,6 +3186,32 @@ pub struct ModelSofascoreOddsWinningResponse {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascorePlayerAction {
+    #[serde(
+        rename = "coordinates",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub coordinates: Option<ModelSofascoreCoordinates>,
+    #[serde(
+        rename = "end_coordinates",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub end_coordinates: Option<ModelSofascoreCoordinates>,
+    #[serde(rename = "is_home", default, skip_serializing_if = "Option::is_none")]
+    pub is_home: Option<bool>,
+    #[serde(rename = "key_pass", default, skip_serializing_if = "Option::is_none")]
+    pub key_pass: Option<bool>,
+    #[serde(rename = "outcome", default, skip_serializing_if = "Option::is_none")]
+    pub outcome: Option<bool>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelSofascorePlayerAttributeOverview {
     #[serde(
         rename = "attributes",
@@ -3770,6 +3856,42 @@ pub struct ModelSofascorePlayerStatisticsFilters {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascorePlayerStatisticsResponse {
+    #[serde(
+        rename = "all_statistics",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub all_statistics: Option<std::collections::BTreeMap<String, f64>>,
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(
+        rename = "fetched_at",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub fetched_at: Option<String>,
+    #[serde(
+        rename = "match_type",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub match_type: Option<String>,
+    #[serde(rename = "player_id", default, skip_serializing_if = "Option::is_none")]
+    pub player_id: Option<i64>,
+    #[serde(rename = "seasons", default, skip_serializing_if = "Option::is_none")]
+    pub seasons: Option<Vec<ModelSofascorePlayerStatisticsSeasonRow>>,
+    #[serde(
+        rename = "source_url",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelSofascorePlayerStatisticsRow {
     #[serde(rename = "player", default, skip_serializing_if = "Option::is_none")]
     pub player: Option<ModelSofascorePlayerRef>,
@@ -3783,6 +3905,50 @@ pub struct ModelSofascorePlayerStatisticsRow {
     pub statistics: Option<std::collections::BTreeMap<String, f64>>,
     #[serde(rename = "team", default, skip_serializing_if = "Option::is_none")]
     pub team: Option<ModelSofascoreTeamRef>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascorePlayerStatisticsSeasonRef {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "year", default, skip_serializing_if = "Option::is_none")]
+    pub year: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascorePlayerStatisticsSeasonRow {
+    #[serde(rename = "end_year", default, skip_serializing_if = "Option::is_none")]
+    pub end_year: Option<i64>,
+    #[serde(rename = "season", default, skip_serializing_if = "Option::is_none")]
+    pub season: Option<ModelSofascorePlayerStatisticsSeasonRef>,
+    #[serde(
+        rename = "start_year",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub start_year: Option<i64>,
+    #[serde(
+        rename = "statistics",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub statistics: Option<std::collections::BTreeMap<String, f64>>,
+    #[serde(rename = "team", default, skip_serializing_if = "Option::is_none")]
+    pub team: Option<ModelSofascoreTeamRef>,
+    #[serde(
+        rename = "tournament",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub tournament: Option<ModelSofascoreUniqueTournamentBrief>,
+    #[serde(rename = "year", default, skip_serializing_if = "Option::is_none")]
+    pub year: Option<String>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -3811,6 +3977,44 @@ pub struct ModelSofascorePlayerStatisticsSeasonsResponse {
         skip_serializing_if = "Option::is_none"
     )]
     pub tournaments: Option<Vec<ModelSofascoreStatisticsTournament>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascorePlayerTournamentEventsResponse {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "events", default, skip_serializing_if = "Option::is_none")]
+    pub events: Option<Vec<ModelSofascorePlayerEventRow>>,
+    #[serde(
+        rename = "fetched_at",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub fetched_at: Option<String>,
+    #[serde(
+        rename = "has_next_page",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub has_next_page: Option<bool>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "player_id", default, skip_serializing_if = "Option::is_none")]
+    pub player_id: Option<i64>,
+    #[serde(
+        rename = "source_url",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub source_url: Option<String>,
+    #[serde(
+        rename = "tournament_id",
+        default,
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub tournament_id: Option<i64>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -4921,6 +5125,22 @@ pub struct ModelSofascoreShot {
     pub xg: Option<f64>,
     #[serde(rename = "xgot", default, skip_serializing_if = "Option::is_none")]
     pub xgot: Option<f64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascoreShotLocation {
+    #[serde(rename = "made", default, skip_serializing_if = "Option::is_none")]
+    pub made: Option<i64>,
+    #[serde(rename = "missed", default, skip_serializing_if = "Option::is_none")]
+    pub missed: Option<i64>,
+    #[serde(rename = "saved", default, skip_serializing_if = "Option::is_none")]
+    pub saved: Option<i64>,
+    #[serde(rename = "x", default, skip_serializing_if = "Option::is_none")]
+    pub x: Option<i64>,
+    #[serde(rename = "y", default, skip_serializing_if = "Option::is_none")]
+    pub y: Option<i64>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -8756,11 +8976,35 @@ pub struct ModelSofascorePlayerStatisticalRankingsResponseDoc {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascorePlayerStatisticsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelSofascorePlayerStatisticsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelSofascorePlayerStatisticsSeasonsResponseDoc {
     #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
     pub code: Option<i64>,
     #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
     pub data: Option<ModelSofascorePlayerStatisticsSeasonsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelSofascorePlayerTournamentEventsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelSofascorePlayerTournamentEventsResponse>,
     #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
     pub msg: Option<String>,
     #[serde(flatten)]

@@ -106,6 +106,7 @@ export class SofascoreClient extends CrawloraClient {
   eventLineups(params: OperationParamsMap["sofascore-event-lineups"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventManagers(params: OperationParamsMap["sofascore-event-managers"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventOdds(params: OperationParamsMap["sofascore-event-odds"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
+  eventPlayerActions(params: OperationParamsMap["sofascore-event-player-actions"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventPlayerHeatmap(params: OperationParamsMap["sofascore-event-player-heatmap"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventPlayerStatistics(params: OperationParamsMap["sofascore-event-player-statistics"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventPointByPoint(params: OperationParamsMap["sofascore-event-point-by-point"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
@@ -113,6 +114,7 @@ export class SofascoreClient extends CrawloraClient {
   eventShotmap(params: OperationParamsMap["sofascore-event-shotmap"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventStatistics(params: OperationParamsMap["sofascore-event-statistics"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventTeamHeatmap(params: OperationParamsMap["sofascore-event-team-heatmap"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
+  eventTeamShotmap(params: OperationParamsMap["sofascore-event-team-shotmap"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventTeamStreaks(params: OperationParamsMap["sofascore-event-team-streaks"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventTennisPower(params: OperationParamsMap["sofascore-event-tennis-power"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   eventTvChannels(params: OperationParamsMap["sofascore-event-tv-channels"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
@@ -134,7 +136,9 @@ export class SofascoreClient extends CrawloraClient {
   playerSeasonHeatmap(params: OperationParamsMap["sofascore-player-season-heatmap"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   playerSeasonStatistics(params: OperationParamsMap["sofascore-player-season-statistics"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   playerStatisticalRankings(params: OperationParamsMap["sofascore-player-statistical-rankings"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
+  playerStatistics(params: OperationParamsMap["sofascore-player-statistics"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   playerStatisticsSeasons(params: OperationParamsMap["sofascore-player-statistics-seasons"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
+  playerTournamentEvents(params: OperationParamsMap["sofascore-player-tournament-events"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   playerTournaments(params: OperationParamsMap["sofascore-player-tournaments"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   playerTransfers(params: OperationParamsMap["sofascore-player-transfers"], options: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
   rankingTypes(params?: OperationParamsMap["sofascore-ranking-types"], options?: CrawloraRequestOptions & { responseType: "stream" }): Promise<Response>;
@@ -217,6 +221,7 @@ export class SofascoreClient extends CrawloraClient {
   eventLineups(params: OperationParamsMap["sofascore-event-lineups"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventManagers(params: OperationParamsMap["sofascore-event-managers"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventOdds(params: OperationParamsMap["sofascore-event-odds"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
+  eventPlayerActions(params: OperationParamsMap["sofascore-event-player-actions"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventPlayerHeatmap(params: OperationParamsMap["sofascore-event-player-heatmap"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventPlayerStatistics(params: OperationParamsMap["sofascore-event-player-statistics"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventPointByPoint(params: OperationParamsMap["sofascore-event-point-by-point"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
@@ -224,6 +229,7 @@ export class SofascoreClient extends CrawloraClient {
   eventShotmap(params: OperationParamsMap["sofascore-event-shotmap"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventStatistics(params: OperationParamsMap["sofascore-event-statistics"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventTeamHeatmap(params: OperationParamsMap["sofascore-event-team-heatmap"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
+  eventTeamShotmap(params: OperationParamsMap["sofascore-event-team-shotmap"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventTeamStreaks(params: OperationParamsMap["sofascore-event-team-streaks"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventTennisPower(params: OperationParamsMap["sofascore-event-tennis-power"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   eventTvChannels(params: OperationParamsMap["sofascore-event-tv-channels"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
@@ -245,7 +251,9 @@ export class SofascoreClient extends CrawloraClient {
   playerSeasonHeatmap(params: OperationParamsMap["sofascore-player-season-heatmap"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   playerSeasonStatistics(params: OperationParamsMap["sofascore-player-season-statistics"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   playerStatisticalRankings(params: OperationParamsMap["sofascore-player-statistical-rankings"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
+  playerStatistics(params: OperationParamsMap["sofascore-player-statistics"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   playerStatisticsSeasons(params: OperationParamsMap["sofascore-player-statistics-seasons"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
+  playerTournamentEvents(params: OperationParamsMap["sofascore-player-tournament-events"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   playerTournaments(params: OperationParamsMap["sofascore-player-tournaments"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   playerTransfers(params: OperationParamsMap["sofascore-player-transfers"], options: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
   rankingTypes(params?: OperationParamsMap["sofascore-ranking-types"], options?: CrawloraRequestOptions & { responseType: "text" }): Promise<string>;
@@ -331,6 +339,7 @@ export class SofascoreClient extends CrawloraClient {
   eventLineups(...args: OperationRequestArgs<"sofascore-event-lineups">): Promise<OperationResponseMap["sofascore-event-lineups"]>;
   eventManagers(...args: OperationRequestArgs<"sofascore-event-managers">): Promise<OperationResponseMap["sofascore-event-managers"]>;
   eventOdds(...args: OperationRequestArgs<"sofascore-event-odds">): Promise<OperationResponseMap["sofascore-event-odds"]>;
+  eventPlayerActions(...args: OperationRequestArgs<"sofascore-event-player-actions">): Promise<OperationResponseMap["sofascore-event-player-actions"]>;
   eventPlayerHeatmap(...args: OperationRequestArgs<"sofascore-event-player-heatmap">): Promise<OperationResponseMap["sofascore-event-player-heatmap"]>;
   eventPlayerStatistics(...args: OperationRequestArgs<"sofascore-event-player-statistics">): Promise<OperationResponseMap["sofascore-event-player-statistics"]>;
   eventPointByPoint(...args: OperationRequestArgs<"sofascore-event-point-by-point">): Promise<OperationResponseMap["sofascore-event-point-by-point"]>;
@@ -338,6 +347,7 @@ export class SofascoreClient extends CrawloraClient {
   eventShotmap(...args: OperationRequestArgs<"sofascore-event-shotmap">): Promise<OperationResponseMap["sofascore-event-shotmap"]>;
   eventStatistics(...args: OperationRequestArgs<"sofascore-event-statistics">): Promise<OperationResponseMap["sofascore-event-statistics"]>;
   eventTeamHeatmap(...args: OperationRequestArgs<"sofascore-event-team-heatmap">): Promise<OperationResponseMap["sofascore-event-team-heatmap"]>;
+  eventTeamShotmap(...args: OperationRequestArgs<"sofascore-event-team-shotmap">): Promise<OperationResponseMap["sofascore-event-team-shotmap"]>;
   eventTeamStreaks(...args: OperationRequestArgs<"sofascore-event-team-streaks">): Promise<OperationResponseMap["sofascore-event-team-streaks"]>;
   eventTennisPower(...args: OperationRequestArgs<"sofascore-event-tennis-power">): Promise<OperationResponseMap["sofascore-event-tennis-power"]>;
   eventTvChannels(...args: OperationRequestArgs<"sofascore-event-tv-channels">): Promise<OperationResponseMap["sofascore-event-tv-channels"]>;
@@ -359,7 +369,9 @@ export class SofascoreClient extends CrawloraClient {
   playerSeasonHeatmap(...args: OperationRequestArgs<"sofascore-player-season-heatmap">): Promise<OperationResponseMap["sofascore-player-season-heatmap"]>;
   playerSeasonStatistics(...args: OperationRequestArgs<"sofascore-player-season-statistics">): Promise<OperationResponseMap["sofascore-player-season-statistics"]>;
   playerStatisticalRankings(...args: OperationRequestArgs<"sofascore-player-statistical-rankings">): Promise<OperationResponseMap["sofascore-player-statistical-rankings"]>;
+  playerStatistics(...args: OperationRequestArgs<"sofascore-player-statistics">): Promise<OperationResponseMap["sofascore-player-statistics"]>;
   playerStatisticsSeasons(...args: OperationRequestArgs<"sofascore-player-statistics-seasons">): Promise<OperationResponseMap["sofascore-player-statistics-seasons"]>;
+  playerTournamentEvents(...args: OperationRequestArgs<"sofascore-player-tournament-events">): Promise<OperationResponseMap["sofascore-player-tournament-events"]>;
   playerTournaments(...args: OperationRequestArgs<"sofascore-player-tournaments">): Promise<OperationResponseMap["sofascore-player-tournaments"]>;
   playerTransfers(...args: OperationRequestArgs<"sofascore-player-transfers">): Promise<OperationResponseMap["sofascore-player-transfers"]>;
   rankingTypes(...args: OperationRequestArgs<"sofascore-ranking-types">): Promise<OperationResponseMap["sofascore-ranking-types"]>;

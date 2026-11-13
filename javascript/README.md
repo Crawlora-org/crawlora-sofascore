@@ -1,7 +1,7 @@
 # @crawlora-org/sofascore — SofaScore API client for JavaScript and TypeScript
 
 JavaScript and TypeScript client for Crawlora's hosted SofaScore API.
-It exposes 109 API endpoints for live events, match details, lineups, statistics, tournaments, and player/team data through [Crawlora](https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-javascript-homepage). It does not run a browser or scrape SofaScore locally. A Crawlora account and `CRAWLORA_API_KEY` are required, and API use is billed under your Crawlora account. Crawlora is independent from and not endorsed by SofaScore or its owners.
+It exposes 113 API endpoints for live events, match details, lineups, statistics, tournaments, and player/team data through [Crawlora](https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=sofascore-javascript-homepage). It does not run a browser or scrape SofaScore locally. A Crawlora account and `CRAWLORA_API_KEY` are required, and API use is billed under your Crawlora account. Crawlora is independent from and not endorsed by SofaScore or its owners.
 
 ## Install
 
@@ -67,6 +67,7 @@ This package exposes each route below as a direct method and through the `sofasc
 | `GET` | `/sofascore/event-lineups` | `sofascore-event-lineups` | SofaScore event lineups |
 | `GET` | `/sofascore/event-managers` | `sofascore-event-managers` | SofaScore event managers |
 | `GET` | `/sofascore/event-odds` | `sofascore-event-odds` | SofaScore event odds |
+| `GET` | `/sofascore/event-player-actions` | `sofascore-event-player-actions` | SofaScore football player action maps |
 | `GET` | `/sofascore/event-player-heatmap` | `sofascore-event-player-heatmap` | SofaScore event player heatmap |
 | `GET` | `/sofascore/event-player-statistics` | `sofascore-event-player-statistics` | SofaScore event player statistics |
 | `GET` | `/sofascore/event-point-by-point` | `sofascore-event-point-by-point` | SofaScore event point-by-point |
@@ -74,6 +75,7 @@ This package exposes each route below as a direct method and through the `sofasc
 | `GET` | `/sofascore/event-shotmap` | `sofascore-event-shotmap` | SofaScore event shot map |
 | `GET` | `/sofascore/event-statistics` | `sofascore-event-statistics` | SofaScore event statistics |
 | `GET` | `/sofascore/event-team-heatmap` | `sofascore-event-team-heatmap` | SofaScore event team heatmap |
+| `GET` | `/sofascore/event-team-shotmap` | `sofascore-event-team-shotmap` | SofaScore basketball team shot chart |
 | `GET` | `/sofascore/event-team-streaks` | `sofascore-event-team-streaks` | SofaScore event team streaks |
 | `GET` | `/sofascore/event-tennis-power` | `sofascore-event-tennis-power` | SofaScore event tennis power |
 | `GET` | `/sofascore/event-tv-channels` | `sofascore-event-tv-channels` | SofaScore event TV channels |
@@ -95,7 +97,9 @@ This package exposes each route below as a direct method and through the `sofasc
 | `GET` | `/sofascore/player-season-heatmap` | `sofascore-player-season-heatmap` | SofaScore player season heatmap |
 | `GET` | `/sofascore/player-season-statistics` | `sofascore-player-season-statistics` | SofaScore player season statistics |
 | `GET` | `/sofascore/player-statistical-rankings` | `sofascore-player-statistical-rankings` | SofaScore player ranking among all players in a season |
+| `GET` | `/sofascore/player-statistics` | `sofascore-player-statistics` | SofaScore player statistics for every season |
 | `GET` | `/sofascore/player-statistics-seasons` | `sofascore-player-statistics-seasons` | SofaScore player statistics seasons |
+| `GET` | `/sofascore/player-tournament-events` | `sofascore-player-tournament-events` | SofaScore player matches in one competition |
 | `GET` | `/sofascore/player-tournaments` | `sofascore-player-tournaments` | SofaScore player competitions |
 | `GET` | `/sofascore/player-transfers` | `sofascore-player-transfers` | SofaScore player transfer history |
 | `GET` | `/sofascore/ranking-types` | `sofascore-ranking-types` | SofaScore ranking catalogue |

@@ -1747,6 +1747,31 @@ export interface ModelSofascorePlayerTournamentsResponse {
   "tournaments"?: Array<ModelSofascoreUniqueTournamentBrief>;
 }
 
+export interface ModelSofascorePlayerTournamentEventsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerTournamentEventsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerTournamentEventsResponse {
+  "count"?: number;
+  "events"?: Array<ModelSofascorePlayerEventRow>;
+  "fetched_at"?: string;
+  "has_next_page"?: boolean;
+  "page"?: number;
+  "player_id"?: number;
+  "source_url"?: string;
+  "tournament_id"?: number;
+}
+
+export interface ModelSofascorePlayerEventRow {
+  "event"?: ModelSofascoreEventSummary;
+  "incident_counts"?: Record<string, number>;
+  "on_bench"?: boolean;
+  "played_for_team_id"?: number;
+  "statistics"?: Record<string, number>;
+}
+
 export interface ModelSofascorePlayerStatisticsSeasonsResponseDoc {
   "code"?: number;
   "data"?: ModelSofascorePlayerStatisticsSeasonsResponse;
@@ -1759,6 +1784,38 @@ export interface ModelSofascorePlayerStatisticsSeasonsResponse {
   "player_id"?: number;
   "source_url"?: string;
   "tournaments"?: Array<ModelSofascoreStatisticsTournament>;
+}
+
+export interface ModelSofascorePlayerStatisticsResponseDoc {
+  "code"?: number;
+  "data"?: ModelSofascorePlayerStatisticsResponse;
+  "msg"?: string;
+}
+
+export interface ModelSofascorePlayerStatisticsResponse {
+  "all_statistics"?: Record<string, number>;
+  "count"?: number;
+  "fetched_at"?: string;
+  "match_type"?: string;
+  "player_id"?: number;
+  "seasons"?: Array<ModelSofascorePlayerStatisticsSeasonRow>;
+  "source_url"?: string;
+}
+
+export interface ModelSofascorePlayerStatisticsSeasonRow {
+  "end_year"?: number;
+  "season"?: ModelSofascorePlayerStatisticsSeasonRef;
+  "start_year"?: number;
+  "statistics"?: Record<string, number>;
+  "team"?: ModelSofascoreTeamRef;
+  "tournament"?: ModelSofascoreUniqueTournamentBrief;
+  "year"?: string;
+}
+
+export interface ModelSofascorePlayerStatisticsSeasonRef {
+  "id"?: number;
+  "name"?: string;
+  "year"?: string;
 }
 
 export interface ModelSofascorePlayerStatisticalRankingsResponseDoc {
@@ -1940,14 +1997,6 @@ export interface ModelSofascorePlayerEventsResponse {
   "page"?: number;
   "player_id"?: number;
   "source_url"?: string;
-}
-
-export interface ModelSofascorePlayerEventRow {
-  "event"?: ModelSofascoreEventSummary;
-  "incident_counts"?: Record<string, number>;
-  "on_bench"?: boolean;
-  "played_for_team_id"?: number;
-  "statistics"?: Record<string, number>;
 }
 
 export interface ModelSofascorePlayerAttributesResponseDoc {
@@ -2336,6 +2385,23 @@ export interface ModelSofascoreTeamStreak {
   "value"?: string;
 }
 
+export interface ModelSofascoreEventTeamShotmapResponse {
+  "count"?: number;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "locations"?: Array<ModelSofascoreShotLocation>;
+  "source_url"?: string;
+  "team_id"?: number;
+}
+
+export interface ModelSofascoreShotLocation {
+  "made"?: number;
+  "missed"?: number;
+  "saved"?: number;
+  "x"?: number;
+  "y"?: number;
+}
+
 export interface ModelSofascoreEventTeamHeatmapResponseDoc {
   "code"?: number;
   "data"?: ModelSofascoreEventTeamHeatmapResponse;
@@ -2530,6 +2596,26 @@ export interface ModelSofascoreEventPlayerHeatmapResponse {
   "player_id"?: number;
   "points"?: Array<ModelSofascoreHeatmapPoint>;
   "source_url"?: string;
+}
+
+export interface ModelSofascoreEventPlayerActionsResponse {
+  "ball_carries"?: Array<ModelSofascorePlayerAction>;
+  "defensive"?: Array<ModelSofascorePlayerAction>;
+  "dribbles"?: Array<ModelSofascorePlayerAction>;
+  "event_id"?: number;
+  "fetched_at"?: string;
+  "passes"?: Array<ModelSofascorePlayerAction>;
+  "player_id"?: number;
+  "source_url"?: string;
+}
+
+export interface ModelSofascorePlayerAction {
+  "coordinates"?: ModelSofascoreCoordinates;
+  "end_coordinates"?: ModelSofascoreCoordinates;
+  "is_home"?: boolean;
+  "key_pass"?: boolean;
+  "outcome"?: boolean;
+  "type"?: string;
 }
 
 export interface ModelSofascoreEventOddsResponseDoc {
@@ -3369,6 +3455,12 @@ export interface SofascoreEventOddsParams {
   "id": string;
 }
 
+export type SofascoreEventPlayerActionsResponse = CrawloraResponse<ModelAppResponse & { "data"?: ModelSofascoreEventPlayerActionsResponse }>;
+export interface SofascoreEventPlayerActionsParams {
+  "id": string;
+  "player_id": string;
+}
+
 export type SofascoreEventPlayerHeatmapResponse = CrawloraResponse<ModelSofascoreEventPlayerHeatmapResponseDoc>;
 export interface SofascoreEventPlayerHeatmapParams {
   "id": string;
@@ -3403,6 +3495,12 @@ export interface SofascoreEventStatisticsParams {
 
 export type SofascoreEventTeamHeatmapResponse = CrawloraResponse<ModelSofascoreEventTeamHeatmapResponseDoc>;
 export interface SofascoreEventTeamHeatmapParams {
+  "id": string;
+  "team_id": string;
+}
+
+export type SofascoreEventTeamShotmapResponse = CrawloraResponse<ModelAppResponse & { "data"?: ModelSofascoreEventTeamShotmapResponse }>;
+export interface SofascoreEventTeamShotmapParams {
   "id": string;
   "team_id": string;
 }
@@ -3528,9 +3626,22 @@ export interface SofascorePlayerStatisticalRankingsParams {
   "type"?: "overall";
 }
 
+export type SofascorePlayerStatisticsResponse = CrawloraResponse<ModelSofascorePlayerStatisticsResponseDoc>;
+export interface SofascorePlayerStatisticsParams {
+  "id": string;
+  "match_type"?: "overall" | "home" | "away";
+}
+
 export type SofascorePlayerStatisticsSeasonsResponse = CrawloraResponse<ModelSofascorePlayerStatisticsSeasonsResponseDoc>;
 export interface SofascorePlayerStatisticsSeasonsParams {
   "id": string;
+}
+
+export type SofascorePlayerTournamentEventsResponse = CrawloraResponse<ModelSofascorePlayerTournamentEventsResponseDoc>;
+export interface SofascorePlayerTournamentEventsParams {
+  "id": string;
+  "tournament_id": string;
+  "page"?: number;
 }
 
 export type SofascorePlayerTournamentsResponse = CrawloraResponse<ModelSofascorePlayerTournamentsResponseDoc>;
@@ -3549,7 +3660,7 @@ export interface SofascoreRankingTypesParams {
 
 export type SofascoreRankingsResponse = CrawloraResponse<ModelSofascoreRankingsResponseDoc>;
 export interface SofascoreRankingsParams {
-  "type": "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "34" | "35" | "36" | "37" | "40" | "41" | "42" | "43" | "44" | "45" | "46";
+  "type": 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 34 | 35 | 36 | 37 | 40 | 41 | 42 | 43 | 44 | 45 | 46;
   "limit"?: number;
 }
 
@@ -3918,6 +4029,7 @@ export interface SofascoreService {
   eventLineups<T = SofascoreEventLineupsResponse>(params: SofascoreEventLineupsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventManagers<T = SofascoreEventManagersResponse>(params: SofascoreEventManagersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventOdds<T = SofascoreEventOddsResponse>(params: SofascoreEventOddsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventPlayerActions<T = SofascoreEventPlayerActionsResponse>(params: SofascoreEventPlayerActionsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventPlayerHeatmap<T = SofascoreEventPlayerHeatmapResponse>(params: SofascoreEventPlayerHeatmapParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventPlayerStatistics<T = SofascoreEventPlayerStatisticsResponse>(params: SofascoreEventPlayerStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventPointByPoint<T = SofascoreEventPointByPointResponse>(params: SofascoreEventPointByPointParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
@@ -3925,6 +4037,7 @@ export interface SofascoreService {
   eventShotmap<T = SofascoreEventShotmapResponse>(params: SofascoreEventShotmapParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventStatistics<T = SofascoreEventStatisticsResponse>(params: SofascoreEventStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventTeamHeatmap<T = SofascoreEventTeamHeatmapResponse>(params: SofascoreEventTeamHeatmapParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  eventTeamShotmap<T = SofascoreEventTeamShotmapResponse>(params: SofascoreEventTeamShotmapParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventTeamStreaks<T = SofascoreEventTeamStreaksResponse>(params: SofascoreEventTeamStreaksParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventTennisPower<T = SofascoreEventTennisPowerResponse>(params: SofascoreEventTennisPowerParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   eventTvChannels<T = SofascoreEventTvChannelsResponse>(params: SofascoreEventTvChannelsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
@@ -3946,7 +4059,9 @@ export interface SofascoreService {
   playerSeasonHeatmap<T = SofascorePlayerSeasonHeatmapResponse>(params: SofascorePlayerSeasonHeatmapParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   playerSeasonStatistics<T = SofascorePlayerSeasonStatisticsResponse>(params: SofascorePlayerSeasonStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   playerStatisticalRankings<T = SofascorePlayerStatisticalRankingsResponse>(params: SofascorePlayerStatisticalRankingsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerStatistics<T = SofascorePlayerStatisticsResponse>(params: SofascorePlayerStatisticsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   playerStatisticsSeasons<T = SofascorePlayerStatisticsSeasonsResponse>(params: SofascorePlayerStatisticsSeasonsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
+  playerTournamentEvents<T = SofascorePlayerTournamentEventsResponse>(params: SofascorePlayerTournamentEventsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   playerTournaments<T = SofascorePlayerTournamentsResponse>(params: SofascorePlayerTournamentsParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   playerTransfers<T = SofascorePlayerTransfersResponse>(params: SofascorePlayerTransfersParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
   rankingTypes<T = SofascoreRankingTypesResponse>(params?: SofascoreRankingTypesParams, options?: import('./index.js').CrawloraRequestOptions): Promise<T>;
@@ -4034,6 +4149,7 @@ export interface OperationParamsMap {
   "sofascore-event-lineups": SofascoreEventLineupsParams;
   "sofascore-event-managers": SofascoreEventManagersParams;
   "sofascore-event-odds": SofascoreEventOddsParams;
+  "sofascore-event-player-actions": SofascoreEventPlayerActionsParams;
   "sofascore-event-player-heatmap": SofascoreEventPlayerHeatmapParams;
   "sofascore-event-player-statistics": SofascoreEventPlayerStatisticsParams;
   "sofascore-event-point-by-point": SofascoreEventPointByPointParams;
@@ -4041,6 +4157,7 @@ export interface OperationParamsMap {
   "sofascore-event-shotmap": SofascoreEventShotmapParams;
   "sofascore-event-statistics": SofascoreEventStatisticsParams;
   "sofascore-event-team-heatmap": SofascoreEventTeamHeatmapParams;
+  "sofascore-event-team-shotmap": SofascoreEventTeamShotmapParams;
   "sofascore-event-team-streaks": SofascoreEventTeamStreaksParams;
   "sofascore-event-tennis-power": SofascoreEventTennisPowerParams;
   "sofascore-event-tv-channels": SofascoreEventTvChannelsParams;
@@ -4062,7 +4179,9 @@ export interface OperationParamsMap {
   "sofascore-player-season-heatmap": SofascorePlayerSeasonHeatmapParams;
   "sofascore-player-season-statistics": SofascorePlayerSeasonStatisticsParams;
   "sofascore-player-statistical-rankings": SofascorePlayerStatisticalRankingsParams;
+  "sofascore-player-statistics": SofascorePlayerStatisticsParams;
   "sofascore-player-statistics-seasons": SofascorePlayerStatisticsSeasonsParams;
+  "sofascore-player-tournament-events": SofascorePlayerTournamentEventsParams;
   "sofascore-player-tournaments": SofascorePlayerTournamentsParams;
   "sofascore-player-transfers": SofascorePlayerTransfersParams;
   "sofascore-ranking-types": SofascoreRankingTypesParams;
@@ -4146,6 +4265,7 @@ export interface OperationResponseMap {
   "sofascore-event-lineups": SofascoreEventLineupsResponse;
   "sofascore-event-managers": SofascoreEventManagersResponse;
   "sofascore-event-odds": SofascoreEventOddsResponse;
+  "sofascore-event-player-actions": SofascoreEventPlayerActionsResponse;
   "sofascore-event-player-heatmap": SofascoreEventPlayerHeatmapResponse;
   "sofascore-event-player-statistics": SofascoreEventPlayerStatisticsResponse;
   "sofascore-event-point-by-point": SofascoreEventPointByPointResponse;
@@ -4153,6 +4273,7 @@ export interface OperationResponseMap {
   "sofascore-event-shotmap": SofascoreEventShotmapResponse;
   "sofascore-event-statistics": SofascoreEventStatisticsResponse;
   "sofascore-event-team-heatmap": SofascoreEventTeamHeatmapResponse;
+  "sofascore-event-team-shotmap": SofascoreEventTeamShotmapResponse;
   "sofascore-event-team-streaks": SofascoreEventTeamStreaksResponse;
   "sofascore-event-tennis-power": SofascoreEventTennisPowerResponse;
   "sofascore-event-tv-channels": SofascoreEventTvChannelsResponse;
@@ -4174,7 +4295,9 @@ export interface OperationResponseMap {
   "sofascore-player-season-heatmap": SofascorePlayerSeasonHeatmapResponse;
   "sofascore-player-season-statistics": SofascorePlayerSeasonStatisticsResponse;
   "sofascore-player-statistical-rankings": SofascorePlayerStatisticalRankingsResponse;
+  "sofascore-player-statistics": SofascorePlayerStatisticsResponse;
   "sofascore-player-statistics-seasons": SofascorePlayerStatisticsSeasonsResponse;
+  "sofascore-player-tournament-events": SofascorePlayerTournamentEventsResponse;
   "sofascore-player-tournaments": SofascorePlayerTournamentsResponse;
   "sofascore-player-transfers": SofascorePlayerTransfersResponse;
   "sofascore-ranking-types": SofascoreRankingTypesResponse;
@@ -4258,6 +4381,7 @@ export interface OperationRequiredParamsMap {
   "sofascore-event-lineups": true;
   "sofascore-event-managers": true;
   "sofascore-event-odds": true;
+  "sofascore-event-player-actions": true;
   "sofascore-event-player-heatmap": true;
   "sofascore-event-player-statistics": true;
   "sofascore-event-point-by-point": true;
@@ -4265,6 +4389,7 @@ export interface OperationRequiredParamsMap {
   "sofascore-event-shotmap": true;
   "sofascore-event-statistics": true;
   "sofascore-event-team-heatmap": true;
+  "sofascore-event-team-shotmap": true;
   "sofascore-event-team-streaks": true;
   "sofascore-event-tennis-power": true;
   "sofascore-event-tv-channels": true;
@@ -4286,7 +4411,9 @@ export interface OperationRequiredParamsMap {
   "sofascore-player-season-heatmap": true;
   "sofascore-player-season-statistics": true;
   "sofascore-player-statistical-rankings": true;
+  "sofascore-player-statistics": true;
   "sofascore-player-statistics-seasons": true;
+  "sofascore-player-tournament-events": true;
   "sofascore-player-tournaments": true;
   "sofascore-player-transfers": true;
   "sofascore-ranking-types": false;
@@ -4377,6 +4504,7 @@ export type OperationIdLiteral =
   | "sofascore-event-lineups"
   | "sofascore-event-managers"
   | "sofascore-event-odds"
+  | "sofascore-event-player-actions"
   | "sofascore-event-player-heatmap"
   | "sofascore-event-player-statistics"
   | "sofascore-event-point-by-point"
@@ -4384,6 +4512,7 @@ export type OperationIdLiteral =
   | "sofascore-event-shotmap"
   | "sofascore-event-statistics"
   | "sofascore-event-team-heatmap"
+  | "sofascore-event-team-shotmap"
   | "sofascore-event-team-streaks"
   | "sofascore-event-tennis-power"
   | "sofascore-event-tv-channels"
@@ -4405,7 +4534,9 @@ export type OperationIdLiteral =
   | "sofascore-player-season-heatmap"
   | "sofascore-player-season-statistics"
   | "sofascore-player-statistical-rankings"
+  | "sofascore-player-statistics"
   | "sofascore-player-statistics-seasons"
+  | "sofascore-player-tournament-events"
   | "sofascore-player-tournaments"
   | "sofascore-player-transfers"
   | "sofascore-ranking-types"
@@ -4488,6 +4619,7 @@ export declare const OperationIds: Readonly<{
   SofascoreEventLineups: "sofascore-event-lineups";
   SofascoreEventManagers: "sofascore-event-managers";
   SofascoreEventOdds: "sofascore-event-odds";
+  SofascoreEventPlayerActions: "sofascore-event-player-actions";
   SofascoreEventPlayerHeatmap: "sofascore-event-player-heatmap";
   SofascoreEventPlayerStatistics: "sofascore-event-player-statistics";
   SofascoreEventPointByPoint: "sofascore-event-point-by-point";
@@ -4495,6 +4627,7 @@ export declare const OperationIds: Readonly<{
   SofascoreEventShotmap: "sofascore-event-shotmap";
   SofascoreEventStatistics: "sofascore-event-statistics";
   SofascoreEventTeamHeatmap: "sofascore-event-team-heatmap";
+  SofascoreEventTeamShotmap: "sofascore-event-team-shotmap";
   SofascoreEventTeamStreaks: "sofascore-event-team-streaks";
   SofascoreEventTennisPower: "sofascore-event-tennis-power";
   SofascoreEventTvChannels: "sofascore-event-tv-channels";
@@ -4516,7 +4649,9 @@ export declare const OperationIds: Readonly<{
   SofascorePlayerSeasonHeatmap: "sofascore-player-season-heatmap";
   SofascorePlayerSeasonStatistics: "sofascore-player-season-statistics";
   SofascorePlayerStatisticalRankings: "sofascore-player-statistical-rankings";
+  SofascorePlayerStatistics: "sofascore-player-statistics";
   SofascorePlayerStatisticsSeasons: "sofascore-player-statistics-seasons";
+  SofascorePlayerTournamentEvents: "sofascore-player-tournament-events";
   SofascorePlayerTournaments: "sofascore-player-tournaments";
   SofascorePlayerTransfers: "sofascore-player-transfers";
   SofascoreRankingTypes: "sofascore-ranking-types";

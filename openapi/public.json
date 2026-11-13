@@ -2023,6 +2023,47 @@
       },
       "type": "object"
     },
+    "sofascore.EventPlayerActionsResponse": {
+      "properties": {
+        "ball_carries": {
+          "items": {
+            "$ref": "#/definitions/sofascore.PlayerAction"
+          },
+          "type": "array"
+        },
+        "defensive": {
+          "items": {
+            "$ref": "#/definitions/sofascore.PlayerAction"
+          },
+          "type": "array"
+        },
+        "dribbles": {
+          "items": {
+            "$ref": "#/definitions/sofascore.PlayerAction"
+          },
+          "type": "array"
+        },
+        "event_id": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "passes": {
+          "items": {
+            "$ref": "#/definitions/sofascore.PlayerAction"
+          },
+          "type": "array"
+        },
+        "player_id": {
+          "type": "integer"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "sofascore.EventPlayerHeatmapResponse": {
       "properties": {
         "count": {
@@ -2357,6 +2398,32 @@
         },
         "team_id": {
           "example": 17,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.EventTeamShotmapResponse": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "event_id": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "locations": {
+          "items": {
+            "$ref": "#/definitions/sofascore.ShotLocation"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "team_id": {
           "type": "integer"
         }
       },
@@ -3392,6 +3459,29 @@
       },
       "type": "object"
     },
+    "sofascore.PlayerAction": {
+      "properties": {
+        "coordinates": {
+          "$ref": "#/definitions/sofascore.Coordinates"
+        },
+        "end_coordinates": {
+          "$ref": "#/definitions/sofascore.Coordinates"
+        },
+        "is_home": {
+          "type": "boolean"
+        },
+        "key_pass": {
+          "type": "boolean"
+        },
+        "outcome": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "sofascore.PlayerAttributeOverview": {
       "properties": {
         "attributes": {
@@ -4120,6 +4210,43 @@
       },
       "type": "object"
     },
+    "sofascore.PlayerStatisticsResponse": {
+      "properties": {
+        "all_statistics": {
+          "additionalProperties": {
+            "format": "float64",
+            "type": "number"
+          },
+          "description": "AllStatistics is SofaScore's own aggregate across the tracked seasons\n(the upstream `all` map). It is present for some sports (observed for\nbasketball) and absent for football; REA never computes this value.",
+          "type": "object"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "match_type": {
+          "description": "MatchType echoes the applied view: overall, home or away.",
+          "example": "overall",
+          "type": "string"
+        },
+        "player_id": {
+          "example": 839956,
+          "type": "integer"
+        },
+        "seasons": {
+          "items": {
+            "$ref": "#/definitions/sofascore.PlayerStatisticsSeasonRow"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "sofascore.PlayerStatisticsRow": {
       "properties": {
         "player": {
@@ -4138,6 +4265,59 @@
         },
         "team": {
           "$ref": "#/definitions/sofascore.TeamRef"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.PlayerStatisticsSeasonRef": {
+      "properties": {
+        "id": {
+          "example": 96668,
+          "type": "integer"
+        },
+        "name": {
+          "example": "Premier League 26/27",
+          "type": "string"
+        },
+        "year": {
+          "example": "26/27",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.PlayerStatisticsSeasonRow": {
+      "properties": {
+        "end_year": {
+          "example": 2026,
+          "type": "integer"
+        },
+        "season": {
+          "$ref": "#/definitions/sofascore.PlayerStatisticsSeasonRef"
+        },
+        "start_year": {
+          "description": "StartYear and EndYear bound the season.",
+          "example": 2025,
+          "type": "integer"
+        },
+        "statistics": {
+          "additionalProperties": {
+            "format": "float64",
+            "type": "number"
+          },
+          "description": "Statistics is a snake_case metric map; the metric set depends on the sport\nand the player's position.",
+          "type": "object"
+        },
+        "team": {
+          "$ref": "#/definitions/sofascore.TeamRef"
+        },
+        "tournament": {
+          "$ref": "#/definitions/sofascore.UniqueTournamentBrief"
+        },
+        "year": {
+          "description": "Year is the season label SofaScore shows in the statistics view.",
+          "example": "25/26",
+          "type": "string"
         }
       },
       "type": "object"
@@ -4162,6 +4342,40 @@
             "$ref": "#/definitions/sofascore.StatisticsTournament"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.PlayerTournamentEventsResponse": {
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/sofascore.PlayerEventRow"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "has_next_page": {
+          "type": "boolean"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "player_id": {
+          "example": 839956,
+          "type": "integer"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "tournament_id": {
+          "example": 17,
+          "type": "integer"
         }
       },
       "type": "object"
@@ -5340,6 +5554,26 @@
         "xgot": {
           "example": 0.08,
           "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.ShotLocation": {
+      "properties": {
+        "made": {
+          "type": "integer"
+        },
+        "missed": {
+          "type": "integer"
+        },
+        "saved": {
+          "type": "integer"
+        },
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
         }
       },
       "type": "object"
@@ -9560,6 +9794,22 @@
       },
       "type": "object"
     },
+    "sofascore.playerStatisticsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.PlayerStatisticsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "sofascore.playerStatisticsSeasonsResponseDoc": {
       "properties": {
         "code": {
@@ -9568,6 +9818,22 @@
         },
         "data": {
           "$ref": "#/definitions/sofascore.PlayerStatisticsSeasonsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "sofascore.playerTournamentEventsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/sofascore.PlayerTournamentEventsResponse"
         },
         "msg": {
           "example": "OK",
@@ -11942,6 +12208,83 @@
         ]
       }
     },
+    "/sofascore/event-player-actions": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the spatial actions SofaScore tracks for one football player in a match, grouped into passes, dribbles, defensive actions and ball carries. Includes pitch coordinates, end coordinates when reported, and optional outcome and key-pass flags. Get the player id from event-lineups. An uncovered match or player returns 404.",
+        "operationId": "sofascore-event-player-actions",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore event id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "16363867"
+          },
+          {
+            "description": "Numeric SofaScore player id for that event",
+            "in": "query",
+            "name": "player_id",
+            "required": true,
+            "type": "string",
+            "x-example": "839956"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/sofascore.EventPlayerActionsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore football player action maps",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
     "/sofascore/event-player-heatmap": {
       "get": {
         "consumes": [
@@ -12402,6 +12745,83 @@
           }
         ],
         "summary": "SofaScore event team heatmap",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/event-team-shotmap": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one team's shot chart in a basketball game, with the made, missed and saved counts at each court location in SofaScore's coordinate units. Pass the home or away team id from the event. An uncovered team or event returns 404.",
+        "operationId": "sofascore-event-team-shotmap",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore basketball event id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "14442544"
+          },
+          {
+            "description": "Numeric SofaScore team id for that event",
+            "in": "query",
+            "name": "team_id",
+            "required": true,
+            "type": "string",
+            "x-example": "3428"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/sofascore.EventTeamShotmapResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore basketball team shot chart",
         "tags": [
           "sofascore"
         ]
@@ -13948,6 +14368,81 @@
         ]
       }
     },
+    "/sofascore/player-statistics": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a player's statistics for every competition season SofaScore tracks, newest first: the season and competition identity, the team the player represented, the season years and a snake_case metric map (appearances, minutes_played, rating, goals, assists, expected_goals and more; the metric set depends on the sport and the player's position). This is the all-seasons overview the SofaScore player page loads; for one known competition season use player-season-statistics. `match_type` selects the view and defaults to `overall`; football answers different numbers for `overall`, `home` and `away`, while other sports were observed returning the same payload for all three. `all_statistics` is SofaScore's own aggregate map and is present only when upstream supplies it (observed for basketball, absent for football). Returns 404 when SofaScore tracks no statistics for the player.",
+        "operationId": "sofascore-player-statistics",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore player id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "839956"
+          },
+          {
+            "default": "overall",
+            "description": "Statistics view",
+            "enum": [
+              "overall",
+              "home",
+              "away"
+            ],
+            "in": "query",
+            "name": "match_type",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.playerStatisticsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore player statistics for every season",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
     "/sofascore/player-statistics-seasons": {
       "get": {
         "consumes": [
@@ -14006,6 +14501,85 @@
           }
         ],
         "summary": "SofaScore player statistics seasons",
+        "tags": [
+          "sofascore"
+        ]
+      }
+    },
+    "/sofascore/player-tournament-events": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one page (30 matches) of a player's matches in one competition, most recent window first, each with the player's own numbers merged in: `statistics` (rating, minutes and sport-specific metrics), `incident_counts` (goals, assists, cards, penalty goals), `on_bench` and `played_for_team_id`. Requires the player id and a `tournament_id` discovered from player-statistics-seasons or player-tournaments; `page` is zero-based and `has_next_page` drives older pages. A page past the end returns 404. An unknown competition id is not rejected upstream and can return the player's matches across competitions, so pass only discovered ids.",
+        "operationId": "sofascore-player-tournament-events",
+        "parameters": [
+          {
+            "description": "Numeric SofaScore player id",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "839956"
+          },
+          {
+            "description": "Numeric SofaScore unique-tournament (competition) id from player-statistics-seasons or player-tournaments",
+            "in": "query",
+            "name": "tournament_id",
+            "required": true,
+            "type": "string",
+            "x-example": "17"
+          },
+          {
+            "description": "Zero-based page number. Defaults to 0",
+            "in": "query",
+            "minimum": 0,
+            "name": "page",
+            "type": "integer",
+            "x-example": 0
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/sofascore.playerTournamentEventsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "SofaScore player matches in one competition",
         "tags": [
           "sofascore"
         ]
