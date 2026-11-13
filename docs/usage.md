@@ -1,8 +1,8 @@
 # SofaScore API endpoint reference and client usage
 
-This reference lists all 109 public SofaScore API endpoints exposed by the JavaScript/TypeScript, Python, Go, Ruby, Java, PHP, and Rust clients, including the `@crawlora-org/sofascore`, `crawlora-sofascore`, and `crawlora-sofascore` packages. The clients call Crawlora's hosted API. Set `CRAWLORA_API_KEY` to a key for your Crawlora account before making requests. Service usage is billed under that account. These clients do not run a browser or scrape SofaScore locally; Crawlora is independent from and not endorsed by SofaScore or its owners.
+This reference lists all 113 public SofaScore API endpoints exposed by the JavaScript/TypeScript, Python, Go, Ruby, Java, PHP, and Rust clients, including the `@crawlora-org/sofascore`, `crawlora-sofascore`, and `crawlora-sofascore` packages. The clients call Crawlora's hosted API. Set `CRAWLORA_API_KEY` to a key for your Crawlora account before making requests. Service usage is billed under that account. These clients do not run a browser or scrape SofaScore locally; Crawlora is independent from and not endorsed by SofaScore or its owners.
 
-The package tracks the public API contract revision `sha256:44b9998fd17df2fdc0c63369c092da2aa7b9a992b5647e0af2a1c31017a7ac92` bundled with release `0.4.0`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
+The package tracks the public API contract revision `sha256:da5eb33b004378f90899a9cefef992842f7a32b122e006a31dda22e23a68c5f7` bundled with release `0.5.0`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
 
 All language packages expose the selected public API operations in the bundled contract. JavaScript uses camelCase methods, Python and Rust use snake_case methods. JavaScript, Python, and Rust methods are grouped under `sofascore`; Rust uses typed parameter structs and returns the complete HTTP response.
 
@@ -43,6 +43,7 @@ Required and optional parameter names below come from this package's generated O
 | `eventLineups` | `event_lineups` | `sofascore.event_lineups` | `GET /sofascore/event-lineups` | `id` (query, required) | SofaScore event lineups |
 | `eventManagers` | `event_managers` | `sofascore.event_managers` | `GET /sofascore/event-managers` | `id` (query, required) | SofaScore event managers |
 | `eventOdds` | `event_odds` | `sofascore.event_odds` | `GET /sofascore/event-odds` | `id` (query, required) | SofaScore event odds |
+| `eventPlayerActions` | `event_player_actions` | `sofascore.event_player_actions` | `GET /sofascore/event-player-actions` | `id` (query, required), `player_id` (query, required) | SofaScore football player action maps |
 | `eventPlayerHeatmap` | `event_player_heatmap` | `sofascore.event_player_heatmap` | `GET /sofascore/event-player-heatmap` | `id` (query, required), `player_id` (query, required) | SofaScore event player heatmap |
 | `eventPlayerStatistics` | `event_player_statistics` | `sofascore.event_player_statistics` | `GET /sofascore/event-player-statistics` | `id` (query, required), `player_id` (query, required) | SofaScore event player statistics |
 | `eventPointByPoint` | `event_point_by_point` | `sofascore.event_point_by_point` | `GET /sofascore/event-point-by-point` | `id` (query, required) | SofaScore event point-by-point |
@@ -50,6 +51,7 @@ Required and optional parameter names below come from this package's generated O
 | `eventShotmap` | `event_shotmap` | `sofascore.event_shotmap` | `GET /sofascore/event-shotmap` | `id` (query, required) | SofaScore event shot map |
 | `eventStatistics` | `event_statistics` | `sofascore.event_statistics` | `GET /sofascore/event-statistics` | `id` (query, required) | SofaScore event statistics |
 | `eventTeamHeatmap` | `event_team_heatmap` | `sofascore.event_team_heatmap` | `GET /sofascore/event-team-heatmap` | `id` (query, required), `team_id` (query, required) | SofaScore event team heatmap |
+| `eventTeamShotmap` | `event_team_shotmap` | `sofascore.event_team_shotmap` | `GET /sofascore/event-team-shotmap` | `id` (query, required), `team_id` (query, required) | SofaScore basketball team shot chart |
 | `eventTeamStreaks` | `event_team_streaks` | `sofascore.event_team_streaks` | `GET /sofascore/event-team-streaks` | `id` (query, required) | SofaScore event team streaks |
 | `eventTennisPower` | `event_tennis_power` | `sofascore.event_tennis_power` | `GET /sofascore/event-tennis-power` | `id` (query, required) | SofaScore event tennis power |
 | `eventTvChannels` | `event_tv_channels` | `sofascore.event_tv_channels` | `GET /sofascore/event-tv-channels` | `id` (query, required), `country` (query, optional) | SofaScore event TV channels |
@@ -71,7 +73,9 @@ Required and optional parameter names below come from this package's generated O
 | `playerSeasonHeatmap` | `player_season_heatmap` | `sofascore.player_season_heatmap` | `GET /sofascore/player-season-heatmap` | `id` (query, required), `tournament_id` (query, required), `season` (query, required) | SofaScore player season heatmap |
 | `playerSeasonStatistics` | `player_season_statistics` | `sofascore.player_season_statistics` | `GET /sofascore/player-season-statistics` | `id` (query, required), `tournament_id` (query, required), `season` (query, required), `type` (query, optional; values: `overall`, `home`, `away`, `regular_season`, `playoffs`) | SofaScore player season statistics |
 | `playerStatisticalRankings` | `player_statistical_rankings` | `sofascore.player_statistical_rankings` | `GET /sofascore/player-statistical-rankings` | `id` (query, required), `season` (query, required), `type` (query, optional; values: `overall`) | SofaScore player ranking among all players in a season |
+| `playerStatistics` | `player_statistics` | `sofascore.player_statistics` | `GET /sofascore/player-statistics` | `id` (query, required), `match_type` (query, optional; values: `overall`, `home`, `away`) | SofaScore player statistics for every season |
 | `playerStatisticsSeasons` | `player_statistics_seasons` | `sofascore.player_statistics_seasons` | `GET /sofascore/player-statistics-seasons` | `id` (query, required) | SofaScore player statistics seasons |
+| `playerTournamentEvents` | `player_tournament_events` | `sofascore.player_tournament_events` | `GET /sofascore/player-tournament-events` | `id` (query, required), `tournament_id` (query, required), `page` (query, optional) | SofaScore player matches in one competition |
 | `playerTournaments` | `player_tournaments` | `sofascore.player_tournaments` | `GET /sofascore/player-tournaments` | `id` (query, required) | SofaScore player competitions |
 | `playerTransfers` | `player_transfers` | `sofascore.player_transfers` | `GET /sofascore/player-transfers` | `id` (query, required) | SofaScore player transfer history |
 | `rankings` | `rankings` | `sofascore.rankings` | `GET /sofascore/rankings` | `type` (query, required; values: `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `34`, `35`, `36`, `37`, `40`, `41`, `42`, `43`, `44`, `45`, `46`), `limit` (query, optional) | SofaScore rankings |

@@ -157,6 +157,14 @@ pub struct SofascoreEventOddsParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct SofascoreEventPlayerActionsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "player_id", skip_serializing_if = "Option::is_none")]
+    pub player_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct SofascoreEventPlayerHeatmapParams {
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
@@ -198,6 +206,14 @@ pub struct SofascoreEventStatisticsParams {
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct SofascoreEventTeamHeatmapParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct SofascoreEventTeamShotmapParams {
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
@@ -363,9 +379,27 @@ pub struct SofascorePlayerStatisticalRankingsParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct SofascorePlayerStatisticsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "match_type", skip_serializing_if = "Option::is_none")]
+    pub match_type: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct SofascorePlayerStatisticsSeasonsParams {
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct SofascorePlayerTournamentEventsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "tournament_id", skip_serializing_if = "Option::is_none")]
+    pub tournament_id: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -1097,6 +1131,19 @@ impl SofascoreApi {
             .await
     }
 
+    pub async fn event_player_actions(
+        &self,
+        params: SofascoreEventPlayerActionsParams,
+    ) -> Result<ApiResponse, Error> {
+        self.inner
+            .call(
+                "sofascore-event-player-actions",
+                &params,
+                RequestOptions::default(),
+            )
+            .await
+    }
+
     pub async fn event_player_heatmap(
         &self,
         params: SofascoreEventPlayerHeatmapParams,
@@ -1182,6 +1229,19 @@ impl SofascoreApi {
         self.inner
             .call(
                 "sofascore-event-team-heatmap",
+                &params,
+                RequestOptions::default(),
+            )
+            .await
+    }
+
+    pub async fn event_team_shotmap(
+        &self,
+        params: SofascoreEventTeamShotmapParams,
+    ) -> Result<ApiResponse, Error> {
+        self.inner
+            .call(
+                "sofascore-event-team-shotmap",
                 &params,
                 RequestOptions::default(),
             )
@@ -1424,6 +1484,19 @@ impl SofascoreApi {
             .await
     }
 
+    pub async fn player_statistics(
+        &self,
+        params: SofascorePlayerStatisticsParams,
+    ) -> Result<ApiResponse, Error> {
+        self.inner
+            .call(
+                "sofascore-player-statistics",
+                &params,
+                RequestOptions::default(),
+            )
+            .await
+    }
+
     pub async fn player_statistics_seasons(
         &self,
         params: SofascorePlayerStatisticsSeasonsParams,
@@ -1431,6 +1504,19 @@ impl SofascoreApi {
         self.inner
             .call(
                 "sofascore-player-statistics-seasons",
+                &params,
+                RequestOptions::default(),
+            )
+            .await
+    }
+
+    pub async fn player_tournament_events(
+        &self,
+        params: SofascorePlayerTournamentEventsParams,
+    ) -> Result<ApiResponse, Error> {
+        self.inner
+            .call(
+                "sofascore-player-tournament-events",
                 &params,
                 RequestOptions::default(),
             )

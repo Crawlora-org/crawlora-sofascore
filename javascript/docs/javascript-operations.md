@@ -2,7 +2,7 @@
 
 Generated from `openapi/public.json`. Deprecated, admin, and internal operations are excluded from this SDK contract.
 
-Total operations: `109`
+Total operations: `113`
 
 | Group | SDK method | Operation ID | HTTP | Params | Auth | Response | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -27,6 +27,7 @@ Total operations: `109`
 | sofascore | `sofascore.eventLineups` | `sofascore-event-lineups` | `GET /sofascore/event-lineups` | `id` (query string required) | `ApiKeyAuth` | `SofascoreEventLineupsResponse` |  |
 | sofascore | `sofascore.eventManagers` | `sofascore-event-managers` | `GET /sofascore/event-managers` | `id` (query string required) | `ApiKeyAuth` | `SofascoreEventManagersResponse` |  |
 | sofascore | `sofascore.eventOdds` | `sofascore-event-odds` | `GET /sofascore/event-odds` | `id` (query string required) | `ApiKeyAuth` | `SofascoreEventOddsResponse` |  |
+| sofascore | `sofascore.eventPlayerActions` | `sofascore-event-player-actions` | `GET /sofascore/event-player-actions` | `id` (query string required)<br>`player_id` (query string required) | `ApiKeyAuth` | `SofascoreEventPlayerActionsResponse` |  |
 | sofascore | `sofascore.eventPlayerHeatmap` | `sofascore-event-player-heatmap` | `GET /sofascore/event-player-heatmap` | `id` (query string required)<br>`player_id` (query string required) | `ApiKeyAuth` | `SofascoreEventPlayerHeatmapResponse` |  |
 | sofascore | `sofascore.eventPlayerStatistics` | `sofascore-event-player-statistics` | `GET /sofascore/event-player-statistics` | `id` (query string required)<br>`player_id` (query string required) | `ApiKeyAuth` | `SofascoreEventPlayerStatisticsResponse` |  |
 | sofascore | `sofascore.eventPointByPoint` | `sofascore-event-point-by-point` | `GET /sofascore/event-point-by-point` | `id` (query string required) | `ApiKeyAuth` | `SofascoreEventPointByPointResponse` |  |
@@ -34,6 +35,7 @@ Total operations: `109`
 | sofascore | `sofascore.eventShotmap` | `sofascore-event-shotmap` | `GET /sofascore/event-shotmap` | `id` (query string required) | `ApiKeyAuth` | `SofascoreEventShotmapResponse` |  |
 | sofascore | `sofascore.eventStatistics` | `sofascore-event-statistics` | `GET /sofascore/event-statistics` | `id` (query string required) | `ApiKeyAuth` | `SofascoreEventStatisticsResponse` |  |
 | sofascore | `sofascore.eventTeamHeatmap` | `sofascore-event-team-heatmap` | `GET /sofascore/event-team-heatmap` | `id` (query string required)<br>`team_id` (query string required) | `ApiKeyAuth` | `SofascoreEventTeamHeatmapResponse` |  |
+| sofascore | `sofascore.eventTeamShotmap` | `sofascore-event-team-shotmap` | `GET /sofascore/event-team-shotmap` | `id` (query string required)<br>`team_id` (query string required) | `ApiKeyAuth` | `SofascoreEventTeamShotmapResponse` |  |
 | sofascore | `sofascore.eventTeamStreaks` | `sofascore-event-team-streaks` | `GET /sofascore/event-team-streaks` | `id` (query string required) | `ApiKeyAuth` | `SofascoreEventTeamStreaksResponse` |  |
 | sofascore | `sofascore.eventTennisPower` | `sofascore-event-tennis-power` | `GET /sofascore/event-tennis-power` | `id` (query string required) | `ApiKeyAuth` | `SofascoreEventTennisPowerResponse` |  |
 | sofascore | `sofascore.eventTvChannels` | `sofascore-event-tv-channels` | `GET /sofascore/event-tv-channels` | `id` (query string required)<br>`country` (query string) | `ApiKeyAuth` | `SofascoreEventTvChannelsResponse` |  |
@@ -55,11 +57,13 @@ Total operations: `109`
 | sofascore | `sofascore.playerSeasonHeatmap` | `sofascore-player-season-heatmap` | `GET /sofascore/player-season-heatmap` | `id` (query string required)<br>`tournament_id` (query string required)<br>`season` (query string required) | `ApiKeyAuth` | `SofascorePlayerSeasonHeatmapResponse` |  |
 | sofascore | `sofascore.playerSeasonStatistics` | `sofascore-player-season-statistics` | `GET /sofascore/player-season-statistics` | `id` (query string required)<br>`tournament_id` (query string required)<br>`season` (query string required)<br>`type` (query "overall" \| "home" \| "away" \| "regular_season" \| "playoffs") | `ApiKeyAuth` | `SofascorePlayerSeasonStatisticsResponse` |  |
 | sofascore | `sofascore.playerStatisticalRankings` | `sofascore-player-statistical-rankings` | `GET /sofascore/player-statistical-rankings` | `id` (query string required)<br>`season` (query string required)<br>`type` (query "overall") | `ApiKeyAuth` | `SofascorePlayerStatisticalRankingsResponse` |  |
+| sofascore | `sofascore.playerStatistics` | `sofascore-player-statistics` | `GET /sofascore/player-statistics` | `id` (query string required)<br>`match_type` (query "overall" \| "home" \| "away") | `ApiKeyAuth` | `SofascorePlayerStatisticsResponse` |  |
 | sofascore | `sofascore.playerStatisticsSeasons` | `sofascore-player-statistics-seasons` | `GET /sofascore/player-statistics-seasons` | `id` (query string required) | `ApiKeyAuth` | `SofascorePlayerStatisticsSeasonsResponse` |  |
+| sofascore | `sofascore.playerTournamentEvents` | `sofascore-player-tournament-events` | `GET /sofascore/player-tournament-events` | `id` (query string required)<br>`tournament_id` (query string required)<br>`page` (query number) | `ApiKeyAuth` | `SofascorePlayerTournamentEventsResponse` |  |
 | sofascore | `sofascore.playerTournaments` | `sofascore-player-tournaments` | `GET /sofascore/player-tournaments` | `id` (query string required) | `ApiKeyAuth` | `SofascorePlayerTournamentsResponse` |  |
 | sofascore | `sofascore.playerTransfers` | `sofascore-player-transfers` | `GET /sofascore/player-transfers` | `id` (query string required) | `ApiKeyAuth` | `SofascorePlayerTransfersResponse` |  |
 | sofascore | `sofascore.rankingTypes` | `sofascore-ranking-types` | `GET /sofascore/ranking-types` | none | `ApiKeyAuth` | `SofascoreRankingTypesResponse` |  |
-| sofascore | `sofascore.rankings` | `sofascore-rankings` | `GET /sofascore/rankings` | `type` (query "1" \| "2" \| "3" \| "4" \| "5" \| "6" \| "7" \| "8" \| "9" \| "11" \| "12" \| "13" \| "14" \| "15" \| "16" \| "17" \| "18" \| "19" \| "20" \| "21" \| "22" \| "34" \| "35" \| "36" \| "37" \| "40" \| "41" \| "42" \| "43" \| "44" \| "45" \| "46" required)<br>`limit` (query number) | `ApiKeyAuth` | `SofascoreRankingsResponse` |  |
+| sofascore | `sofascore.rankings` | `sofascore-rankings` | `GET /sofascore/rankings` | `type` (query 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7 \| 8 \| 9 \| 11 \| 12 \| 13 \| 14 \| 15 \| 16 \| 17 \| 18 \| 19 \| 20 \| 21 \| 22 \| 34 \| 35 \| 36 \| 37 \| 40 \| 41 \| 42 \| 43 \| 44 \| 45 \| 46 required)<br>`limit` (query number) | `ApiKeyAuth` | `SofascoreRankingsResponse` |  |
 | sofascore | `sofascore.referee` | `sofascore-referee` | `GET /sofascore/referee` | `id` (query string required) | `ApiKeyAuth` | `SofascoreRefereeResponse` |  |
 | sofascore | `sofascore.refereeEvents` | `sofascore-referee-events` | `GET /sofascore/referee-events` | `id` (query string required)<br>`page` (query number) | `ApiKeyAuth` | `SofascoreRefereeEventsResponse` |  |
 | sofascore | `sofascore.refereeStatistics` | `sofascore-referee-statistics` | `GET /sofascore/referee-statistics` | `id` (query string required) | `ApiKeyAuth` | `SofascoreRefereeStatisticsResponse` |  |

@@ -1,6 +1,6 @@
 # SofaScore clients for Crawlora
 
-Official Crawlora client packages for the hosted SofaScore API. Access 109 API endpoints covering live events, match details, lineups, statistics, tournaments, and player/team data from JavaScript/TypeScript, Python, Go, Ruby, Java, PHP, and Rust. These clients call Crawlora's hosted API; they do not scrape SofaScore locally. Requests use your Crawlora account and `CRAWLORA_API_KEY`; service usage follows your account billing plan. Crawlora is independent from and not affiliated with or endorsed by SofaScore or its owners.
+Official Crawlora client packages for the hosted SofaScore API. Access 113 API endpoints covering live events, match details, lineups, statistics, tournaments, and player/team data from JavaScript/TypeScript, Python, Go, Ruby, Java, PHP, and Rust. These clients call Crawlora's hosted API; they do not scrape SofaScore locally. Requests use your Crawlora account and `CRAWLORA_API_KEY`; service usage follows your account billing plan. Crawlora is independent from and not affiliated with or endorsed by SofaScore or its owners.
 
 ## Language packages
 
@@ -8,7 +8,7 @@ Official Crawlora client packages for the hosted SofaScore API. Access 109 API e
 - Python: [`crawlora-sofascore`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-sofascore`](go.mod)
 - Ruby: [`crawlora-sofascore`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-sofascore:0.4.0`](java/README.md)
+- Java: [`net.crawlora:crawlora-sofascore:0.5.0`](java/README.md)
 - PHP: [`crawlora/sofascore`](php/README.md)
 - Rust: [`crawlora-sofascore`](rust/README.md)
 
@@ -18,7 +18,7 @@ Create an account at [crawlora.net](https://crawlora.net/signup?utm_source=githu
 
 ## API coverage and supported endpoints
 
-The seven language clients provide access to all 109 selected public SofaScore API operations. Search or browse by endpoint path and operation ID below; the [complete API reference](docs/usage.md) adds parameters, enums, and response details.
+The seven language clients provide access to all 113 selected public SofaScore API operations. Search or browse by endpoint path and operation ID below; the [complete API reference](docs/usage.md) adds parameters, enums, and response details.
 
 | Method | Endpoint | API operation | Description |
 | --- | --- | --- | --- |
@@ -43,6 +43,7 @@ The seven language clients provide access to all 109 selected public SofaScore A
 | `GET` | `/sofascore/event-lineups` | `sofascore-event-lineups` | SofaScore event lineups |
 | `GET` | `/sofascore/event-managers` | `sofascore-event-managers` | SofaScore event managers |
 | `GET` | `/sofascore/event-odds` | `sofascore-event-odds` | SofaScore event odds |
+| `GET` | `/sofascore/event-player-actions` | `sofascore-event-player-actions` | SofaScore football player action maps |
 | `GET` | `/sofascore/event-player-heatmap` | `sofascore-event-player-heatmap` | SofaScore event player heatmap |
 | `GET` | `/sofascore/event-player-statistics` | `sofascore-event-player-statistics` | SofaScore event player statistics |
 | `GET` | `/sofascore/event-point-by-point` | `sofascore-event-point-by-point` | SofaScore event point-by-point |
@@ -50,6 +51,7 @@ The seven language clients provide access to all 109 selected public SofaScore A
 | `GET` | `/sofascore/event-shotmap` | `sofascore-event-shotmap` | SofaScore event shot map |
 | `GET` | `/sofascore/event-statistics` | `sofascore-event-statistics` | SofaScore event statistics |
 | `GET` | `/sofascore/event-team-heatmap` | `sofascore-event-team-heatmap` | SofaScore event team heatmap |
+| `GET` | `/sofascore/event-team-shotmap` | `sofascore-event-team-shotmap` | SofaScore basketball team shot chart |
 | `GET` | `/sofascore/event-team-streaks` | `sofascore-event-team-streaks` | SofaScore event team streaks |
 | `GET` | `/sofascore/event-tennis-power` | `sofascore-event-tennis-power` | SofaScore event tennis power |
 | `GET` | `/sofascore/event-tv-channels` | `sofascore-event-tv-channels` | SofaScore event TV channels |
@@ -71,7 +73,9 @@ The seven language clients provide access to all 109 selected public SofaScore A
 | `GET` | `/sofascore/player-season-heatmap` | `sofascore-player-season-heatmap` | SofaScore player season heatmap |
 | `GET` | `/sofascore/player-season-statistics` | `sofascore-player-season-statistics` | SofaScore player season statistics |
 | `GET` | `/sofascore/player-statistical-rankings` | `sofascore-player-statistical-rankings` | SofaScore player ranking among all players in a season |
+| `GET` | `/sofascore/player-statistics` | `sofascore-player-statistics` | SofaScore player statistics for every season |
 | `GET` | `/sofascore/player-statistics-seasons` | `sofascore-player-statistics-seasons` | SofaScore player statistics seasons |
+| `GET` | `/sofascore/player-tournament-events` | `sofascore-player-tournament-events` | SofaScore player matches in one competition |
 | `GET` | `/sofascore/player-tournaments` | `sofascore-player-tournaments` | SofaScore player competitions |
 | `GET` | `/sofascore/player-transfers` | `sofascore-player-transfers` | SofaScore player transfer history |
 | `GET` | `/sofascore/ranking-types` | `sofascore-ranking-types` | SofaScore ranking catalogue |

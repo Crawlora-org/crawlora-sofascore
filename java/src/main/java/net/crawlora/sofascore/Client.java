@@ -22,7 +22,7 @@ import java.util.TreeSet;
 /** Client for the SofaScore endpoints hosted by Crawlora. */
 public final class Client implements AutoCloseable {
     public static final String DEFAULT_BASE_URL = "https://api.crawlora.net/api/v1";
-    public static final int OPERATION_COUNT = 109;
+    public static final int OPERATION_COUNT = 113;
     public static final List<String> OPERATION_IDS = List.of(
             "sofascore-categories",
             "sofascore-category-tournaments",
@@ -45,6 +45,7 @@ public final class Client implements AutoCloseable {
             "sofascore-event-lineups",
             "sofascore-event-managers",
             "sofascore-event-odds",
+            "sofascore-event-player-actions",
             "sofascore-event-player-heatmap",
             "sofascore-event-player-statistics",
             "sofascore-event-point-by-point",
@@ -52,6 +53,7 @@ public final class Client implements AutoCloseable {
             "sofascore-event-shotmap",
             "sofascore-event-statistics",
             "sofascore-event-team-heatmap",
+            "sofascore-event-team-shotmap",
             "sofascore-event-team-streaks",
             "sofascore-event-tennis-power",
             "sofascore-event-tv-channels",
@@ -73,7 +75,9 @@ public final class Client implements AutoCloseable {
             "sofascore-player-season-heatmap",
             "sofascore-player-season-statistics",
             "sofascore-player-statistical-rankings",
+            "sofascore-player-statistics",
             "sofascore-player-statistics-seasons",
+            "sofascore-player-tournament-events",
             "sofascore-player-tournaments",
             "sofascore-player-transfers",
             "sofascore-ranking-types",
@@ -159,6 +163,7 @@ public final class Client implements AutoCloseable {
         operations.put("sofascore-event-lineups", new Operation("sofascore-event-lineups", "GET", "/sofascore/event-lineups", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-managers", new Operation("sofascore-event-managers", "GET", "/sofascore/event-managers", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-odds", new Operation("sofascore-event-odds", "GET", "/sofascore/event-odds", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-event-player-actions", new Operation("sofascore-event-player-actions", "GET", "/sofascore/event-player-actions", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("player_id", new Param("player_id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-player-heatmap", new Operation("sofascore-event-player-heatmap", "GET", "/sofascore/event-player-heatmap", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("player_id", new Param("player_id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-player-statistics", new Operation("sofascore-event-player-statistics", "GET", "/sofascore/event-player-statistics", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("player_id", new Param("player_id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-point-by-point", new Operation("sofascore-event-point-by-point", "GET", "/sofascore/event-point-by-point", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
@@ -166,6 +171,7 @@ public final class Client implements AutoCloseable {
         operations.put("sofascore-event-shotmap", new Operation("sofascore-event-shotmap", "GET", "/sofascore/event-shotmap", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-statistics", new Operation("sofascore-event-statistics", "GET", "/sofascore/event-statistics", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-team-heatmap", new Operation("sofascore-event-team-heatmap", "GET", "/sofascore/event-team-heatmap", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("team_id", new Param("team_id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-event-team-shotmap", new Operation("sofascore-event-team-shotmap", "GET", "/sofascore/event-team-shotmap", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("team_id", new Param("team_id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-team-streaks", new Operation("sofascore-event-team-streaks", "GET", "/sofascore/event-team-streaks", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-tennis-power", new Operation("sofascore-event-tennis-power", "GET", "/sofascore/event-tennis-power", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-event-tv-channels", new Operation("sofascore-event-tv-channels", "GET", "/sofascore/event-tv-channels", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("country", new Param("country", "query", false, "string", List.of(), "csv"))), List.of("application/json")));
@@ -187,7 +193,9 @@ public final class Client implements AutoCloseable {
         operations.put("sofascore-player-season-heatmap", new Operation("sofascore-player-season-heatmap", "GET", "/sofascore/player-season-heatmap", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("tournament_id", new Param("tournament_id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-player-season-statistics", new Operation("sofascore-player-season-statistics", "GET", "/sofascore/player-season-statistics", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("tournament_id", new Param("tournament_id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("type", new Param("type", "query", false, "string", List.of("overall", "home", "away", "regular_season", "playoffs"), "csv"))), List.of("application/json")));
         operations.put("sofascore-player-statistical-rankings", new Operation("sofascore-player-statistical-rankings", "GET", "/sofascore/player-statistical-rankings", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("season", new Param("season", "query", true, "string", List.of(), "csv")), Map.entry("type", new Param("type", "query", false, "string", List.of("overall"), "csv"))), List.of("application/json")));
+        operations.put("sofascore-player-statistics", new Operation("sofascore-player-statistics", "GET", "/sofascore/player-statistics", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("match_type", new Param("match_type", "query", false, "string", List.of("overall", "home", "away"), "csv"))), List.of("application/json")));
         operations.put("sofascore-player-statistics-seasons", new Operation("sofascore-player-statistics-seasons", "GET", "/sofascore/player-statistics-seasons", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
+        operations.put("sofascore-player-tournament-events", new Operation("sofascore-player-tournament-events", "GET", "/sofascore/player-tournament-events", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv")), Map.entry("tournament_id", new Param("tournament_id", "query", true, "string", List.of(), "csv")), Map.entry("page", new Param("page", "query", false, "integer", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-player-tournaments", new Operation("sofascore-player-tournaments", "GET", "/sofascore/player-tournaments", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-player-transfers", new Operation("sofascore-player-transfers", "GET", "/sofascore/player-transfers", Map.ofEntries(Map.entry("id", new Param("id", "query", true, "string", List.of(), "csv"))), List.of("application/json")));
         operations.put("sofascore-ranking-types", new Operation("sofascore-ranking-types", "GET", "/sofascore/ranking-types", Map.of(), List.of("application/json")));
@@ -374,6 +382,7 @@ public final class Client implements AutoCloseable {
     public Object eventLineups(Map<String, ?> params) { return request("sofascore-event-lineups", params); }
     public Object eventManagers(Map<String, ?> params) { return request("sofascore-event-managers", params); }
     public Object eventOdds(Map<String, ?> params) { return request("sofascore-event-odds", params); }
+    public Object eventPlayerActions(Map<String, ?> params) { return request("sofascore-event-player-actions", params); }
     public Object eventPlayerHeatmap(Map<String, ?> params) { return request("sofascore-event-player-heatmap", params); }
     public Object eventPlayerStatistics(Map<String, ?> params) { return request("sofascore-event-player-statistics", params); }
     public Object eventPointByPoint(Map<String, ?> params) { return request("sofascore-event-point-by-point", params); }
@@ -381,6 +390,7 @@ public final class Client implements AutoCloseable {
     public Object eventShotmap(Map<String, ?> params) { return request("sofascore-event-shotmap", params); }
     public Object eventStatistics(Map<String, ?> params) { return request("sofascore-event-statistics", params); }
     public Object eventTeamHeatmap(Map<String, ?> params) { return request("sofascore-event-team-heatmap", params); }
+    public Object eventTeamShotmap(Map<String, ?> params) { return request("sofascore-event-team-shotmap", params); }
     public Object eventTeamStreaks(Map<String, ?> params) { return request("sofascore-event-team-streaks", params); }
     public Object eventTennisPower(Map<String, ?> params) { return request("sofascore-event-tennis-power", params); }
     public Object eventTvChannels(Map<String, ?> params) { return request("sofascore-event-tv-channels", params); }
@@ -402,7 +412,9 @@ public final class Client implements AutoCloseable {
     public Object playerSeasonHeatmap(Map<String, ?> params) { return request("sofascore-player-season-heatmap", params); }
     public Object playerSeasonStatistics(Map<String, ?> params) { return request("sofascore-player-season-statistics", params); }
     public Object playerStatisticalRankings(Map<String, ?> params) { return request("sofascore-player-statistical-rankings", params); }
+    public Object playerStatistics(Map<String, ?> params) { return request("sofascore-player-statistics", params); }
     public Object playerStatisticsSeasons(Map<String, ?> params) { return request("sofascore-player-statistics-seasons", params); }
+    public Object playerTournamentEvents(Map<String, ?> params) { return request("sofascore-player-tournament-events", params); }
     public Object playerTournaments(Map<String, ?> params) { return request("sofascore-player-tournaments", params); }
     public Object playerTransfers(Map<String, ?> params) { return request("sofascore-player-transfers", params); }
     public Object rankingTypes(Map<String, ?> params) { return request("sofascore-ranking-types", params); }

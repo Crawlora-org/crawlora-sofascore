@@ -1772,6 +1772,31 @@ ModelSofascorePlayerTournamentsResponse = TypedDict('ModelSofascorePlayerTournam
     'tournaments': NotRequired[list[ModelSofascoreUniqueTournamentBrief]],
 }, total=False)
 
+ModelSofascorePlayerTournamentEventsResponseDoc = TypedDict('ModelSofascorePlayerTournamentEventsResponseDoc', {
+    'code': NotRequired[int],
+    'data': NotRequired[ModelSofascorePlayerTournamentEventsResponse],
+    'msg': NotRequired[str],
+}, total=False)
+
+ModelSofascorePlayerTournamentEventsResponse = TypedDict('ModelSofascorePlayerTournamentEventsResponse', {
+    'count': NotRequired[int],
+    'events': NotRequired[list[ModelSofascorePlayerEventRow]],
+    'fetched_at': NotRequired[str],
+    'has_next_page': NotRequired[bool],
+    'page': NotRequired[int],
+    'player_id': NotRequired[int],
+    'source_url': NotRequired[str],
+    'tournament_id': NotRequired[int],
+}, total=False)
+
+ModelSofascorePlayerEventRow = TypedDict('ModelSofascorePlayerEventRow', {
+    'event': NotRequired[ModelSofascoreEventSummary],
+    'incident_counts': NotRequired[dict[str, float]],
+    'on_bench': NotRequired[bool],
+    'played_for_team_id': NotRequired[int],
+    'statistics': NotRequired[dict[str, float]],
+}, total=False)
+
 ModelSofascorePlayerStatisticsSeasonsResponseDoc = TypedDict('ModelSofascorePlayerStatisticsSeasonsResponseDoc', {
     'code': NotRequired[int],
     'data': NotRequired[ModelSofascorePlayerStatisticsSeasonsResponse],
@@ -1784,6 +1809,38 @@ ModelSofascorePlayerStatisticsSeasonsResponse = TypedDict('ModelSofascorePlayerS
     'player_id': NotRequired[int],
     'source_url': NotRequired[str],
     'tournaments': NotRequired[list[ModelSofascoreStatisticsTournament]],
+}, total=False)
+
+ModelSofascorePlayerStatisticsResponseDoc = TypedDict('ModelSofascorePlayerStatisticsResponseDoc', {
+    'code': NotRequired[int],
+    'data': NotRequired[ModelSofascorePlayerStatisticsResponse],
+    'msg': NotRequired[str],
+}, total=False)
+
+ModelSofascorePlayerStatisticsResponse = TypedDict('ModelSofascorePlayerStatisticsResponse', {
+    'all_statistics': NotRequired[dict[str, float]],
+    'count': NotRequired[int],
+    'fetched_at': NotRequired[str],
+    'match_type': NotRequired[str],
+    'player_id': NotRequired[int],
+    'seasons': NotRequired[list[ModelSofascorePlayerStatisticsSeasonRow]],
+    'source_url': NotRequired[str],
+}, total=False)
+
+ModelSofascorePlayerStatisticsSeasonRow = TypedDict('ModelSofascorePlayerStatisticsSeasonRow', {
+    'end_year': NotRequired[int],
+    'season': NotRequired[ModelSofascorePlayerStatisticsSeasonRef],
+    'start_year': NotRequired[int],
+    'statistics': NotRequired[dict[str, float]],
+    'team': NotRequired[ModelSofascoreTeamRef],
+    'tournament': NotRequired[ModelSofascoreUniqueTournamentBrief],
+    'year': NotRequired[str],
+}, total=False)
+
+ModelSofascorePlayerStatisticsSeasonRef = TypedDict('ModelSofascorePlayerStatisticsSeasonRef', {
+    'id': NotRequired[int],
+    'name': NotRequired[str],
+    'year': NotRequired[str],
 }, total=False)
 
 ModelSofascorePlayerStatisticalRankingsResponseDoc = TypedDict('ModelSofascorePlayerStatisticalRankingsResponseDoc', {
@@ -1965,14 +2022,6 @@ ModelSofascorePlayerEventsResponse = TypedDict('ModelSofascorePlayerEventsRespon
     'page': NotRequired[int],
     'player_id': NotRequired[int],
     'source_url': NotRequired[str],
-}, total=False)
-
-ModelSofascorePlayerEventRow = TypedDict('ModelSofascorePlayerEventRow', {
-    'event': NotRequired[ModelSofascoreEventSummary],
-    'incident_counts': NotRequired[dict[str, float]],
-    'on_bench': NotRequired[bool],
-    'played_for_team_id': NotRequired[int],
-    'statistics': NotRequired[dict[str, float]],
 }, total=False)
 
 ModelSofascorePlayerAttributesResponseDoc = TypedDict('ModelSofascorePlayerAttributesResponseDoc', {
@@ -2361,6 +2410,23 @@ ModelSofascoreTeamStreak = TypedDict('ModelSofascoreTeamStreak', {
     'value': NotRequired[str],
 }, total=False)
 
+ModelSofascoreEventTeamShotmapResponse = TypedDict('ModelSofascoreEventTeamShotmapResponse', {
+    'count': NotRequired[int],
+    'event_id': NotRequired[int],
+    'fetched_at': NotRequired[str],
+    'locations': NotRequired[list[ModelSofascoreShotLocation]],
+    'source_url': NotRequired[str],
+    'team_id': NotRequired[int],
+}, total=False)
+
+ModelSofascoreShotLocation = TypedDict('ModelSofascoreShotLocation', {
+    'made': NotRequired[int],
+    'missed': NotRequired[int],
+    'saved': NotRequired[int],
+    'x': NotRequired[int],
+    'y': NotRequired[int],
+}, total=False)
+
 ModelSofascoreEventTeamHeatmapResponseDoc = TypedDict('ModelSofascoreEventTeamHeatmapResponseDoc', {
     'code': NotRequired[int],
     'data': NotRequired[ModelSofascoreEventTeamHeatmapResponse],
@@ -2555,6 +2621,26 @@ ModelSofascoreEventPlayerHeatmapResponse = TypedDict('ModelSofascoreEventPlayerH
     'player_id': NotRequired[int],
     'points': NotRequired[list[ModelSofascoreHeatmapPoint]],
     'source_url': NotRequired[str],
+}, total=False)
+
+ModelSofascoreEventPlayerActionsResponse = TypedDict('ModelSofascoreEventPlayerActionsResponse', {
+    'ball_carries': NotRequired[list[ModelSofascorePlayerAction]],
+    'defensive': NotRequired[list[ModelSofascorePlayerAction]],
+    'dribbles': NotRequired[list[ModelSofascorePlayerAction]],
+    'event_id': NotRequired[int],
+    'fetched_at': NotRequired[str],
+    'passes': NotRequired[list[ModelSofascorePlayerAction]],
+    'player_id': NotRequired[int],
+    'source_url': NotRequired[str],
+}, total=False)
+
+ModelSofascorePlayerAction = TypedDict('ModelSofascorePlayerAction', {
+    'coordinates': NotRequired[ModelSofascoreCoordinates],
+    'end_coordinates': NotRequired[ModelSofascoreCoordinates],
+    'is_home': NotRequired[bool],
+    'key_pass': NotRequired[bool],
+    'outcome': NotRequired[bool],
+    'type': NotRequired[str],
 }, total=False)
 
 ModelSofascoreEventOddsResponseDoc = TypedDict('ModelSofascoreEventOddsResponseDoc', {
@@ -3457,6 +3543,15 @@ SofascoreEventOddsParams = TypedDict('SofascoreEventOddsParams', {
     'id': Required[str],
 }, total=False)
 
+SofascoreEventPlayerActionsResponse = Any
+SofascoreEventPlayerActionsParams = TypedDict('SofascoreEventPlayerActionsParams', {
+    '_response_type': NotRequired[ResponseType],
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    'id': Required[str],
+    'player_id': Required[str],
+}, total=False)
+
 SofascoreEventPlayerHeatmapResponse = ModelSofascoreEventPlayerHeatmapResponseDoc
 SofascoreEventPlayerHeatmapParams = TypedDict('SofascoreEventPlayerHeatmapParams', {
     '_response_type': NotRequired[ResponseType],
@@ -3509,6 +3604,15 @@ SofascoreEventStatisticsParams = TypedDict('SofascoreEventStatisticsParams', {
 
 SofascoreEventTeamHeatmapResponse = ModelSofascoreEventTeamHeatmapResponseDoc
 SofascoreEventTeamHeatmapParams = TypedDict('SofascoreEventTeamHeatmapParams', {
+    '_response_type': NotRequired[ResponseType],
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    'id': Required[str],
+    'team_id': Required[str],
+}, total=False)
+
+SofascoreEventTeamShotmapResponse = Any
+SofascoreEventTeamShotmapParams = TypedDict('SofascoreEventTeamShotmapParams', {
     '_response_type': NotRequired[ResponseType],
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
@@ -3700,12 +3804,31 @@ SofascorePlayerStatisticalRankingsParams = TypedDict('SofascorePlayerStatistical
     'type': NotRequired[Literal['overall']],
 }, total=False)
 
+SofascorePlayerStatisticsResponse = ModelSofascorePlayerStatisticsResponseDoc
+SofascorePlayerStatisticsParams = TypedDict('SofascorePlayerStatisticsParams', {
+    '_response_type': NotRequired[ResponseType],
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    'id': Required[str],
+    'match_type': NotRequired[Literal['overall', 'home', 'away']],
+}, total=False)
+
 SofascorePlayerStatisticsSeasonsResponse = ModelSofascorePlayerStatisticsSeasonsResponseDoc
 SofascorePlayerStatisticsSeasonsParams = TypedDict('SofascorePlayerStatisticsSeasonsParams', {
     '_response_type': NotRequired[ResponseType],
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
     'id': Required[str],
+}, total=False)
+
+SofascorePlayerTournamentEventsResponse = ModelSofascorePlayerTournamentEventsResponseDoc
+SofascorePlayerTournamentEventsParams = TypedDict('SofascorePlayerTournamentEventsParams', {
+    '_response_type': NotRequired[ResponseType],
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    'id': Required[str],
+    'tournament_id': Required[str],
+    'page': NotRequired[int],
 }, total=False)
 
 SofascorePlayerTournamentsResponse = ModelSofascorePlayerTournamentsResponseDoc
@@ -4376,6 +4499,12 @@ class SofascoreGroup:
     @overload
     def event_odds(self, **params: Unpack[SofascoreEventOddsDefaultParams]) -> SofascoreEventOddsResponse: ...
     @overload
+    def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsStreamParams]) -> BinaryIO: ...
+    @overload
+    def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsTextResponseParams]) -> str: ...
+    @overload
+    def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsDefaultParams]) -> SofascoreEventPlayerActionsResponse: ...
+    @overload
     def event_player_heatmap(self, **params: Unpack[SofascoreEventPlayerHeatmapStreamParams]) -> BinaryIO: ...
     @overload
     def event_player_heatmap(self, **params: Unpack[SofascoreEventPlayerHeatmapTextResponseParams]) -> str: ...
@@ -4417,6 +4546,12 @@ class SofascoreGroup:
     def event_team_heatmap(self, **params: Unpack[SofascoreEventTeamHeatmapTextResponseParams]) -> str: ...
     @overload
     def event_team_heatmap(self, **params: Unpack[SofascoreEventTeamHeatmapDefaultParams]) -> SofascoreEventTeamHeatmapResponse: ...
+    @overload
+    def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapStreamParams]) -> BinaryIO: ...
+    @overload
+    def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapTextResponseParams]) -> str: ...
+    @overload
+    def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapDefaultParams]) -> SofascoreEventTeamShotmapResponse: ...
     @overload
     def event_team_streaks(self, **params: Unpack[SofascoreEventTeamStreaksStreamParams]) -> BinaryIO: ...
     @overload
@@ -4544,11 +4679,23 @@ class SofascoreGroup:
     @overload
     def player_statistical_rankings(self, **params: Unpack[SofascorePlayerStatisticalRankingsDefaultParams]) -> SofascorePlayerStatisticalRankingsResponse: ...
     @overload
+    def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsStreamParams]) -> BinaryIO: ...
+    @overload
+    def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsTextResponseParams]) -> str: ...
+    @overload
+    def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsDefaultParams]) -> SofascorePlayerStatisticsResponse: ...
+    @overload
     def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsStreamParams]) -> BinaryIO: ...
     @overload
     def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsTextResponseParams]) -> str: ...
     @overload
     def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsDefaultParams]) -> SofascorePlayerStatisticsSeasonsResponse: ...
+    @overload
+    def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsStreamParams]) -> BinaryIO: ...
+    @overload
+    def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsTextResponseParams]) -> str: ...
+    @overload
+    def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsDefaultParams]) -> SofascorePlayerTournamentEventsResponse: ...
     @overload
     def player_tournaments(self, **params: Unpack[SofascorePlayerTournamentsStreamParams]) -> BinaryIO: ...
     @overload
@@ -4926,6 +5073,7 @@ OperationId = Literal[
     'sofascore-event-lineups',
     'sofascore-event-managers',
     'sofascore-event-odds',
+    'sofascore-event-player-actions',
     'sofascore-event-player-heatmap',
     'sofascore-event-player-statistics',
     'sofascore-event-point-by-point',
@@ -4933,6 +5081,7 @@ OperationId = Literal[
     'sofascore-event-shotmap',
     'sofascore-event-statistics',
     'sofascore-event-team-heatmap',
+    'sofascore-event-team-shotmap',
     'sofascore-event-team-streaks',
     'sofascore-event-tennis-power',
     'sofascore-event-tv-channels',
@@ -4954,7 +5103,9 @@ OperationId = Literal[
     'sofascore-player-season-heatmap',
     'sofascore-player-season-statistics',
     'sofascore-player-statistical-rankings',
+    'sofascore-player-statistics',
     'sofascore-player-statistics-seasons',
+    'sofascore-player-tournament-events',
     'sofascore-player-tournaments',
     'sofascore-player-transfers',
     'sofascore-ranking-types',
@@ -5353,6 +5504,18 @@ class CrawloraClient:
     @overload
     def operation(
         self,
+        operation_id: Literal['sofascore-event-player-actions'],
+        params: SofascoreEventPlayerActionsParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> SofascoreEventPlayerActionsResponse: ...
+    @overload
+    def operation(
+        self,
         operation_id: Literal['sofascore-event-player-heatmap'],
         params: SofascoreEventPlayerHeatmapParams,
         *,
@@ -5434,6 +5597,18 @@ class CrawloraClient:
         retries: int | None = ...,
         retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
     ) -> SofascoreEventTeamHeatmapResponse: ...
+    @overload
+    def operation(
+        self,
+        operation_id: Literal['sofascore-event-team-shotmap'],
+        params: SofascoreEventTeamShotmapParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> SofascoreEventTeamShotmapResponse: ...
     @overload
     def operation(
         self,
@@ -5689,6 +5864,18 @@ class CrawloraClient:
     @overload
     def operation(
         self,
+        operation_id: Literal['sofascore-player-statistics'],
+        params: SofascorePlayerStatisticsParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> SofascorePlayerStatisticsResponse: ...
+    @overload
+    def operation(
+        self,
         operation_id: Literal['sofascore-player-statistics-seasons'],
         params: SofascorePlayerStatisticsSeasonsParams,
         *,
@@ -5698,6 +5885,18 @@ class CrawloraClient:
         retries: int | None = ...,
         retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
     ) -> SofascorePlayerStatisticsSeasonsResponse: ...
+    @overload
+    def operation(
+        self,
+        operation_id: Literal['sofascore-player-tournament-events'],
+        params: SofascorePlayerTournamentEventsParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> SofascorePlayerTournamentEventsResponse: ...
     @overload
     def operation(
         self,
@@ -6673,6 +6872,18 @@ class CrawloraClient:
     @overload
     def request(
         self,
+        operation_id: Literal['sofascore-event-player-actions'],
+        params: SofascoreEventPlayerActionsParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> SofascoreEventPlayerActionsResponse: ...
+    @overload
+    def request(
+        self,
         operation_id: Literal['sofascore-event-player-heatmap'],
         params: SofascoreEventPlayerHeatmapParams,
         *,
@@ -6754,6 +6965,18 @@ class CrawloraClient:
         retries: int | None = ...,
         retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
     ) -> SofascoreEventTeamHeatmapResponse: ...
+    @overload
+    def request(
+        self,
+        operation_id: Literal['sofascore-event-team-shotmap'],
+        params: SofascoreEventTeamShotmapParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> SofascoreEventTeamShotmapResponse: ...
     @overload
     def request(
         self,
@@ -7009,6 +7232,18 @@ class CrawloraClient:
     @overload
     def request(
         self,
+        operation_id: Literal['sofascore-player-statistics'],
+        params: SofascorePlayerStatisticsParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> SofascorePlayerStatisticsResponse: ...
+    @overload
+    def request(
+        self,
         operation_id: Literal['sofascore-player-statistics-seasons'],
         params: SofascorePlayerStatisticsSeasonsParams,
         *,
@@ -7018,6 +7253,18 @@ class CrawloraClient:
         retries: int | None = ...,
         retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
     ) -> SofascorePlayerStatisticsSeasonsResponse: ...
+    @overload
+    def request(
+        self,
+        operation_id: Literal['sofascore-player-tournament-events'],
+        params: SofascorePlayerTournamentEventsParams,
+        *,
+        response_type: ResponseType = ...,
+        timeout: float | None = ...,
+        headers: Mapping[str, str] | None = ...,
+        retries: int | None = ...,
+        retry_predicate: Callable[[int, BaseException | None], bool] | None = ...,
+    ) -> SofascorePlayerTournamentEventsResponse: ...
     @overload
     def request(
         self,
@@ -7892,6 +8139,12 @@ class SofascoreClient(CrawloraClient):
     @overload
     def event_odds(self, **params: Unpack[SofascoreEventOddsDefaultParams]) -> SofascoreEventOddsResponse: ...
     @overload
+    def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsStreamParams]) -> BinaryIO: ...
+    @overload
+    def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsTextResponseParams]) -> str: ...
+    @overload
+    def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsDefaultParams]) -> SofascoreEventPlayerActionsResponse: ...
+    @overload
     def event_player_heatmap(self, **params: Unpack[SofascoreEventPlayerHeatmapStreamParams]) -> BinaryIO: ...
     @overload
     def event_player_heatmap(self, **params: Unpack[SofascoreEventPlayerHeatmapTextResponseParams]) -> str: ...
@@ -7933,6 +8186,12 @@ class SofascoreClient(CrawloraClient):
     def event_team_heatmap(self, **params: Unpack[SofascoreEventTeamHeatmapTextResponseParams]) -> str: ...
     @overload
     def event_team_heatmap(self, **params: Unpack[SofascoreEventTeamHeatmapDefaultParams]) -> SofascoreEventTeamHeatmapResponse: ...
+    @overload
+    def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapStreamParams]) -> BinaryIO: ...
+    @overload
+    def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapTextResponseParams]) -> str: ...
+    @overload
+    def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapDefaultParams]) -> SofascoreEventTeamShotmapResponse: ...
     @overload
     def event_team_streaks(self, **params: Unpack[SofascoreEventTeamStreaksStreamParams]) -> BinaryIO: ...
     @overload
@@ -8060,11 +8319,23 @@ class SofascoreClient(CrawloraClient):
     @overload
     def player_statistical_rankings(self, **params: Unpack[SofascorePlayerStatisticalRankingsDefaultParams]) -> SofascorePlayerStatisticalRankingsResponse: ...
     @overload
+    def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsStreamParams]) -> BinaryIO: ...
+    @overload
+    def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsTextResponseParams]) -> str: ...
+    @overload
+    def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsDefaultParams]) -> SofascorePlayerStatisticsResponse: ...
+    @overload
     def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsStreamParams]) -> BinaryIO: ...
     @overload
     def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsTextResponseParams]) -> str: ...
     @overload
     def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsDefaultParams]) -> SofascorePlayerStatisticsSeasonsResponse: ...
+    @overload
+    def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsStreamParams]) -> BinaryIO: ...
+    @overload
+    def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsTextResponseParams]) -> str: ...
+    @overload
+    def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsDefaultParams]) -> SofascorePlayerTournamentEventsResponse: ...
     @overload
     def player_tournaments(self, **params: Unpack[SofascorePlayerTournamentsStreamParams]) -> BinaryIO: ...
     @overload
@@ -8550,6 +8821,12 @@ class AsyncSofascoreClient(AsyncCrawloraClient):
     @overload
     async def event_odds(self, **params: Unpack[SofascoreEventOddsDefaultParams]) -> SofascoreEventOddsResponse: ...
     @overload
+    async def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsStreamParams]) -> BinaryIO: ...
+    @overload
+    async def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsTextResponseParams]) -> str: ...
+    @overload
+    async def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsDefaultParams]) -> SofascoreEventPlayerActionsResponse: ...
+    @overload
     async def event_player_heatmap(self, **params: Unpack[SofascoreEventPlayerHeatmapStreamParams]) -> BinaryIO: ...
     @overload
     async def event_player_heatmap(self, **params: Unpack[SofascoreEventPlayerHeatmapTextResponseParams]) -> str: ...
@@ -8591,6 +8868,12 @@ class AsyncSofascoreClient(AsyncCrawloraClient):
     async def event_team_heatmap(self, **params: Unpack[SofascoreEventTeamHeatmapTextResponseParams]) -> str: ...
     @overload
     async def event_team_heatmap(self, **params: Unpack[SofascoreEventTeamHeatmapDefaultParams]) -> SofascoreEventTeamHeatmapResponse: ...
+    @overload
+    async def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapStreamParams]) -> BinaryIO: ...
+    @overload
+    async def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapTextResponseParams]) -> str: ...
+    @overload
+    async def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapDefaultParams]) -> SofascoreEventTeamShotmapResponse: ...
     @overload
     async def event_team_streaks(self, **params: Unpack[SofascoreEventTeamStreaksStreamParams]) -> BinaryIO: ...
     @overload
@@ -8718,11 +9001,23 @@ class AsyncSofascoreClient(AsyncCrawloraClient):
     @overload
     async def player_statistical_rankings(self, **params: Unpack[SofascorePlayerStatisticalRankingsDefaultParams]) -> SofascorePlayerStatisticalRankingsResponse: ...
     @overload
+    async def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsStreamParams]) -> BinaryIO: ...
+    @overload
+    async def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsTextResponseParams]) -> str: ...
+    @overload
+    async def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsDefaultParams]) -> SofascorePlayerStatisticsResponse: ...
+    @overload
     async def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsStreamParams]) -> BinaryIO: ...
     @overload
     async def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsTextResponseParams]) -> str: ...
     @overload
     async def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsDefaultParams]) -> SofascorePlayerStatisticsSeasonsResponse: ...
+    @overload
+    async def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsStreamParams]) -> BinaryIO: ...
+    @overload
+    async def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsTextResponseParams]) -> str: ...
+    @overload
+    async def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsDefaultParams]) -> SofascorePlayerTournamentEventsResponse: ...
     @overload
     async def player_tournaments(self, **params: Unpack[SofascorePlayerTournamentsStreamParams]) -> BinaryIO: ...
     @overload
@@ -9206,6 +9501,12 @@ class _AsyncSofascoreGroup:
     @overload
     async def event_odds(self, **params: Unpack[SofascoreEventOddsDefaultParams]) -> SofascoreEventOddsResponse: ...
     @overload
+    async def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsStreamParams]) -> BinaryIO: ...
+    @overload
+    async def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsTextResponseParams]) -> str: ...
+    @overload
+    async def event_player_actions(self, **params: Unpack[SofascoreEventPlayerActionsDefaultParams]) -> SofascoreEventPlayerActionsResponse: ...
+    @overload
     async def event_player_heatmap(self, **params: Unpack[SofascoreEventPlayerHeatmapStreamParams]) -> BinaryIO: ...
     @overload
     async def event_player_heatmap(self, **params: Unpack[SofascoreEventPlayerHeatmapTextResponseParams]) -> str: ...
@@ -9247,6 +9548,12 @@ class _AsyncSofascoreGroup:
     async def event_team_heatmap(self, **params: Unpack[SofascoreEventTeamHeatmapTextResponseParams]) -> str: ...
     @overload
     async def event_team_heatmap(self, **params: Unpack[SofascoreEventTeamHeatmapDefaultParams]) -> SofascoreEventTeamHeatmapResponse: ...
+    @overload
+    async def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapStreamParams]) -> BinaryIO: ...
+    @overload
+    async def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapTextResponseParams]) -> str: ...
+    @overload
+    async def event_team_shotmap(self, **params: Unpack[SofascoreEventTeamShotmapDefaultParams]) -> SofascoreEventTeamShotmapResponse: ...
     @overload
     async def event_team_streaks(self, **params: Unpack[SofascoreEventTeamStreaksStreamParams]) -> BinaryIO: ...
     @overload
@@ -9374,11 +9681,23 @@ class _AsyncSofascoreGroup:
     @overload
     async def player_statistical_rankings(self, **params: Unpack[SofascorePlayerStatisticalRankingsDefaultParams]) -> SofascorePlayerStatisticalRankingsResponse: ...
     @overload
+    async def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsStreamParams]) -> BinaryIO: ...
+    @overload
+    async def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsTextResponseParams]) -> str: ...
+    @overload
+    async def player_statistics(self, **params: Unpack[SofascorePlayerStatisticsDefaultParams]) -> SofascorePlayerStatisticsResponse: ...
+    @overload
     async def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsStreamParams]) -> BinaryIO: ...
     @overload
     async def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsTextResponseParams]) -> str: ...
     @overload
     async def player_statistics_seasons(self, **params: Unpack[SofascorePlayerStatisticsSeasonsDefaultParams]) -> SofascorePlayerStatisticsSeasonsResponse: ...
+    @overload
+    async def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsStreamParams]) -> BinaryIO: ...
+    @overload
+    async def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsTextResponseParams]) -> str: ...
+    @overload
+    async def player_tournament_events(self, **params: Unpack[SofascorePlayerTournamentEventsDefaultParams]) -> SofascorePlayerTournamentEventsResponse: ...
     @overload
     async def player_tournaments(self, **params: Unpack[SofascorePlayerTournamentsStreamParams]) -> BinaryIO: ...
     @overload
@@ -10190,6 +10509,30 @@ SofascoreEventOddsStreamParams = TypedDict('SofascoreEventOddsStreamParams', {
     'id': Required[str],
 }, total=False)
 
+SofascoreEventPlayerActionsDefaultParams = TypedDict('SofascoreEventPlayerActionsDefaultParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': NotRequired[Literal["auto", "json"]],
+    'id': Required[str],
+    'player_id': Required[str],
+}, total=False)
+
+SofascoreEventPlayerActionsTextResponseParams = TypedDict('SofascoreEventPlayerActionsTextResponseParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["text"]],
+    'id': Required[str],
+    'player_id': Required[str],
+}, total=False)
+
+SofascoreEventPlayerActionsStreamParams = TypedDict('SofascoreEventPlayerActionsStreamParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["stream"]],
+    'id': Required[str],
+    'player_id': Required[str],
+}, total=False)
+
 SofascoreEventPlayerHeatmapDefaultParams = TypedDict('SofascoreEventPlayerHeatmapDefaultParams', {
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
@@ -10339,6 +10682,30 @@ SofascoreEventTeamHeatmapTextResponseParams = TypedDict('SofascoreEventTeamHeatm
 }, total=False)
 
 SofascoreEventTeamHeatmapStreamParams = TypedDict('SofascoreEventTeamHeatmapStreamParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["stream"]],
+    'id': Required[str],
+    'team_id': Required[str],
+}, total=False)
+
+SofascoreEventTeamShotmapDefaultParams = TypedDict('SofascoreEventTeamShotmapDefaultParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': NotRequired[Literal["auto", "json"]],
+    'id': Required[str],
+    'team_id': Required[str],
+}, total=False)
+
+SofascoreEventTeamShotmapTextResponseParams = TypedDict('SofascoreEventTeamShotmapTextResponseParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["text"]],
+    'id': Required[str],
+    'team_id': Required[str],
+}, total=False)
+
+SofascoreEventTeamShotmapStreamParams = TypedDict('SofascoreEventTeamShotmapStreamParams', {
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
     '_response_type': Required[Literal["stream"]],
@@ -10835,6 +11202,30 @@ SofascorePlayerStatisticalRankingsStreamParams = TypedDict('SofascorePlayerStati
     'type': NotRequired[Literal['overall']],
 }, total=False)
 
+SofascorePlayerStatisticsDefaultParams = TypedDict('SofascorePlayerStatisticsDefaultParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': NotRequired[Literal["auto", "json"]],
+    'id': Required[str],
+    'match_type': NotRequired[Literal['overall', 'home', 'away']],
+}, total=False)
+
+SofascorePlayerStatisticsTextResponseParams = TypedDict('SofascorePlayerStatisticsTextResponseParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["text"]],
+    'id': Required[str],
+    'match_type': NotRequired[Literal['overall', 'home', 'away']],
+}, total=False)
+
+SofascorePlayerStatisticsStreamParams = TypedDict('SofascorePlayerStatisticsStreamParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["stream"]],
+    'id': Required[str],
+    'match_type': NotRequired[Literal['overall', 'home', 'away']],
+}, total=False)
+
 SofascorePlayerStatisticsSeasonsDefaultParams = TypedDict('SofascorePlayerStatisticsSeasonsDefaultParams', {
     '_timeout': NotRequired[float],
     '_headers': NotRequired[Mapping[str, str]],
@@ -10854,6 +11245,33 @@ SofascorePlayerStatisticsSeasonsStreamParams = TypedDict('SofascorePlayerStatist
     '_headers': NotRequired[Mapping[str, str]],
     '_response_type': Required[Literal["stream"]],
     'id': Required[str],
+}, total=False)
+
+SofascorePlayerTournamentEventsDefaultParams = TypedDict('SofascorePlayerTournamentEventsDefaultParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': NotRequired[Literal["auto", "json"]],
+    'id': Required[str],
+    'tournament_id': Required[str],
+    'page': NotRequired[int],
+}, total=False)
+
+SofascorePlayerTournamentEventsTextResponseParams = TypedDict('SofascorePlayerTournamentEventsTextResponseParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["text"]],
+    'id': Required[str],
+    'tournament_id': Required[str],
+    'page': NotRequired[int],
+}, total=False)
+
+SofascorePlayerTournamentEventsStreamParams = TypedDict('SofascorePlayerTournamentEventsStreamParams', {
+    '_timeout': NotRequired[float],
+    '_headers': NotRequired[Mapping[str, str]],
+    '_response_type': Required[Literal["stream"]],
+    'id': Required[str],
+    'tournament_id': Required[str],
+    'page': NotRequired[int],
 }, total=False)
 
 SofascorePlayerTournamentsDefaultParams = TypedDict('SofascorePlayerTournamentsDefaultParams', {

@@ -7,7 +7,7 @@ from .async_client import AsyncCrawloraClient
 class SofascoreClient(CrawloraClient):
     """Synchronous SofaScore API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-sofascore-python/0.4.0')
+        kwargs.setdefault('user_agent', 'crawlora-sofascore-python/0.5.0')
         super().__init__(*args, **kwargs)
 
     def categories(self, **params: Any) -> Any:
@@ -136,6 +136,12 @@ class SofascoreClient(CrawloraClient):
         headers = params.pop('_headers', None)
         return self.request('sofascore-event-odds', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    def event_player_actions(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('sofascore-event-player-actions', params, response_type=response_type, timeout=timeout, headers=headers)
+
     def event_player_heatmap(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
@@ -177,6 +183,12 @@ class SofascoreClient(CrawloraClient):
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return self.request('sofascore-event-team-heatmap', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def event_team_shotmap(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('sofascore-event-team-shotmap', params, response_type=response_type, timeout=timeout, headers=headers)
 
     def event_team_streaks(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -304,11 +316,23 @@ class SofascoreClient(CrawloraClient):
         headers = params.pop('_headers', None)
         return self.request('sofascore-player-statistical-rankings', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    def player_statistics(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('sofascore-player-statistics', params, response_type=response_type, timeout=timeout, headers=headers)
+
     def player_statistics_seasons(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return self.request('sofascore-player-statistics-seasons', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    def player_tournament_events(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return self.request('sofascore-player-tournament-events', params, response_type=response_type, timeout=timeout, headers=headers)
 
     def player_tournaments(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -667,7 +691,7 @@ class SofascoreClient(CrawloraClient):
 class AsyncSofascoreClient(AsyncCrawloraClient):
     """Asynchronous SofaScore API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-sofascore-python/0.4.0')
+        kwargs.setdefault('user_agent', 'crawlora-sofascore-python/0.5.0')
         super().__init__(*args, **kwargs)
 
     async def categories(self, **params: Any) -> Any:
@@ -796,6 +820,12 @@ class AsyncSofascoreClient(AsyncCrawloraClient):
         headers = params.pop('_headers', None)
         return await self.request('sofascore-event-odds', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    async def event_player_actions(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('sofascore-event-player-actions', params, response_type=response_type, timeout=timeout, headers=headers)
+
     async def event_player_heatmap(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
@@ -837,6 +867,12 @@ class AsyncSofascoreClient(AsyncCrawloraClient):
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return await self.request('sofascore-event-team-heatmap', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def event_team_shotmap(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('sofascore-event-team-shotmap', params, response_type=response_type, timeout=timeout, headers=headers)
 
     async def event_team_streaks(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
@@ -964,11 +1000,23 @@ class AsyncSofascoreClient(AsyncCrawloraClient):
         headers = params.pop('_headers', None)
         return await self.request('sofascore-player-statistical-rankings', params, response_type=response_type, timeout=timeout, headers=headers)
 
+    async def player_statistics(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('sofascore-player-statistics', params, response_type=response_type, timeout=timeout, headers=headers)
+
     async def player_statistics_seasons(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')
         timeout = params.pop('_timeout', None)
         headers = params.pop('_headers', None)
         return await self.request('sofascore-player-statistics-seasons', params, response_type=response_type, timeout=timeout, headers=headers)
+
+    async def player_tournament_events(self, **params: Any) -> Any:
+        response_type = params.pop('_response_type', 'auto')
+        timeout = params.pop('_timeout', None)
+        headers = params.pop('_headers', None)
+        return await self.request('sofascore-player-tournament-events', params, response_type=response_type, timeout=timeout, headers=headers)
 
     async def player_tournaments(self, **params: Any) -> Any:
         response_type = params.pop('_response_type', 'auto')

@@ -616,6 +616,38 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-event-player-actions": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-player-actions",
+    "method": "GET",
+    "path": "/sofascore/event-player-actions",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "player_id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-event-player-heatmap": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -794,6 +826,38 @@ export const operations = {
     "id": "sofascore-event-team-heatmap",
     "method": "GET",
     "path": "/sofascore/event-team-heatmap",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "team_id",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-event-team-shotmap": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-event-team-shotmap",
+    "method": "GET",
+    "path": "/sofascore/event-team-shotmap",
     "pathParams": [],
     "produces": [
       "application/json"
@@ -1555,6 +1619,42 @@ export const operations = {
       "ApiKeyAuth"
     ]
   },
+  "sofascore-player-statistics": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-statistics",
+    "method": "GET",
+    "path": "/sofascore/player-statistics",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "enum": [
+          "overall",
+          "home",
+          "away"
+        ],
+        "in": "query",
+        "name": "match_type",
+        "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
   "sofascore-player-statistics-seasons": {
     "bodyParam": null,
     "bodyRequired": false,
@@ -1575,6 +1675,44 @@ export const operations = {
         "name": "id",
         "required": true,
         "type": "string"
+      }
+    ],
+    "security": [
+      "ApiKeyAuth"
+    ]
+  },
+  "sofascore-player-tournament-events": {
+    "bodyParam": null,
+    "bodyRequired": false,
+    "consumes": [
+      "application/json"
+    ],
+    "formParams": [],
+    "id": "sofascore-player-tournament-events",
+    "method": "GET",
+    "paginatable": true,
+    "path": "/sofascore/player-tournament-events",
+    "pathParams": [],
+    "produces": [
+      "application/json"
+    ],
+    "queryParams": [
+      {
+        "in": "query",
+        "name": "id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "tournament_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "in": "query",
+        "name": "page",
+        "type": "integer"
       }
     ],
     "security": [
@@ -3786,6 +3924,7 @@ export const groups = {
     "eventLineups": "sofascore-event-lineups",
     "eventManagers": "sofascore-event-managers",
     "eventOdds": "sofascore-event-odds",
+    "eventPlayerActions": "sofascore-event-player-actions",
     "eventPlayerHeatmap": "sofascore-event-player-heatmap",
     "eventPlayerStatistics": "sofascore-event-player-statistics",
     "eventPointByPoint": "sofascore-event-point-by-point",
@@ -3793,6 +3932,7 @@ export const groups = {
     "eventShotmap": "sofascore-event-shotmap",
     "eventStatistics": "sofascore-event-statistics",
     "eventTeamHeatmap": "sofascore-event-team-heatmap",
+    "eventTeamShotmap": "sofascore-event-team-shotmap",
     "eventTeamStreaks": "sofascore-event-team-streaks",
     "eventTennisPower": "sofascore-event-tennis-power",
     "eventTvChannels": "sofascore-event-tv-channels",
@@ -3814,7 +3954,9 @@ export const groups = {
     "playerSeasonHeatmap": "sofascore-player-season-heatmap",
     "playerSeasonStatistics": "sofascore-player-season-statistics",
     "playerStatisticalRankings": "sofascore-player-statistical-rankings",
+    "playerStatistics": "sofascore-player-statistics",
     "playerStatisticsSeasons": "sofascore-player-statistics-seasons",
+    "playerTournamentEvents": "sofascore-player-tournament-events",
     "playerTournaments": "sofascore-player-tournaments",
     "playerTransfers": "sofascore-player-transfers",
     "rankingTypes": "sofascore-ranking-types",
@@ -3877,7 +4019,7 @@ export const groups = {
   }
 };
 
-export const operationCount = 109;
+export const operationCount = 113;
 
 export const OperationIds = Object.freeze({
   "SofascoreCategories": "sofascore-categories",
@@ -3901,6 +4043,7 @@ export const OperationIds = Object.freeze({
   "SofascoreEventLineups": "sofascore-event-lineups",
   "SofascoreEventManagers": "sofascore-event-managers",
   "SofascoreEventOdds": "sofascore-event-odds",
+  "SofascoreEventPlayerActions": "sofascore-event-player-actions",
   "SofascoreEventPlayerHeatmap": "sofascore-event-player-heatmap",
   "SofascoreEventPlayerStatistics": "sofascore-event-player-statistics",
   "SofascoreEventPointByPoint": "sofascore-event-point-by-point",
@@ -3908,6 +4051,7 @@ export const OperationIds = Object.freeze({
   "SofascoreEventShotmap": "sofascore-event-shotmap",
   "SofascoreEventStatistics": "sofascore-event-statistics",
   "SofascoreEventTeamHeatmap": "sofascore-event-team-heatmap",
+  "SofascoreEventTeamShotmap": "sofascore-event-team-shotmap",
   "SofascoreEventTeamStreaks": "sofascore-event-team-streaks",
   "SofascoreEventTennisPower": "sofascore-event-tennis-power",
   "SofascoreEventTvChannels": "sofascore-event-tv-channels",
@@ -3929,7 +4073,9 @@ export const OperationIds = Object.freeze({
   "SofascorePlayerSeasonHeatmap": "sofascore-player-season-heatmap",
   "SofascorePlayerSeasonStatistics": "sofascore-player-season-statistics",
   "SofascorePlayerStatisticalRankings": "sofascore-player-statistical-rankings",
+  "SofascorePlayerStatistics": "sofascore-player-statistics",
   "SofascorePlayerStatisticsSeasons": "sofascore-player-statistics-seasons",
+  "SofascorePlayerTournamentEvents": "sofascore-player-tournament-events",
   "SofascorePlayerTournaments": "sofascore-player-tournaments",
   "SofascorePlayerTransfers": "sofascore-player-transfers",
   "SofascoreRankingTypes": "sofascore-ranking-types",

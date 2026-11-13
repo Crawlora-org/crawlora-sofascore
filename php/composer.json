@@ -1,6 +1,6 @@
 {
   "name": "crawlora/sofascore",
-  "description": "Crawlora SofaScore API client with 109 endpoints for live events, match details, lineups, statistics, tournaments, and player/team data",
+  "description": "Crawlora SofaScore API client with 113 endpoints for live events, match details, lineups, statistics, tournaments, and player/team data",
   "keywords": [
     "crawlora",
     "api-client",

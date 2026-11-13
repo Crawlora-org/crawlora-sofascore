@@ -1,6 +1,6 @@
 # Crawlora SofaScore API client for Ruby (`crawlora-sofascore`)
 
-This Ruby gem calls Crawlora's hosted SofaScore API at `https://api.crawlora.net/api/v1`. It exposes 109 endpoints covering live events, match details, lineups, statistics, tournaments, and player/team data; it does not call or scrape SofaScore directly. Requests require your Crawlora API key and use your account's service plan.
+This Ruby gem calls Crawlora's hosted SofaScore API at `https://api.crawlora.net/api/v1`. It exposes 113 endpoints covering live events, match details, lineups, statistics, tournaments, and player/team data; it does not call or scrape SofaScore directly. Requests require your Crawlora API key and use your account's service plan.
 
 ## Install
 
@@ -20,7 +20,7 @@ puts result
 client.close
 ```
 
-Use an operation-specific method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem includes 109 API operations.
+Use an operation-specific method for normal calls. `request(operation_id, params = {}, response_type: :auto)` is available for every operation. `response_type: :text` returns raw response text. This gem includes 113 API operations.
 
 ```ruby
 client = Crawlora::Sofascore::Client.new(api_key: ENV.fetch("CRAWLORA_API_KEY"), timeout: 30)
@@ -57,6 +57,7 @@ Browse every route included in this gem. The [endpoint reference](https://github
 | `GET` | `/sofascore/event-lineups` | `sofascore-event-lineups` | SofaScore event lineups |
 | `GET` | `/sofascore/event-managers` | `sofascore-event-managers` | SofaScore event managers |
 | `GET` | `/sofascore/event-odds` | `sofascore-event-odds` | SofaScore event odds |
+| `GET` | `/sofascore/event-player-actions` | `sofascore-event-player-actions` | SofaScore football player action maps |
 | `GET` | `/sofascore/event-player-heatmap` | `sofascore-event-player-heatmap` | SofaScore event player heatmap |
 | `GET` | `/sofascore/event-player-statistics` | `sofascore-event-player-statistics` | SofaScore event player statistics |
 | `GET` | `/sofascore/event-point-by-point` | `sofascore-event-point-by-point` | SofaScore event point-by-point |
@@ -64,6 +65,7 @@ Browse every route included in this gem. The [endpoint reference](https://github
 | `GET` | `/sofascore/event-shotmap` | `sofascore-event-shotmap` | SofaScore event shot map |
 | `GET` | `/sofascore/event-statistics` | `sofascore-event-statistics` | SofaScore event statistics |
 | `GET` | `/sofascore/event-team-heatmap` | `sofascore-event-team-heatmap` | SofaScore event team heatmap |
+| `GET` | `/sofascore/event-team-shotmap` | `sofascore-event-team-shotmap` | SofaScore basketball team shot chart |
 | `GET` | `/sofascore/event-team-streaks` | `sofascore-event-team-streaks` | SofaScore event team streaks |
 | `GET` | `/sofascore/event-tennis-power` | `sofascore-event-tennis-power` | SofaScore event tennis power |
 | `GET` | `/sofascore/event-tv-channels` | `sofascore-event-tv-channels` | SofaScore event TV channels |
@@ -85,7 +87,9 @@ Browse every route included in this gem. The [endpoint reference](https://github
 | `GET` | `/sofascore/player-season-heatmap` | `sofascore-player-season-heatmap` | SofaScore player season heatmap |
 | `GET` | `/sofascore/player-season-statistics` | `sofascore-player-season-statistics` | SofaScore player season statistics |
 | `GET` | `/sofascore/player-statistical-rankings` | `sofascore-player-statistical-rankings` | SofaScore player ranking among all players in a season |
+| `GET` | `/sofascore/player-statistics` | `sofascore-player-statistics` | SofaScore player statistics for every season |
 | `GET` | `/sofascore/player-statistics-seasons` | `sofascore-player-statistics-seasons` | SofaScore player statistics seasons |
+| `GET` | `/sofascore/player-tournament-events` | `sofascore-player-tournament-events` | SofaScore player matches in one competition |
 | `GET` | `/sofascore/player-tournaments` | `sofascore-player-tournaments` | SofaScore player competitions |
 | `GET` | `/sofascore/player-transfers` | `sofascore-player-transfers` | SofaScore player transfer history |
 | `GET` | `/sofascore/ranking-types` | `sofascore-ranking-types` | SofaScore ranking catalogue |
